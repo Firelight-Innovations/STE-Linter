@@ -13,6 +13,19 @@ class LexicalChecksMixin:
 
     # ---- T1 --------------------------------------------------------------
 
+    #: matches the last word before a match, ignoring trailing whitespace.
+    _PRECEDING_WORD_RE = re.compile(r"([A-Za-z0-9_]+)[^A-Za-z0-9_]*$")
+
+    @staticmethod
+    def preceding_word(text, start):
+        """Return the word immediately before offset `start`, lowercased.
+
+        Returns "" when the match is at the start of the unit or is preceded
+        only by punctuation.
+        """
+        m = LexicalChecksMixin._PRECEDING_WORD_RE.search(text[:start])
+        return m.group(1).lower() if m else ""
+
     def check_t1(self, unit, findings):
         if not self.t1_regex:
             return
@@ -21,6 +34,14 @@ class LexicalChecksMixin:
             rule = self.t1_rules.get(pattern)
             if not rule:
                 continue
+            # `exceptions`: skip the finding when the preceding word makes the
+            # match part of a fixed compound (e.g. "pull request", "merge
+            # request") rather than the replaceable use of the word.
+            exceptions = rule.get("exceptions")
+            if exceptions:
+                prev = self.preceding_word(unit.text, m.start())
+                if prev and prev in {e.lower() for e in exceptions}:
+                    continue
             sev = self.severity("T1", unit.profile, "error", test="T1")
             findings.append(Finding(
                 unit.file, unit.line, m.start() + unit.col_offset + 1,

@@ -62,9 +62,10 @@
     },
     {
       "pattern": "accordingly",
-      "suggestion": "so",
+      "suggestion": "thus",
       "alts": [
-        "so"
+        "thus",
+        "as a result"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0007"
@@ -80,9 +81,9 @@
     },
     {
       "pattern": "accurate",
-      "suggestion": "right",
+      "suggestion": "correct",
       "alts": [
-        "right",
+        "correct",
         "exact"
       ],
       "source": "vale_redhat.simple_words",
@@ -246,10 +247,10 @@
     },
     {
       "pattern": "apparent",
-      "suggestion": "clear",
+      "suggestion": "plain",
       "alts": [
-        "clear",
-        "plain"
+        "plain",
+        "obvious"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0027"
@@ -284,9 +285,10 @@
     },
     {
       "pattern": "attempt",
-      "suggestion": "try",
+      "suggestion": "effort",
       "alts": [
-        "try"
+        "effort",
+        "do"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0031"
@@ -339,9 +341,10 @@
     },
     {
       "pattern": "commence",
-      "suggestion": "begin",
+      "suggestion": "launch",
       "alts": [
-        "begin"
+        "launch",
+        "open"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0037"
@@ -367,9 +370,10 @@
     },
     {
       "pattern": "concerning",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about"
+        "on",
+        "of"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0040"
@@ -386,9 +390,10 @@
     },
     {
       "pattern": "consequently",
-      "suggestion": "so",
+      "suggestion": "thus",
       "alts": [
-        "so"
+        "thus",
+        "as a result"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0042"
@@ -564,9 +569,10 @@
     },
     {
       "pattern": "endeavor",
-      "suggestion": "try",
+      "suggestion": "effort",
       "alts": [
-        "try"
+        "effort",
+        "work"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0061"
@@ -646,9 +652,10 @@
     },
     {
       "pattern": "frequently",
-      "suggestion": "often",
+      "suggestion": "routinely",
       "alts": [
-        "often"
+        "routinely",
+        "commonly"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0070"
@@ -682,10 +689,10 @@
     },
     {
       "pattern": "initiate",
-      "suggestion": "start",
+      "suggestion": "trigger",
       "alts": [
-        "start",
-        "begin"
+        "trigger",
+        "launch"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0074"
@@ -797,7 +804,7 @@
       "suggestion": "best",
       "alts": [
         "best",
-        "most"
+        "ideal"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0086"
@@ -895,9 +902,10 @@
     },
     {
       "pattern": "solicit",
-      "suggestion": "request",
+      "suggestion": "ask for",
       "alts": [
-        "request"
+        "ask for",
+        "ask"
       ],
       "source": "vale_redhat.simple_words",
       "id": "VEI-T1-SUB-0097"
@@ -986,10 +994,10 @@
     },
     {
       "pattern": "along the lines of",
-      "suggestion": "as in | like",
+      "suggestion": "as in | such as",
       "alts": [
-        "as in | like",
-        "similar to"
+        "as in | such as",
+        "such as"
       ],
       "source": "MERGED.wordy_and_complex",
       "id": "VEI-T1-SUB-0107"
@@ -1072,19 +1080,19 @@
     },
     {
       "pattern": "in a timely manner",
-      "suggestion": "on time | promptly",
+      "suggestion": "on time | on schedule",
       "alts": [
-        "on time | promptly",
-        "timely"
+        "on time | on schedule",
+        "on time"
       ],
       "source": "MERGED.wordy_and_complex",
       "id": "VEI-T1-SUB-0116"
     },
     {
       "pattern": "in addition",
-      "suggestion": "also | besides | too",
+      "suggestion": "also | besides",
       "alts": [
-        "also | besides | too",
+        "also | besides",
         "also"
       ],
       "source": "MERGED.wordy_and_complex",
@@ -1120,9 +1128,10 @@
     },
     {
       "pattern": "in many cases",
-      "suggestion": "often",
+      "suggestion": "commonly",
       "alts": [
-        "often"
+        "commonly",
+        "routinely"
       ],
       "source": "MERGED.wordy_and_complex",
       "id": "VEI-T1-SUB-0121"
@@ -1147,10 +1156,10 @@
     },
     {
       "pattern": "pertaining to",
-      "suggestion": "about | of | on",
+      "suggestion": "of | on",
       "alts": [
-        "about | of | on",
-        "about"
+        "of | on",
+        "on"
       ],
       "source": "MERGED.wordy_and_complex",
       "id": "VEI-T1-SUB-0124"
@@ -1167,10 +1176,10 @@
     },
     {
       "pattern": "readily apparent",
-      "suggestion": "clear",
+      "suggestion": "obvious",
       "alts": [
-        "clear",
-        "apparent"
+        "obvious",
+        "plain"
       ],
       "source": "MERGED.wordy_and_complex",
       "id": "VEI-T1-SUB-0126"
@@ -1243,9 +1252,9 @@
     },
     {
       "pattern": "a myriad of",
-      "suggestion": "myriad",
+      "suggestion": "countless",
       "alts": [
-        "myriad"
+        "countless"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0134"
@@ -1261,9 +1270,10 @@
     },
     {
       "pattern": "all of a sudden",
-      "suggestion": "suddenly",
+      "suggestion": "at once",
       "alts": [
-        "suddenly"
+        "at once",
+        "without warning"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0136"
@@ -1288,18 +1298,19 @@
     },
     {
       "pattern": "almost all",
-      "suggestion": "most",
+      "suggestion": "all but a few",
       "alts": [
-        "most"
+        "all but a few",
+        "the bulk of"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0139"
     },
     {
       "pattern": "almost never",
-      "suggestion": "seldom",
+      "suggestion": "infrequently",
       "alts": [
-        "seldom"
+        "infrequently"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0140"
@@ -1315,18 +1326,19 @@
     },
     {
       "pattern": "an appreciable number of",
-      "suggestion": "many",
+      "suggestion": "various",
       "alts": [
-        "many"
+        "various",
+        "plenty of"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0142"
     },
     {
       "pattern": "an estimated",
-      "suggestion": "about",
+      "suggestion": "close to",
       "alts": [
-        "about"
+        "close to"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0143"
@@ -1387,9 +1399,9 @@
     },
     {
       "pattern": "at all times",
-      "suggestion": "always",
+      "suggestion": "continuously",
       "alts": [
-        "always"
+        "continuously"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0150"
@@ -1450,9 +1462,10 @@
     },
     {
       "pattern": "carry out an evaluation of",
-      "suggestion": "evaluate",
+      "suggestion": "check",
       "alts": [
-        "evaluate"
+        "check",
+        "test"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0157"
@@ -1495,9 +1508,10 @@
     },
     {
       "pattern": "concerning the matter of",
-      "suggestion": "regarding",
+      "suggestion": "on",
       "alts": [
-        "regarding"
+        "on",
+        "of"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0162"
@@ -1630,9 +1644,9 @@
     },
     {
       "pattern": "excessive number",
-      "suggestion": "too many",
+      "suggestion": "excess",
       "alts": [
-        "too many"
+        "excess"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0177"
@@ -1684,27 +1698,28 @@
     },
     {
       "pattern": "has the ability to",
-      "suggestion": "can",
+      "suggestion": "is able to",
       "alts": [
-        "can"
+        "is able to"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0183"
     },
     {
       "pattern": "has the capacity to",
-      "suggestion": "can",
+      "suggestion": "is able to",
       "alts": [
-        "can"
+        "is able to"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0184"
     },
     {
       "pattern": "has the opportunity to",
-      "suggestion": "could",
+      "suggestion": "is able to",
       "alts": [
-        "could"
+        "is able to",
+        "is free to"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0185"
@@ -1729,36 +1744,38 @@
     },
     {
       "pattern": "in a careful manner",
-      "suggestion": "carefully",
+      "suggestion": "with care",
       "alts": [
-        "carefully"
+        "with care"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0188"
     },
     {
       "pattern": "in a thoughtful manner",
-      "suggestion": "thoughtfully",
+      "suggestion": "with care",
       "alts": [
-        "thoughtfully"
+        "with care"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0189"
     },
     {
       "pattern": "in most cases",
-      "suggestion": "usually",
+      "suggestion": "normally",
       "alts": [
-        "usually"
+        "normally",
+        "as a rule"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0190"
     },
     {
       "pattern": "in some cases",
-      "suggestion": "sometimes",
+      "suggestion": "at times",
       "alts": [
-        "sometimes"
+        "at times",
+        "on occasion"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0191"
@@ -1792,9 +1809,9 @@
     },
     {
       "pattern": "in the neighborhood of",
-      "suggestion": "roughly",
+      "suggestion": "close to",
       "alts": [
-        "roughly"
+        "close to"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0195"
@@ -1810,9 +1827,9 @@
     },
     {
       "pattern": "it would appear that",
-      "suggestion": "apparently",
+      "suggestion": "evidently",
       "alts": [
-        "apparently"
+        "evidently"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0197"
@@ -1918,9 +1935,9 @@
     },
     {
       "pattern": "some of the",
-      "suggestion": "some",
+      "suggestion": "part of the",
       "alts": [
-        "some"
+        "part of the"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0209"
@@ -1945,9 +1962,10 @@
     },
     {
       "pattern": "take into account",
-      "suggestion": "consider",
+      "suggestion": "account for",
       "alts": [
-        "consider"
+        "account for",
+        "allow for"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0212"
@@ -2008,19 +2026,20 @@
     },
     {
       "pattern": "with regard to",
-      "suggestion": "regarding",
+      "suggestion": "on",
       "alts": [
-        "regarding"
+        "on",
+        "of"
       ],
       "source": "vale_microsoft.wordiness",
       "id": "VEI-T1-SUB-0219"
     },
     {
       "pattern": "a number of",
-      "suggestion": "many",
+      "suggestion": "various",
       "alts": [
-        "many",
-        "some"
+        "various",
+        "plenty of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2144,9 +2163,10 @@
     },
     {
       "pattern": "appreciable",
-      "suggestion": "many",
+      "suggestion": "sizable",
       "alts": [
-        "many"
+        "sizable",
+        "notable"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2157,7 +2177,7 @@
       "suggestion": "proper",
       "alts": [
         "proper",
-        "right"
+        "correct"
       ],
       "omit_ok": true,
       "source": "retext_simplify",
@@ -2165,9 +2185,10 @@
     },
     {
       "pattern": "approximate",
-      "suggestion": "about",
+      "suggestion": "rough",
       "alts": [
-        "about"
+        "rough",
+        "close to"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2195,10 +2216,10 @@
     },
     {
       "pattern": "as to",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about",
-        "on"
+        "on",
+        "of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2380,11 +2401,11 @@
     },
     {
       "pattern": "deem",
-      "suggestion": "believe",
+      "suggestion": "judge",
       "alts": [
-        "believe",
-        "consider",
-        "think"
+        "judge",
+        "rule",
+        "call"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2519,9 +2540,10 @@
     },
     {
       "pattern": "evident",
-      "suggestion": "clear",
+      "suggestion": "plain",
       "alts": [
-        "clear"
+        "plain",
+        "obvious"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2601,10 +2623,10 @@
     },
     {
       "pattern": "feasible",
-      "suggestion": "can be done",
+      "suggestion": "workable",
       "alts": [
-        "can be done",
-        "workable"
+        "workable",
+        "practical"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2831,7 +2853,7 @@
         "install",
         "put in place",
         "tool",
-        "start"
+        "set up"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2852,9 +2874,9 @@
     },
     {
       "pattern": "in all likelihood",
-      "suggestion": "probably",
+      "suggestion": "expect",
       "alts": [
-        "probably"
+        "expect"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2892,10 +2914,10 @@
     },
     {
       "pattern": "in order that",
-      "suggestion": "for",
+      "suggestion": "to",
       "alts": [
         "for",
-        "so"
+        "to"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2903,11 +2925,10 @@
     },
     {
       "pattern": "in regard to",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about",
-        "concerning",
-        "on"
+        "on",
+        "of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2915,11 +2936,10 @@
     },
     {
       "pattern": "in relation to",
-      "suggestion": "about",
+      "suggestion": "to",
       "alts": [
-        "about",
-        "with",
-        "to"
+        "to",
+        "with"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -2927,9 +2947,10 @@
     },
     {
       "pattern": "in some instances",
-      "suggestion": "sometimes",
+      "suggestion": "at times",
       "alts": [
-        "sometimes"
+        "at times",
+        "on occasion"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3000,9 +3021,10 @@
     },
     {
       "pattern": "in view of the above",
-      "suggestion": "so",
+      "suggestion": "thus",
       "alts": [
-        "so"
+        "thus",
+        "as a result"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3020,9 +3042,10 @@
     },
     {
       "pattern": "inception",
-      "suggestion": "start",
+      "suggestion": "outset",
       "alts": [
-        "start"
+        "outset",
+        "beginning"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3030,9 +3053,9 @@
     },
     {
       "pattern": "incumbent upon",
-      "suggestion": "must",
+      "suggestion": "shall",
       "alts": [
-        "must"
+        "shall"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3043,8 +3066,8 @@
       "suggestion": "show",
       "alts": [
         "show",
-        "say",
         "state",
+        "report",
         "write down"
       ],
       "omit_ok": false,
@@ -3079,6 +3102,29 @@
         "work with"
       ],
       "omit_ok": false,
+      "exceptions": [
+        "the",
+        "a",
+        "an",
+        "this",
+        "that",
+        "each",
+        "every",
+        "its",
+        "their",
+        "our",
+        "user",
+        "hardware",
+        "software",
+        "network",
+        "web",
+        "api",
+        "command",
+        "serial",
+        "graphical",
+        "programming",
+        "system"
+      ],
       "source": "retext_simplify",
       "id": "VEI-T1-SUB-0320"
     },
@@ -3104,9 +3150,9 @@
     },
     {
       "pattern": "is authorised to",
-      "suggestion": "may",
+      "suggestion": "is allowed to",
       "alts": [
-        "may"
+        "is allowed to"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3114,9 +3160,9 @@
     },
     {
       "pattern": "is authorized to",
-      "suggestion": "may",
+      "suggestion": "is allowed to",
       "alts": [
-        "may"
+        "is allowed to"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3145,9 +3191,9 @@
     },
     {
       "pattern": "it appears",
-      "suggestion": "seems",
+      "suggestion": "evidently",
       "alts": [
-        "seems"
+        "evidently"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3165,9 +3211,9 @@
     },
     {
       "pattern": "it is essential",
-      "suggestion": "must",
+      "suggestion": "shall",
       "alts": [
-        "must",
+        "shall",
         "need to"
       ],
       "omit_ok": false,
@@ -3230,7 +3276,7 @@
       "alts": [
         "greatest",
         "largest",
-        "most"
+        "highest"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3287,7 +3333,7 @@
       "suggestion": "besides",
       "alts": [
         "besides",
-        "even so",
+        "all the same",
         "still"
       ],
       "omit_ok": false,
@@ -3327,9 +3373,9 @@
     },
     {
       "pattern": "not often",
-      "suggestion": "rarely",
+      "suggestion": "infrequently",
       "alts": [
-        "rarely"
+        "infrequently"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3361,7 +3407,6 @@
       "suggestion": "despite",
       "alts": [
         "despite",
-        "in spite of",
         "still"
       ],
       "omit_ok": false,
@@ -3415,7 +3460,7 @@
       "suggestion": "but",
       "alts": [
         "but",
-        "so"
+        "instead"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3426,7 +3471,7 @@
       "suggestion": "but",
       "alts": [
         "but",
-        "so"
+        "by contrast"
       ],
       "omit_ok": true,
       "source": "retext_simplify",
@@ -3582,7 +3627,7 @@
       "alts": [
         "do",
         "go ahead",
-        "try"
+        "continue"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3654,10 +3699,10 @@
     },
     {
       "pattern": "reflect",
-      "suggestion": "say",
+      "suggestion": "show",
       "alts": [
-        "say",
-        "show"
+        "show",
+        "record"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3665,11 +3710,10 @@
     },
     {
       "pattern": "regarding",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about",
-        "of",
-        "on"
+        "on",
+        "of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3677,10 +3721,10 @@
     },
     {
       "pattern": "relative to",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about",
-        "on"
+        "on",
+        "compared with"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3745,7 +3789,16 @@
         "ask"
       ],
       "omit_ok": false,
-      "exceptions": ["pull", "merge", "feature", "change", "http", "api", "get", "post"],
+      "exceptions": [
+        "pull",
+        "merge",
+        "feature",
+        "change",
+        "http",
+        "api",
+        "get",
+        "post"
+      ],
       "source": "retext_simplify",
       "id": "VEI-T1-SUB-0383"
     },
@@ -3843,9 +3896,10 @@
     },
     {
       "pattern": "similar to",
-      "suggestion": "like",
+      "suggestion": "comparable to",
       "alts": [
-        "like"
+        "comparable to",
+        "close to"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -3967,10 +4021,10 @@
     },
     {
       "pattern": "therefore",
-      "suggestion": "so",
+      "suggestion": "thus",
       "alts": [
-        "so",
-        "thus"
+        "thus",
+        "as a result"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -4115,7 +4169,7 @@
       "suggestion": "call for",
       "alts": [
         "call for",
-        "permit"
+        "justify"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -4134,9 +4188,10 @@
     },
     {
       "pattern": "with reference to",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about"
+        "on",
+        "of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",
@@ -4144,10 +4199,10 @@
     },
     {
       "pattern": "with respect to",
-      "suggestion": "about",
+      "suggestion": "on",
       "alts": [
-        "about",
-        "on"
+        "on",
+        "of"
       ],
       "omit_ok": false,
       "source": "retext_simplify",

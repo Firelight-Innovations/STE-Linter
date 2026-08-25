@@ -11,6 +11,11 @@ def apply_fix(abs_path, engine):
         rule = engine.t1_rules.get(m.group(1).lower())
         if not rule or len(rule.get("alts", [])) != 1:
             return m.group(0)  # ambiguous (multiple alts) -- never auto-fix
+        exceptions = rule.get("exceptions")
+        if exceptions:
+            prev = engine.preceding_word(m.string, m.start())
+            if prev and prev in {e.lower() for e in exceptions}:
+                return m.group(0)  # fixed compound -- not the replaceable use
         suggestion = rule["suggestion"]
         if m.group(1)[0].isupper():
             suggestion = suggestion[:1].upper() + suggestion[1:]
