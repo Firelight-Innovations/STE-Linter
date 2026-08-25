@@ -118,7 +118,8 @@ a curated substitution table.
 
 **Data:** `src/ste100/data/substitutions.json` (`rules`: pattern -> `{id, suggestion, alts, source}`).
 Sources cited in the data: `vale_redhat.simple_words`, `vale_microsoft.wordiness`,
-`retext_simplify`, and an internally merged `wordy_and_complex` list.
+`retext_simplify`, and a merged `wordy_and_complex` list whose components were not
+recorded. The first three are third-party; see the "Data provenance" section below.
 
 **Severity:** `error` in every profile (T1 is one of the three tests the `prose` fallback keeps
 at `error`; see the precedence section above).
@@ -473,5 +474,37 @@ dirty_paragraph.md:4:1 WARNING budget STE-BUD-0002 -- Budget: paragraph has 7 se
 - **Femmer et al.**, empirical requirements-smell research -- comparative/superlative baseline
   checks (T4).
 - **QuARS** -- unfalsifiable/vague term detection (T2) and optionality (T3).
-- `retext-intensify`, `vale` (Microsoft/RedHat style rules), `proselint`, and a `vale`-style
-  AI-writing-tell list -- the lexical data sources behind T1, T3 (hedges), and T6.
+
+The lexical data has separate, third-party provenance; see the next section.
+
+## Data provenance
+
+Parts of the word and phrase tables in `src/ste100/data/` are derived from third-party
+open-source projects. Each shipped file carries its own provenance: `substitutions.json`
+in a per-entry `source` field, and `hedges.json`, `filler.json`, `vague.json` and
+`ai_tells.json` in a table-level `sources` header.
+
+`NOTICE` names each upstream and its copyright holder. `THIRD-PARTY-LICENSES.md`
+reproduces the full license text of each, which those licenses make mandatory for a
+redistributor. Both files ship in the wheel and the sdist.
+
+| Shipped data | Upstream | Entries | License |
+| --- | --- | ---: | --- |
+| `substitutions.json` (`source: retext_simplify`) | [retext-simplify](https://github.com/retextjs/retext-simplify) | 205 | MIT |
+| `substitutions.json` (`source: vale_redhat.simple_words`) | [Vale at Red Hat](https://github.com/redhat-documentation/vale-at-red-hat), `RedHat/SimpleWords.yml` | 105 | MIT |
+| `substitutions.json` (`source: vale_microsoft.wordiness`) | [errata-ai/Microsoft](https://github.com/errata-ai/Microsoft), `Microsoft/Wordiness.yml` | 86 | MIT |
+| `substitutions.json` (`source: MERGED.wordy_and_complex`) | not recorded -- see `NOTICE` | 28 | unknown |
+| `hedges.json` (`hedge_words`) | [words/hedges](https://github.com/words/hedges), via retext-intensify | 144 | MIT |
+| `filler.json` (part of `fillers_and_intensifiers`) | [words/fillers](https://github.com/words/fillers), via retext-intensify | not separable | MIT |
+| `filler.json` (`corporate_speak`) | [proselint](https://github.com/amperser/proselint), `industrial_language/corporate_speak.py` | 24 | BSD-3-Clause |
+| `ai_tells.json` (`phrases`) | [vale-ai-tells](https://github.com/tbhb/vale-ai-tells) -- inferred, see `NOTICE` | 11 | MIT |
+
+The remaining tables were written for this project against the standards above and derive
+from no third-party wordlist: `hedges.json`'s escape clauses, open-ended clauses,
+optionality phrases and superfluous infinitives; `filler.json`'s weasel words,
+overused vocabulary and nominalization rule; every table in `vague.json`; and
+`ai_tells.json`'s machine artifacts.
+
+Three generator source keys (`MERGED.wordy_and_complex`, `MERGED.intensifiers_adverbs`,
+`MERGED.weasel_and_hedge`) name merged wordlists whose components were not recorded. The
+open questions this leaves are listed at the bottom of `NOTICE`, unresolved.

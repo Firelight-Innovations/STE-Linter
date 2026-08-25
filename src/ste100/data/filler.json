@@ -3,6 +3,56 @@
   "test": "T6",
   "name": "Zero-information",
   "default_tier": "error",
+  "sources": {
+    "notice": "Attribution and full license texts: NOTICE and THIRD-PARTY-LICENSES.md at the repository root, and in the wheel under .dist-info/licenses/.",
+    "tables": [
+      {
+        "tables": [
+          "fillers_and_intensifiers"
+        ],
+        "origin": "mixed",
+        "project": "fillers",
+        "url": "https://github.com/words/fillers",
+        "copyright": "Copyright (c) 2014 Titus Wormer <tituswormer@gmail.com>",
+        "license": "MIT",
+        "via": "retext-intensify (https://github.com/retextjs/retext-intensify), MIT, Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>",
+        "generator_key": "retext_intensify.fillers",
+        "note": "This table merges the upstream fillers list with a second list of unrecorded provenance (generator key MERGED.intensifiers_adverbs) and 24 intensifiers written for this project. It carries no per-entry source field, so the split cannot be recovered entry by entry. See open question 3 in NOTICE."
+      },
+      {
+        "tables": [
+          "corporate_speak"
+        ],
+        "origin": "third-party",
+        "project": "proselint",
+        "url": "https://github.com/amperser/proselint",
+        "copyright": "Copyright (c) 2014-2015, Jordan Suchow, Michael Pacer, and Lara A. Ross",
+        "license": "BSD-3-Clause",
+        "upstream_file": "proselint/checks/industrial_language/corporate_speak.py",
+        "note": "24 of the upstream 25 phrases. BSD-3-Clause requires the copyright notice, the conditions and the disclaimer to be reproduced; they are, in THIRD-PARTY-LICENSES.md."
+      },
+      {
+        "tables": [
+          "weasel_words"
+        ],
+        "origin": "original",
+        "note": "The 19-word authoritative list written for this project. A third-party list (generator key MERGED.weasel_and_hedge) was used at build time as a cross-check only; no entry ships from it."
+      },
+      {
+        "tables": [
+          "overused_vocabulary"
+        ],
+        "origin": "unverified",
+        "note": "Literals in devtools/builddata/t6_filler.py with no recorded source. 30 of the 40 also appear in tbhb/vale-ai-tells, which is consistent with independent authoring from the same widely-circulated vocabulary. No attribution is claimed. See open question 4 in NOTICE."
+      },
+      {
+        "tables": [
+          "nominalization"
+        ],
+        "origin": "original"
+      }
+    ]
+  },
   "fillers_and_intensifiers": [
     {
       "id": "STE-T6-FILL-0001",
