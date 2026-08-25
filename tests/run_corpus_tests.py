@@ -36,13 +36,18 @@ LINTER = TOOLS / "ste_lint.py"
 CLEAN_DIR = TOOLS / "tests" / "corpus_clean"
 DIRTY_DIR = TOOLS / "tests" / "corpus_dirty"
 MANIFEST = DIRTY_DIR / "csv_findings_manifest.json"
+
+# The corpus fixtures are written against the veistra profile set (core, spec,
+# design, vision). The shipped default preset deliberately does not have those
+# profiles, so pin the preset instead of depending on whichever is the default.
+PRESET = "veistra"
 EXPECT_RE = re.compile(r"`expect:([A-Za-z0-9\-]+)`")
 
 failures = []
 
 
 def run_lint(paths, today=None, stats=True):
-    cmd = [sys.executable, "-X", "utf8", str(LINTER), "--format", "json"]
+    cmd = [sys.executable, "-X", "utf8", str(LINTER), "--preset", PRESET, "--format", "json"]
     if stats:
         cmd.append("--stats")
     if today:
@@ -118,9 +123,9 @@ def check_rule_id_coverage(seen_rules):
 
 def check_whole_file_budget_direct():
     from ste100.engine import Engine
-    from ste100.paths import DEFAULT_CONFIG, load_json, load_lint_data
+    from ste100.paths import load_json, load_lint_data, resolve_config
 
-    engine = Engine(load_json(DEFAULT_CONFIG), load_lint_data())
+    engine = Engine(load_json(resolve_config(cli_preset=PRESET)), load_lint_data())
     for target, over_budget_words in (("core/00-READ-FIRST.md", 601), ("core/writing-standard.md", 1201)):
         findings = []
         engine.check_whole_file_budget(target, "word " * over_budget_words, findings)

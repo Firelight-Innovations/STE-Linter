@@ -1,4 +1,10 @@
-"""--fix: apply unambiguous T1 substitutions in place."""
+"""--fix: apply unambiguous T1 substitutions in place.
+
+"Unambiguous" is deliberately narrow. --fix rewrites a writer's source file,
+so it only ever applies a rule that has exactly one candidate replacement and
+that replacement is real text. Anything needing human judgement is reported as
+a finding and left alone.
+"""
 from .masking import FENCE_RE, mask_line
 
 
@@ -17,6 +23,13 @@ def apply_fix(abs_path, engine):
             if prev and prev in {e.lower() for e in exceptions}:
                 return m.group(0)  # fixed compound -- not the replaceable use
         suggestion = rule["suggestion"]
+        # 14 rules carry an empty suggestion, meaning "delete this phrase".
+        # Deleting words changes the grammar of the surrounding sentence, and
+        # applying that blind corrupts prose: "It is important that the
+        # operator selects the type of report." became " important that the
+        # operator selects the  of report." Report those, never auto-apply.
+        if not suggestion.strip():
+            return m.group(0)
         if m.group(1)[0].isupper():
             suggestion = suggestion[:1].upper() + suggestion[1:]
         return suggestion
