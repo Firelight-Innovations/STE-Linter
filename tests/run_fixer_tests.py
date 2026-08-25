@@ -24,7 +24,9 @@ def fix(text):
     tmp = Path(tempfile.mkdtemp(prefix="ste100-fixer-"))
     try:
         target = tmp / "doc.md"
-        target.write_text(text, encoding="utf-8", newline="\n")
+        # write_text(newline=...) is 3.10+; this suite runs on 3.9 too.
+        with open(target, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write(text)
         subprocess.run([sys.executable, "-X", "utf8", str(LINTER), "--fix", str(target)],
                        cwd=ROOT, capture_output=True, text=True, encoding="utf-8")
         return target.read_text(encoding="utf-8")

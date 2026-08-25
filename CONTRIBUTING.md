@@ -80,3 +80,12 @@ In both cases: false positives are the recurring failure mode for a lexical lint
 ## License
 
 By contributing, you agree that your contributions are licensed under the Apache License, Version 2.0 (see `LICENSE`), consistent with section 5 of that license ("Submission of Contributions").
+
+### A note on the Python 3.9 floor
+
+`pyproject.toml` declares `requires-python = ">=3.9"`. AST-parsing the sources
+with `feature_version=(3, 9)` catches new *syntax*, but it does not catch a
+method that gained a new *keyword argument* in a later version. That is not
+hypothetical: `Path.write_text(newline=...)` is 3.10+, and shipping it made
+`--fix` raise `TypeError` on 3.9 until CI caught it. The 3.9 leg of the test
+matrix is the real guard here, so keep it.

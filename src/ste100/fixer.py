@@ -53,5 +53,9 @@ def apply_fix(abs_path, engine):
             lines[i] = new_line
             changed = True
     if changed:
-        abs_path.write_text("\n".join(lines), encoding="utf-8", newline="\n")
+        # Not Path.write_text(newline=...): that keyword arrived in 3.10, and
+        # this package supports 3.9, where it raises TypeError. Newlines stay
+        # pinned so --fix never silently rewrites a file's line endings.
+        with open(abs_path, "w", encoding="utf-8", newline="\n") as fh:
+            fh.write("\n".join(lines))
     return 1 if changed else 0
