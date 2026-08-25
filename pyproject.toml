@@ -48,6 +48,10 @@ Changelog = "https://github.com/Firelight-Innovations/STE100-Linter/blob/main/CH
 
 [project.scripts]
 ste100 = "ste100.cli:run"
+# The HELVE-ADE tool core, speaking JSON-RPC over stdio. The helve-tool.toml
+# manifest points at bin/ste100-helve.cmd and does not need this, but an
+# installed copy is useful for testing the server by hand.
+ste100-helve = "ste100.helve:main"
 
 # The rule tables (data/) and presets/ live inside the package directory, so
 # they are picked up automatically -- the linter cannot run without them and
