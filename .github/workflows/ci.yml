@@ -117,6 +117,24 @@ jobs:
             exit 1
           fi
 
+      # Covers the four places the engine used to ignore its own config.
+      - name: Run config test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_config_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_config_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All config tests passed." <<< "$output"; then
+            echo "::error::run_config_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
       # Adversarial CSV input plus a 200-file performance budget. Hosted
       # runners are slower than dev hardware, so a red result here is worth
       # investigating rather than assuming flake.
