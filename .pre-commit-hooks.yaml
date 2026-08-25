@@ -1,7 +1,7 @@
 # Hook definitions for consumers using this repo via:
 #
 #   repos:
-#     - repo: https://github.com/Firelight-Innovations/STE100-Linter
+#     - repo: https://github.com/Firelight-Innovations/STE-Linter
 #       rev: <tag or commit>
 #       hooks:
 #         - id: ste100-lint

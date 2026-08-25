@@ -5,7 +5,7 @@ name: Release
 # publish step fails on authentication -- see
 # https://docs.pypi.org/trusted-publishers/
 # (PyPI project settings -> Publishing -> Add a new publisher: owner
-# Firelight-Innovations, repo STE100-Linter, workflow release.yml,
+# Firelight-Innovations, repo STE-Linter, workflow release.yml,
 # environment release). No PyPI API token is stored in this repo; auth is
 # short-lived OIDC, not a long-lived secret.
 
