@@ -1,0 +1,43 @@
+# Editor defaults for this repository. Not a linter and not enforced by CI --
+# it exists so that a contributor's editor produces the whitespace the repo
+# already uses, instead of a diff full of unrelated line-ending churn.
+#
+# examples/.editorconfig is a separate, self-contained sample for consumers
+# of the tool. It is not this file's parent, and the two differ in one place:
+# it sets insert_final_newline = false for CSV, while every CSV actually in
+# this repository ends with a newline. This file matches the repository.
+
+root = true
+
+[*]
+charset = utf-8
+# .gitattributes normalises everything to LF (`* text=auto eol=lf`), so LF is
+# what lands in the working tree on every platform, Windows included.
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+
+[*.py]
+indent_size = 4
+# Ruff sets line-length = 120 in pyproject.toml but ignores E501, so this is
+# guidance rather than a limit. Most of src/ sits under 100 columns; the
+# lines that run long are single-line string tables that read worse wrapped.
+max_line_length = 120
+
+[*.{json,yml,yaml}]
+indent_size = 2
+
+[*.md]
+indent_size = 2
+# Prose wrapping is a judgement call here. Body paragraphs run to one line
+# each; comments and docstrings in the Python sources wrap near 79.
+max_line_length = off
+
+[*.csv]
+# The linter reports findings at a line:column derived from the raw field
+# text, so whitespace inside a fixture is meaningful to its expected output.
+# The [*] defaults are correct for the CSVs here (no tabs, no trailing
+# spaces, final newline present); this section exists to say that was
+# checked rather than assumed.
+max_line_length = off
