@@ -135,6 +135,22 @@ jobs:
             exit 1
           fi
 
+      # Guards the out-of-box experience: the default preset must stay quiet
+      # on good, natural technical documentation. Without this, retuning a
+      # rule can silently make a new user's first run a wall of errors again.
+      - name: Run default-preset test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_default_preset_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_default_preset_tests.py exited with code $code"
+            exit 1
+          fi
+
       # Adversarial CSV input plus a 200-file performance budget. Hosted
       # runners are slower than dev hardware, so a red result here is worth
       # investigating rather than assuming flake.

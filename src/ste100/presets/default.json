@@ -59,6 +59,34 @@
       "ari_target": null,
       "note": "Generic CSV cell linting only (T1/T3/T6 word-level checks + field word budgets). csv_integrity (STE-CSV-0001..0010) validates a bespoke truths/decisions/terminology document-control registry schema that only the veistra preset's project has -- it is deliberately left out of this profile's 'tests'. NOTE for maintainers: today that omission is cosmetic only, because ste_lint.py's main() calls check_csv_integrity() unconditionally for every discovered .csv file regardless of any profile's 'tests' list. See docs/configuration.md for the exact fix."
     },
+    "docs": {
+      "path_globs": [
+        "README.md",
+        "readme.md",
+        "CONTRIBUTING.md",
+        "contributing.md",
+        "SECURITY.md",
+        "security.md",
+        "CODE_OF_CONDUCT.md",
+        "code_of_conduct.md",
+        "CHANGELOG.md",
+        "changelog.md",
+        "docs/**",
+        "examples/**"
+      ],
+      "tests": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "S7",
+        "structural"
+      ],
+      "ari_target": null,
+      "note": "Added 2026-08 for the out-of-box-experience retune. Ordinary project documentation -- READMEs, CONTRIBUTING/SECURITY/CODE_OF_CONDUCT, a docs/ tree, examples/ -- as opposed to 'prose', which is the unconditional catch-all for anything that matches no other profile (including the corpus_suggestions/ test fixtures that pin hedge/filler words to error tier -- see tests/run_suggestion_tests.py). This profile intentionally does NOT reuse the name 'prose', because Engine.severity()'s profile-wide review-cap in lint/engine.py is hardcoded to the literal string 'prose' (PROSE_ERROR_TESTS check); giving general docs their own profile name means every non-T1/T3/T6 test bucket below has to be pinned to 'review' explicitly via severity_overrides to reproduce that cap by hand -- see each 'docs'-profile override's own note. T1 is deliberately left at its 'error' default here, same as every other profile: T1's replaceable-word suggestions are still mostly correct advice on ordinary prose."
+    },
     "prose": {
       "path_globs": [
         "**/*.md"
@@ -74,13 +102,14 @@
         "structural"
       ],
       "ari_target": null,
-      "note": "Fallback profile, and also what any general prose/docs file gets. T1/T3/T6 stay at error tier; every other test is capped at 'review' by the profile-wide cap in Engine.severity() (see docs/configuration.md). This entry's own path_globs never actually have to match anything -- lint/discovery.py:detect_profile() falls back to 'prose' unconditionally after profile_order is exhausted, so this profile is always reachable even for files fnmatch would not match (e.g. root-level files, given '**/*.md' requires a literal '/' -- see docs/configuration.md)."
+      "note": "Fallback profile, and also what any general prose/docs file gets. T1/T3/T6 stay at error tier; every other test is capped at 'review' by the profile-wide cap in Engine.severity() (see docs/configuration.md). This entry's own path_globs never actually have to match anything -- lint/discovery.py:detect_profile() falls back to 'prose' unconditionally after profile_order is exhausted, so this profile is always reachable even for files fnmatch would not match (e.g. root-level files, given '**/*.md' requires a literal '/' -- see docs/configuration.md). Deliberately left exactly as shipped before the 2026-08 retune: this is also the profile the corpus_suggestions/ test fixtures resolve to (tests/run_suggestion_tests.py lints them explicitly, bypassing never_lint), and that suite pins specific hedge/filler/weasel words to error tier here. The 2026-08 retune's relaxations (hedge_word/T6/open_ended_clause at 'review' for casual prose) live on the new 'docs' profile instead -- see its note."
     }
   },
   "profile_order": [
     "spec",
     "reference",
     "csv",
+    "docs",
     "prose"
   ],
   "profile_override_comment": "<!-- lint-profile: NAME -->",
@@ -171,10 +200,28 @@
       "source": "O1"
     },
     {
+      "rule": "hedge_word",
+      "profile": "docs",
+      "tier": "review",
+      "source": "dogfooding 2026-08: on ordinary docs (README/CONTRIBUTING/SECURITY/CODE_OF_CONDUCT/docs/**) this bucket is single common modal verbs and adverbs -- will, would, can, may, should, must, about, around, always, possibly -- which are correct, unremarkable English outside formal requirements writing (measured >95% false-positive rate in this repo's own docs). Kept at error for spec/reference/csv/prose (prose is what the corpus_suggestions/ ban-word fixtures resolve to; see the 'docs' profile note)."
+    },
+    {
       "rule": "open_ended_clause",
       "profile": "*",
       "tier": "error",
       "source": "K2"
+    },
+    {
+      "rule": "open_ended_clause",
+      "profile": "docs",
+      "tier": "review",
+      "source": "dogfooding 2026-08: every hit on this repo's docs was 'e.g.'/'etc.', standard and unambiguous in general technical writing. Kept at error for spec/reference/csv/prose, where STE100 wants the abbreviation expanded and the enumeration closed."
+    },
+    {
+      "rule": "T6",
+      "profile": "docs",
+      "tier": "review",
+      "source": "dogfooding 2026-08: 96% of T6 error findings on this repo's own docs came from the filler/weasel word lists ('so','like','actually','rather','very','most','just','real','exactly','deliberately','entirely'), which fired on normal connective and precision usage, not filler. The corporate-speak/AI-tell/nominalization matches in the same sample were also false positives (self-referential hits inside prose that names its own rule examples, or a technical term like 'harness' caught by an overused-vocabulary entry). All T6 subtypes share this one severity bucket (see checks_lexical.py check_t6 -- every call site passes rule_name='T6' regardless of table), so a finer per-subtype tier is not possible from this config alone; the fix is to pass a distinct rule_name per table (e.g. 'filler_word'/'weasel_word'/'corporate_speak'/'ai_tell'/'nominalization') at each check_t6 call site, which is a code change out of scope for this preset-only pass. Kept at error for spec/reference/csv/prose."
     },
     {
       "rule": "must_keyword",
@@ -189,6 +236,12 @@
       "source": "O3"
     },
     {
+      "rule": "must_keyword",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap -- see the 'docs' profile note in this file's profiles block"
+    },
+    {
       "rule": "ears",
       "profile": "spec",
       "tier": "error",
@@ -201,6 +254,12 @@
       "source": "spec profile: requirements need a stated unit"
     },
     {
+      "rule": "bare_number",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
       "rule": "combinator_second",
       "profile": "spec",
       "tier": "error",
@@ -211,6 +270,72 @@
       "profile": "spec",
       "tier": "review",
       "source": "G1"
+    },
+    {
+      "rule": "T2",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "T4",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "comparative_superlative",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "punctuation_density",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "and_or",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "oblique_slash",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap -- without this override every path separator and every 'x/y' shorthand in ordinary docs (file paths, 'and/or', 'T1/T3/T6') would be an error-tier finding, since oblique_slash defaults to 'error' unconditionally in every profile that lacks the 'prose' cap."
+    },
+    {
+      "rule": "tbd",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "passive_voice",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "abbreviation",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap"
+    },
+    {
+      "rule": "deprecated_term",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap (dormant today: this repo ships no populated terminology.csv, so deprecated_term never fires regardless of profile; kept for parity so the day a project adds one, docs files behave like prose files did)"
+    },
+    {
+      "rule": "undefined_term",
+      "profile": "docs",
+      "tier": "review",
+      "source": "docs profile parity with the 'prose' review-cap (dormant today, same reason as deprecated_term)"
     },
     {
       "rule": "generic_ly_adverb",
