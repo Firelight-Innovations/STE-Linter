@@ -37,7 +37,7 @@ class AtomicityChecksMixin:
         profile = unit.profile
 
         shall_count = len(re.findall(r"\bshall\b", text, re.IGNORECASE))
-        if profile == "spec":
+        if profile in self.ears_profiles:
             if shall_count == 0:
                 sev = self.severity("zero_shall_not_a_requirement", profile, "review", test="T5")
                 findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_NOSHAL_ID, "T5", sev,
@@ -51,7 +51,7 @@ class AtomicityChecksMixin:
                                          excerpt_around(text, 0, min(len(text), 30)), source="spec §8.5",
                                          row_id=unit.row_id, field=unit.field))
 
-        if profile in ("spec", "design") and shall_count == 1:
+        if profile in self.ears_or_review_profiles and shall_count == 1:
             for m in re.finditer(r"\ba\b|\ban\b", text, re.IGNORECASE):
                 sev = self.severity("indefinite_article", profile, "review", test="structural")
                 findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_ARTICLE_ID,
@@ -60,7 +60,7 @@ class AtomicityChecksMixin:
                                          excerpt_around(text, m.start(), m.end()), source="INCOSE R5",
                                          row_id=unit.row_id, field=unit.field))
 
-        if profile in ("spec", "design") and shall_count == 1 and not EARS_RE.match(text.strip()):
+        if profile in self.ears_or_review_profiles and shall_count == 1 and not EARS_RE.match(text.strip()):
             sev = self.severity("ears", profile, "review", test="T5")
             findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_EARS_ID, "T5", sev,
                                      "Non-atomic: sentence does not conform to an EARS template.",

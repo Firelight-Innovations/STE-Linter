@@ -98,6 +98,17 @@ class Engine(LexicalChecksMixin, ReferenceChecksMixin, AtomicityChecksMixin):
         self.whole_file_budget_by_target = {b["target"]: b for b in self.budgets["whole_file_budgets"]}
         self.paragraph_budget = self.budgets["paragraph_budget"]
 
+        # EARS checks (checks_atomicity.py): which profiles opt in, derived
+        # from config rather than hardcoded profile names. A profile whose
+        # 'tests' list contains "ears" gets the strict (error-tier-eligible)
+        # EARS checks including the zero-shall / multi-shall checks; one that
+        # contains "ears_review" gets the EARS template/article checks but
+        # not the stricter zero-shall / multi-shall checks. See
+        # checks_atomicity.py:check_t5_and_structural.
+        self.ears_profiles = {name for name, p in cfg["profiles"].items() if "ears" in p.get("tests", [])}
+        self.ears_review_profiles = {name for name, p in cfg["profiles"].items() if "ears_review" in p.get("tests", [])}
+        self.ears_or_review_profiles = self.ears_profiles | self.ears_review_profiles
+
         self.abbr_allowlist = set(cfg["abbreviation_allowlist"])
         # Populated by index_terminology() once the CSV registry is loaded;
         # empty defaults so lint runs work before that call (e.g. --explain).
@@ -180,6 +191,11 @@ class Engine(LexicalChecksMixin, ReferenceChecksMixin, AtomicityChecksMixin):
         # regardless of -- any rule-specific override.
         if profile == "prose" and test is not None and test not in self.PROSE_ERROR_TESTS:
             return "review"
+        # severity_defaults lets a config retune a rule's default tier without
+        # an override entry per profile. The call site's own literal is the
+        # fallback when the rule is absent from the block (or the block is
+        # absent from config entirely -- back-compat with older configs).
+        default = self.config.get("severity_defaults", {}).get(rule_name, default)
         best = default
         for ov in self.config.get("severity_overrides", []):
             if ov["rule"] != rule_name:

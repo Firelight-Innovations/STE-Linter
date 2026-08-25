@@ -101,7 +101,6 @@ def main(argv=None):
             print("No files to lint.", file=sys.stderr)
             return 2
 
-        target_rel_set = {rel for rel, _ in targets}
         # The registry backing CSV integrity checks needs the whole-project
         # view (cross-file id resolution) PLUS whatever was explicitly
         # targeted -- otherwise an explicit run against a never_lint path
@@ -117,6 +116,14 @@ def main(argv=None):
 
         findings = []
         markdown_text = {}
+        # csv_integrity (STE-CSV-0001..0010) validates a bespoke document-
+        # control registry schema (truths/decisions/terminology) that not
+        # every project has. It only runs for a CSV target whose resolved
+        # profile opts in via "csv_integrity" in that profile's 'tests' list
+        # -- e.g. the veistra preset's csv profile, but not the shipped
+        # default preset's. Resolved the same way as every other per-target
+        # profile lookup below (path globs, first-line override, --profile).
+        csv_integrity_targets = set()
         for rel_path, abs_path in targets:
             if args.fix and rel_path.endswith(".md"):
                 apply_fix(abs_path, engine)
@@ -139,6 +146,8 @@ def main(argv=None):
                 continue
 
             profile_tests = set(config["profiles"].get(profile, config["profiles"]["prose"])["tests"])
+            if rel_path.endswith(".csv") and "csv_integrity" in profile_tests:
+                csv_integrity_targets.add(rel_path)
             for unit in units:
                 if "T1" in profile_tests:
                     engine.check_t1(unit, findings)
@@ -156,7 +165,7 @@ def main(argv=None):
                     if "T5" in profile_tests:
                         engine.check_t5_and_structural(unit, findings)
 
-        csv_findings = check_csv_integrity(registry, today, engine, target_rel_set)
+        csv_findings = check_csv_integrity(registry, today, engine, csv_integrity_targets)
         findings.extend(csv_findings)
 
         findings.sort(key=lambda f: (f.file, f.line, f.column, f.rule))
