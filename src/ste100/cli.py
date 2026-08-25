@@ -50,7 +50,8 @@ def build_arg_parser():
         prog="ste100",
         description="ASD-STE100 Simplified Technical English linter (stdlib only).")
     p.add_argument("paths", nargs="*", help="Files or directories to lint. Default: the whole project tree.")
-    p.add_argument("--format", choices=["text", "json"], default="text")
+    p.add_argument("--format", choices=["text", "json"], default="text",
+                   help="Output format. json emits the full finding objects plus summary metrics.")
     p.add_argument("--profile", default=None, help="Override profile detection for all targeted files.")
     p.add_argument("--config", default=None,
                    help="Path to a config file. Overrides --preset and any project-local ste100.json.")
@@ -59,11 +60,19 @@ def build_arg_parser():
     p.add_argument("--root", default=None,
                    help="Project root that finding paths are reported relative to. Default: the current directory.")
     p.add_argument("--version", action="version", version="%(prog)s {}".format(__version__))
-    p.add_argument("--fix", action="store_true", help="Apply unambiguous T1 substitutions in place.")
-    p.add_argument("--explain", metavar="RULE_ID", default=None)
-    p.add_argument("--baseline", metavar="PATH", default=None)
-    p.add_argument("--stats", action="store_true")
-    p.add_argument("--today", metavar="YYYY-MM-DD", default=None, help="Override 'now' for staleness checks (C4).")
+    p.add_argument("--fix", action="store_true",
+                   help="Rewrite files in place, applying only T1 substitutions that have a single "
+                        "unambiguous replacement. Never deletes text and never touches code spans.")
+    p.add_argument("--explain", metavar="RULE_ID", default=None,
+                   help="Print what a rule ID means and the source it comes from, then exit.")
+    p.add_argument("--baseline", metavar="PATH", default=None,
+                   help="Path to a JSON report whose findings are suppressed. Lets an existing "
+                        "codebase adopt the linter without fixing everything first.")
+    p.add_argument("--stats", action="store_true",
+                   help="Also report review-tier findings, which are advisory and hidden by default.")
+    p.add_argument("--today", metavar="YYYY-MM-DD", default=None,
+                   help="Treat this date as today, for the CSV review-date staleness checks. "
+                        "Mainly useful for reproducible tests.")
     return p
 
 
