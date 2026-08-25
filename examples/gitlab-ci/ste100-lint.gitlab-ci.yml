@@ -1,0 +1,35 @@
+# Sample GitLab CI job. Merge into your project's .gitlab-ci.yml (or
+# `include:` this file directly).
+ste100-lint:
+  image: python:3.12-slim
+  stage: test
+  script:
+    # Once the console entry point lands (see docs/integrations.md):
+    - pip install ste100-linter
+    - ste100 .
+    # Fallback if you vendor ste_lint.py instead of installing it as a
+    # package, run from the repo root that contains it:
+    #   - ste100 .
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+# Adopting on an existing large body of prose: filter against a committed
+# baseline instead of the plain `ste100 .` above (see docs/integrations.md
+# for how to generate .ste100-baseline.json):
+#   script:
+#     - pip install ste100-linter
+#     - ste100 --baseline .ste100-baseline.json .
+
+# JSON report as a downloadable artifact, kept even when the job fails:
+ste100-lint-report:
+  image: python:3.12-slim
+  stage: test
+  script:
+    - pip install ste100-linter
+    - ste100 --format json --stats . > ste100-report.json
+  artifacts:
+    when: always
+    paths:
+      - ste100-report.json
+  allow_failure: true

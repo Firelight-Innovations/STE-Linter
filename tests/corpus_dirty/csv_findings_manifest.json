@@ -1,0 +1,23 @@
+{
+  "_comment": "CSV-integrity and CSV-budget findings can't carry inline expect: comments the way Markdown fixtures do -- CSV has no comment syntax, and CSV-integrity findings report line=0 (spec section 8.8: the violation is a cross-field/cross-row relationship, not a single line). Matched by (file, rule, row_id); row_id is null for file-level findings (BUD_TRUTHS_ROWS). run_corpus_tests.py lints every listed file with --today 2026-01-15 (the fixed anchor every date-relative row below was authored against) and asserts each entry is present in the findings.",
+  "today": "2026-01-15",
+  "entries": [
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-001", "rule": "STE-CSV-0001"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-002", "rule": "STE-CSV-0002"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-003", "rule": "STE-CSV-0002"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-004", "rule": "STE-CSV-0002"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-003", "rule": "STE-CSV-0003"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-004", "rule": "STE-CSV-0003"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-001", "rule": "STE-CSV-0006"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-005", "rule": "STE-CSV-0007"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-007", "rule": "STE-CSV-0008"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-006", "rule": "STE-CSV-0010"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-008", "rule": "STE-CSV-0004"},
+    {"file": "tests/corpus_dirty/decisions_dirty.csv", "row_id": "DEC-DIRTY-009", "rule": "STE-BUD-0003"},
+    {"file": "tests/corpus_dirty/truths_fixture/truths.csv", "row_id": "TRU-DIRTY-001", "rule": "STE-CSV-0005"},
+    {"file": "tests/corpus_dirty/truths_fixture/truths.csv", "row_id": "TRU-DIRTY-002", "rule": "STE-CSV-0007"},
+    {"file": "tests/corpus_dirty/truths_fixture/truths.csv", "row_id": "TRU-DIRTY-003", "rule": "STE-BUD-0003"},
+    {"file": "tests/corpus_dirty/truths_fixture/truths.csv", "row_id": "TRU-DIRTY-004", "rule": "STE-CSV-0010"},
+    {"file": "tests/corpus_dirty/truths_rowcount_fixture/truths.csv", "row_id": null, "rule": "STE-BUD-0005"}
+  ]
+}

@@ -1,0 +1,29 @@
+# Sample .editorconfig section for repos that also run ste100-linter.
+# EditorConfig itself has no concept of a prose linter -- this only sets the
+# baseline whitespace/encoding hygiene that keeps ste_lint.py's line/column
+# numbers stable and its `-X utf8` reads predictable. Merge these sections
+# into your project's real .editorconfig; this file is not consumed by the
+# linter itself.
+
+root = true
+
+[*.{md,csv}]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# ste_lint.py reads files as UTF-8 unconditionally (encoding="utf-8" in
+# src/ste100/paths.py and the CLI) regardless of what your editor writes.
+# CRLF is harmless -- Python's text-mode read normalizes it, so column
+# numbers are unaffected either way (verified: identical line:col output
+# from an LF and a CRLF copy of the same content). A UTF-8 BOM is not
+# stripped, though, and shows up as a real leading character: a finding on
+# line 1 of a file with a BOM reports one column later than the same finding
+# in a BOM-less file (verified: col 4 -> col 5 for an identical "We utilize
+# the tool." line 1). Save Markdown/CSV as UTF-8 without a BOM.
+[*.md]
+max_line_length = off
+
+[*.csv]
+insert_final_newline = false

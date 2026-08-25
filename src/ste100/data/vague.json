@@ -1,0 +1,360 @@
+{
+  "schema_version": 1,
+  "test": "T2",
+  "name": "Unfalsifiable",
+  "default_tier": "warning",
+  "terms": [
+    {
+      "id": "STE-T2-VAG-0001",
+      "pattern": "a few"
+    },
+    {
+      "id": "STE-T2-VAG-0002",
+      "pattern": "a lot of"
+    },
+    {
+      "id": "STE-T2-VAG-0003",
+      "pattern": "a number of"
+    },
+    {
+      "id": "STE-T2-VAG-0004",
+      "pattern": "about"
+    },
+    {
+      "id": "STE-T2-VAG-0005",
+      "pattern": "acceptable"
+    },
+    {
+      "id": "STE-T2-VAG-0006",
+      "pattern": "accommodate"
+    },
+    {
+      "id": "STE-T2-VAG-0007",
+      "pattern": "accurate"
+    },
+    {
+      "id": "STE-T2-VAG-0008",
+      "pattern": "ad hoc"
+    },
+    {
+      "id": "STE-T2-VAG-0009",
+      "pattern": "adequate"
+    },
+    {
+      "id": "STE-T2-VAG-0010",
+      "pattern": "allowable"
+    },
+    {
+      "id": "STE-T2-VAG-0011",
+      "pattern": "almost"
+    },
+    {
+      "id": "STE-T2-VAG-0012",
+      "pattern": "almost always"
+    },
+    {
+      "id": "STE-T2-VAG-0013",
+      "pattern": "ancillary"
+    },
+    {
+      "id": "STE-T2-VAG-0014",
+      "pattern": "any"
+    },
+    {
+      "id": "STE-T2-VAG-0015",
+      "pattern": "appropriate"
+    },
+    {
+      "id": "STE-T2-VAG-0016",
+      "pattern": "approximate"
+    },
+    {
+      "id": "STE-T2-VAG-0017",
+      "pattern": "approximately"
+    },
+    {
+      "id": "STE-T2-VAG-0018",
+      "pattern": "as {adjective} as possible"
+    },
+    {
+      "id": "STE-T2-VAG-0019",
+      "pattern": "bad"
+    },
+    {
+      "id": "STE-T2-VAG-0020",
+      "pattern": "clear"
+    },
+    {
+      "id": "STE-T2-VAG-0021",
+      "pattern": "close"
+    },
+    {
+      "id": "STE-T2-VAG-0022",
+      "pattern": "close to"
+    },
+    {
+      "id": "STE-T2-VAG-0023",
+      "pattern": "common"
+    },
+    {
+      "id": "STE-T2-VAG-0024",
+      "pattern": "cost-effective"
+    },
+    {
+      "id": "STE-T2-VAG-0025",
+      "pattern": "customary"
+    },
+    {
+      "id": "STE-T2-VAG-0026",
+      "pattern": "easy"
+    },
+    {
+      "id": "STE-T2-VAG-0027",
+      "pattern": "easy to use"
+    },
+    {
+      "id": "STE-T2-VAG-0028",
+      "pattern": "effective"
+    },
+    {
+      "id": "STE-T2-VAG-0029",
+      "pattern": "efficient"
+    },
+    {
+      "id": "STE-T2-VAG-0030",
+      "pattern": "engaging"
+    },
+    {
+      "id": "STE-T2-VAG-0031",
+      "pattern": "essential"
+    },
+    {
+      "id": "STE-T2-VAG-0032",
+      "pattern": "expandable"
+    },
+    {
+      "id": "STE-T2-VAG-0033",
+      "pattern": "far"
+    },
+    {
+      "id": "STE-T2-VAG-0034",
+      "pattern": "fast"
+    },
+    {
+      "id": "STE-T2-VAG-0035",
+      "pattern": "feels good"
+    },
+    {
+      "id": "STE-T2-VAG-0036",
+      "pattern": "flexible"
+    },
+    {
+      "id": "STE-T2-VAG-0037",
+      "pattern": "fun"
+    },
+    {
+      "id": "STE-T2-VAG-0038",
+      "pattern": "game feel"
+    },
+    {
+      "id": "STE-T2-VAG-0039",
+      "pattern": "generic"
+    },
+    {
+      "id": "STE-T2-VAG-0040",
+      "pattern": "good"
+    },
+    {
+      "id": "STE-T2-VAG-0041",
+      "pattern": "immersive"
+    },
+    {
+      "id": "STE-T2-VAG-0042",
+      "pattern": "intuitive"
+    },
+    {
+      "id": "STE-T2-VAG-0043",
+      "pattern": "juicy"
+    },
+    {
+      "id": "STE-T2-VAG-0044",
+      "pattern": "large"
+    },
+    {
+      "id": "STE-T2-VAG-0045",
+      "pattern": "many"
+    },
+    {
+      "id": "STE-T2-VAG-0046",
+      "pattern": "multiple"
+    },
+    {
+      "id": "STE-T2-VAG-0047",
+      "pattern": "near"
+    },
+    {
+      "id": "STE-T2-VAG-0048",
+      "pattern": "nearly"
+    },
+    {
+      "id": "STE-T2-VAG-0049",
+      "pattern": "normal"
+    },
+    {
+      "id": "STE-T2-VAG-0050",
+      "pattern": "numerous"
+    },
+    {
+      "id": "STE-T2-VAG-0051",
+      "pattern": "polished"
+    },
+    {
+      "id": "STE-T2-VAG-0052",
+      "pattern": "proficient"
+    },
+    {
+      "id": "STE-T2-VAG-0053",
+      "pattern": "punchy"
+    },
+    {
+      "id": "STE-T2-VAG-0054",
+      "pattern": "rapid"
+    },
+    {
+      "id": "STE-T2-VAG-0055",
+      "pattern": "reasonable"
+    },
+    {
+      "id": "STE-T2-VAG-0056",
+      "pattern": "recent"
+    },
+    {
+      "id": "STE-T2-VAG-0057",
+      "pattern": "relevant"
+    },
+    {
+      "id": "STE-T2-VAG-0058",
+      "pattern": "responsive"
+    },
+    {
+      "id": "STE-T2-VAG-0059",
+      "pattern": "robust"
+    },
+    {
+      "id": "STE-T2-VAG-0060",
+      "pattern": "routine"
+    },
+    {
+      "id": "STE-T2-VAG-0061",
+      "pattern": "safe"
+    },
+    {
+      "id": "STE-T2-VAG-0062",
+      "pattern": "satisfying"
+    },
+    {
+      "id": "STE-T2-VAG-0063",
+      "pattern": "seamless"
+    },
+    {
+      "id": "STE-T2-VAG-0064",
+      "pattern": "several"
+    },
+    {
+      "id": "STE-T2-VAG-0065",
+      "pattern": "significant"
+    },
+    {
+      "id": "STE-T2-VAG-0066",
+      "pattern": "similar"
+    },
+    {
+      "id": "STE-T2-VAG-0067",
+      "pattern": "similarly"
+    },
+    {
+      "id": "STE-T2-VAG-0068",
+      "pattern": "slow"
+    },
+    {
+      "id": "STE-T2-VAG-0069",
+      "pattern": "small"
+    },
+    {
+      "id": "STE-T2-VAG-0070",
+      "pattern": "smooth"
+    },
+    {
+      "id": "STE-T2-VAG-0071",
+      "pattern": "snappy"
+    },
+    {
+      "id": "STE-T2-VAG-0072",
+      "pattern": "some"
+    },
+    {
+      "id": "STE-T2-VAG-0073",
+      "pattern": "strong"
+    },
+    {
+      "id": "STE-T2-VAG-0074",
+      "pattern": "sufficient"
+    },
+    {
+      "id": "STE-T2-VAG-0075",
+      "pattern": "suitable"
+    },
+    {
+      "id": "STE-T2-VAG-0076",
+      "pattern": "tight"
+    },
+    {
+      "id": "STE-T2-VAG-0077",
+      "pattern": "timely"
+    },
+    {
+      "id": "STE-T2-VAG-0078",
+      "pattern": "typical"
+    },
+    {
+      "id": "STE-T2-VAG-0079",
+      "pattern": "up to"
+    },
+    {
+      "id": "STE-T2-VAG-0080",
+      "pattern": "usable"
+    },
+    {
+      "id": "STE-T2-VAG-0081",
+      "pattern": "useful"
+    },
+    {
+      "id": "STE-T2-VAG-0082",
+      "pattern": "user-friendly"
+    },
+    {
+      "id": "STE-T2-VAG-0083",
+      "pattern": "various"
+    },
+    {
+      "id": "STE-T2-VAG-0084",
+      "pattern": "very nearly"
+    }
+  ],
+  "suppression": {
+    "rule": "Suppress a T2 finding when the sentence has a number with a unit, a named acceptance-condition ID reference, or a named verification phrase (G4).",
+    "id_prefixes": [
+      "TRU-",
+      "DEC-",
+      "TL-",
+      "TEST-",
+      "REQ-"
+    ]
+  },
+  "notes": {
+    "severity": "Warn in every profile (O1); design keeps T2 at warning explicitly (spec §7.4)."
+  },
+  "counts": {
+    "terms": 84
+  }
+}

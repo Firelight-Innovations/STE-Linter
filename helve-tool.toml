@@ -1,0 +1,9 @@
+[tool]
+id      = "ste100"
+version = "0.1.0"
+name    = "STE100 Linter"
+description = "ASD-STE100 Simplified Technical English linter for Markdown and CSV."
+
+[core]
+bin  = "bin/ste100-helve.cmd"
+args = ["--helve-rpc"]

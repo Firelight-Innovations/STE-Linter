@@ -1,0 +1,254 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# A superseded run tells you nothing useful; cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: tests (${{ matrix.os }}, py${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # 3.9 is the declared floor in pyproject.toml. It was verified by
+        # AST-parsing every module under src/ with feature_version=(3, 9) and
+        # grepping for 3.10+ stdlib (tomllib, datetime.UTC) -- not assumed.
+        # See CONTRIBUTING.md for how to re-check if the code changes.
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Stdlib only, by design -- there is nothing to install to run the
+      # suites. Proving the interpreter starts is the whole setup step.
+      - name: Verify interpreter
+        shell: bash
+        run: python -X utf8 -c "import sys; print(sys.version)"
+
+      # Each harness is asserted on BOTH its exit code and its success line.
+      # A script that exits 0 without actually running its checks -- as
+      # corpus_clean did when discovery found zero files -- must not read as
+      # green. The harnesses are invoked by path, which is stable across the
+      # src/ layout since tests/ did not move.
+      - name: Run corpus test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_corpus_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_corpus_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All corpus tests passed." <<< "$output"; then
+            echo "::error::run_corpus_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      - name: Run suggestion test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_suggestion_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_suggestion_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All suggestion tests passed." <<< "$output"; then
+            echo "::error::run_suggestion_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # --fix rewrites the user's source file, so its regressions are the
+      # expensive kind. It once deleted words and produced ungrammatical prose.
+      - name: Run fixer test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_fixer_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_fixer_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All fixer tests passed." <<< "$output"; then
+            echo "::error::run_fixer_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # --baseline is how an existing codebase adopts the linter. It is only
+      # useful if a NEW violation still surfaces past the baseline.
+      - name: Run baseline test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_baseline_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_baseline_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All baseline tests passed." <<< "$output"; then
+            echo "::error::run_baseline_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Covers the four places the engine used to ignore its own config.
+      - name: Run config test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_config_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_config_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All config tests passed." <<< "$output"; then
+            echo "::error::run_config_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Guards the out-of-box experience: the default preset must stay quiet
+      # on good, natural technical documentation. Without this, retuning a
+      # rule can silently make a new user's first run a wall of errors again.
+      - name: Run default-preset test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_default_preset_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_default_preset_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All default-preset tests passed." <<< "$output"; then
+            echo "::error::run_default_preset_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Drives the HELVE-ADE JSON-RPC server as a real subprocess. The
+      # assertion that matters most is stdout purity: the protocol is
+      # newline-delimited JSON over stdout, so a single stray print()
+      # anywhere in the package corrupts the stream for the host.
+      - name: Run HELVE integration test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_helve_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_helve_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All HELVE integration tests passed." <<< "$output"; then
+            echo "::error::run_helve_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Adversarial CSV input plus a 200-file performance budget. Hosted
+      # runners are slower than dev hardware, so a red result here is worth
+      # investigating rather than assuming flake.
+      - name: Run stress test suite
+        shell: bash
+        run: python -X utf8 tests/run_stress_tests.py
+
+  packaging:
+    name: packaging (wheel installs and runs)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The promise in the README is `pipx install ste100-linter; ste100 docs/`.
+      # This proves the wheel actually carries the rule tables and presets --
+      # the linter cannot start without them, and a packaging mistake that
+      # leaves them out is invisible to every test above, which runs from a
+      # source checkout.
+      - name: Build and install the wheel
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --wheel
+          python -m pip install dist/*.whl
+
+      - name: Console script runs from an unrelated directory
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/scratch/docs"
+          printf '# Guide\n\nThe operator shall use the control.\n' > "$RUNNER_TEMP/scratch/docs/guide.md"
+          cd "$RUNNER_TEMP/scratch"
+          ste100 --version
+          ste100 --explain STE-T5-ANDOR-0001
+          ste100 docs/
+
+      - name: python -m ste100 works too
+        shell: bash
+        run: python -m ste100 --version
+
+  dogfood:
+    name: dogfood (lint this repo's own docs)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Non-blocking on purpose. The shipped rule tables were calibrated for
+      # strict specification writing, and community-health prose legitimately
+      # uses words the stricter profiles reject. Tuning the default preset so
+      # this can become blocking is tracked separately; until then the real
+      # result stays visible in the job summary rather than being deleted.
+      - name: Lint repo Markdown
+        id: dogfood
+        shell: bash
+        continue-on-error: true
+        run: python -X utf8 ste_lint.py .
+
+      - name: Report dogfood result
+        shell: bash
+        run: |
+          if [ "${{ steps.dogfood.outcome }}" = "success" ]; then
+            echo "Dogfood step passed (exit 0)."
+          else
+            echo "::warning::Linting this repo's own Markdown did not exit 0. Non-blocking -- see the 'Lint repo Markdown' step for findings."
+          fi

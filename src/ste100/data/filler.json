@@ -1,0 +1,1723 @@
+{
+  "schema_version": 1,
+  "test": "T6",
+  "name": "Zero-information",
+  "default_tier": "error",
+  "fillers_and_intensifiers": [
+    {
+      "id": "STE-T6-FILL-0001",
+      "pattern": "abnormally"
+    },
+    {
+      "id": "STE-T6-FILL-0002",
+      "pattern": "absentmindedly"
+    },
+    {
+      "id": "STE-T6-FILL-0003",
+      "pattern": "absolutely"
+    },
+    {
+      "id": "STE-T6-FILL-0004",
+      "pattern": "accidentally"
+    },
+    {
+      "id": "STE-T6-FILL-0006",
+      "pattern": "actual"
+    },
+    {
+      "id": "STE-T6-FILL-0007",
+      "pattern": "actually"
+    },
+    {
+      "id": "STE-T6-FILL-0008",
+      "pattern": "adventurously"
+    },
+    {
+      "id": "STE-T6-FILL-0009",
+      "pattern": "amazing"
+    },
+    {
+      "id": "STE-T6-FILL-0010",
+      "pattern": "anxiously"
+    },
+    {
+      "id": "STE-T6-FILL-0011",
+      "pattern": "anyway"
+    },
+    {
+      "id": "STE-T6-FILL-0012",
+      "pattern": "apparently"
+    },
+    {
+      "id": "STE-T6-FILL-0013",
+      "pattern": "approximately"
+    },
+    {
+      "id": "STE-T6-FILL-0014",
+      "pattern": "arguably"
+    },
+    {
+      "id": "STE-T6-FILL-0015",
+      "pattern": "arrogantly"
+    },
+    {
+      "id": "STE-T6-FILL-0016",
+      "pattern": "awkwardly"
+    },
+    {
+      "id": "STE-T6-FILL-0017",
+      "pattern": "badly"
+    },
+    {
+      "id": "STE-T6-FILL-0018",
+      "pattern": "bashfully"
+    },
+    {
+      "id": "STE-T6-FILL-0019",
+      "pattern": "basically"
+    },
+    {
+      "id": "STE-T6-FILL-0020",
+      "pattern": "beautifully"
+    },
+    {
+      "id": "STE-T6-FILL-0021",
+      "pattern": "begin"
+    },
+    {
+      "id": "STE-T6-FILL-0023",
+      "pattern": "bitterly"
+    },
+    {
+      "id": "STE-T6-FILL-0024",
+      "pattern": "bleakly"
+    },
+    {
+      "id": "STE-T6-FILL-0025",
+      "pattern": "blindly"
+    },
+    {
+      "id": "STE-T6-FILL-0026",
+      "pattern": "blissfully"
+    },
+    {
+      "id": "STE-T6-FILL-0027",
+      "pattern": "boastfully"
+    },
+    {
+      "id": "STE-T6-FILL-0028",
+      "pattern": "boldly"
+    },
+    {
+      "id": "STE-T6-FILL-0030",
+      "pattern": "bravely"
+    },
+    {
+      "id": "STE-T6-FILL-0031",
+      "pattern": "briefly"
+    },
+    {
+      "id": "STE-T6-FILL-0032",
+      "pattern": "brightly"
+    },
+    {
+      "id": "STE-T6-FILL-0033",
+      "pattern": "briskly"
+    },
+    {
+      "id": "STE-T6-FILL-0034",
+      "pattern": "broadly"
+    },
+    {
+      "id": "STE-T6-FILL-0036",
+      "pattern": "busily"
+    },
+    {
+      "id": "STE-T6-FILL-0037",
+      "pattern": "calmly"
+    },
+    {
+      "id": "STE-T6-FILL-0038",
+      "pattern": "carefully"
+    },
+    {
+      "id": "STE-T6-FILL-0039",
+      "pattern": "carelessly"
+    },
+    {
+      "id": "STE-T6-FILL-0040",
+      "pattern": "cautiously"
+    },
+    {
+      "id": "STE-T6-FILL-0041",
+      "pattern": "certainly"
+    },
+    {
+      "id": "STE-T6-FILL-0042",
+      "pattern": "cheerfully"
+    },
+    {
+      "id": "STE-T6-FILL-0043",
+      "pattern": "clearly"
+    },
+    {
+      "id": "STE-T6-FILL-0044",
+      "pattern": "cleverly"
+    },
+    {
+      "id": "STE-T6-FILL-0045",
+      "pattern": "closely"
+    },
+    {
+      "id": "STE-T6-FILL-0046",
+      "pattern": "coaxingly"
+    },
+    {
+      "id": "STE-T6-FILL-0047",
+      "pattern": "colorfully"
+    },
+    {
+      "id": "STE-T6-FILL-0048",
+      "pattern": "completely"
+    },
+    {
+      "id": "STE-T6-FILL-0050",
+      "pattern": "continually"
+    },
+    {
+      "id": "STE-T6-FILL-0051",
+      "pattern": "coolly"
+    },
+    {
+      "id": "STE-T6-FILL-0053",
+      "pattern": "courageously"
+    },
+    {
+      "id": "STE-T6-FILL-0054",
+      "pattern": "crossly"
+    },
+    {
+      "id": "STE-T6-FILL-0056",
+      "pattern": "cruelly"
+    },
+    {
+      "id": "STE-T6-FILL-0057",
+      "pattern": "curiously"
+    },
+    {
+      "id": "STE-T6-FILL-0058",
+      "pattern": "daintily"
+    },
+    {
+      "id": "STE-T6-FILL-0059",
+      "pattern": "dearly"
+    },
+    {
+      "id": "STE-T6-FILL-0060",
+      "pattern": "deceivingly"
+    },
+    {
+      "id": "STE-T6-FILL-0061",
+      "pattern": "deeply"
+    },
+    {
+      "id": "STE-T6-FILL-0062",
+      "pattern": "defiantly"
+    },
+    {
+      "id": "STE-T6-FILL-0063",
+      "pattern": "definitely"
+    },
+    {
+      "id": "STE-T6-FILL-0064",
+      "pattern": "deliberately"
+    },
+    {
+      "id": "STE-T6-FILL-0065",
+      "pattern": "delightfully"
+    },
+    {
+      "id": "STE-T6-FILL-0068",
+      "pattern": "diligently"
+    },
+    {
+      "id": "STE-T6-FILL-0069",
+      "pattern": "dimly"
+    },
+    {
+      "id": "STE-T6-FILL-0070",
+      "pattern": "doubtfully"
+    },
+    {
+      "id": "STE-T6-FILL-0071",
+      "pattern": "dreamily"
+    },
+    {
+      "id": "STE-T6-FILL-0072",
+      "pattern": "easily"
+    },
+    {
+      "id": "STE-T6-FILL-0073",
+      "pattern": "effectively"
+    },
+    {
+      "id": "STE-T6-FILL-0074",
+      "pattern": "elegantly"
+    },
+    {
+      "id": "STE-T6-FILL-0077",
+      "pattern": "energetically"
+    },
+    {
+      "id": "STE-T6-FILL-0078",
+      "pattern": "enormously"
+    },
+    {
+      "id": "STE-T6-FILL-0079",
+      "pattern": "enthusiastically"
+    },
+    {
+      "id": "STE-T6-FILL-0080",
+      "pattern": "entirely"
+    },
+    {
+      "id": "STE-T6-FILL-0081",
+      "pattern": "especially"
+    },
+    {
+      "id": "STE-T6-FILL-0082",
+      "pattern": "essentially"
+    },
+    {
+      "id": "STE-T6-FILL-0083",
+      "pattern": "exactly"
+    },
+    {
+      "id": "STE-T6-FILL-0084",
+      "pattern": "excitedly"
+    },
+    {
+      "id": "STE-T6-FILL-0085",
+      "pattern": "extremely"
+    },
+    {
+      "id": "STE-T6-FILL-0086",
+      "pattern": "fairly"
+    },
+    {
+      "id": "STE-T6-FILL-0087",
+      "pattern": "faithfully"
+    },
+    {
+      "id": "STE-T6-FILL-0088",
+      "pattern": "famously"
+    },
+    {
+      "id": "STE-T6-FILL-0089",
+      "pattern": "ferociously"
+    },
+    {
+      "id": "STE-T6-FILL-0090",
+      "pattern": "fervently"
+    },
+    {
+      "id": "STE-T6-FILL-0091",
+      "pattern": "fiercely"
+    },
+    {
+      "id": "STE-T6-FILL-0092",
+      "pattern": "fondly"
+    },
+    {
+      "id": "STE-T6-FILL-0093",
+      "pattern": "foolishly"
+    },
+    {
+      "id": "STE-T6-FILL-0094",
+      "pattern": "fortunately"
+    },
+    {
+      "id": "STE-T6-FILL-0096",
+      "pattern": "frankly"
+    },
+    {
+      "id": "STE-T6-FILL-0097",
+      "pattern": "frantically"
+    },
+    {
+      "id": "STE-T6-FILL-0098",
+      "pattern": "freely"
+    },
+    {
+      "id": "STE-T6-FILL-0099",
+      "pattern": "frenetically"
+    },
+    {
+      "id": "STE-T6-FILL-0100",
+      "pattern": "frequently"
+    },
+    {
+      "id": "STE-T6-FILL-0101",
+      "pattern": "frightfully"
+    },
+    {
+      "id": "STE-T6-FILL-0102",
+      "pattern": "fully"
+    },
+    {
+      "id": "STE-T6-FILL-0103",
+      "pattern": "furiously"
+    },
+    {
+      "id": "STE-T6-FILL-0104",
+      "pattern": "generally"
+    },
+    {
+      "id": "STE-T6-FILL-0105",
+      "pattern": "generously"
+    },
+    {
+      "id": "STE-T6-FILL-0106",
+      "pattern": "gently"
+    },
+    {
+      "id": "STE-T6-FILL-0107",
+      "pattern": "gladly"
+    },
+    {
+      "id": "STE-T6-FILL-0108",
+      "pattern": "gleefully"
+    },
+    {
+      "id": "STE-T6-FILL-0109",
+      "pattern": "gracefully"
+    },
+    {
+      "id": "STE-T6-FILL-0111",
+      "pattern": "gratefully"
+    },
+    {
+      "id": "STE-T6-FILL-0112",
+      "pattern": "greatly"
+    },
+    {
+      "id": "STE-T6-FILL-0113",
+      "pattern": "greedily"
+    },
+    {
+      "id": "STE-T6-FILL-0114",
+      "pattern": "happily"
+    },
+    {
+      "id": "STE-T6-FILL-0115",
+      "pattern": "hardly"
+    },
+    {
+      "id": "STE-T6-FILL-0117",
+      "pattern": "hastily"
+    },
+    {
+      "id": "STE-T6-FILL-0118",
+      "pattern": "healthily"
+    },
+    {
+      "id": "STE-T6-FILL-0119",
+      "pattern": "heavily"
+    },
+    {
+      "id": "STE-T6-FILL-0120",
+      "pattern": "helplessly"
+    },
+    {
+      "id": "STE-T6-FILL-0121",
+      "pattern": "highly"
+    },
+    {
+      "id": "STE-T6-FILL-0123",
+      "pattern": "honestly"
+    },
+    {
+      "id": "STE-T6-FILL-0124",
+      "pattern": "hopefully"
+    },
+    {
+      "id": "STE-T6-FILL-0125",
+      "pattern": "hopelessly"
+    },
+    {
+      "id": "STE-T6-FILL-0126",
+      "pattern": "hungrily"
+    },
+    {
+      "id": "STE-T6-FILL-0128",
+      "pattern": "innocently"
+    },
+    {
+      "id": "STE-T6-FILL-0129",
+      "pattern": "inquisitively"
+    },
+    {
+      "id": "STE-T6-FILL-0130",
+      "pattern": "intensely"
+    },
+    {
+      "id": "STE-T6-FILL-0131",
+      "pattern": "intently"
+    },
+    {
+      "id": "STE-T6-FILL-0132",
+      "pattern": "interestingly"
+    },
+    {
+      "id": "STE-T6-FILL-0133",
+      "pattern": "inwardly"
+    },
+    {
+      "id": "STE-T6-FILL-0134",
+      "pattern": "irritably"
+    },
+    {
+      "id": "STE-T6-FILL-0135",
+      "pattern": "jaggedly"
+    },
+    {
+      "id": "STE-T6-FILL-0136",
+      "pattern": "jealously"
+    },
+    {
+      "id": "STE-T6-FILL-0137",
+      "pattern": "jovially"
+    },
+    {
+      "id": "STE-T6-FILL-0138",
+      "pattern": "joyfully"
+    },
+    {
+      "id": "STE-T6-FILL-0139",
+      "pattern": "joyously"
+    },
+    {
+      "id": "STE-T6-FILL-0140",
+      "pattern": "jubilantly"
+    },
+    {
+      "id": "STE-T6-FILL-0141",
+      "pattern": "judgmentally"
+    },
+    {
+      "id": "STE-T6-FILL-0142",
+      "pattern": "just"
+    },
+    {
+      "id": "STE-T6-FILL-0143",
+      "pattern": "justly"
+    },
+    {
+      "id": "STE-T6-FILL-0144",
+      "pattern": "keenly"
+    },
+    {
+      "id": "STE-T6-FILL-0145",
+      "pattern": "kiddingly"
+    },
+    {
+      "id": "STE-T6-FILL-0146",
+      "pattern": "kindheartedly"
+    },
+    {
+      "id": "STE-T6-FILL-0147",
+      "pattern": "knavishly"
+    },
+    {
+      "id": "STE-T6-FILL-0148",
+      "pattern": "knowingly"
+    },
+    {
+      "id": "STE-T6-FILL-0149",
+      "pattern": "knowledgeably"
+    },
+    {
+      "id": "STE-T6-FILL-0151",
+      "pattern": "largely"
+    },
+    {
+      "id": "STE-T6-FILL-0152",
+      "pattern": "lazily"
+    },
+    {
+      "id": "STE-T6-FILL-0154",
+      "pattern": "lightly"
+    },
+    {
+      "id": "STE-T6-FILL-0155",
+      "pattern": "like"
+    },
+    {
+      "id": "STE-T6-FILL-0156",
+      "pattern": "limply"
+    },
+    {
+      "id": "STE-T6-FILL-0157",
+      "pattern": "literally"
+    },
+    {
+      "id": "STE-T6-FILL-0158",
+      "pattern": "lively"
+    },
+    {
+      "id": "STE-T6-FILL-0159",
+      "pattern": "loftily"
+    },
+    {
+      "id": "STE-T6-FILL-0160",
+      "pattern": "longingly"
+    },
+    {
+      "id": "STE-T6-FILL-0161",
+      "pattern": "loosely"
+    },
+    {
+      "id": "STE-T6-FILL-0162",
+      "pattern": "loudly"
+    },
+    {
+      "id": "STE-T6-FILL-0163",
+      "pattern": "lovingly"
+    },
+    {
+      "id": "STE-T6-FILL-0164",
+      "pattern": "loyally"
+    },
+    {
+      "id": "STE-T6-FILL-0165",
+      "pattern": "madly"
+    },
+    {
+      "id": "STE-T6-FILL-0166",
+      "pattern": "majestically"
+    },
+    {
+      "id": "STE-T6-FILL-0167",
+      "pattern": "maybe"
+    },
+    {
+      "id": "STE-T6-FILL-0168",
+      "pattern": "meaningfully"
+    },
+    {
+      "id": "STE-T6-FILL-0169",
+      "pattern": "mechanically"
+    },
+    {
+      "id": "STE-T6-FILL-0170",
+      "pattern": "merrily"
+    },
+    {
+      "id": "STE-T6-FILL-0172",
+      "pattern": "might"
+    },
+    {
+      "id": "STE-T6-FILL-0173",
+      "pattern": "miserably"
+    },
+    {
+      "id": "STE-T6-FILL-0174",
+      "pattern": "mockingly"
+    },
+    {
+      "id": "STE-T6-FILL-0175",
+      "pattern": "mortally"
+    },
+    {
+      "id": "STE-T6-FILL-0176",
+      "pattern": "most"
+    },
+    {
+      "id": "STE-T6-FILL-0177",
+      "pattern": "mostly"
+    },
+    {
+      "id": "STE-T6-FILL-0178",
+      "pattern": "much"
+    },
+    {
+      "id": "STE-T6-FILL-0180",
+      "pattern": "mysteriously"
+    },
+    {
+      "id": "STE-T6-FILL-0181",
+      "pattern": "naturally"
+    },
+    {
+      "id": "STE-T6-FILL-0183",
+      "pattern": "nearly"
+    },
+    {
+      "id": "STE-T6-FILL-0184",
+      "pattern": "neatly"
+    },
+    {
+      "id": "STE-T6-FILL-0185",
+      "pattern": "necessarily"
+    },
+    {
+      "id": "STE-T6-FILL-0186",
+      "pattern": "nervously"
+    },
+    {
+      "id": "STE-T6-FILL-0187",
+      "pattern": "nicely"
+    },
+    {
+      "id": "STE-T6-FILL-0188",
+      "pattern": "noisily"
+    },
+    {
+      "id": "STE-T6-FILL-0190",
+      "pattern": "obediently"
+    },
+    {
+      "id": "STE-T6-FILL-0191",
+      "pattern": "obnoxiously"
+    },
+    {
+      "id": "STE-T6-FILL-0192",
+      "pattern": "obviously"
+    },
+    {
+      "id": "STE-T6-FILL-0193",
+      "pattern": "oddly"
+    },
+    {
+      "id": "STE-T6-FILL-0194",
+      "pattern": "offensively"
+    },
+    {
+      "id": "STE-T6-FILL-0195",
+      "pattern": "ok"
+    },
+    {
+      "id": "STE-T6-FILL-0196",
+      "pattern": "okay"
+    },
+    {
+      "id": "STE-T6-FILL-0197",
+      "pattern": "optimistically"
+    },
+    {
+      "id": "STE-T6-FILL-0198",
+      "pattern": "overconfidently"
+    },
+    {
+      "id": "STE-T6-FILL-0199",
+      "pattern": "painfully"
+    },
+    {
+      "id": "STE-T6-FILL-0201",
+      "pattern": "partially"
+    },
+    {
+      "id": "STE-T6-FILL-0202",
+      "pattern": "particularly"
+    },
+    {
+      "id": "STE-T6-FILL-0203",
+      "pattern": "patiently"
+    },
+    {
+      "id": "STE-T6-FILL-0204",
+      "pattern": "perfectly"
+    },
+    {
+      "id": "STE-T6-FILL-0205",
+      "pattern": "perhaps"
+    },
+    {
+      "id": "STE-T6-FILL-0206",
+      "pattern": "playfully"
+    },
+    {
+      "id": "STE-T6-FILL-0208",
+      "pattern": "politely"
+    },
+    {
+      "id": "STE-T6-FILL-0209",
+      "pattern": "poorly"
+    },
+    {
+      "id": "STE-T6-FILL-0210",
+      "pattern": "positively"
+    },
+    {
+      "id": "STE-T6-FILL-0211",
+      "pattern": "possibly"
+    },
+    {
+      "id": "STE-T6-FILL-0212",
+      "pattern": "potentially"
+    },
+    {
+      "id": "STE-T6-FILL-0213",
+      "pattern": "powerfully"
+    },
+    {
+      "id": "STE-T6-FILL-0214",
+      "pattern": "practically"
+    },
+    {
+      "id": "STE-T6-FILL-0215",
+      "pattern": "precisely"
+    },
+    {
+      "id": "STE-T6-FILL-0216",
+      "pattern": "primarily"
+    },
+    {
+      "id": "STE-T6-FILL-0218",
+      "pattern": "probably"
+    },
+    {
+      "id": "STE-T6-FILL-0219",
+      "pattern": "promptly"
+    },
+    {
+      "id": "STE-T6-FILL-0220",
+      "pattern": "properly"
+    },
+    {
+      "id": "STE-T6-FILL-0221",
+      "pattern": "punctually"
+    },
+    {
+      "id": "STE-T6-FILL-0222",
+      "pattern": "quaintly"
+    },
+    {
+      "id": "STE-T6-FILL-0223",
+      "pattern": "queasily"
+    },
+    {
+      "id": "STE-T6-FILL-0224",
+      "pattern": "queerly"
+    },
+    {
+      "id": "STE-T6-FILL-0225",
+      "pattern": "questionably"
+    },
+    {
+      "id": "STE-T6-FILL-0226",
+      "pattern": "quickly"
+    },
+    {
+      "id": "STE-T6-FILL-0227",
+      "pattern": "quietly"
+    },
+    {
+      "id": "STE-T6-FILL-0228",
+      "pattern": "quirkily"
+    },
+    {
+      "id": "STE-T6-FILL-0229",
+      "pattern": "quite"
+    },
+    {
+      "id": "STE-T6-FILL-0230",
+      "pattern": "quizzically"
+    },
+    {
+      "id": "STE-T6-FILL-0231",
+      "pattern": "randomly"
+    },
+    {
+      "id": "STE-T6-FILL-0232",
+      "pattern": "rapidly"
+    },
+    {
+      "id": "STE-T6-FILL-0233",
+      "pattern": "rarely"
+    },
+    {
+      "id": "STE-T6-FILL-0234",
+      "pattern": "rather"
+    },
+    {
+      "id": "STE-T6-FILL-0235",
+      "pattern": "readily"
+    },
+    {
+      "id": "STE-T6-FILL-0236",
+      "pattern": "real"
+    },
+    {
+      "id": "STE-T6-FILL-0237",
+      "pattern": "really"
+    },
+    {
+      "id": "STE-T6-FILL-0239",
+      "pattern": "reassuringly"
+    },
+    {
+      "id": "STE-T6-FILL-0240",
+      "pattern": "recklessly"
+    },
+    {
+      "id": "STE-T6-FILL-0241",
+      "pattern": "regularly"
+    },
+    {
+      "id": "STE-T6-FILL-0242",
+      "pattern": "relatively"
+    },
+    {
+      "id": "STE-T6-FILL-0243",
+      "pattern": "reluctantly"
+    },
+    {
+      "id": "STE-T6-FILL-0244",
+      "pattern": "repeatedly"
+    },
+    {
+      "id": "STE-T6-FILL-0245",
+      "pattern": "reproachfully"
+    },
+    {
+      "id": "STE-T6-FILL-0246",
+      "pattern": "restfully"
+    },
+    {
+      "id": "STE-T6-FILL-0247",
+      "pattern": "right"
+    },
+    {
+      "id": "STE-T6-FILL-0248",
+      "pattern": "righteously"
+    },
+    {
+      "id": "STE-T6-FILL-0249",
+      "pattern": "rightfully"
+    },
+    {
+      "id": "STE-T6-FILL-0250",
+      "pattern": "rigidly"
+    },
+    {
+      "id": "STE-T6-FILL-0252",
+      "pattern": "roughly"
+    },
+    {
+      "id": "STE-T6-FILL-0253",
+      "pattern": "rudely"
+    },
+    {
+      "id": "STE-T6-FILL-0254",
+      "pattern": "safely"
+    },
+    {
+      "id": "STE-T6-FILL-0256",
+      "pattern": "scarcely"
+    },
+    {
+      "id": "STE-T6-FILL-0257",
+      "pattern": "scarily"
+    },
+    {
+      "id": "STE-T6-FILL-0259",
+      "pattern": "searchingly"
+    },
+    {
+      "id": "STE-T6-FILL-0260",
+      "pattern": "sedately"
+    },
+    {
+      "id": "STE-T6-FILL-0261",
+      "pattern": "seemingly"
+    },
+    {
+      "id": "STE-T6-FILL-0262",
+      "pattern": "selfishly"
+    },
+    {
+      "id": "STE-T6-FILL-0263",
+      "pattern": "separately"
+    },
+    {
+      "id": "STE-T6-FILL-0264",
+      "pattern": "seriously"
+    },
+    {
+      "id": "STE-T6-FILL-0265",
+      "pattern": "shakily"
+    },
+    {
+      "id": "STE-T6-FILL-0266",
+      "pattern": "sharply"
+    },
+    {
+      "id": "STE-T6-FILL-0267",
+      "pattern": "sheepishly"
+    },
+    {
+      "id": "STE-T6-FILL-0268",
+      "pattern": "shrilly"
+    },
+    {
+      "id": "STE-T6-FILL-0269",
+      "pattern": "shyly"
+    },
+    {
+      "id": "STE-T6-FILL-0270",
+      "pattern": "significantly"
+    },
+    {
+      "id": "STE-T6-FILL-0271",
+      "pattern": "silently"
+    },
+    {
+      "id": "STE-T6-FILL-0272",
+      "pattern": "simply"
+    },
+    {
+      "id": "STE-T6-FILL-0273",
+      "pattern": "sleepily"
+    },
+    {
+      "id": "STE-T6-FILL-0274",
+      "pattern": "slightly"
+    },
+    {
+      "id": "STE-T6-FILL-0275",
+      "pattern": "slowly"
+    },
+    {
+      "id": "STE-T6-FILL-0276",
+      "pattern": "smoothly"
+    },
+    {
+      "id": "STE-T6-FILL-0277",
+      "pattern": "so"
+    },
+    {
+      "id": "STE-T6-FILL-0278",
+      "pattern": "softly"
+    },
+    {
+      "id": "STE-T6-FILL-0279",
+      "pattern": "solemnly"
+    },
+    {
+      "id": "STE-T6-FILL-0280",
+      "pattern": "solidly"
+    },
+    {
+      "id": "STE-T6-FILL-0281",
+      "pattern": "somewhat"
+    },
+    {
+      "id": "STE-T6-FILL-0282",
+      "pattern": "specifically"
+    },
+    {
+      "id": "STE-T6-FILL-0283",
+      "pattern": "speedily"
+    },
+    {
+      "id": "STE-T6-FILL-0284",
+      "pattern": "start"
+    },
+    {
+      "id": "STE-T6-FILL-0286",
+      "pattern": "stealthily"
+    },
+    {
+      "id": "STE-T6-FILL-0287",
+      "pattern": "sternly"
+    },
+    {
+      "id": "STE-T6-FILL-0288",
+      "pattern": "strictly"
+    },
+    {
+      "id": "STE-T6-FILL-0289",
+      "pattern": "strongly"
+    },
+    {
+      "id": "STE-T6-FILL-0290",
+      "pattern": "stuff"
+    },
+    {
+      "id": "STE-T6-FILL-0291",
+      "pattern": "substantially"
+    },
+    {
+      "id": "STE-T6-FILL-0292",
+      "pattern": "suddenly"
+    },
+    {
+      "id": "STE-T6-FILL-0293",
+      "pattern": "supposedly"
+    },
+    {
+      "id": "STE-T6-FILL-0294",
+      "pattern": "surely"
+    },
+    {
+      "id": "STE-T6-FILL-0295",
+      "pattern": "surprisingly"
+    },
+    {
+      "id": "STE-T6-FILL-0296",
+      "pattern": "suspiciously"
+    },
+    {
+      "id": "STE-T6-FILL-0297",
+      "pattern": "sweetly"
+    },
+    {
+      "id": "STE-T6-FILL-0298",
+      "pattern": "swiftly"
+    },
+    {
+      "id": "STE-T6-FILL-0299",
+      "pattern": "sympathetically"
+    },
+    {
+      "id": "STE-T6-FILL-0302",
+      "pattern": "tenderly"
+    },
+    {
+      "id": "STE-T6-FILL-0303",
+      "pattern": "tensely"
+    },
+    {
+      "id": "STE-T6-FILL-0304",
+      "pattern": "terribly"
+    },
+    {
+      "id": "STE-T6-FILL-0306",
+      "pattern": "thankfully"
+    },
+    {
+      "id": "STE-T6-FILL-0307",
+      "pattern": "things"
+    },
+    {
+      "id": "STE-T6-FILL-0308",
+      "pattern": "thoroughly"
+    },
+    {
+      "id": "STE-T6-FILL-0309",
+      "pattern": "thoughtfully"
+    },
+    {
+      "id": "STE-T6-FILL-0310",
+      "pattern": "tightly"
+    },
+    {
+      "id": "STE-T6-FILL-0311",
+      "pattern": "too"
+    },
+    {
+      "id": "STE-T6-FILL-0312",
+      "pattern": "totally"
+    },
+    {
+      "id": "STE-T6-FILL-0313",
+      "pattern": "tremendously"
+    },
+    {
+      "id": "STE-T6-FILL-0314",
+      "pattern": "triumphantly"
+    },
+    {
+      "id": "STE-T6-FILL-0315",
+      "pattern": "truly"
+    },
+    {
+      "id": "STE-T6-FILL-0316",
+      "pattern": "truthfully"
+    },
+    {
+      "id": "STE-T6-FILL-0317",
+      "pattern": "try"
+    },
+    {
+      "id": "STE-T6-FILL-0318",
+      "pattern": "typically"
+    },
+    {
+      "id": "STE-T6-FILL-0320",
+      "pattern": "ultimately"
+    },
+    {
+      "id": "STE-T6-FILL-0321",
+      "pattern": "unabashedly"
+    },
+    {
+      "id": "STE-T6-FILL-0322",
+      "pattern": "unaccountably"
+    },
+    {
+      "id": "STE-T6-FILL-0323",
+      "pattern": "unbearably"
+    },
+    {
+      "id": "STE-T6-FILL-0326",
+      "pattern": "unethically"
+    },
+    {
+      "id": "STE-T6-FILL-0327",
+      "pattern": "unexpectedly"
+    },
+    {
+      "id": "STE-T6-FILL-0328",
+      "pattern": "unfortunately"
+    },
+    {
+      "id": "STE-T6-FILL-0329",
+      "pattern": "unimpressively"
+    },
+    {
+      "id": "STE-T6-FILL-0331",
+      "pattern": "unnaturally"
+    },
+    {
+      "id": "STE-T6-FILL-0332",
+      "pattern": "unnecessarily"
+    },
+    {
+      "id": "STE-T6-FILL-0334",
+      "pattern": "urgently"
+    },
+    {
+      "id": "STE-T6-FILL-0335",
+      "pattern": "usefully"
+    },
+    {
+      "id": "STE-T6-FILL-0336",
+      "pattern": "uselessly"
+    },
+    {
+      "id": "STE-T6-FILL-0337",
+      "pattern": "usually"
+    },
+    {
+      "id": "STE-T6-FILL-0338",
+      "pattern": "utterly"
+    },
+    {
+      "id": "STE-T6-FILL-0339",
+      "pattern": "vacantly"
+    },
+    {
+      "id": "STE-T6-FILL-0340",
+      "pattern": "vaguely"
+    },
+    {
+      "id": "STE-T6-FILL-0341",
+      "pattern": "vainly"
+    },
+    {
+      "id": "STE-T6-FILL-0342",
+      "pattern": "valiantly"
+    },
+    {
+      "id": "STE-T6-FILL-0343",
+      "pattern": "vastly"
+    },
+    {
+      "id": "STE-T6-FILL-0344",
+      "pattern": "verbally"
+    },
+    {
+      "id": "STE-T6-FILL-0346",
+      "pattern": "very"
+    },
+    {
+      "id": "STE-T6-FILL-0347",
+      "pattern": "viciously"
+    },
+    {
+      "id": "STE-T6-FILL-0348",
+      "pattern": "victoriously"
+    },
+    {
+      "id": "STE-T6-FILL-0349",
+      "pattern": "violently"
+    },
+    {
+      "id": "STE-T6-FILL-0350",
+      "pattern": "virtually"
+    },
+    {
+      "id": "STE-T6-FILL-0352",
+      "pattern": "vivaciously"
+    },
+    {
+      "id": "STE-T6-FILL-0353",
+      "pattern": "voluntarily"
+    },
+    {
+      "id": "STE-T6-FILL-0354",
+      "pattern": "warmly"
+    },
+    {
+      "id": "STE-T6-FILL-0355",
+      "pattern": "weakly"
+    },
+    {
+      "id": "STE-T6-FILL-0356",
+      "pattern": "wearily"
+    },
+    {
+      "id": "STE-T6-FILL-0357",
+      "pattern": "well"
+    },
+    {
+      "id": "STE-T6-FILL-0358",
+      "pattern": "wetly"
+    },
+    {
+      "id": "STE-T6-FILL-0359",
+      "pattern": "whatever"
+    },
+    {
+      "id": "STE-T6-FILL-0360",
+      "pattern": "whenever"
+    },
+    {
+      "id": "STE-T6-FILL-0361",
+      "pattern": "wherever"
+    },
+    {
+      "id": "STE-T6-FILL-0362",
+      "pattern": "whoever"
+    },
+    {
+      "id": "STE-T6-FILL-0363",
+      "pattern": "wholly"
+    },
+    {
+      "id": "STE-T6-FILL-0364",
+      "pattern": "widely"
+    },
+    {
+      "id": "STE-T6-FILL-0365",
+      "pattern": "wildly"
+    },
+    {
+      "id": "STE-T6-FILL-0366",
+      "pattern": "willfully"
+    },
+    {
+      "id": "STE-T6-FILL-0367",
+      "pattern": "wisely"
+    },
+    {
+      "id": "STE-T6-FILL-0368",
+      "pattern": "woefully"
+    },
+    {
+      "id": "STE-T6-FILL-0369",
+      "pattern": "wonderfully"
+    },
+    {
+      "id": "STE-T6-FILL-0370",
+      "pattern": "worriedly"
+    },
+    {
+      "id": "STE-T6-FILL-0371",
+      "pattern": "yawningly"
+    },
+    {
+      "id": "STE-T6-FILL-0372",
+      "pattern": "yearningly"
+    },
+    {
+      "id": "STE-T6-FILL-0373",
+      "pattern": "yieldingly"
+    },
+    {
+      "id": "STE-T6-FILL-0374",
+      "pattern": "youthfully"
+    },
+    {
+      "id": "STE-T6-FILL-0375",
+      "pattern": "zealously"
+    },
+    {
+      "id": "STE-T6-FILL-0376",
+      "pattern": "zestfully"
+    },
+    {
+      "id": "STE-T6-FILL-0377",
+      "pattern": "zestily"
+    }
+  ],
+  "overused_vocabulary": [
+    {
+      "id": "STE-T6-FILL-0005",
+      "pattern": "actionable"
+    },
+    {
+      "id": "STE-T6-FILL-0022",
+      "pattern": "best-in-class"
+    },
+    {
+      "id": "STE-T6-FILL-0029",
+      "pattern": "bolster"
+    },
+    {
+      "id": "STE-T6-FILL-0035",
+      "pattern": "burgeoning"
+    },
+    {
+      "id": "STE-T6-FILL-0049",
+      "pattern": "comprehensive"
+    },
+    {
+      "id": "STE-T6-FILL-0052",
+      "pattern": "cornerstone"
+    },
+    {
+      "id": "STE-T6-FILL-0055",
+      "pattern": "crucial"
+    },
+    {
+      "id": "STE-T6-FILL-0066",
+      "pattern": "delve"
+    },
+    {
+      "id": "STE-T6-FILL-0067",
+      "pattern": "democratize"
+    },
+    {
+      "id": "STE-T6-FILL-0075",
+      "pattern": "elevate"
+    },
+    {
+      "id": "STE-T6-FILL-0076",
+      "pattern": "empower"
+    },
+    {
+      "id": "STE-T6-FILL-0095",
+      "pattern": "foster"
+    },
+    {
+      "id": "STE-T6-FILL-0110",
+      "pattern": "granular"
+    },
+    {
+      "id": "STE-T6-FILL-0116",
+      "pattern": "harness"
+    },
+    {
+      "id": "STE-T6-FILL-0122",
+      "pattern": "holistic"
+    },
+    {
+      "id": "STE-T6-FILL-0127",
+      "pattern": "impactful"
+    },
+    {
+      "id": "STE-T6-FILL-0150",
+      "pattern": "landscape"
+    },
+    {
+      "id": "STE-T6-FILL-0153",
+      "pattern": "leverage"
+    },
+    {
+      "id": "STE-T6-FILL-0171",
+      "pattern": "meticulous"
+    },
+    {
+      "id": "STE-T6-FILL-0179",
+      "pattern": "myriad"
+    },
+    {
+      "id": "STE-T6-FILL-0182",
+      "pattern": "navigate"
+    },
+    {
+      "id": "STE-T6-FILL-0189",
+      "pattern": "nuanced"
+    },
+    {
+      "id": "STE-T6-FILL-0200",
+      "pattern": "paradigm"
+    },
+    {
+      "id": "STE-T6-FILL-0207",
+      "pattern": "plethora"
+    },
+    {
+      "id": "STE-T6-FILL-0217",
+      "pattern": "proactive"
+    },
+    {
+      "id": "STE-T6-FILL-0238",
+      "pattern": "realm"
+    },
+    {
+      "id": "STE-T6-FILL-0251",
+      "pattern": "robust"
+    },
+    {
+      "id": "STE-T6-FILL-0255",
+      "pattern": "scalable"
+    },
+    {
+      "id": "STE-T6-FILL-0258",
+      "pattern": "seamlessly"
+    },
+    {
+      "id": "STE-T6-FILL-0285",
+      "pattern": "state-of-the-art"
+    },
+    {
+      "id": "STE-T6-FILL-0300",
+      "pattern": "synergy"
+    },
+    {
+      "id": "STE-T6-FILL-0301",
+      "pattern": "tapestry"
+    },
+    {
+      "id": "STE-T6-FILL-0305",
+      "pattern": "testament"
+    },
+    {
+      "id": "STE-T6-FILL-0319",
+      "pattern": "ubiquitous"
+    },
+    {
+      "id": "STE-T6-FILL-0324",
+      "pattern": "underpins"
+    },
+    {
+      "id": "STE-T6-FILL-0325",
+      "pattern": "underscore"
+    },
+    {
+      "id": "STE-T6-FILL-0330",
+      "pattern": "unleash"
+    },
+    {
+      "id": "STE-T6-FILL-0333",
+      "pattern": "unprecedented"
+    },
+    {
+      "id": "STE-T6-FILL-0345",
+      "pattern": "versatile"
+    },
+    {
+      "id": "STE-T6-FILL-0351",
+      "pattern": "vital"
+    }
+  ],
+  "weasel_words": [
+    {
+      "id": "STE-T6-WEASEL-0001",
+      "pattern": "clearly"
+    },
+    {
+      "id": "STE-T6-WEASEL-0002",
+      "pattern": "completely"
+    },
+    {
+      "id": "STE-T6-WEASEL-0003",
+      "pattern": "extremely"
+    },
+    {
+      "id": "STE-T6-WEASEL-0004",
+      "pattern": "fairly"
+    },
+    {
+      "id": "STE-T6-WEASEL-0005",
+      "pattern": "largely"
+    },
+    {
+      "id": "STE-T6-WEASEL-0006",
+      "pattern": "like"
+    },
+    {
+      "id": "STE-T6-WEASEL-0007",
+      "pattern": "many"
+    },
+    {
+      "id": "STE-T6-WEASEL-0008",
+      "pattern": "might"
+    },
+    {
+      "id": "STE-T6-WEASEL-0009",
+      "pattern": "most"
+    },
+    {
+      "id": "STE-T6-WEASEL-0010",
+      "pattern": "mostly"
+    },
+    {
+      "id": "STE-T6-WEASEL-0011",
+      "pattern": "probably"
+    },
+    {
+      "id": "STE-T6-WEASEL-0012",
+      "pattern": "quite"
+    },
+    {
+      "id": "STE-T6-WEASEL-0013",
+      "pattern": "rather"
+    },
+    {
+      "id": "STE-T6-WEASEL-0014",
+      "pattern": "really"
+    },
+    {
+      "id": "STE-T6-WEASEL-0015",
+      "pattern": "relatively"
+    },
+    {
+      "id": "STE-T6-WEASEL-0016",
+      "pattern": "several"
+    },
+    {
+      "id": "STE-T6-WEASEL-0017",
+      "pattern": "significantly"
+    },
+    {
+      "id": "STE-T6-WEASEL-0018",
+      "pattern": "very"
+    },
+    {
+      "id": "STE-T6-WEASEL-0019",
+      "pattern": "virtually"
+    }
+  ],
+  "corporate_speak": [
+    {
+      "id": "STE-T6-CORP-0001",
+      "pattern": "all hands on deck"
+    },
+    {
+      "id": "STE-T6-CORP-0002",
+      "pattern": "apples to apples"
+    },
+    {
+      "id": "STE-T6-CORP-0003",
+      "pattern": "at the end of the day"
+    },
+    {
+      "id": "STE-T6-CORP-0004",
+      "pattern": "back to the drawing board"
+    },
+    {
+      "id": "STE-T6-CORP-0005",
+      "pattern": "bang for your buck"
+    },
+    {
+      "id": "STE-T6-CORP-0006",
+      "pattern": "circle back"
+    },
+    {
+      "id": "STE-T6-CORP-0007",
+      "pattern": "drill-down"
+    },
+    {
+      "id": "STE-T6-CORP-0008",
+      "pattern": "elephant in the room"
+    },
+    {
+      "id": "STE-T6-CORP-0009",
+      "pattern": "get the ball rolling"
+    },
+    {
+      "id": "STE-T6-CORP-0010",
+      "pattern": "hit the ground running"
+    },
+    {
+      "id": "STE-T6-CORP-0011",
+      "pattern": "i don't have the bandwidth"
+    },
+    {
+      "id": "STE-T6-CORP-0012",
+      "pattern": "it's on my radar"
+    },
+    {
+      "id": "STE-T6-CORP-0013",
+      "pattern": "let's touch base"
+    },
+    {
+      "id": "STE-T6-CORP-0014",
+      "pattern": "low-hanging fruit"
+    },
+    {
+      "id": "STE-T6-CORP-0015",
+      "pattern": "move the goal post"
+    },
+    {
+      "id": "STE-T6-CORP-0016",
+      "pattern": "no brainer"
+    },
+    {
+      "id": "STE-T6-CORP-0017",
+      "pattern": "on my plate"
+    },
+    {
+      "id": "STE-T6-CORP-0018",
+      "pattern": "par for the course"
+    },
+    {
+      "id": "STE-T6-CORP-0019",
+      "pattern": "ping me"
+    },
+    {
+      "id": "STE-T6-CORP-0020",
+      "pattern": "synergy"
+    },
+    {
+      "id": "STE-T6-CORP-0021",
+      "pattern": "take this offline"
+    },
+    {
+      "id": "STE-T6-CORP-0022",
+      "pattern": "think outside the box"
+    },
+    {
+      "id": "STE-T6-CORP-0023",
+      "pattern": "thrown under the bus"
+    },
+    {
+      "id": "STE-T6-CORP-0024",
+      "pattern": "win-win"
+    }
+  ],
+  "nominalization": {
+    "id": "STE-T6-NOM-0001",
+    "weak_verbs": [
+      "make",
+      "perform",
+      "conduct",
+      "provide",
+      "carry out",
+      "undertake",
+      "do",
+      "give"
+    ],
+    "noun_suffixes": [
+      "tion",
+      "ment",
+      "ance",
+      "ence",
+      "ing"
+    ]
+  },
+  "generic_ly_adverb_detection": "review",
+  "notes": {
+    "weasel_cross_check": "MERGED.weasel_and_hedge (280) used only as a cross-check; 1 punctuation-only junk keys skipped. The authoritative weasel list is the 19 words above (§8.6)."
+  },
+  "counts": {
+    "fillers_and_intensifiers": 337,
+    "weasel_words": 19,
+    "overused_vocabulary": 40
+  }
+}

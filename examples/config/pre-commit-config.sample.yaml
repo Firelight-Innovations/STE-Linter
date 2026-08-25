@@ -1,0 +1,17 @@
+# Sample consumer-side .pre-commit-config.yaml. Copy this into a project
+# that wants ste100-linter as a pre-commit hook -- this is what a
+# *consuming* repo puts in its own .pre-commit-config.yaml, referencing the
+# hook definitions this repo publishes in its own .pre-commit-hooks.yaml.
+repos:
+  - repo: https://github.com/Firelight-Innovations/STE100-Linter
+    rev: v0.1.0  # pin to a real tag or commit SHA once one is cut
+    hooks:
+      - id: ste100-lint
+        # Optionally scope to a subset of Markdown/CSV, e.g.:
+        # files: ^docs/
+
+      # Auto-fix unambiguous T1 substitutions before the check hook runs.
+      # Opt-in only -- see SKILL.md/docs/integrations.md for --fix's real,
+      # narrow scope (single-alternative T1 words only, and it skips any
+      # line containing inline code or a link span).
+      # - id: ste100-lint-fix

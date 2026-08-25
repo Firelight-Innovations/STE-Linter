@@ -1,0 +1,74 @@
+name: False positive
+description: The linter flagged text that is actually fine (or the wrong rule/tier fired). This is the most valuable kind of report for this project -- please fill in every field.
+title: "[False positive]: "
+labels: ["false-positive"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A false positive is only actionable if we can reproduce the exact finding. The four fields below (sentence, rule ID, profile, expected behavior) are what a maintainer needs to write a regression test in `tests/corpus_dirty/` or `tests/corpus_clean/` -- please don't skip any of them even if they feel redundant with the pasted output.
+
+  - type: textarea
+    id: sentence
+    attributes:
+      label: The exact sentence (or CSV field) that was flagged
+      description: Copy it verbatim, including punctuation and capitalization. Do not paraphrase -- the check logic is regex/lexical, so small wording differences change whether it fires.
+      placeholder: 'e.g. "The system shall provide the operator with an indication of a fault condition where feasible."'
+    validations:
+      required: true
+
+  - type: input
+    id: rule-id
+    attributes:
+      label: Rule ID that fired
+      description: The STE-... ID from the finding, e.g. STE-T3-ESC-0012. Run with `--explain RULE_ID` to confirm what the rule is supposed to catch.
+      placeholder: STE-T3-ESC-0012
+    validations:
+      required: true
+
+  - type: input
+    id: profile
+    attributes:
+      label: Profile the file was linted under
+      description: One of core, csv, spec, design, vision, prose (see the active preset (src/ste100/presets/*.json) profile_order), or note if you passed --profile explicitly.
+      placeholder: prose
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and full finding output
+      render: shell
+      placeholder: |
+        ste100 docs/manual.md
+
+        docs/manual.md:14:8 [error] STE-T3-ESC-0012 hedge word "where feasible" ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+      description: Should this rule not have fired at all here, fired at a different (lower/higher) severity tier, or fired with a different/better suggestion?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why you think this is a false positive
+      description: e.g. the phrase is inside a code span/table that should have been masked, the word is being used as a proper noun, the ASD-STE100 rule this check implements doesn't actually apply to this construction, etc.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I confirmed the flagged text isn't inside a fenced code block, inline code span, or other construct the linter is supposed to mask (see src/ste100/masking.py) -- if it is, that's a masking bug, still worth reporting here.
+          required: false
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true

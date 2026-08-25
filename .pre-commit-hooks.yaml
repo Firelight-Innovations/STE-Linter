@@ -1,0 +1,47 @@
+# Hook definitions for consumers using this repo via:
+#
+#   repos:
+#     - repo: https://github.com/Firelight-Innovations/STE100-Linter
+#       rev: <tag or commit>
+#       hooks:
+#         - id: ste100-lint
+#
+# `entry: ste100` assumes the packaged console script name from pyproject.toml
+# (landing alongside this file -- see docs/integrations.md for the current
+# status of that assumption). `language: python` means pre-commit installs
+# this repo as a Python package into an isolated venv and resolves `ste100`
+# from that venv's bin/Scripts directory; it does NOT require the linter to
+# already be installed on the developer's machine.
+#
+# Only Markdown and CSV are in scope -- matches ste_lint.py's own file
+# selection (it only ever walks/lints *.md and *.csv).
+
+- id: ste100-lint
+  name: ste100 lint (STE100 writing linter)
+  description: >-
+    Lints Markdown and CSV prose against the ste100-linter rule set
+    (hedges, vague quantifiers, non-atomic sentences, filler, dangling
+    references, structural rules). Fails the commit on ERROR-tier findings.
+  entry: ste100
+  language: python
+  types_or: [markdown, csv]
+  pass_filenames: true
+
+# Optional second hook: applies the linter's unambiguous T1 word
+# substitutions in place (see SKILL.md "--fix: real, narrow scope" for what
+# this does and does not cover) and re-stages the result. Not run by default
+# -- opt in explicitly if you want auto-fixing on commit:
+#
+#   - id: ste100-lint-fix
+#
+- id: ste100-lint-fix
+  name: ste100 lint --fix (auto-fix unambiguous T1 substitutions)
+  description: >-
+    Applies ste100-linter's unambiguous single-alternative T1 word
+    substitutions in place. Does not fix T2-T6, structural, or CSV
+    findings -- always re-run `ste100-lint` after this hook.
+  entry: ste100
+  args: [--fix]
+  language: python
+  types_or: [markdown, csv]
+  pass_filenames: true

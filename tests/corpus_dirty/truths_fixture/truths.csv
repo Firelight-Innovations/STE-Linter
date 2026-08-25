@@ -1,0 +1,5 @@
+id,statement,category,status,date_set,review_by,source_decision_id
+TRU-DIRTY-001,Dangling source decision reference test statement,product,ACTIVE,2026-01-01,2027-01-01,DEC-DIRTY-999
+TRU-DIRTY-002,Missing review by test statement here,product,ACTIVE,2026-01-01,,
+TRU-DIRTY-003,This statement definitely contains way more than fifteen words in total because it just keeps going and going,product,ACTIVE,2026-01-01,2027-01-01,
+TRU-DIRTY-004,Invalid status test statement here,product,BOGUS,2026-01-01,2027-01-01,
