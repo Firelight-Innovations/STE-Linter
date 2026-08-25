@@ -1,6 +1,6 @@
-# Contributing to STE100-Linter
+# Contributing to STE-Linter
 
-Thanks for looking at this. STE100-Linter is a small, stdlib-only Python tool, so the setup cost is low and most fixes are testable in minutes.
+Thanks for looking at this. STE-Linter is a small, stdlib-only Python tool, so the setup cost is low and most fixes are testable in minutes.
 
 If you only have five minutes, the section below is the whole onboarding. The rest of this document is reference material you can read when you need it.
 
@@ -24,8 +24,8 @@ If you only have five minutes, the section below is the whole onboarding. The re
 There is nothing to install beyond Python 3.9 or later. No virtualenv, no `pip install -r requirements.txt`, no build step. The linter is standard library only, and that is a hard project constraint rather than a temporary state.
 
 ```bash
-git clone https://github.com/Firelight-Innovations/STE100-Linter.git
-cd STE100-Linter
+git clone https://github.com/Firelight-Innovations/STE-Linter.git
+cd STE-Linter
 python -X utf8 ste_lint.py --help
 ```
 
@@ -95,7 +95,7 @@ The `packaging` job builds a wheel, installs it, and runs `ste100` from an unrel
 
 ## The stdlib-only rule, and why it is a hard rule
 
-STE100-Linter does not take on third-party runtime dependencies. Ever. This carries over from the internal project this tool was extracted from, where it is decision D1, and it stays a hard rule here for concrete reasons:
+STE-Linter does not take on third-party runtime dependencies. Ever. This carries over from the internal project this tool was extracted from, where it is decision D1, and it stays a hard rule here for concrete reasons:
 
 - **No supply-chain surface.** This tool reads arbitrary files a caller points it at, including in CI pipelines and pre-commit hooks. A dependency tree is an attack surface this tool does not need.
 - **No install friction.** Clone and run. No lockfile drift, no "works on my machine" from a resolver picking a different version.

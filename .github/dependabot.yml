@@ -1,7 +1,7 @@
 version: 2
 
 # Only "github-actions" is listed, and the missing "pip" ecosystem is
-# deliberate rather than an oversight: STE100-Linter has zero runtime Python
+# deliberate rather than an oversight: STE-Linter has zero runtime Python
 # dependencies (see CONTRIBUTING.md, "The stdlib-only rule"), so there is no
 # dependency tree for Dependabot to watch. The pinned third-party actions in
 # .github/workflows/ are the only supply chain this repository has.
