@@ -31,7 +31,7 @@ FILLER_KEYS = (
 
 
 def load(name):
-    with open(os.path.join(ROOT, "lint_data", name), encoding="utf-8") as fh:
+    with open(os.path.join(ROOT, "src", "ste100", "data", name), encoding="utf-8") as fh:
         return json.load(fh)
 
 

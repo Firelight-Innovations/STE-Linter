@@ -97,7 +97,7 @@ def errors_by_line(findings, rel_name):
 
 def check_audit():
     proc = subprocess.run(
-        [sys.executable, "-X", "utf8", str(ROOT / "audit" / "collision_audit.py")],
+        [sys.executable, "-X", "utf8", str(ROOT / "devtools" / "collision_audit.py")],
         cwd=ROOT, capture_output=True, text=True, encoding="utf-8",
     )
     if proc.returncode != 0:
@@ -126,7 +126,7 @@ def check_new_fixture():
     else:
         print("PASS new_suggestions.md: 0 error-tier findings")
 
-    with open(ROOT / "lint_data" / "substitutions.json", encoding="utf-8") as fh:
+    with open(ROOT / "src" / "ste100" / "data" / "substitutions.json", encoding="utf-8") as fh:
         rules = {r["id"]: r for r in json.load(fh)["rules"]}
     text = NEW_MD.read_text(encoding="utf-8").lower()
     missing = []
