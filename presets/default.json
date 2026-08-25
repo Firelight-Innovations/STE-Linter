@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "profiles": {
+    "spec": {
+      "path_globs": ["*spec*/**", "*requirements*/**", "SPEC.md", "spec.md", "REQUIREMENTS.md", "requirements.md"],
+      "tests": ["T1", "T2", "T3", "T4", "T5", "T6", "S7", "structural", "ears"],
+      "ari_target": 10,
+      "note": "Formal requirements/specifications: shall-statements, EARS templates. IMPORTANT for maintainers: the EARS/indefinite-article/zero-shall checks in lint/checks_atomicity.py are hardcoded to fire only when the profile name is literally 'spec' (or 'design' in presets/veistra.json) -- they do not consult this profile's 'tests' list. Renaming this profile key silently disables those checks with no error. See docs/configuration.md."
+    },
+    "reference": {
+      "path_globs": ["*reference*/**", "*api*/**", "REFERENCE.md", "reference.md", "API.md", "api.md"],
+      "tests": ["T1", "T2", "T3", "T4", "T5", "T6", "S7", "structural"],
+      "ari_target": 10,
+      "note": "Reference/API documentation: parameter tables, enumerations, code samples. No EARS check -- reference material is not made of shall-statements."
+    },
+    "csv": {
+      "path_globs": ["*.csv"],
+      "tests": ["budgets", "T1", "T3", "T6"],
+      "ari_target": null,
+      "note": "Generic CSV cell linting only (T1/T3/T6 word-level checks + field word budgets). csv_integrity (VEI-CSV-0001..0010) validates a bespoke truths/decisions/terminology document-control registry schema that only the veistra preset's project has -- it is deliberately left out of this profile's 'tests'. NOTE for maintainers: today that omission is cosmetic only, because ste_lint.py's main() calls check_csv_integrity() unconditionally for every discovered .csv file regardless of any profile's 'tests' list. See docs/configuration.md for the exact fix."
+    },
+    "prose": {
+      "path_globs": ["**/*.md"],
+      "tests": ["T1", "T2", "T3", "T4", "T5", "T6", "S7", "structural"],
+      "ari_target": null,
+      "note": "Fallback profile, and also what any general prose/docs file gets. T1/T3/T6 stay at error tier; every other test is capped at 'review' by the profile-wide cap in Engine.severity() (see docs/configuration.md). This entry's own path_globs never actually have to match anything -- lint/discovery.py:detect_profile() falls back to 'prose' unconditionally after profile_order is exhausted, so this profile is always reachable even for files fnmatch would not match (e.g. root-level files, given '**/*.md' requires a literal '/' -- see docs/configuration.md)."
+    }
+  },
+  "profile_order": ["spec", "reference", "csv", "prose"],
+  "profile_override_comment": "<!-- lint-profile: NAME -->",
+
+  "never_lint": [
+    ".git/", ".hg/", ".svn/",
+    "node_modules/", "vendor/", ".venv/", "venv/", "env/",
+    "build/", "dist/", "target/", "site/", "_build/", "out/",
+    "__pycache__/", ".pytest_cache/", ".mypy_cache/", ".ruff_cache/", ".tox/",
+    ".cache/", ".next/", ".nuxt/",
+    "CHANGELOG.md"
+  ],
+
+  "severity_defaults": {
+    "_note": "This block is NOT read by the engine. Every check hardcodes its own default severity tier as a literal at its self.severity(...) call site in lint/checks_*.py; severity_overrides IS read (Engine.severity() consults it), but the 'default' argument passed in by each caller never comes from here. The values below document (and match) those hardcoded literals for reference only -- editing this block has no runtime effect until lint/engine.py is changed to consult it. See docs/configuration.md.",
+    "T1": "error", "T2": "warning", "T3": "error", "T4": "warning", "T5": "error", "T6": "error",
+    "escape_clause": "error", "open_ended_clause": "error", "superfluous_infinitive": "error",
+    "single_modal_verb": "warning", "optionality_phrase": "error", "hedge_word": "error",
+    "indefinite_article": "review", "ears": "review", "zero_shall_not_a_requirement": "review",
+    "punctuation_density": "warning", "and_or": "error", "oblique_slash": "error",
+    "combinator": "review", "combinator_second": "review",
+    "must_keyword": "warning", "tbd": "error", "bare_number": "warning", "passive_voice": "warning",
+    "abbreviation": "warning", "deprecated_term": "error", "undefined_term": "error",
+    "comparative_superlative": "warning"
+  },
+
+  "severity_overrides": [
+    {"rule": "single_modal_verb", "profile": "spec", "tier": "error", "source": "O1"},
+    {"rule": "single_modal_verb", "profile": "*", "tier": "warning", "source": "O1", "note": "warning in every profile except spec"},
+    {"rule": "optionality_phrase", "profile": "*", "tier": "error", "source": "O1", "note": "multiword phrases always block"},
+    {"rule": "hedge_word", "profile": "*", "tier": "error", "source": "O1"},
+    {"rule": "open_ended_clause", "profile": "*", "tier": "error", "source": "K2"},
+    {"rule": "must_keyword", "profile": "spec", "tier": "error", "source": "O3"},
+    {"rule": "must_keyword", "profile": "*", "tier": "warning", "source": "O3"},
+    {"rule": "ears", "profile": "spec", "tier": "error", "source": "O2"},
+    {"rule": "bare_number", "profile": "spec", "tier": "error", "source": "spec profile: requirements need a stated unit"},
+    {"rule": "combinator_second", "profile": "spec", "tier": "error", "source": "requirements: a second combinator in one shall-sentence is non-atomic"},
+    {"rule": "zero_shall_not_a_requirement", "profile": "spec", "tier": "review", "source": "G1"},
+    {"rule": "generic_ly_adverb", "profile": "*", "tier": "review", "source": "C1", "note": "not yet implemented as a distinct check -- only the enumerated word list in lint_data/filler.json runs, under T6"},
+    {"rule": "universal_quantifier", "profile": "*", "tier": "review", "source": "C2", "note": "not currently implemented as a check -- config lists universal_quantifiers and the engine builds a regex from it, but no check_* method matches it against text yet; this override has no effect"},
+    {"rule": "directive", "profile": "*", "tier": "review", "source": "C2", "note": "not currently implemented as a check -- config lists nasa_arm_directives and the engine builds a regex from it, but no check_* method matches it against text yet; this override has no effect"}
+  ],
+
+  "universal_quantifiers": ["all", "every", "none", "never", "always"],
+  "nasa_arm_directives": ["note", "consider", "make sure"],
+
+  "t4_pronouns": [
+    "it", "its", "they", "them", "their", "this", "these", "that", "those", "which", "who",
+    "whose", "someone", "something", "anyone", "anything", "previous", "next", "following",
+    "last", "former", "latter", "above", "below", "aforementioned", "said"
+  ],
+  "t4_comparative_irregulars": ["better", "worse", "best", "worst", "faster", "slower", "higher", "lower", "greater", "fewer", "larger", "smaller"],
+  "t4_comparative_min_stem_length": 4,
+  "t4_comparative_exclusions": ["test", "request", "forest", "interest", "other than", "rather than"],
+
+  "t5_combinators": ["and", "or", "then", "unless", "but", "as well as", "but also", "however", "whether", "meanwhile", "whereas", "on the other hand", "otherwise"],
+  "t5_punctuation_density_max": 3,
+  "t5_punctuation_chars": [",", ";", ":"],
+  "t5_oblique_slash_exceptions_regex": "\\d+\\s*/\\s*\\w+|\\b\\d+/\\d+\\b",
+
+  "s7_units": ["ms", "s", "sec", "min", "hr", "hrs", "fps", "hz", "khz", "mhz", "ghz", "mb", "gb", "kb", "tb", "px", "%", "m", "km", "cm", "mm", "kg", "g", "n", "w", "v", "a", "db"],
+  "s7_tbd_pattern": "\\btbd\\b",
+
+  "budgets_file": "lint_data/budgets.json",
+  "thresholds": {
+    "smell_density_max": 0.30,
+    "passive_ratio_max": 0.20,
+    "paragraph_sentences_max": 6,
+    "_note": "Not read by the engine. lint/report.py computes and reports smell_density and passive_ratio as informational metrics on every run, but nothing in the codebase compares them against these thresholds -- there is no pass/fail gate on them today. paragraph_sentences_max is likewise not read; the real, enforced paragraph budget comes from lint_data/budgets.json's paragraph_budget.sentences (6, tier warning). See docs/configuration.md."
+  },
+
+  "abbreviation_allowlist": [
+    "ID", "IDs", "URL", "URLs", "URI", "API", "CLI", "CSV", "JSON", "XML", "YAML", "HTML", "CSS",
+    "HTTP", "HTTPS", "SQL", "PDF", "OS", "UI", "UX", "DB", "IO", "CPU", "GPU", "RAM", "SDK", "VM",
+    "CI", "CD", "FAQ", "TODO", "UUID", "JWT", "REST", "TCP", "IP", "DNS", "SSH", "TLS", "SSL",
+    "RFC", "UTF", "ISO", "README", "AI", "ML", "EARS"
+  ],
+
+  "rule_id_taxonomy": {
+    "format": "VEI-<test>-<CATEGORY>-<seq4>",
+    "note_for_maintainer": "The 'VEI-' prefix is a leftover from the tool's origin as an internal Veistra project linter. It is baked as a literal string into every rule ID in lint_data/*.json and cannot be changed here without regenerating those files (see builddata/*.py) -- renaming it is a decision left to the OSS maintainer, not made by this preset.",
+    "categories": {
+      "T1": ["SUB"],
+      "T2": ["VAG"],
+      "T3": ["ESC", "OPEN", "MOD", "SUP", "HDG"],
+      "T4": ["PRO", "COMP"],
+      "T5": ["NOSHAL", "MULTI", "PUNC", "COMB", "ANDOR", "SLASH", "EARS"],
+      "T6": ["FILL", "WEASEL", "CORP", "AI", "NOM", "ARTIFACT"],
+      "structural": ["S7-BARENUM", "S7-ARTICLE", "S7-PASSIVE", "S7-TBD", "S7-ABBR", "S7-TERM", "S7-MUST"],
+      "csv": ["CSV"],
+      "budgets": ["BUD"]
+    },
+    "note": "T1/T2/T3(HDG)/T6 rule IDs are pre-assigned in lint_data/*.json at build time. T4/T5/structural/csv/budget rule IDs are fixed and assigned in lint/rule_ids.py (small, closed enumerations, not bulk word lists)."
+  }
+}
