@@ -224,7 +224,11 @@ def test_stdout_is_pure_ndjson():
     ]
     for m in messages:
         _send(proc, m)
-    proc.stdin.close()
+    # Do not close stdin here: communicate() closes it itself, and that close
+    # is the EOF the server exits on. Closing it first makes communicate()
+    # raise ValueError("I/O operation on closed file") on POSIX. Windows takes
+    # a different code path in subprocess and happens not to, which is why
+    # this only showed up on the Linux and macOS runners.
     try:
         stdout, stderr = proc.communicate(timeout=10)
     except subprocess.TimeoutExpired:
