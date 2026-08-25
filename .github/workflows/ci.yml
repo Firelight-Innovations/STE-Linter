@@ -1,0 +1,132 @@
+name: CI
+
+# Cancel superseded runs on the same ref (e.g. repeated pushes to a PR
+# branch) so we don't burn matrix minutes on stale commits.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+# Least privilege by default; individual jobs opt back in if they ever need
+# more (none currently do).
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (${{ matrix.os }}, py${{ matrix.python-version }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        # Floor is 3.9: verified by AST scan of every .py file in this repo
+        # for match statements, PEP 604 `X | Y` annotations, tomllib,
+        # str.removeprefix/removesuffix, walrus-in-comprehension, and dict
+        # `|`/`|=` merges -- none present. See CONTRIBUTING.md for how to
+        # re-check this if the code changes.
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      # Stdlib only (no runtime deps to install) -- this project's hard
+      # constraint. Nothing to do here but prove the interpreter starts.
+      - name: Verify interpreter
+        shell: bash
+        run: python -X utf8 -c "import sys; print(sys.version)"
+
+      # Invoked by path (tests/run_corpus_tests.py), not via ste_lint.py
+      # directly: a pyproject.toml + src/ste100/ layout with a `ste100`
+      # console entry point is landing in parallel, and the test harnesses
+      # are staying put at tests/ across that move.
+      #
+      # We assert both the harness's exit code AND the presence of its
+      # "All corpus tests passed." line, per spec section 12 -- a script
+      # that happens to exit 0 without actually running its checks (e.g.
+      # because discovery found zero files, as happened before the
+      # standalone-repo path fix) must not read as green.
+      - name: Run corpus test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_corpus_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_corpus_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All corpus tests passed." <<< "$output"; then
+            echo "::error::run_corpus_tests.py exited 0 but did not print the expected pass line"
+            exit 1
+          fi
+
+  dogfood:
+    name: dogfood (lint this repo's own Markdown)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Entry point today is `python -X utf8 ste_lint.py`; a pyproject.toml
+      # landing in parallel adds a `ste100` console script and moves the
+      # package under src/ste100/, at which point this step should switch
+      # to invoking that entry point instead.
+      #
+      # community-health prose (CONTRIBUTING.md, SECURITY.md, etc.) falls
+      # under the default "prose" profile in lint_config.json, which still
+      # runs T1/T3/T6 at error tier. Non-blocking for now: continue-on-error
+      # below, with the real result still visible in the job summary.
+      - name: Lint repo Markdown with ste_lint.py
+        id: dogfood
+        shell: bash
+        continue-on-error: true
+        run: python -X utf8 ste_lint.py .
+
+      - name: Report dogfood result
+        shell: bash
+        run: |
+          if [ "${{ steps.dogfood.outcome }}" = "success" ]; then
+            echo "Dogfood step passed (exit 0)."
+          else
+            echo "::warning::Dogfood step (linting this repo's own Markdown) did not exit 0. Non-blocking for now -- see the 'Lint repo Markdown with ste_lint.py' step output above for findings."
+          fi
+
+  # Known-failing on purpose (spec section 12.6): the 200-file performance
+  # check budgets 2s and has been observed at ~4.03s on this repo's own
+  # dev hardware after the standalone-repo path fix (see commit
+  # "Make the linter run standalone outside the Veistra monorepo"). CI
+  # runners are typically slower than that, especially macOS/Windows
+  # hosted runners, so this is expected to be red until someone profiles
+  # and fixes the linter's hot path -- widening the budget is explicitly
+  # not the fix (tests/run_stress_tests.py isn't owned by this change).
+  # Kept as its own non-blocking job, not deleted, so the failure stays
+  # visible instead of silently disappearing.
+  stress-tests:
+    name: stress tests (known-failure tracker)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Run stress test suite
+        shell: bash
+        run: python -X utf8 tests/run_stress_tests.py

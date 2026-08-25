@@ -1,0 +1,64 @@
+name: New rule / word-list addition
+description: Propose a new lint check, or an addition to an existing word list (T1 substitutions, T2 vague terms, T3 hedges, T6 filler/weasel/AI-tells, etc.).
+title: "[Rule request]: "
+labels: ["rule-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        See CONTRIBUTING.md's "Proposing a new rule" section for how rule IDs are assigned and where the underlying data lives. Word-list additions (a term that should join T1/T2/T3/T6) are much easier to accept than new check logic -- say which kind this is.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of change is this?
+      options:
+        - Add a term/phrase to an existing word list (T1/T2/T3/T6)
+        - New check / rule logic (new Python, not just a word list entry)
+        - Change severity tier of an existing rule
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: existing-rule
+    attributes:
+      label: Closest existing rule ID (if any)
+      description: e.g. if you're proposing a term similar to something T3 already catches, give that rule's ID.
+      placeholder: VEI-T3-ESC-0004
+    validations:
+      required: false
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Example sentence(s) this should flag
+      description: At least one real or realistic sentence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: counterexamples
+    attributes:
+      label: Example sentence(s) this should NOT flag
+      description: This is the part most requests skip, and it's the part that actually determines whether the rule is safe to add -- a word/phrase list entry with no false-positive check tends to get rejected or reverted.
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: ASD-STE100 / style-guide basis
+      description: Which ASD-STE100 writing rule, or which other cited source in this codebase (NASA SEH, MIL-STD-961E, INCOSE, etc. -- see the "source" fields in lint_data/*.json and lint_config.json's severity_overrides), does this implement or extend? "It bothers me" is a valid start but won't be enough on its own.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I checked lint_data/*.json (substitutions.json, hedges.json, vague.json, filler.json, ai_tells.json) and this isn't already covered under a different pattern.
+          required: true
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true

@@ -1,0 +1,75 @@
+name: Release
+
+# Skeleton: this workflow depends on the pyproject.toml + src/ste100/
+# packaging layout landing separately (out of scope for this change). It
+# will not produce a working build until that lands. It also requires a
+# PyPI Trusted Publisher to be configured for this repo/workflow BEFORE
+# the first tag push -- see https://docs.pypi.org/trusted-publishers/
+# (PyPI project settings -> Publishing -> Add a new publisher: owner
+# Firelight-Innovations, repo STE100-Linter, workflow release.yml,
+# environment release). No PyPI API token is stored in this repo; auth is
+# short-lived OIDC, not a long-lived secret.
+
+on:
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build distribution
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # `build` itself is a packaging-time tool, not a runtime dependency of
+      # ste100 (which stays stdlib-only) -- installing it here doesn't
+      # violate that constraint.
+      - name: Install build backend
+        run: python -m pip install --upgrade build
+
+      - name: Build sdist and wheel
+        run: python -m build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+  publish:
+    name: Publish to PyPI
+    needs: build
+    runs-on: ubuntu-latest
+    # Gated on the "release" environment: configure required reviewers
+    # and/or a deployment branch/tag rule on this environment in repo
+    # Settings -> Environments before relying on it as a real gate.
+    environment:
+      name: release
+      url: https://pypi.org/p/ste100
+    permissions:
+      # Required for PyPI Trusted Publishing (OIDC). Do not add a
+      # PYPI_API_TOKEN secret -- Trusted Publishing replaces it.
+      id-token: write
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+
+      - name: Publish to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1

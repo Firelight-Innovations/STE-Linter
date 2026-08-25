@@ -1,0 +1,84 @@
+name: Bug report
+description: Something in the tool itself is broken (crash, wrong exit code, bad file discovery, etc.) -- not a wrong linting call on valid text. For that, use "False positive" instead.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing this. STE100-Linter is stdlib-only Python, so most bugs are reproducible with just a Python version and a file to point it at.
+
+  - type: input
+    id: version
+    attributes:
+      label: ste100-linter version / commit
+      description: There's no `--version` flag yet, so give the release tag or the git commit you're on (`git rev-parse --short HEAD`).
+      placeholder: e.g. v0.3.0 or commit 25b5f4f
+    validations:
+      required: true
+
+  - type: input
+    id: python-version
+    attributes:
+      label: Python version
+      description: Output of `python --version`.
+      placeholder: e.g. Python 3.11.9
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - macOS
+        - Windows
+        - Other (describe below)
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command you ran
+      description: The exact command line, including flags.
+      render: shell
+      placeholder: python -X utf8 ste_lint.py docs/ --format json
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Include the exit code and full output. If there's a traceback, paste it in full -- a "tool failure" (exit code 2) message on stderr usually means an unhandled exception was caught at the top level; the traceback underneath it (run without redirecting stderr) is what we need.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: minimal-repro
+    attributes:
+      label: Minimal file(s) that reproduce it
+      description: The smallest Markdown/CSV snippet that triggers the bug. This is the single most useful thing you can attach -- without it, most bugs can't be turned into a regression test.
+      render: markdown
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I ran the corpus test suite locally (`python -X utf8 tests/run_corpus_tests.py`) and it passes, so this isn't a broken local setup.
+          required: false
+        - label: I searched existing issues and didn't find a duplicate.
+          required: true
