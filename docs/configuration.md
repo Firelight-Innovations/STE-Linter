@@ -1,23 +1,25 @@
 # Configuring the linter
 
-`ste_lint.py` reads one JSON config file, given by `--config` (default:
-`the active preset (src/ste100/presets/*.json)` at the repo root -- see `src/ste100/paths.py:DEFAULT_CONFIG`). This project ships
-two ready-made configs in `presets/`:
+The linter reads one JSON config file. Two presets ship inside the package, in
+`src/ste100/presets/`:
 
-- **`presets/default.json`** -- the generic config for a new project. Start here.
-- **`presets/veistra.json`** -- a byte-for-byte copy of the original private-monorepo
-  `the active preset (src/ste100/presets/*.json)`, kept so that project's specific behavior (its document-control profiles,
-  its CSV-registry schema, its `never_lint` list) stays reproducible. Use it only if you are
-  that project, or want a fully worked example of every feature (including CSV-integrity
-  checking) turned on against a matching document set.
+- **`default`** -- the generic config for any project. Start here.
+- **`veistra`** -- a byte-for-byte copy of the original private-monorepo config, kept so that
+  project's behaviour (its document-control profiles, its CSV-registry schema, its
+  `never_lint` list) stays reproducible. Use it if you are that project, or if you want a
+  fully worked example with every feature turned on, including CSV-integrity checking.
 
 ```
-ste100 --config presets/default.json [PATH ...]
+ste100 --preset default [PATH ...]
+ste100 --config path/to/my-config.json [PATH ...]
 ```
 
-If you don't pass `--config`, the tool falls back to whatever `the active preset (src/ste100/presets/*.json)` exists at the
-repo root -- see the maintainer note in the final report about wiring preset resolution (this
-document does not change that file; that is explicitly out of scope for this pass).
+With no flags, config resolves in this order, first match winning:
+
+1. `--config <path>`
+2. `--preset <name>`
+3. `ste100.json` or `.ste100.json`, found by walking up from the target
+4. the shipped `default` preset
 
 ## The profile system
 
@@ -47,7 +49,7 @@ verified by directly testing `fnmatch.fnmatch()`:
   substring match) `myrequirements/x.md` too -- broad by design, but worth knowing.
 - **`**/` requires a literal separator before it can match.** `**/*.md` does **not** match a
   root-level `README.md` -- there's no `/` character in that path for the pattern to consume.
-  This is why `presets/default.json`'s `prose` profile lists `path_globs: ["**/*.md"]` but that
+  This is why `the default preset`'s `prose` profile lists `path_globs: ["**/*.md"]` but that
   is genuinely inert: `detect_profile()` falls back to `prose` unconditionally at the end
   regardless of whether `prose`'s own globs match, so it doesn't matter that a bare `**/*.md`
   glob would miss root files. If you add a *new*, non-fallback profile and want it to match
@@ -56,37 +58,42 @@ verified by directly testing `fnmatch.fnmatch()`:
 - **Case sensitivity depends on the OS you run the tool on**, because `fnmatch.fnmatch()`
   normalizes case via `os.path.normcase` -- case-insensitive on Windows, case-sensitive
   everywhere else. `*requirements*.md` matches `REQUIREMENTS.md` on Windows but not on Linux/
-  macOS. `presets/default.json`'s globs use lowercase and a few common all-caps root filenames
+  macOS. `the default preset`'s globs use lowercase and a few common all-caps root filenames
   (`REQUIREMENTS.md`, `SPEC.md`, `REFERENCE.md`, `API.md`) explicitly for this reason -- add
   your own casing variants if your project's convention differs.
 
-### `never_lint` is a path-prefix check, not a glob
+### How `never_lint` matches
 
-`src/ste100/discovery.py:is_never_lint()` does a plain `rel_path_posix.startswith(prefix)` against
-each `never_lint` entry -- it is **not** a glob and does not match a directory name at any
-depth. `"node_modules/"` excludes a root-level `node_modules/` directory; it does **not**
-exclude `packages/foo/node_modules/` nested inside a subpackage. **Verified**: a file at
-`packages/foo/node_modules/dep/README.md` was linted (not skipped) in a real test run against
-`presets/default.json`, while a root-level `node_modules/somepkg/README.md` was correctly
-skipped. In a monorepo with nested dependency directories, either target the linter at specific
-paths (`ste_lint.py docs/ src/`) or add explicit nested prefixes to your own `never_lint`. See
-the final report for the precise code fix (checking whether any path segment matches, not just
-a prefix of the whole path).
+`src/ste100/discovery.py:is_never_lint()` matches on **path segments**, and the entry's shape
+decides how far it reaches:
+
+- A **single-segment** entry such as `node_modules/` excludes a directory of that name
+  *anywhere* in the tree -- both a root-level `node_modules/` and a nested
+  `packages/foo/node_modules/`.
+- A **multi-segment** entry such as `tests/corpus_dirty/` is anchored at the root, so it
+  excludes only that specific path.
+
+Matching is on whole segments, so a `build/` entry excludes the `build/` directory without
+touching a file named `build.md`.
+
+Earlier versions tested a raw string prefix, so `node_modules/` excluded only a root-level
+directory and a monorepo's nested `packages/*/node_modules/` was walked and linted. If you
+added explicit nested entries to work around that, they are now redundant.
 
 Also note: `never_lint` only governs automatic discovery (a directory walk, or a whole-project
 scan with no path arguments). A file you name explicitly on the command line is always linted,
 even if it matches a `never_lint` prefix -- this is intentional, so the test suite can point the
 tool at its own deliberately-dirty fixtures.
 
-## Profiles in `presets/default.json`, and why
+## Profiles in `the default preset`, and why
 
 The original config had five profiles wired to one company's document tree: `core`
 (`core/*.md`), `csv`, `spec` (`docs/spec/**`), `design` (`docs/design/**`), `vision`
 (`docs/vision/**`), and `prose` as fallback. None of the first four generalize -- they assume a
 specific document-control taxonomy no other project has.
 
-`presets/default.json` collapses this into four profiles chosen around what any technical
-writer actually has, per the task brief: general prose/docs, formal requirements/specs, and
+`the default preset` collapses this into four profiles chosen around what any technical
+writer actually has: general prose/docs, formal requirements/specs, and
 reference/API docs -- plus CSV, since the tool has real (if partly private-schema) CSV support.
 
 - **`prose`** -- the fallback, and what general documentation gets. Kept exactly as
@@ -96,13 +103,11 @@ reference/API docs -- plus CSV, since the tool has real (if partly private-schem
   against a whole existing repo for the first time -- it will not fail CI on prose-quality
   nitpicks, only on the three checks that are almost never false positives.
 - **`spec`** -- formal requirements and specifications: shall-statements, EARS templates,
-  atomicity enforcement. **Kept under the literal name `spec`** rather than renamed to something
-  like `requirements`, because `src/ste100/checks_atomicity.py`'s EARS, indefinite-article, and
-  zero-`shall` checks are hardcoded to fire only when the profile name is exactly `"spec"` (or
-  `"design"`) -- see `docs/rules.md`'s T5 section and the final report. This is a pragmatic
-  choice to keep EARS enforcement working for a new user with zero code changes; a maintainer
-  who wants a differently-named profile to get EARS checking will need the code change described
-  in the final report first.
+  atomicity enforcement. The name is conventional, not load-bearing: EARS,
+  indefinite-article and zero-`shall` checks fire for whichever profiles list `ears` (or
+  `ears_review`) in their `tests`, so you can name your own profile `requirements` and it
+  will still get them. The zero-`shall` and multi-`shall` checks need `ears`; the
+  indefinite-article and EARS-template checks accept either `ears` or `ears_review`.
 - **`reference`** -- reference/API documentation: parameter tables, enumerations, code samples.
   Runs the same test set as `spec` minus EARS (reference material is not made of
   shall-statements).
@@ -125,7 +130,7 @@ would either find nothing (the common case: `kind_of()` in `src/ste100/csv_integ
 recognizes those four literal filenames, so an unrelated CSV is mostly invisible to it) or,
 worse, produce a confusing false positive if a generic CSV happens to have a `review_by` column
 with past dates (the one check inside `csv_integrity.py` that isn't gated by filename kind).
-Neither outcome is useful to a new user, so `presets/default.json`'s `csv` profile omits it.
+Neither outcome is useful to a new user, so `the default preset`'s `csv` profile omits it.
 
 **What generic CSV linting is left, and why it's worth keeping:** T1 (replaceable words), T3
 (optionality/hedges), T6 (zero-information), and CSV field word budgets, run cell-by-cell
@@ -139,9 +144,9 @@ default costs nothing and finds real issues.
 **Important caveat, verified by running the tool:** turning off `csv_integrity` in a profile's
 `tests` list is currently cosmetic, not a real gate -- `ste_lint.py`'s `main()` calls
 `check_csv_integrity()` unconditionally for every discovered `.csv` file, without checking any
-profile's `tests` list at all. Confirmed: running `presets/default.json` (whose `csv` profile
+profile's `tests` list at all. Confirmed: running `the default preset` (whose `csv` profile
 excludes `csv_integrity`) against a dirty `decisions-*.csv` fixture still produced `STE-CSV-*`
-findings. See the final report for the exact one-line fix in `ste_lint.py`.
+findings.
 
 ### `never_lint` defaults
 
@@ -159,7 +164,7 @@ path-prefix limitation above: nested instances of these directories are not excl
 
 The original list (`STE`, `ARI`, `EARS`, `POS`, ...) was tuned to this tool's own internal
 vocabulary, which a new user's documents will never contain -- so the `S7-ABBR` check would
-flag nothing useful and instead just miss real abbreviations. `presets/default.json` broadens
+flag nothing useful and instead just miss real abbreviations. `the default preset` broadens
 this to abbreviations common across technical writing generally: identifiers and data formats
 (`ID`/`IDs`, `URL`, `URI`, `JSON`, `XML`, `YAML`, `CSV`, `HTML`, `CSS`, `SQL`, `PDF`), web/infra
 terms (`HTTP`/`HTTPS`, `DNS`, `SSH`, `TLS`, `SSL`, `TCP`, `IP`), engineering-process terms
@@ -173,7 +178,7 @@ this list rather than expect it to be complete. Populating a `terminology.csv` w
 
 ### Budgets, thresholds, and `ari_target`: what's real and what isn't
 
-`presets/default.json` keeps the same numeric shape as the original, but several of these keys
+`the default preset` keeps the same numeric shape as the original, but several of these keys
 turned out to be entirely unread by the code -- verified by grepping every Python file for each
 key name, not by inspection alone:
 
@@ -188,7 +193,7 @@ key name, not by inspection alone:
   whole-corpus Automated Readability Index, reported once in the run summary
   (`report.py:build_summary()`) -- there is no per-profile comparison against a target anywhere
   in the codebase; the key is parsed into the config dict and never read again.
-  `presets/default.json` sets `spec`/`reference` to `10` (a commonly-cited plain-language target
+  `the default preset` sets `spec`/`reference` to `10` (a commonly-cited plain-language target
   for technical writing) and leaves `prose`/`csv` at `null`, matching the shape of the original,
   but this is aspirational bookkeeping for a feature that does not exist yet, not a live
   setting.
@@ -196,23 +201,21 @@ key name, not by inspection alone:
 These keys are kept (with generic, internally-consistent values, and an in-place `_note` where
 one didn't already exist as a convention in this config) so the schema stays stable and so a
 maintainer who wires up either feature later inherits sane defaults rather than stale
-company-specific numbers. See the final report for the complete list of dead keys, including
-ones this document doesn't dwell on (`profile_override_comment`, `budgets_file`,
-`rule_id_taxonomy`, `t5_oblique_slash_exceptions_regex`, `s7_tbd_pattern`, top-level
-`schema_version`, and the entire `severity_defaults` block -- see `docs/rules.md`'s severity
-section for that last one, which is the most consequential).
+company-specific numbers. Other keys that are parsed but never drive behaviour:
+`profile_override_comment`, `budgets_file`, `rule_id_taxonomy`,
+`t5_oblique_slash_exceptions_regex`, `s7_tbd_pattern`, and top-level `schema_version`.
 
 ## Full config key reference
 
-| Key | Read by code? | Meaning / allowed values | Default in `presets/default.json` |
+| Key | Read by code? | Meaning / allowed values | Default in `the default preset` |
 |---|---|---|---|
 | `schema_version` | No (`report.py` uses its own fixed `SCHEMA_VERSION=1` constant) | Informational | `1` |
-| `profiles` | Yes | `{name: {path_globs: [glob,...], tests: [str,...], ari_target: number\|null, note?: str}}`. `tests` values `"T1".."T6"` are read by `ste_lint.py`'s dispatcher; `"S7"`/`"structural"`/`"ears"`/`"ears_review"`/`"csv_integrity"` are accepted but not consulted there (see `docs/rules.md`) -- `"budgets"` (CSV-field budgets) is the one non-`T*` value that is actually read. `ari_target` is currently dead (see above). | `spec`, `reference`, `csv`, `prose` -- see above |
+| `profiles` | Yes | `{name: {path_globs: [glob,...], tests: [str,...], ari_target: number\|null, note?: str}}`. `tests` values `"T1".."T6"` are read by `ste_lint.py`'s dispatcher; `"csv_integrity"` gates the CSV registry checks and `"ears"`/`"ears_review"` gate the EARS, indefinite-article and zero-`shall` checks; `"S7"`/`"structural"` are accepted but not consulted (structural checks ride along with T5) -- `"budgets"` (CSV-field budgets) is the one non-`T*` value that is actually read. `ari_target` is currently dead (see above). | `spec`, `reference`, `csv`, `prose` -- see above |
 | `profile_order` | Yes | Ordered list of profile names to try glob-matching, before the unconditional `prose` fallback | `["spec", "reference", "csv", "prose"]` |
 | `profile_override_comment` | No -- the actual regex is hardcoded in `src/ste100/discovery.py` (`PROFILE_COMMENT_RE`) | Documents the literal syntax `<!-- lint-profile: NAME -->` | same string, for documentation only |
-| `never_lint` | Yes | List of path prefixes (relative to CWD, forward-slash), matched with `str.startswith()`, not a glob -- see caveat above | see "`never_lint` defaults" above |
-| `severity_defaults` | **No -- entirely dead**, see `docs/rules.md` | Would-be default tier per rule name if the engine consulted it | kept in sync with the real hardcoded literals, for documentation |
-| `severity_overrides` | Yes | List of `{rule, profile: name\|list\|"*", tier, source?, note?}`. First matching non-`"*"` profile entry for a rule wins outright; a `"*"` entry only sets a tentative answer. Read by `Engine.severity()`. | see `presets/default.json`; simplified from the original by dropping the `design`/`vision`/`core` conditional branches that no longer have a matching profile |
+| `never_lint` | Yes | Forward-slash paths. A single-segment entry (`node_modules/`) excludes that directory name anywhere; a multi-segment entry (`tests/corpus_dirty/`) is anchored at the root. Not a glob -- see above. | see "`never_lint` defaults" above |
+| `severity_defaults` | Yes | Default tier per rule name. Beaten by `severity_overrides` (including a `profile: "*"` entry); falls back to the call-site literal for rules not listed. See `docs/rules.md`. | kept in sync with the call-site literals |
+| `severity_overrides` | Yes | List of `{rule, profile: name\|list\|"*", tier, source?, note?}`. First matching non-`"*"` profile entry for a rule wins outright; a `"*"` entry only sets a tentative answer. Read by `Engine.severity()`. | see `the default preset`; simplified from the original by dropping the `design`/`vision`/`core` conditional branches that no longer have a matching profile |
 | `universal_quantifiers` | Yes, but only into an unused regex | Words like `all`/`every`/`none` -- built into `self.uni_quant_re` in `engine.py` but never matched against any text by any check | same as original (generic already) |
 | `nasa_arm_directives` | Yes, but only into an unused regex | Same situation as `universal_quantifiers`, for words like `note`/`consider`/`make sure` | same as original |
 | `t4_pronouns` | Yes | Pronoun list for T4's antecedent check | unchanged (already generic English) |
@@ -243,7 +246,7 @@ stderr, distinct from a clean run that simply found `error`-tier issues (exit `1
 
 ## Writing your own config
 
-Start from `presets/default.json` and copy it, since it satisfies every key the code requires at
+Start from `the default preset` and copy it, since it satisfies every key the code requires at
 load time (`src/ste100/engine.py:_build_indexes()` will raise `KeyError` on load if any of
 `t4_pronouns`, `t4_comparative_irregulars`, `t4_comparative_exclusions`,
 `t4_comparative_min_stem_length`, `t5_combinators`, `t5_punctuation_density_max`,

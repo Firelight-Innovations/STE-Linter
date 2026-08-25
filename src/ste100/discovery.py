@@ -23,8 +23,36 @@ def detect_profile(rel_path_posix, config, override_first_line=None, cli_profile
 
 
 def is_never_lint(rel_path_posix, config):
-    for prefix in config["never_lint"]:
-        if rel_path_posix.startswith(prefix):
+    """Whether a path is excluded from automatic discovery.
+
+    Entries in config['never_lint'] are matched one of two ways, depending on
+    how many path segments they have:
+
+      * A single-segment directory entry (e.g. "node_modules/") means "this
+        directory name, anywhere in the tree" -- it matches
+        "node_modules/x.md" AND "packages/web/node_modules/x.md". Matching is
+        done against the path's directory segments (everything but the final
+        filename), so a *file* that merely shares the name -- "build.md"
+        against the "build/" entry -- is never matched.
+      * A multi-segment entry (e.g. "tests/corpus_dirty/") means "this exact
+        path, anchored to the project root" -- it matches
+        "tests/corpus_dirty/x.md" but NOT "other/tests/corpus_dirty/x.md".
+        This is unchanged from the tool's original prefix-match behavior.
+      * An entry with no trailing "/" (e.g. "CHANGELOG.md") names a specific
+        file and is matched as an anchored prefix, same as a multi-segment
+        directory entry.
+    """
+    segments = rel_path_posix.split("/")
+    dir_segments = segments[:-1]
+    for entry in config["never_lint"]:
+        if entry.endswith("/"):
+            entry_segments = entry.rstrip("/").split("/")
+            if len(entry_segments) == 1:
+                if entry_segments[0] in dir_segments:
+                    return True
+            elif rel_path_posix.startswith(entry):
+                return True
+        elif rel_path_posix.startswith(entry):
             return True
     return False
 

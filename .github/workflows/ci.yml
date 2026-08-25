@@ -117,6 +117,44 @@ jobs:
             exit 1
           fi
 
+      # Covers the four places the engine used to ignore its own config.
+      - name: Run config test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_config_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_config_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All config tests passed." <<< "$output"; then
+            echo "::error::run_config_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Guards the out-of-box experience: the default preset must stay quiet
+      # on good, natural technical documentation. Without this, retuning a
+      # rule can silently make a new user's first run a wall of errors again.
+      - name: Run default-preset test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_default_preset_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_default_preset_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All default-preset tests passed." <<< "$output"; then
+            echo "::error::run_default_preset_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
       # Drives the HELVE-ADE JSON-RPC server as a real subprocess. The
       # assertion that matters most is stdout purity: the protocol is
       # newline-delimited JSON over stdout, so a single stray print()
