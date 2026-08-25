@@ -150,6 +150,31 @@ jobs:
             echo "::error::run_default_preset_tests.py exited with code $code"
             exit 1
           fi
+          if ! grep -qF "All default-preset tests passed." <<< "$output"; then
+            echo "::error::run_default_preset_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Drives the HELVE-ADE JSON-RPC server as a real subprocess. The
+      # assertion that matters most is stdout purity: the protocol is
+      # newline-delimited JSON over stdout, so a single stray print()
+      # anywhere in the package corrupts the stream for the host.
+      - name: Run HELVE integration test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_helve_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_helve_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All HELVE integration tests passed." <<< "$output"; then
+            echo "::error::run_helve_tests.py exited 0 without its success line"
+            exit 1
+          fi
 
       # Adversarial CSV input plus a 200-file performance budget. Hosted
       # runners are slower than dev hardware, so a red result here is worth
