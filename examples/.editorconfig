@@ -14,7 +14,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 # ste_lint.py reads files as UTF-8 unconditionally (encoding="utf-8" in
-# lint/paths.py and ste_lint.py) regardless of what your editor writes.
+# src/ste100/paths.py and the CLI) regardless of what your editor writes.
 # CRLF is harmless -- Python's text-mode read normalizes it, so column
 # numbers are unaffected either way (verified: identical line:col output
 # from an LF and a CRLF copy of the same content). A UTF-8 BOM is not

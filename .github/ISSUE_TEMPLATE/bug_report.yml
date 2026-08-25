@@ -44,7 +44,7 @@ body:
       label: Command you ran
       description: The exact command line, including flags.
       render: shell
-      placeholder: python -X utf8 ste_lint.py docs/ --format json
+      placeholder: ste100 docs/ --format json
     validations:
       required: true
 

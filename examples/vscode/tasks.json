@@ -10,7 +10,7 @@
   //
   // The problemMatcher regex is verified against real ste_lint.py output in
   // examples/vscode/test_problem_matcher.py -- re-run that script if
-  // lint/report.py's output format ever changes.
+  // src/ste100/report.py's output format ever changes.
   "version": "2.0.0",
   "tasks": [
     {

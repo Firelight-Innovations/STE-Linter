@@ -34,7 +34,7 @@ ste100 <path> [path ...] [options]
 Fallback, always available in this repo:
 
 ```
-python -X utf8 ste_lint.py <path> [path ...] [options]
+ste100 <path> [path ...] [options]
 ```
 
 `-X utf8` matters on Windows: file reads are always UTF-8, but without this
@@ -57,7 +57,7 @@ Key flags:
 | `--baseline PATH` | Suppress findings already present in a baseline JSON file. For adopting on an existing codebase. |
 | `--stats` | Also print `review`-tier findings (normally hidden) and per-finding detail is otherwise the same. |
 | `--today YYYY-MM-DD` | Override "now" for staleness checks. |
-| `--config PATH` | Use a different rule config than the repo default `lint_config.json`. |
+| `--config PATH` | Use a different rule config than the repo default `the active preset (src/ste100/presets/*.json)`. |
 
 Exit codes: `0` clean (or only warning/review findings), `1` at least one
 `error`-tier finding, `2` tool failure (bad config, missing file, etc.) --
@@ -137,7 +137,7 @@ STE-T5-ANDOR-0001: T5 Non-atomic: 'and/or' is always an error (MIL-STD-961E, NAS
 ```
 
 For T1/T2/T3-hedge/T6 rule IDs (bulk word-list entries, not the small fixed
-enumerations), `--explain` instead dumps the underlying `lint_data/*.json`
+enumerations), `--explain` instead dumps the underlying `src/ste100/data/*.json`
 entry (pattern, suggestion, alternates, source).
 
 ## What to do about findings -- rewrite strategy per test family
@@ -261,7 +261,7 @@ satisfy it. In order of preference:
 3. **Add a `<!-- lint-profile: NAME -->` comment as the file's first line**
    to pin a profile per-file without touching the CLI invocation, e.g. in a
    pre-commit hook or CI job that always calls `ste100` the same way. The
-   profile named must exist in `lint_config.json`'s `profiles` map.
+   profile named must exist in `the active preset (src/ste100/presets/*.json)`'s `profiles` map.
 4. **Use `--baseline PATH`** when adopting the linter on a large existing
    body of prose you are not rewriting today -- see `docs/integrations.md`
    for the generate/consume workflow. This is for triage, not for

@@ -63,7 +63,7 @@
   "s7_units": ["ms", "s", "sec", "min", "hr", "hrs", "fps", "hz", "khz", "mhz", "ghz", "mb", "gb", "kb", "tb", "px", "%", "m", "km", "cm", "mm", "kg", "g", "n", "w", "v", "a", "db"],
   "s7_tbd_pattern": "\\btbd\\b",
 
-  "budgets_file": "lint_data/budgets.json",
+  "budgets_file": "src/ste100/data/budgets.json",
   "thresholds": {
     "smell_density_max": 0.30,
     "passive_ratio_max": 0.20,

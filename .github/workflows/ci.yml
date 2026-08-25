@@ -1,36 +1,31 @@
 name: CI
 
-# Cancel superseded runs on the same ref (e.g. repeated pushes to a PR
-# branch) so we don't burn matrix minutes on stale commits.
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
-  workflow_dispatch: {}
+  workflow_dispatch:
 
-# Least privilege by default; individual jobs opt back in if they ever need
-# more (none currently do).
+# A superseded run tells you nothing useful; cancel it.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
 jobs:
   test:
-    name: test (${{ matrix.os }}, py${{ matrix.python-version }})
+    name: tests (${{ matrix.os }}, py${{ matrix.python-version }})
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        # Floor is 3.9: verified by AST scan of every .py file in this repo
-        # for match statements, PEP 604 `X | Y` annotations, tomllib,
-        # str.removeprefix/removesuffix, walrus-in-comprehension, and dict
-        # `|`/`|=` merges -- none present. See CONTRIBUTING.md for how to
-        # re-check this if the code changes.
+        # 3.9 is the declared floor in pyproject.toml. It was verified by
+        # AST-parsing every module under src/ with feature_version=(3, 9) and
+        # grepping for 3.10+ stdlib (tomllib, datetime.UTC) -- not assumed.
+        # See CONTRIBUTING.md for how to re-check if the code changes.
         python-version: ["3.9", "3.11", "3.13"]
     steps:
       - uses: actions/checkout@v4
@@ -39,22 +34,17 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      # Stdlib only (no runtime deps to install) -- this project's hard
-      # constraint. Nothing to do here but prove the interpreter starts.
+      # Stdlib only, by design -- there is nothing to install to run the
+      # suites. Proving the interpreter starts is the whole setup step.
       - name: Verify interpreter
         shell: bash
         run: python -X utf8 -c "import sys; print(sys.version)"
 
-      # Invoked by path (tests/run_corpus_tests.py), not via ste_lint.py
-      # directly: a pyproject.toml + src/ste100/ layout with a `ste100`
-      # console entry point is landing in parallel, and the test harnesses
-      # are staying put at tests/ across that move.
-      #
-      # We assert both the harness's exit code AND the presence of its
-      # "All corpus tests passed." line, per spec section 12 -- a script
-      # that happens to exit 0 without actually running its checks (e.g.
-      # because discovery found zero files, as happened before the
-      # standalone-repo path fix) must not read as green.
+      # Each harness is asserted on BOTH its exit code and its success line.
+      # A script that exits 0 without actually running its checks -- as
+      # corpus_clean did when discovery found zero files -- must not read as
+      # green. The harnesses are invoked by path, which is stable across the
+      # src/ layout since tests/ did not move.
       - name: Run corpus test suite
         shell: bash
         run: |
@@ -68,12 +58,95 @@ jobs:
             exit 1
           fi
           if ! grep -qF "All corpus tests passed." <<< "$output"; then
-            echo "::error::run_corpus_tests.py exited 0 but did not print the expected pass line"
+            echo "::error::run_corpus_tests.py exited 0 without its success line"
             exit 1
           fi
 
+      - name: Run suggestion test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_suggestion_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_suggestion_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All suggestion tests passed." <<< "$output"; then
+            echo "::error::run_suggestion_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # --fix rewrites the user's source file, so its regressions are the
+      # expensive kind. It once deleted words and produced ungrammatical prose.
+      - name: Run fixer test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_fixer_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_fixer_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All fixer tests passed." <<< "$output"; then
+            echo "::error::run_fixer_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
+      # Adversarial CSV input plus a 200-file performance budget. Hosted
+      # runners are slower than dev hardware, so a red result here is worth
+      # investigating rather than assuming flake.
+      - name: Run stress test suite
+        shell: bash
+        run: python -X utf8 tests/run_stress_tests.py
+
+  packaging:
+    name: packaging (wheel installs and runs)
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # The promise in the README is `pipx install ste100-linter; ste100 docs/`.
+      # This proves the wheel actually carries the rule tables and presets --
+      # the linter cannot start without them, and a packaging mistake that
+      # leaves them out is invisible to every test above, which runs from a
+      # source checkout.
+      - name: Build and install the wheel
+        shell: bash
+        run: |
+          python -m pip install --upgrade pip build
+          python -m build --wheel
+          python -m pip install dist/*.whl
+
+      - name: Console script runs from an unrelated directory
+        shell: bash
+        run: |
+          mkdir -p "$RUNNER_TEMP/scratch/docs"
+          printf '# Guide\n\nThe operator shall use the control.\n' > "$RUNNER_TEMP/scratch/docs/guide.md"
+          cd "$RUNNER_TEMP/scratch"
+          ste100 --version
+          ste100 --explain STE-T5-ANDOR-0001
+          ste100 docs/
+
+      - name: python -m ste100 works too
+        shell: bash
+        run: python -m ste100 --version
+
   dogfood:
-    name: dogfood (lint this repo's own Markdown)
+    name: dogfood (lint this repo's own docs)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -82,16 +155,12 @@ jobs:
         with:
           python-version: "3.11"
 
-      # Entry point today is `python -X utf8 ste_lint.py`; a pyproject.toml
-      # landing in parallel adds a `ste100` console script and moves the
-      # package under src/ste100/, at which point this step should switch
-      # to invoking that entry point instead.
-      #
-      # community-health prose (CONTRIBUTING.md, SECURITY.md, etc.) falls
-      # under the default "prose" profile in lint_config.json, which still
-      # runs T1/T3/T6 at error tier. Non-blocking for now: continue-on-error
-      # below, with the real result still visible in the job summary.
-      - name: Lint repo Markdown with ste_lint.py
+      # Non-blocking on purpose. The shipped rule tables were calibrated for
+      # strict specification writing, and community-health prose legitimately
+      # uses words the stricter profiles reject. Tuning the default preset so
+      # this can become blocking is tracked separately; until then the real
+      # result stays visible in the job summary rather than being deleted.
+      - name: Lint repo Markdown
         id: dogfood
         shell: bash
         continue-on-error: true
@@ -103,30 +172,5 @@ jobs:
           if [ "${{ steps.dogfood.outcome }}" = "success" ]; then
             echo "Dogfood step passed (exit 0)."
           else
-            echo "::warning::Dogfood step (linting this repo's own Markdown) did not exit 0. Non-blocking for now -- see the 'Lint repo Markdown with ste_lint.py' step output above for findings."
+            echo "::warning::Linting this repo's own Markdown did not exit 0. Non-blocking -- see the 'Lint repo Markdown' step for findings."
           fi
-
-  # Known-failing on purpose (spec section 12.6): the 200-file performance
-  # check budgets 2s and has been observed at ~4.03s on this repo's own
-  # dev hardware after the standalone-repo path fix (see commit
-  # "Make the linter run standalone outside the Veistra monorepo"). CI
-  # runners are typically slower than that, especially macOS/Windows
-  # hosted runners, so this is expected to be red until someone profiles
-  # and fixes the linter's hot path -- widening the budget is explicitly
-  # not the fix (tests/run_stress_tests.py isn't owned by this change).
-  # Kept as its own non-blocking job, not deleted, so the failure stays
-  # visible instead of silently disappearing.
-  stress-tests:
-    name: stress tests (known-failure tracker)
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Run stress test suite
-        shell: bash
-        run: python -X utf8 tests/run_stress_tests.py

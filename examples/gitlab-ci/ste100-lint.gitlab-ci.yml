@@ -9,7 +9,7 @@ ste100-lint:
     - ste100 .
     # Fallback if you vendor ste_lint.py instead of installing it as a
     # package, run from the repo root that contains it:
-    #   - python -X utf8 ste_lint.py .
+    #   - ste100 .
   rules:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event"
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

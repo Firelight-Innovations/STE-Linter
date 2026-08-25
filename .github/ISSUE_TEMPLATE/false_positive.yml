@@ -30,7 +30,7 @@ body:
     id: profile
     attributes:
       label: Profile the file was linted under
-      description: One of core, csv, spec, design, vision, prose (see lint_config.json profile_order), or note if you passed --profile explicitly.
+      description: One of core, csv, spec, design, vision, prose (see the active preset (src/ste100/presets/*.json) profile_order), or note if you passed --profile explicitly.
       placeholder: prose
     validations:
       required: true
@@ -41,7 +41,7 @@ body:
       label: Command and full finding output
       render: shell
       placeholder: |
-        python -X utf8 ste_lint.py docs/manual.md
+        ste100 docs/manual.md
 
         docs/manual.md:14:8 [error] STE-T3-ESC-0012 hedge word "where feasible" ...
     validations:
@@ -68,7 +68,7 @@ body:
     attributes:
       label: Checks
       options:
-        - label: I confirmed the flagged text isn't inside a fenced code block, inline code span, or other construct the linter is supposed to mask (see lint/masking.py) -- if it is, that's a masking bug, still worth reporting here.
+        - label: I confirmed the flagged text isn't inside a fenced code block, inline code span, or other construct the linter is supposed to mask (see src/ste100/masking.py) -- if it is, that's a masking bug, still worth reporting here.
           required: false
         - label: I searched existing issues and didn't find a duplicate.
           required: true

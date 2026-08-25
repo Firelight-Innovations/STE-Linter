@@ -1,21 +1,21 @@
 # Configuring the linter
 
 `ste_lint.py` reads one JSON config file, given by `--config` (default:
-`lint_config.json` at the repo root -- see `lint/paths.py:DEFAULT_CONFIG`). This project ships
+`the active preset (src/ste100/presets/*.json)` at the repo root -- see `src/ste100/paths.py:DEFAULT_CONFIG`). This project ships
 two ready-made configs in `presets/`:
 
 - **`presets/default.json`** -- the generic config for a new project. Start here.
 - **`presets/veistra.json`** -- a byte-for-byte copy of the original private-monorepo
-  `lint_config.json`, kept so that project's specific behavior (its document-control profiles,
+  `the active preset (src/ste100/presets/*.json)`, kept so that project's specific behavior (its document-control profiles,
   its CSV-registry schema, its `never_lint` list) stays reproducible. Use it only if you are
   that project, or want a fully worked example of every feature (including CSV-integrity
   checking) turned on against a matching document set.
 
 ```
-python -X utf8 ste_lint.py --config presets/default.json [PATH ...]
+ste100 --config presets/default.json [PATH ...]
 ```
 
-If you don't pass `--config`, the tool falls back to whatever `lint_config.json` exists at the
+If you don't pass `--config`, the tool falls back to whatever `the active preset (src/ste100/presets/*.json)` exists at the
 repo root -- see the maintainer note in the final report about wiring preset resolution (this
 document does not change that file; that is explicitly out of scope for this pass).
 
@@ -23,7 +23,7 @@ document does not change that file; that is explicitly out of scope for this pas
 
 Every file that gets linted is assigned a **profile**, which controls which tests run against
 it and what its word/ARI budgets are. Detection, verified against
-`lint/discovery.py:detect_profile()`, resolves in this exact order:
+`src/ste100/discovery.py:detect_profile()`, resolves in this exact order:
 
 1. **`--profile NAME`** on the command line -- overrides everything, for every targeted file.
 2. **An inline comment** on the file's first line: `<!-- lint-profile: NAME -->`. Only honored
@@ -62,7 +62,7 @@ verified by directly testing `fnmatch.fnmatch()`:
 
 ### `never_lint` is a path-prefix check, not a glob
 
-`lint/discovery.py:is_never_lint()` does a plain `rel_path_posix.startswith(prefix)` against
+`src/ste100/discovery.py:is_never_lint()` does a plain `rel_path_posix.startswith(prefix)` against
 each `never_lint` entry -- it is **not** a glob and does not match a directory name at any
 depth. `"node_modules/"` excludes a root-level `node_modules/` directory; it does **not**
 exclude `packages/foo/node_modules/` nested inside a subpackage. **Verified**: a file at
@@ -97,7 +97,7 @@ reference/API docs -- plus CSV, since the tool has real (if partly private-schem
   nitpicks, only on the three checks that are almost never false positives.
 - **`spec`** -- formal requirements and specifications: shall-statements, EARS templates,
   atomicity enforcement. **Kept under the literal name `spec`** rather than renamed to something
-  like `requirements`, because `lint/checks_atomicity.py`'s EARS, indefinite-article, and
+  like `requirements`, because `src/ste100/checks_atomicity.py`'s EARS, indefinite-article, and
   zero-`shall` checks are hardcoded to fire only when the profile name is exactly `"spec"` (or
   `"design"`) -- see `docs/rules.md`'s T5 section and the final report. This is a pragmatic
   choice to keep EARS enforcement working for a new user with zero code changes; a maintainer
@@ -121,7 +121,7 @@ for it in a custom config using `spec`/`prose` as a starting point.
 `truths.csv` / `decisions-*.csv` / `timeline.csv` / `terminology.csv` with specific columns like
 `superseded_by`, `linked_truth_ids`, `review_by` -- that is Veistra's own document-control
 process, not something any other project has. Running it by default against an arbitrary CSV
-would either find nothing (the common case: `kind_of()` in `lint/csv_integrity.py` only
+would either find nothing (the common case: `kind_of()` in `src/ste100/csv_integrity.py` only
 recognizes those four literal filenames, so an unrelated CSV is mostly invisible to it) or,
 worse, produce a confusing false positive if a generic CSV happens to have a `review_by` column
 with past dates (the one check inside `csv_integrity.py` that isn't gated by filename kind).
@@ -129,7 +129,7 @@ Neither outcome is useful to a new user, so `presets/default.json`'s `csv` profi
 
 **What generic CSV linting is left, and why it's worth keeping:** T1 (replaceable words), T3
 (optionality/hedges), T6 (zero-information), and CSV field word budgets, run cell-by-cell
-against every column of every row (see `lint/units.py:build_csv_units()`). This still catches
+against every column of every row (see `src/ste100/units.py:build_csv_units()`). This still catches
 real problems -- a spreadsheet of feature descriptions or a decision log full of "we should
 probably utilize a faster approach" benefits from the same wordiness/hedge/filler checking as
 prose does, without requiring any particular column schema. It's a strict subset of the checks
@@ -169,7 +169,7 @@ document conventions (`FAQ`, `TODO`, `README`, `RFC`, `UUID`, `JWT`, `REST`, `UT
 robotics project has `PID`, `IMU`, `ROS`; a finance project has `KYC`, `AML`) and should extend
 this list rather than expect it to be complete. Populating a `terminology.csv` with
 `type=ACRONYM` rows achieves the same suppression per-project without editing the shared config
-(see `lint/engine.py:index_terminology()`); the allowlist is the zero-setup floor.
+(see `src/ste100/engine.py:index_terminology()`); the allowlist is the zero-setup floor.
 
 ### Budgets, thresholds, and `ari_target`: what's real and what isn't
 
@@ -178,13 +178,13 @@ turned out to be entirely unread by the code -- verified by grepping every Pytho
 key name, not by inspection alone:
 
 - **`thresholds.smell_density_max` / `passive_ratio_max` / `paragraph_sentences_max` are dead.**
-  `lint/report.py` computes and reports `smell_density` and `passive_ratio` as informational
+  `src/ste100/report.py` computes and reports `smell_density` and `passive_ratio` as informational
   metrics on every run (visible in the summary line), but nothing compares them against these
   configured thresholds -- there is no pass/fail gate tied to them. `paragraph_sentences_max` is
   doubly dead: the actual, enforced paragraph budget (6 sentences, `warning`) comes from
-  `lint_data/budgets.json`'s `paragraph_budget.sentences`, a completely separate value that
+  `src/ste100/data/budgets.json`'s `paragraph_budget.sentences`, a completely separate value that
   this config key does not drive.
-- **Per-profile `ari_target` is dead.** `lint/discovery.py:ari_grade()` computes a single,
+- **Per-profile `ari_target` is dead.** `src/ste100/discovery.py:ari_grade()` computes a single,
   whole-corpus Automated Readability Index, reported once in the run summary
   (`report.py:build_summary()`) -- there is no per-profile comparison against a target anywhere
   in the codebase; the key is parsed into the config dict and never read again.
@@ -209,7 +209,7 @@ section for that last one, which is the most consequential).
 | `schema_version` | No (`report.py` uses its own fixed `SCHEMA_VERSION=1` constant) | Informational | `1` |
 | `profiles` | Yes | `{name: {path_globs: [glob,...], tests: [str,...], ari_target: number\|null, note?: str}}`. `tests` values `"T1".."T6"` are read by `ste_lint.py`'s dispatcher; `"S7"`/`"structural"`/`"ears"`/`"ears_review"`/`"csv_integrity"` are accepted but not consulted there (see `docs/rules.md`) -- `"budgets"` (CSV-field budgets) is the one non-`T*` value that is actually read. `ari_target` is currently dead (see above). | `spec`, `reference`, `csv`, `prose` -- see above |
 | `profile_order` | Yes | Ordered list of profile names to try glob-matching, before the unconditional `prose` fallback | `["spec", "reference", "csv", "prose"]` |
-| `profile_override_comment` | No -- the actual regex is hardcoded in `lint/discovery.py` (`PROFILE_COMMENT_RE`) | Documents the literal syntax `<!-- lint-profile: NAME -->` | same string, for documentation only |
+| `profile_override_comment` | No -- the actual regex is hardcoded in `src/ste100/discovery.py` (`PROFILE_COMMENT_RE`) | Documents the literal syntax `<!-- lint-profile: NAME -->` | same string, for documentation only |
 | `never_lint` | Yes | List of path prefixes (relative to CWD, forward-slash), matched with `str.startswith()`, not a glob -- see caveat above | see "`never_lint` defaults" above |
 | `severity_defaults` | **No -- entirely dead**, see `docs/rules.md` | Would-be default tier per rule name if the engine consulted it | kept in sync with the real hardcoded literals, for documentation |
 | `severity_overrides` | Yes | List of `{rule, profile: name\|list\|"*", tier, source?, note?}`. First matching non-`"*"` profile entry for a rule wins outright; a `"*"` entry only sets a tentative answer. Read by `Engine.severity()`. | see `presets/default.json`; simplified from the original by dropping the `design`/`vision`/`core` conditional branches that no longer have a matching profile |
@@ -225,7 +225,7 @@ section for that last one, which is the most consequential).
 | `t5_oblique_slash_exceptions_regex` | No -- the actual oblique-slash check uses a hardcoded regex in `checks_atomicity.py` | Documents an intended exception for slashes in units/fractions | unchanged, dead |
 | `s7_units` | Yes | Lowercase unit words that suppress the bare-number check | unchanged (already generic) |
 | `s7_tbd_pattern` | No -- the `tbd` check uses a hardcoded `\btbd\b` regex | Documents the pattern | unchanged, dead |
-| `budgets_file` | No -- `lint/paths.py` always loads `lint_data/budgets.json` directly, regardless of this value | Documents where budgets live | unchanged, dead |
+| `budgets_file` | No -- `src/ste100/paths.py` always loads `src/ste100/data/budgets.json` directly, regardless of this value | Documents where budgets live | unchanged, dead |
 | `thresholds` | No -- see above | Aspirational quality gates | unchanged numerically, annotated as dead |
 | `abbreviation_allowlist` | Yes | Abbreviations that never trigger `S7-ABBR` | broadened, see above |
 | `rule_id_taxonomy` | No -- purely descriptive | Documents the `STE-<test>-<CATEGORY>-<seq4>` ID format | unchanged; `STE-` prefix intentionally not renamed, see `docs/rules.md` |
@@ -244,7 +244,7 @@ stderr, distinct from a clean run that simply found `error`-tier issues (exit `1
 ## Writing your own config
 
 Start from `presets/default.json` and copy it, since it satisfies every key the code requires at
-load time (`lint/engine.py:_build_indexes()` will raise `KeyError` on load if any of
+load time (`src/ste100/engine.py:_build_indexes()` will raise `KeyError` on load if any of
 `t4_pronouns`, `t4_comparative_irregulars`, `t4_comparative_exclusions`,
 `t4_comparative_min_stem_length`, `t5_combinators`, `t5_punctuation_density_max`,
 `t5_punctuation_chars`, `s7_units`, `universal_quantifiers`, `nasa_arm_directives`, or
@@ -265,7 +265,7 @@ The two changes most projects will actually want to make:
 Verify any config you write actually loads and produces sane output before trusting it:
 
 ```
-python -X utf8 ste_lint.py --config your_config.json --stats path/to/one/file.md
+ste100 --config your_config.json --stats path/to/one/file.md
 ```
 
 `--stats` is worth using while developing a config, since it surfaces `review`-tier findings

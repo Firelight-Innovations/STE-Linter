@@ -1,10 +1,9 @@
 name: Release
 
-# Skeleton: this workflow depends on the pyproject.toml + src/ste100/
-# packaging layout landing separately (out of scope for this change). It
-# will not produce a working build until that lands. It also requires a
-# PyPI Trusted Publisher to be configured for this repo/workflow BEFORE
-# the first tag push -- see https://docs.pypi.org/trusted-publishers/
+# Publishes on a v* tag push. Requires a PyPI Trusted Publisher to be
+# configured for this repo/workflow BEFORE the first tag push, otherwise the
+# publish step fails on authentication -- see
+# https://docs.pypi.org/trusted-publishers/
 # (PyPI project settings -> Publishing -> Add a new publisher: owner
 # Firelight-Innovations, repo STE100-Linter, workflow release.yml,
 # environment release). No PyPI API token is stored in this repo; auth is

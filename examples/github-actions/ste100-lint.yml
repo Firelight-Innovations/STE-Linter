@@ -25,7 +25,7 @@ jobs:
 
       # Fallback if you vendor the tool instead of installing it as a
       # package -- run from the repo that contains ste_lint.py:
-      #   - run: python -X utf8 ste_lint.py .
+      #   - run: ste100 .
 
       - name: Run linter (exit 1 on any ERROR-tier finding)
         run: ste100 .

@@ -15,7 +15,7 @@ This doc shows `ste100 <args>` as the primary form. That assumes a
 **That entry point did not exist yet in this worktree at the time this doc
 was written** -- every `ste100 ...` command shown here is the intended
 post-packaging form, not something verified to run as `ste100` in this
-repo. The fallback form, `python -X utf8 ste_lint.py <args>`, is what was
+repo. The fallback form, `ste100 <args>`, is what was
 actually executed to produce every captured output sample in this doc and
 in `.claude/skills/ste100-lint/SKILL.md`. If `ste100` is not yet on your
 PATH, use the fallback form (from the directory containing `ste_lint.py`).
@@ -39,7 +39,7 @@ including Windows.
 ```powershell
 ste100 .\docs\README.md
 # or:
-python -X utf8 ste_lint.py .\docs\README.md
+ste100 .\docs\README.md
 ```
 
 ### Windows -- cmd.exe
@@ -47,13 +47,13 @@ python -X utf8 ste_lint.py .\docs\README.md
 ```bat
 ste100 docs\README.md
 :: or:
-python -X utf8 ste_lint.py docs\README.md
+ste100 docs\README.md
 ```
 
 ### Why `-X utf8` matters on Windows
 
 `ste_lint.py` always reads source files as UTF-8 (`encoding="utf-8"` is
-hardcoded in `lint/paths.py` and `ste_lint.py`) -- file reading is never the
+hardcoded in `src/ste100/paths.py` and `ste_lint.py`) -- file reading is never the
 problem. The risk is **stdout**: Python's default `sys.stdout.encoding` on
 Windows can fall back to the console's legacy code page (e.g. cp1252/cp437)
 rather than UTF-8, depending on your Python version, `PYTHONUTF8`, and OS
@@ -137,7 +137,7 @@ ste100-lint:
 "STE100: Lint current file") wired to a `problemMatcher` that parses
 `ste_lint.py`'s text output straight into the Problems panel.
 
-The output format, from `lint/report.py`, is:
+The output format, from `src/ste100/report.py`, is:
 
 ```
 file:line:col SEVERITY TEST RULE_ID -- message
@@ -150,7 +150,7 @@ with CSV findings inserting a `[row_id:field]` tag before the severity:
 file:0:1 [ROW_ID:field] SEVERITY TEST RULE_ID -- message
 ```
 
-Real captured examples (from `python -X utf8 ste_lint.py tests/corpus_dirty/dirty_t3.md`
+Real captured examples (from `ste100 tests/corpus_dirty/dirty_t3.md`
 and `tests/corpus_dirty/decisions_dirty.csv` in this repo):
 
 ```
@@ -172,7 +172,7 @@ rule ID (used as VS Code's "code"), `7` message. The optional
 This regex is checked against both hand-picked cases and a live linter run
 in `examples/vscode/test_problem_matcher.py` -- run
 `python examples/vscode/test_problem_matcher.py` to re-verify it if
-`lint/report.py`'s format ever changes. All 7 cases pass, and every finding
+`src/ste100/report.py`'s format ever changes. All 7 cases pass, and every finding
 line from a live run of `dirty_t3.md` matches while its summary line and
 excerpt lines correctly do not.
 

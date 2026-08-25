@@ -49,7 +49,7 @@ body:
     id: rationale
     attributes:
       label: ASD-STE100 / style-guide basis
-      description: Which ASD-STE100 writing rule, or which other cited source in this codebase (NASA SEH, MIL-STD-961E, INCOSE, etc. -- see the "source" fields in lint_data/*.json and lint_config.json's severity_overrides), does this implement or extend? "It bothers me" is a valid start but won't be enough on its own.
+      description: Which ASD-STE100 writing rule, or which other cited source in this codebase (NASA SEH, MIL-STD-961E, INCOSE, etc. -- see the "source" fields in src/ste100/data/*.json and the active preset (src/ste100/presets/*.json)'s severity_overrides), does this implement or extend? "It bothers me" is a valid start but won't be enough on its own.
     validations:
       required: true
 
@@ -58,7 +58,7 @@ body:
     attributes:
       label: Checks
       options:
-        - label: I checked lint_data/*.json (substitutions.json, hedges.json, vague.json, filler.json, ai_tells.json) and this isn't already covered under a different pattern.
+        - label: I checked src/ste100/data/*.json (substitutions.json, hedges.json, vague.json, filler.json, ai_tells.json) and this isn't already covered under a different pattern.
           required: true
         - label: I searched existing issues and didn't find a duplicate.
           required: true
