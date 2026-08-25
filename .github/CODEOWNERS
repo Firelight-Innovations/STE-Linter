@@ -1,0 +1,4 @@
+# Every path is owned by the maintaining organisation. One entry is enough:
+# this is a single-maintainer project, and per-directory owners would only
+# add review latency without adding a second reviewer.
+*       @Firelight-Innovations
