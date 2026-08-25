@@ -7,6 +7,11 @@ Deterministic: same input, same output, byte for byte (no clock, no random).
 
 CLI entrypoint only; the per-test builders live in tools/builddata/.
 """
+import sys
+from pathlib import Path as _P
+
+sys.path.insert(0, str(_P(__file__).resolve().parent.parent / "src"))
+
 from builddata.ai_tells import build_ai_tells
 from builddata.common import OUT_DIR, load_source, write_json
 from builddata.misc_data import build_budgets, build_pos_heuristics

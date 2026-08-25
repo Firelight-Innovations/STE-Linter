@@ -1,10 +1,10 @@
-"""Shared paths and helpers for the tools/lint_data/*.json builders."""
+"""Shared paths and helpers for the src/ste100/data/*.json builders."""
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 SOURCE = ROOT / "handoff" / "prose_lint_wordlists.json"
-OUT_DIR = ROOT / "tools" / "lint_data"
+OUT_DIR = ROOT / "src" / "ste100" / "data"
 
 # C6 (implementer decision, this build): the T1 wordlists flag "shall" as
 # replaceable by "must|will". That conflicts with DEC-TEC-TOOL-003 / O3,

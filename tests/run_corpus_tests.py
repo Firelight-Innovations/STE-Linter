@@ -31,7 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TOOLS = ROOT
-sys.path.insert(0, str(TOOLS))
+sys.path.insert(0, str(ROOT / "src"))
 LINTER = TOOLS / "ste_lint.py"
 CLEAN_DIR = TOOLS / "tests" / "corpus_clean"
 DIRTY_DIR = TOOLS / "tests" / "corpus_dirty"
@@ -105,7 +105,7 @@ def check_corpus_dirty():
 
 
 def check_rule_id_coverage(seen_rules):
-    from lint import rule_ids as r
+    from ste100 import rule_ids as r
     required = {getattr(r, n) for n in dir(r) if n.endswith("_ID") and not n.startswith("_")}
     required |= set(r.CSV_CHECK_IDS.values())
     required -= {r.CSV_CHECK_IDS[9], r.BUD_WHOLE_FILE_ID}  # documented exclusions, see module docstring
@@ -117,8 +117,8 @@ def check_rule_id_coverage(seen_rules):
 
 
 def check_whole_file_budget_direct():
-    from lint.engine import Engine
-    from lint.paths import DEFAULT_CONFIG, load_json, load_lint_data
+    from ste100.engine import Engine
+    from ste100.paths import DEFAULT_CONFIG, load_json, load_lint_data
 
     engine = Engine(load_json(DEFAULT_CONFIG), load_lint_data())
     for target, over_budget_words in (("core/00-READ-FIRST.md", 601), ("core/writing-standard.md", 1201)):

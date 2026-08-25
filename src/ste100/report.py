@@ -45,7 +45,7 @@ def emit(out_format, stats, summary, report_findings):
         }
         print(json.dumps(out, indent=2, ensure_ascii=False))
     else:
-        print("Veistra lint: {} files, {} errors, {} warnings, {} review".format(
+        print("ste100: {} files, {} errors, {} warnings, {} review".format(
             summary["files"], summary["errors"], summary["warnings"], summary["review"]))
         print("smell_density={} ari_grade={} passive_ratio={} budget_violations={}".format(
             summary["smell_density"], summary["ari_grade"], summary["passive_ratio"], summary["budget_violations"]))

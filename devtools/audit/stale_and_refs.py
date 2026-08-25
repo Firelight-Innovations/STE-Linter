@@ -1,7 +1,7 @@
 """Sections 1 (stale rows) and 2 (broken references, spec section 8.8) of the weekly audit."""
 from datetime import datetime
 
-from lint.csv_integrity import check_csv_integrity, kind_of
+from ste100.csv_integrity import check_csv_integrity, kind_of
 
 
 def find_stale_rows(registry, today):

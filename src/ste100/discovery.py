@@ -3,7 +3,7 @@ import fnmatch
 import re
 from pathlib import Path
 
-from .paths import ROOT
+from .paths import relative_to_root, root
 
 PROFILE_COMMENT_RE = re.compile(r"^\s*<!--\s*lint-profile:\s*(\w+)\s*-->")
 
@@ -46,23 +46,16 @@ def discover_files(paths, config):
             else:
                 explicit_files.append(pp)
     else:
-        walked.extend(sorted(ROOT.rglob("*.md")))
-        walked.extend(sorted(ROOT.rglob("*.csv")))
+        walked.extend(sorted(root().rglob("*.md")))
+        walked.extend(sorted(root().rglob("*.csv")))
 
     result = []
     for t in explicit_files:
         abs_path = t.resolve()
-        try:
-            rel = abs_path.relative_to(ROOT).as_posix()
-        except ValueError:
-            rel = str(abs_path)
-        result.append((rel, abs_path))
+        result.append((relative_to_root(abs_path), abs_path))
     for t in walked:
         abs_path = t.resolve()
-        try:
-            rel = abs_path.relative_to(ROOT).as_posix()
-        except ValueError:
-            rel = str(abs_path)
+        rel = relative_to_root(abs_path)
         if is_never_lint(rel, config):
             continue
         result.append((rel, abs_path))

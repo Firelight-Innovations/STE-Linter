@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ste100-linter"
+version = "0.1.0"
+description = "An ASD-STE100 Simplified Technical English linter for Markdown and CSV."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Firelight Innovations" }]
+keywords = [
+    "ste100", "asd-ste100", "simplified-technical-english", "linter",
+    "technical-writing", "documentation", "requirements", "plain-language",
+    "style-checker", "markdown",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Documentation",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Text Processing :: Linguistic",
+    "Topic :: Text Processing :: Markup :: Markdown",
+]
+
+# Intentionally empty, and a project constraint rather than an oversight: the
+# linter must run anywhere Python does, with no build step and no supply chain.
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/Firelight-Innovations/STE100-Linter"
+Repository = "https://github.com/Firelight-Innovations/STE100-Linter"
+Issues = "https://github.com/Firelight-Innovations/STE100-Linter/issues"
+Changelog = "https://github.com/Firelight-Innovations/STE100-Linter/blob/main/CHANGELOG.md"
+
+[project.scripts]
+ste100 = "ste100.cli:run"
+
+# The rule tables (data/) and presets/ live inside the package directory, so
+# they are picked up automatically -- the linter cannot run without them and
+# must never depend on files sitting beside the install.
+[tool.hatch.build.targets.wheel]
+packages = ["src/ste100"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/tests",
+    "/docs",
+    "/examples",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/CONTRIBUTING.md",
+    "/LICENSE",
+    "/NOTICE",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py39"
+src = ["src"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]

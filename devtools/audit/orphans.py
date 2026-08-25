@@ -1,5 +1,5 @@
 """Section 3 of the weekly audit: ACTIVE decisions no document references."""
-from lint.csv_integrity import kind_of
+from ste100.csv_integrity import kind_of
 
 
 def find_orphans(registry, md_texts):

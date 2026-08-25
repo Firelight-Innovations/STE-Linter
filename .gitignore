@@ -48,3 +48,6 @@ Thumbs.db
 # Local agent + scratch state
 .claude/settings.local.json
 /scratch/
+
+# Claude Code agent worktrees
+.claude/worktrees/

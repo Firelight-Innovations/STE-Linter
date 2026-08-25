@@ -7,6 +7,11 @@ writes docs/audits/YYYY-MM-DD-audit.md, and never edits project content.
 CLI entrypoint only; the eight report sections live in tools/audit/.
 Usage: python -X utf8 tools/weekly_audit.py [--today YYYY-MM-DD]
 """
+import sys
+from pathlib import Path as _P
+
+sys.path.insert(0, str(_P(__file__).resolve().parent.parent / "src"))
+
 import argparse
 import re
 import sys
@@ -24,10 +29,10 @@ from audit.report import render_report
 from audit.stale_and_refs import find_broken_references, find_stale_rows
 from audit.state import load_state, save_state
 from audit.terminology_drift import find_terminology_drift
-from lint.csv_integrity import kind_of, load_all_csvs
-from lint.discovery import discover_files
-from lint.engine import Engine
-from lint.paths import DEFAULT_CONFIG, load_json, load_lint_data
+from ste100.csv_integrity import kind_of, load_all_csvs
+from ste100.discovery import discover_files
+from ste100.engine import Engine
+from ste100.paths import DEFAULT_CONFIG, load_json, load_lint_data
 
 ROOT = Path(__file__).resolve().parent.parent
 AUDITS_DIR = ROOT / "docs" / "audits"
