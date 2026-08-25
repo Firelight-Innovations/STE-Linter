@@ -1,6 +1,6 @@
-# STE100-Linter
+# STE-Linter
 
-[![CI](https://img.shields.io/github/actions/workflow/status/Firelight-Innovations/STE100-Linter/ci.yml?branch=main&label=CI)](https://github.com/Firelight-Innovations/STE100-Linter/actions/workflows/ci.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/Firelight-Innovations/STE-Linter/ci.yml?branch=main&label=CI)](https://github.com/Firelight-Innovations/STE-Linter/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/ste100-linter.svg)](https://pypi.org/project/ste100-linter/)
 [![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
@@ -54,13 +54,13 @@ requirements.md:7:13 WARNING T4 STE-T4-COMP-0003 -- Referentially open: comparat
 Three sentences, all six tests. Try it now, with nothing installed:
 
 ```bash
-git clone https://github.com/Firelight-Innovations/STE100-Linter.git
-cd STE100-Linter && python ste_lint.py tests/corpus_default/
+git clone https://github.com/Firelight-Innovations/STE-Linter.git
+cd STE-Linter && python ste_lint.py tests/corpus_default/
 ```
 
 > **Status: beta.** The rules and CLI are stable enough to use daily. Rule IDs are stable from v0.1.0 onward. Read [known limitations](#known-limitations) before you adopt the linter in blocking CI.
 
-Longer guides live in the **[project wiki](https://github.com/Firelight-Innovations/STE100-Linter/wiki)** — start with [How the Linter Works](https://github.com/Firelight-Innovations/STE100-Linter/wiki/How-the-Linter-Works), the [CLI Reference](https://github.com/Firelight-Innovations/STE100-Linter/wiki/CLI-Reference), and [Configuration](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Configuration).
+Longer guides live in the **[project wiki](https://github.com/Firelight-Innovations/STE-Linter/wiki)** — start with [How the Linter Works](https://github.com/Firelight-Innovations/STE-Linter/wiki/How-the-Linter-Works), the [CLI Reference](https://github.com/Firelight-Innovations/STE-Linter/wiki/CLI-Reference), and [Configuration](https://github.com/Firelight-Innovations/STE-Linter/wiki/Configuration).
 
 ---
 
@@ -103,7 +103,7 @@ The bulk word tables behind T1, T2, T3 and T6 come from a different lineage: Val
 
 ## Relationship to ASD-STE100
 
-This project is inspired by ASD-STE100 and is not a licensed, certified, or conforming implementation of it. It ships no part of the ASD STE Dictionary and makes no conformance claim. The rule tables are independently assembled from open sources, and a clean run here does not mean a document meets the standard. For the standard itself, see [asd-ste100.org](https://www.asd-ste100.org/) and the wiki page on [Simplified Technical English](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Simplified-Technical-English).
+This project is inspired by ASD-STE100 and is not a licensed, certified, or conforming implementation of it. It ships no part of the ASD STE Dictionary and makes no conformance claim. The rule tables are independently assembled from open sources, and a clean run here does not mean a document meets the standard. For the standard itself, see [asd-ste100.org](https://www.asd-ste100.org/) and the wiki page on [Simplified Technical English](https://github.com/Firelight-Innovations/STE-Linter/wiki/Simplified-Technical-English).
 
 ## Install
 
@@ -126,14 +126,14 @@ Verify:
 ste100 --version
 ```
 
-> The package is not on PyPI yet. Until the first tagged release publishes, install from a source checkout or with `pip install git+https://github.com/Firelight-Innovations/STE100-Linter.git`.
+> The package is not on PyPI yet. Until the first tagged release publishes, install from a source checkout or with `pip install git+https://github.com/Firelight-Innovations/STE-Linter.git`.
 
 <details>
 <summary>Run from a source checkout, without installing</summary>
 
 ```bash
-git clone https://github.com/Firelight-Innovations/STE100-Linter.git
-cd STE100-Linter
+git clone https://github.com/Firelight-Innovations/STE-Linter.git
+cd STE-Linter
 python ste_lint.py --help
 ```
 
@@ -142,7 +142,7 @@ python ste_lint.py --help
 
 **Windows:** `ste100` forces UTF-8 on its own output, so suggestions containing non-ASCII print correctly in PowerShell and `cmd` without `-X utf8` or a `chcp` dance.
 
-Platform-by-platform notes: [Installation](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Installation).
+Platform-by-platform notes: [Installation](https://github.com/Firelight-Innovations/STE-Linter/wiki/Installation).
 
 ## Quick start
 
@@ -154,7 +154,7 @@ ste100 --format json docs/  # machine-readable output
 ste100 --fix docs/          # apply the unambiguous substitutions in place
 ```
 
-The full flag set is `--format`, `--profile`, `--config`, `--preset`, `--root`, `--fix`, `--explain`, `--baseline`, `--stats`, `--today`, `--version` and `--help`. Read the [CLI Reference](https://github.com/Firelight-Innovations/STE100-Linter/wiki/CLI-Reference) for what each one does.
+The full flag set is `--format`, `--profile`, `--config`, `--preset`, `--root`, `--fix`, `--explain`, `--baseline`, `--stats`, `--today`, `--version` and `--help`. Read the [CLI Reference](https://github.com/Firelight-Innovations/STE-Linter/wiki/CLI-Reference) for what each one does.
 
 When a finding is unclear, ask:
 
@@ -212,7 +212,7 @@ Only `error` breaks a build. Distinguish `1` from `2` in CI — the first means 
 
 ## Configuration
 
-Zero config required. The shipped `default` preset is tuned for general technical documentation.
+No config file is required to start. Read the profile note below first, though. A file's path decides its profile, and its profile decides how strict the run is.
 
 Configuration resolves in this order, first match winning:
 
@@ -227,9 +227,11 @@ Configuration resolves in this order, first match winning:
 <!-- lint-profile: spec -->
 ```
 
-A file under `docs/`, or a `README.md`, lands in the `docs` profile, which is the quiet one. A `requirements.md` or anything under a `spec/` tree lands in `spec`, which is the strict one.
+The `docs` profile is the quiet one, and its path list is a fixed allowlist: `README.md`, `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`, `CHANGELOG.md`, their lowercase spellings, and anything under `docs/` or `examples/`. A `requirements.md`, or anything under a `spec/` tree, lands in `spec`, the strict one.
 
-Full key reference and profile semantics: **[docs/configuration.md](docs/configuration.md)** and the wiki's [Configuration](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Configuration) page.
+**Every other Markdown file falls through to `prose`, which is stricter than `docs`.** An `ARCHITECTURE.md` or a `guides/setup.md` gets error-tier findings on `can`, `will`, `should` and a causal `so` — ordinary correct English. Pass `--profile docs` for those runs, or commit a project-local `ste100.json`. See [known limitations](#known-limitations) for the detail and the fix.
+
+Full key reference and profile semantics: **[docs/configuration.md](docs/configuration.md)** and the wiki's [Configuration](https://github.com/Firelight-Innovations/STE-Linter/wiki/Configuration) page.
 
 ## Adopting it on an existing codebase
 
@@ -249,7 +251,7 @@ Commit the baseline. Shrink it deliberately over time rather than all at once. S
 <details>
 <summary><b>Claude Code skill</b></summary>
 
-This repo ships a skill at `.claude/skills/ste100-lint/`. It teaches the model to run the linter and to *rewrite* prose in response to each test family. It also teaches the model when a finding is a false positive to be scoped rather than obeyed. See the wiki's [Agent Skill](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Agent-Skill) page.
+This repo ships a skill at `.claude/skills/ste100-lint/`. It teaches the model to run the linter and to *rewrite* prose in response to each test family. It also teaches the model when a finding is a false positive to be scoped rather than obeyed. See the wiki's [Agent Skill](https://github.com/Firelight-Innovations/STE-Linter/wiki/Agent-Skill) page.
 </details>
 
 <details>
@@ -257,7 +259,7 @@ This repo ships a skill at `.claude/skills/ste100-lint/`. It teaches the model t
 
 ```yaml
 repos:
-  - repo: https://github.com/Firelight-Innovations/STE100-Linter
+  - repo: https://github.com/Firelight-Innovations/STE-Linter
     rev: v0.1.0
     hooks:
       - id: ste100-lint
@@ -290,15 +292,26 @@ Installable as a HELVE Tool through `helve-tool.toml`, speaking JSON-RPC 2.0 ove
 `examples/vscode/tasks.json` includes a `problemMatcher` that maps findings into the Problems panel.
 </details>
 
-More, with copy-pasteable configs: **[docs/integrations.md](docs/integrations.md)**, [examples/](examples/), and the wiki's [Integrations](https://github.com/Firelight-Innovations/STE100-Linter/wiki/Integrations) page.
+More, with copy-pasteable configs: **[docs/integrations.md](docs/integrations.md)**, [examples/](examples/), and the wiki's [Integrations](https://github.com/Firelight-Innovations/STE-Linter/wiki/Integrations) page.
 
 ## Known limitations
 
 Stated plainly, because a linter that oversells itself gets uninstalled.
 
 - **The analysis is lexical, not semantic.** Rules match words and sentence shapes. The linter cannot tell a hedge that matters from one that does not, so some findings need your judgement. That is why the `warning` and `review` tiers exist — do not treat every finding as a defect.
-- **Prose registers differ, and the profile carries that difference.** The rule tables were calibrated on specification writing. The `default` preset now routes ordinary project documentation to a `docs` profile. That profile drops hedge words, open-ended clauses and the whole T6 family to `review` tier. On this repo's own docs those buckets measured above 95% false positives: bare modals such as `will` and `can`, `e.g.` and `etc.`, and filler-list hits on ordinary connectives. The strictness did not go away; it moved. Files that land in `spec`, `reference` or `prose` still see the calibrated-for-specifications behaviour, so pick the right profile rather than flattening your prose to meet the strictest one.
-- **The default preset is quieter, not quiet.** Linting this repository's own 25 Markdown files reports 157 error-tier findings, and 115 of them are T1 replaceable-word substitutions. T1 stays at error tier in every profile on purpose: its advice is usually right on ordinary prose. Expect to disagree with some of it, and expect a baseline to be the practical way in.
+- **The out-of-box tuning covers named paths only, and this is the sharp edge.** The rule tables were calibrated on specification writing, where a bare `should` or `may` really is a defect. The `default` preset softens that for ordinary documentation: hedge words, open-ended clauses and the whole T6 family drop to `review` tier. That softening applies inside the `docs` profile only, whose paths are the fixed allowlist named under [Configuration](#configuration). Every other Markdown file falls through to `prose`, where those buckets are still error tier.
+
+  The same prose lints two ways. `You can run the tool. It will read the file, so check permissions. You should retry.` is clean in a `README.md` or under `docs/`. As `ARCHITECTURE.md`, `INSTALL.md` or `guides/setup.md` it reports four errors: `can`, `will`, `should`, and a causal `so`. A repo that keeps its documentation anywhere else gets those on the first run.
+
+  Two workarounds, both verified. Pass `--profile docs` to force the quiet profile for a run:
+
+  ```bash
+  ste100 --profile docs ARCHITECTURE.md
+  ```
+
+  Or commit a project-local `ste100.json` that copies the shipped preset and widens the `docs` profile's `path_globs` to include `*.md` and `**/*.md`. The linter finds that file by walking up from the target, so `ste100` then needs no flags. [docs/configuration.md](docs/configuration.md) has the key reference.
+
+- **Even on the quiet path, quieter is not quiet.** Linting this repository's own 25 Markdown files reports 157 error-tier findings, and 115 of them are T1 replaceable-word substitutions. T1 stays at error tier in every profile on purpose: its advice is usually right on ordinary prose. Expect to disagree with some of it, and expect a baseline to be the practical way in.
 - **`--fix` is deliberately narrow.** It applies only T1 substitutions with exactly one unambiguous replacement, never deletes text, and skips whole lines that contain code spans or links. Everything else is reported for a human.
 - **CSV integrity checks target a specific schema.** The `STE-CSV-*` rules check a document-control registry (`truths.csv`, `decisions-*.csv`, `terminology.csv`). They are off in the `default` preset.
 - **Some config keys are parsed but never read**, including `severity_defaults`, `thresholds` and the per-profile `ari_target`. [docs/configuration.md](docs/configuration.md) marks which keys the engine reads.
@@ -308,7 +321,7 @@ Stated plainly, because a linter that oversells itself gets uninstalled.
 
 | Document | Contents |
 |:--|:--|
-| [Wiki](https://github.com/Firelight-Innovations/STE100-Linter/wiki) | Guides: the standard, how the linter works, install, CLI, config, integrations |
+| [Wiki](https://github.com/Firelight-Innovations/STE-Linter/wiki) | Guides: the standard, how the linter works, install, CLI, config, integrations |
 | [docs/rules.md](docs/rules.md) | Every rule, its rationale and before/after examples |
 | [docs/configuration.md](docs/configuration.md) | Config keys, profiles, severity resolution |
 | [docs/integrations.md](docs/integrations.md) | CLI, CI, editors, pre-commit, baselines |
@@ -322,8 +335,8 @@ Stated plainly, because a linter that oversells itself gets uninstalled.
 Contributions are welcome — above all **false-positive reports**, which are the most useful signal for a linter. A dedicated issue template captures the sentence, the rule, and the profile.
 
 ```bash
-git clone https://github.com/Firelight-Innovations/STE100-Linter.git
-cd STE100-Linter
+git clone https://github.com/Firelight-Innovations/STE-Linter.git
+cd STE-Linter
 for t in tests/run_*.py; do python -X utf8 "$t" || break; done
 ```
 
