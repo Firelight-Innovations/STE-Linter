@@ -1,0 +1,4 @@
+term,type,approved_pos,definition,do_not_use,domain,status,date_added,replaces
+oldwidget,TECHNICAL_NAME,noun,Legacy widget name no longer used,,tools,DEPRECATED,2025-01-01,
+futuremodule,TECHNICAL_NAME,noun,Module planned but not yet effective,,tools,ACTIVE,2026-12-01,
+canonicalname,TECHNICAL_NAME,noun,The one approved name for this concept,oldname,tools,ACTIVE,2025-01-01,

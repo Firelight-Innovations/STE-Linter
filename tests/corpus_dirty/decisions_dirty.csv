@@ -1,0 +1,11 @@
+id,date,decision,rationale,status,supersedes,superseded_by,owner,review_by,scope,linked_truth_ids
+DEC-DIRTY-001,2026-01-01,First decision text here,First rationale text here,SUPERSEDED,,,owner,2027-01-01,scope one,
+DEC-DIRTY-002,2026-01-01,Second decision text here,Second rationale text here,ACTIVE,DEC-DIRTY-999,,owner,2027-01-01,scope two,
+DEC-DIRTY-003,2026-01-01,Third decision text here,Third rationale text here,ACTIVE,DEC-DIRTY-004,,owner,2027-01-01,scope three,
+DEC-DIRTY-004,2026-01-01,Fourth decision text here,Fourth rationale text here,ACTIVE,DEC-DIRTY-003,,owner,2027-01-01,scope four,
+DEC-DIRTY-001,2026-02-01,Duplicate id decision text,Duplicate id rationale text,ACTIVE,,,owner,2027-01-01,scope five,
+DEC-DIRTY-005,2026-01-01,Fifth decision text here,Fifth rationale text here,ACTIVE,,,owner,,scope six,
+DEC-DIRTY-006,2026-01-01,Sixth decision text here,Sixth rationale text here,BOGUS,,,owner,2027-01-01,scope seven,
+DEC-DIRTY-007,2026-01-01,Seventh decision text here,Seventh rationale text here,ACTIVE,,,owner,2026-01-01,scope eight,
+DEC-DIRTY-008,2026-01-01,Eighth decision text here,Eighth rationale text here,ACTIVE,,,owner,2027-01-01,scope nine,TRU-DIRTY-999
+DEC-DIRTY-009,2026-01-01,This decision text runs on for far too many words because it repeats itself again and again well past the twenty five word field budget limit,Ninth rationale text here,ACTIVE,,,owner,2027-01-01,scope ten,
