@@ -3,6 +3,18 @@
   "test": "T2",
   "name": "Unfalsifiable",
   "default_tier": "warning",
+  "sources": {
+    "notice": "Attribution and full license texts: NOTICE and THIRD-PARTY-LICENSES.md at the repository root, and in the wheel under .dist-info/licenses/.",
+    "tables": [
+      {
+        "tables": [
+          "terms"
+        ],
+        "origin": "original",
+        "note": "Written for this project against QuARS and INCOSE R7; the generator (devtools/builddata/t2_vague.py) reads no wordlist for this file."
+      }
+    ]
+  },
   "terms": [
     {
       "id": "STE-T2-VAG-0001",

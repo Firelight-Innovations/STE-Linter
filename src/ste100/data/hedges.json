@@ -3,6 +3,35 @@
   "test": "T3",
   "name": "Optional",
   "default_tier": "error",
+  "sources": {
+    "notice": "Attribution and full license texts: NOTICE and THIRD-PARTY-LICENSES.md at the repository root, and in the wheel under .dist-info/licenses/.",
+    "tables": [
+      {
+        "tables": [
+          "hedge_words"
+        ],
+        "origin": "third-party",
+        "project": "hedges",
+        "url": "https://github.com/words/hedges",
+        "copyright": "Copyright (c) 2014 Titus Wormer <tituswormer@gmail.com>",
+        "license": "MIT",
+        "via": "retext-intensify (https://github.com/retextjs/retext-intensify), MIT, Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>",
+        "generator_key": "retext_intensify.hedges",
+        "note": "Lowercased and deduplicated from the upstream list."
+      },
+      {
+        "tables": [
+          "escape_clauses",
+          "open_ended_clauses",
+          "optionality",
+          "superfluous_infinitives",
+          "ambiguous_hedge_verbs_need_context"
+        ],
+        "origin": "original",
+        "note": "Written for this project against ASD-STE100 and INCOSE R8/R9/R10; no third-party wordlist involved."
+      }
+    ]
+  },
   "escape_clauses": [
     {
       "id": "STE-T3-ESC-0001",

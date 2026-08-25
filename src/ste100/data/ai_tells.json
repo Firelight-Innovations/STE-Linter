@@ -3,6 +3,28 @@
   "test": "T6",
   "name": "Zero-information (AI tells)",
   "default_tier": "error",
+  "sources": {
+    "notice": "Attribution and full license texts: NOTICE and THIRD-PARTY-LICENSES.md at the repository root, and in the wheel under .dist-info/licenses/.",
+    "tables": [
+      {
+        "tables": [
+          "phrases"
+        ],
+        "origin": "third-party",
+        "project": "vale-ai-tells",
+        "url": "https://github.com/tbhb/vale-ai-tells",
+        "copyright": "Copyright (c) 2025-2026 Tony Burns",
+        "license": "MIT",
+        "note": "The three phrase categories correspond to HedgingPhrases.yml, ConclusionMarkers.yml and ContrastiveFormulas.yml upstream, and the engine reports tbhb/vale-ai-tells as the source of every finding from this file. The generator records no source key, so the derivation is inferred, not recorded. See open question 2 in NOTICE."
+      },
+      {
+        "tables": [
+          "machine_artifacts"
+        ],
+        "origin": "original"
+      }
+    ]
+  },
   "phrases": [
     {
       "id": "STE-T6-AI-0001",
