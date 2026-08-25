@@ -1,0 +1,21 @@
+version: 2
+
+# Only "github-actions" is listed, and the missing "pip" ecosystem is
+# deliberate rather than an oversight: STE-Linter has zero runtime Python
+# dependencies (see CONTRIBUTING.md, "The stdlib-only rule"), so there is no
+# dependency tree for Dependabot to watch. The pinned third-party actions in
+# .github/workflows/ are the only supply chain this repository has.
+updates:
+  - package-ecosystem: github-actions
+    # Covers both .github/workflows/ci.yml and .github/workflows/release.yml;
+    # "/" is the repository root, which is where Dependabot expects to be
+    # pointed for workflow files.
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    commit-message:
+      # Matches the repository's imperative commit-subject style.
+      prefix: "Bump"
+    labels:
+      - dependencies

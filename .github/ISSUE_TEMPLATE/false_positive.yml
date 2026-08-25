@@ -30,7 +30,7 @@ body:
     id: profile
     attributes:
       label: Profile the file was linted under
-      description: One of core, csv, spec, design, vision, prose (see the active preset (src/ste100/presets/*.json) profile_order), or note if you passed --profile explicitly.
+      description: Under the default preset, one of spec, reference, csv, docs, prose. The veistra preset uses core, csv, spec, design, vision, prose. See profile_order in the preset you are using (src/ste100/presets/*.json), or note if you passed --profile explicitly.
       placeholder: prose
     validations:
       required: true
