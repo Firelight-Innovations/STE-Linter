@@ -9,7 +9,12 @@ description = "An ASD-STE100 Simplified Technical English linter for Markdown an
 readme = "README.md"
 requires-python = ">=3.9"
 license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE"]
+# NOTICE and THIRD-PARTY-LICENSES.md are listed here, not just kept in the
+# repo: the shipped word lists in src/ste100/data/ are partly derived from
+# MIT- and BSD-3-Clause-licensed projects, whose terms require the copyright
+# notice and license text to travel with every redistribution. A wheel is a
+# redistribution, so both files have to be inside it.
+license-files = ["LICENSE", "NOTICE", "THIRD-PARTY-LICENSES.md"]
 authors = [{ name = "Firelight Innovations" }]
 keywords = [
     "ste100", "asd-ste100", "simplified-technical-english", "linter",
@@ -70,6 +75,7 @@ include = [
     "/CONTRIBUTING.md",
     "/LICENSE",
     "/NOTICE",
+    "/THIRD-PARTY-LICENSES.md",
 ]
 
 [tool.ruff]

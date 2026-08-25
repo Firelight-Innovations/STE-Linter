@@ -9,3 +9,132 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
+
+
+================================================================================
+THIRD-PARTY ATTRIBUTIONS
+================================================================================
+
+Parts of the word and phrase tables in src/ste100/data/ are derived from the
+third-party open-source projects listed below. The full license text of each is
+reproduced in THIRD-PARTY-LICENSES.md, which ships alongside this file.
+
+--------------------------------------------------------------------------------
+retext-simplify
+    https://github.com/retextjs/retext-simplify
+    Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/substitutions.json -- the 205 entries whose
+    "source" field is "retext_simplify".
+
+--------------------------------------------------------------------------------
+retext-intensify
+    https://github.com/retextjs/retext-intensify
+    Copyright (c) 2016 Titus Wormer <tituswormer@gmail.com>
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/hedges.json (hedge_words) and
+    src/ste100/data/filler.json (part of fillers_and_intensifiers) were taken
+    through retext-intensify, which holds no word data of its own -- it
+    re-exports the "hedges" and "fillers" packages below.
+
+--------------------------------------------------------------------------------
+hedges
+    https://github.com/words/hedges
+    Copyright (c) 2014 Titus Wormer <tituswormer@gmail.com>
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/hedges.json -- the 144 entries in hedge_words.
+
+--------------------------------------------------------------------------------
+fillers
+    https://github.com/words/fillers
+    Copyright (c) 2014 Titus Wormer <tituswormer@gmail.com>
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/filler.json -- part of the 337 entries in
+    fillers_and_intensifiers.
+
+--------------------------------------------------------------------------------
+Vale at Red Hat
+    https://github.com/redhat-documentation/vale-at-red-hat
+    Copyright (c) 2021 Rolfe Dlugy-Hegwer
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/substitutions.json -- the 105 entries whose
+    "source" field is "vale_redhat.simple_words", from
+    .vale/styles/RedHat/SimpleWords.yml.
+
+--------------------------------------------------------------------------------
+Microsoft (Vale style package)
+    https://github.com/errata-ai/Microsoft
+    Copyright (c) 2018 - 2019 Joseph Kato
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/substitutions.json -- the 86 entries whose
+    "source" field is "vale_microsoft.wordiness", from Microsoft/Wordiness.yml.
+    That package states it is neither maintained nor endorsed by Microsoft. It
+    implements the Microsoft Writing Style Guide
+    (https://github.com/MicrosoftDocs/microsoft-style-guide), which Microsoft
+    publishes under CC-BY-4.0. See open question 1 below.
+
+--------------------------------------------------------------------------------
+proselint
+    https://github.com/amperser/proselint
+    Copyright (c) 2014-2015, Jordan Suchow, Michael Pacer, and Lara A. Ross
+    SPDX-License-Identifier: BSD-3-Clause
+    Derived data: src/ste100/data/filler.json -- the 24 entries in
+    corporate_speak, from proselint/checks/industrial_language/corporate_speak.py.
+
+--------------------------------------------------------------------------------
+vale-ai-tells
+    https://github.com/tbhb/vale-ai-tells
+    Copyright (c) 2025-2026 Tony Burns
+    SPDX-License-Identifier: MIT
+    Derived data: src/ste100/data/ai_tells.json -- the three "phrases"
+    categories and several of the 11 phrases. See open question 2 below.
+
+
+================================================================================
+OPEN QUESTIONS
+================================================================================
+
+These are recorded rather than resolved. Each one needs a decision from a human
+before this attribution can be called complete.
+
+1. Microsoft Writing Style Guide (CC-BY-4.0). The Vale package above is MIT and
+   is attributed as such. The style guide it implements is CC-BY-4.0, and
+   CC-BY-4.0 requires attribution to the licensor by anyone distributing an
+   adaptation. Whether the shipped 86 substitution pairs count as an adaptation
+   of the guide, and therefore need a separate attribution to Microsoft, is not
+   settled here.
+
+2. ai_tells.json provenance. devtools/build_lint_data.py records no source key
+   for this file: the 11 phrases are literals in devtools/builddata/ai_tells.py.
+   The attribution above is inferred from two things -- the engine reports
+   "tbhb/vale-ai-tells" as the source of every finding from this file
+   (src/ste100/checks_lexical.py), and the file's three categories correspond to
+   three rules in that package. Whether the list was actually derived from it,
+   or written independently and labelled afterwards, cannot be established from
+   the repository.
+
+3. MERGED.* lists of unknown provenance. Three generator source keys name lists
+   that no longer exist and whose composition is not recorded anywhere in this
+   repository:
+     - MERGED.wordy_and_complex -- 28 shipped entries in substitutions.json,
+       filtered from 876 to those attested by three or more unnamed sources.
+     - MERGED.intensifiers_adverbs -- folded into filler.json's
+       fillers_and_intensifiers, count not separable.
+     - MERGED.weasel_and_hedge -- used only as a build-time cross-check; no
+       entries shipped from it.
+   Each was a merge of several upstream wordlists whose names were not kept. The
+   upstreams may include projects not listed above, and may include projects
+   under terms other than MIT or BSD-3-Clause. This cannot be resolved from the
+   repository; it needs either the original prose_lint_wordlists.json or a
+   decision to rebuild those entries from a known source.
+
+4. filler.json overused_vocabulary. These 40 words are literals in
+   devtools/builddata/t6_filler.py with no recorded source. 30 of the 40 also
+   appear in vale-ai-tells. The overlap is consistent with independent authoring
+   from the same widely-circulated vocabulary, and is not by itself evidence of
+   derivation, so no attribution is claimed for this table.
+
+5. Entry counts. The counts above are the counts of shipped entries in this
+   repository, taken from src/ste100/data/. They are not upstream list sizes,
+   and the generator that produced them cannot be re-run to confirm the mapping
+   (see CONTRIBUTING.md).
