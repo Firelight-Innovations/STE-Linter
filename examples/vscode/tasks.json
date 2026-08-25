@@ -1,0 +1,73 @@
+{
+  // Copy into .vscode/tasks.json (or merge the "tasks" array into an
+  // existing file). Run with Ctrl+Shift+P -> "Tasks: Run Task" -> "STE100:
+  // Lint workspace". Findings land in the Problems panel via the
+  // problemMatcher below.
+  //
+  // Uses the `ste100` console script (see docs/integrations.md for its
+  // packaging status). If it is not yet on PATH, change "command" to
+  // "python" and prepend "-X", "utf8", "ste_lint.py" to "args".
+  //
+  // The problemMatcher regex is verified against real ste_lint.py output in
+  // examples/vscode/test_problem_matcher.py -- re-run that script if
+  // lint/report.py's output format ever changes.
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "STE100: Lint workspace",
+      "type": "shell",
+      "command": "ste100",
+      "args": ["${workspaceFolder}"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": {
+        "owner": "ste100-lint",
+        "fileLocation": ["autoDetect", "${workspaceFolder}"],
+        "pattern": {
+          // Matches: file:line:col [ROW:FIELD] SEVERITY TEST RULE_ID -- message
+          // The "[row_id:field]" tag (CSV findings only) is optional.
+          "regexp": "^(.*):(\\d+):(\\d+)(?:\\s+\\[[^\\]]+\\])?\\s+(ERROR|WARNING|REVIEW)\\s+(\\S+)\\s+(\\S+)\\s+--\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 6,
+          "message": 7
+        },
+        "severity": "warning"
+      }
+    },
+    {
+      "label": "STE100: Lint current file",
+      "type": "shell",
+      "command": "ste100",
+      "args": ["${file}"],
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      },
+      "problemMatcher": {
+        "owner": "ste100-lint",
+        "fileLocation": ["autoDetect", "${workspaceFolder}"],
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+)(?:\\s+\\[[^\\]]+\\])?\\s+(ERROR|WARNING|REVIEW)\\s+(\\S+)\\s+(\\S+)\\s+--\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "code": 6,
+          "message": 7
+        }
+      }
+    }
+  ]
+}

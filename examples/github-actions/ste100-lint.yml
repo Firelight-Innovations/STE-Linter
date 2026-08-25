@@ -1,0 +1,48 @@
+# Sample GitHub Actions workflow. Copy to .github/workflows/ste100-lint.yml
+# in a repo that has installed this project (pip install ste100-linter, once
+# that packaging lands -- see docs/integrations.md) or that vendors
+# ste_lint.py directly.
+name: STE100 lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      # Once the console entry point lands:
+      - name: Install ste100-linter
+        run: pip install ste100-linter
+
+      # Fallback if you vendor the tool instead of installing it as a
+      # package -- run from the repo that contains ste_lint.py:
+      #   - run: python -X utf8 ste_lint.py .
+
+      - name: Run linter (exit 1 on any ERROR-tier finding)
+        run: ste100 .
+
+      # For adopting on an existing large body of prose without fixing
+      # everything in one PR, filter against a committed baseline instead:
+      #   - run: ste100 --baseline .ste100-baseline.json .
+      # See docs/integrations.md for how to generate the baseline file.
+
+      # To surface findings as a build artifact for later inspection:
+      - name: Run linter (JSON report)
+        if: always()
+        run: ste100 --format json --stats . > ste100-report.json
+
+      - name: Upload lint report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ste100-report
+          path: ste100-report.json
