@@ -41,10 +41,11 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/Firelight-Innovations/STE100-Linter"
-Repository = "https://github.com/Firelight-Innovations/STE100-Linter"
-Issues = "https://github.com/Firelight-Innovations/STE100-Linter/issues"
-Changelog = "https://github.com/Firelight-Innovations/STE100-Linter/blob/main/CHANGELOG.md"
+Homepage = "https://github.com/Firelight-Innovations/STE-Linter"
+Repository = "https://github.com/Firelight-Innovations/STE-Linter"
+Documentation = "https://github.com/Firelight-Innovations/STE-Linter/wiki"
+Issues = "https://github.com/Firelight-Innovations/STE-Linter/issues"
+Changelog = "https://github.com/Firelight-Innovations/STE-Linter/blob/main/CHANGELOG.md"
 
 [project.scripts]
 ste100 = "ste100.cli:run"

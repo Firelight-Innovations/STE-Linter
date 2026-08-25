@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for filing this. STE100-Linter is stdlib-only Python, so most bugs are reproducible with just a Python version and a file to point it at.
+        Thanks for filing this. STE-Linter is stdlib-only Python, so most bugs are reproducible with just a Python version and a file to point it at.
 
   - type: input
     id: version

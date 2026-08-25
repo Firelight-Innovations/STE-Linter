@@ -74,7 +74,7 @@ In a *consumer* repo's `.pre-commit-config.yaml`:
 
 ```yaml
 repos:
-  - repo: https://github.com/Firelight-Innovations/STE100-Linter
+  - repo: https://github.com/Firelight-Innovations/STE-Linter
     rev: v0.1.0  # pin to a real tag/commit once one is cut
     hooks:
       - id: ste100-lint

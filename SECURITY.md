@@ -2,7 +2,7 @@
 
 ## Scope: what this tool actually does
 
-STE100-Linter is a stdlib-only Python command-line tool. It reads local
+STE-Linter is a stdlib-only Python command-line tool. It reads local
 Markdown and CSV files that you point it at (or that it discovers by
 walking the current directory) and prints findings to stdout. It has no
 network access, no telemetry, and no runtime dependencies to carry a
@@ -35,7 +35,7 @@ updated accordingly at that point.
 
 Please report security issues privately, not in a public GitHub issue.
 
-Use **[GitHub Security Advisories](https://github.com/Firelight-Innovations/STE100-Linter/security/advisories/new)**
+Use **[GitHub Security Advisories](https://github.com/Firelight-Innovations/STE-Linter/security/advisories/new)**
 for this repository ("Security" tab -> "Report a vulnerability"). This opens
 a private channel with maintainers before anything is disclosed publicly.
 
