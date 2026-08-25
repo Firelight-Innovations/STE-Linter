@@ -72,16 +72,16 @@ class Engine(LexicalChecksMixin, ReferenceChecksMixin, AtomicityChecksMixin):
 
         # config-derived lists
         self.t4_pronouns = cfg["t4_pronouns"]
-        self.t4_pronoun_ids = _seq_ids("VEI-T4-PRO", self.t4_pronouns)
+        self.t4_pronoun_ids = _seq_ids("STE-T4-PRO", self.t4_pronouns)
         self.t4_pronoun_re = compile_alternation(self.t4_pronouns)
         self.t4_comp_irregulars = cfg["t4_comparative_irregulars"]
-        self.t4_comp_irregular_ids = _seq_ids("VEI-T4-COMP", self.t4_comp_irregulars)
+        self.t4_comp_irregular_ids = _seq_ids("STE-T4-COMP", self.t4_comp_irregulars)
         self.t4_comp_irregular_re = compile_alternation(self.t4_comp_irregulars)
         self.t4_comp_exclusions = set(w.lower() for w in cfg["t4_comparative_exclusions"])
         self.t4_min_stem = cfg["t4_comparative_min_stem_length"]
 
         self.t5_combinators = cfg["t5_combinators"]
-        self.t5_combinator_ids = _seq_ids("VEI-T5-COMB", self.t5_combinators)
+        self.t5_combinator_ids = _seq_ids("STE-T5-COMB", self.t5_combinators)
         self.t5_combinator_re = compile_alternation(self.t5_combinators)
         self.t5_punc_max = cfg["t5_punctuation_density_max"]
         self.t5_punc_chars = cfg["t5_punctuation_chars"]
@@ -155,7 +155,7 @@ class Engine(LexicalChecksMixin, ReferenceChecksMixin, AtomicityChecksMixin):
         if do_not_use_pairs:
             for i, (synonym, term) in enumerate(sorted(do_not_use_pairs), start=1):
                 self.t1_rules[synonym] = {
-                    "id": "VEI-T1-TERM-{:04d}".format(i),
+                    "id": "STE-T1-TERM-{:04d}".format(i),
                     "suggestion": term,
                     "source": "core/terminology.csv do_not_use",
                 }

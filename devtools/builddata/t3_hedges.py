@@ -36,11 +36,11 @@ AMBIGUOUS_HEDGE_VERBS_NEED_CONTEXT = ["read", "appear", "seem"]
 
 def build_hedges(src):
     hedge_list = [w.lower() for w in src["retext_intensify.hedges"]["data"]]
-    escape = id_list("VEI-T3-ESC", ESCAPE_CLAUSES)
-    open_ended = id_list("VEI-T3-OPEN", OPEN_ENDED_CLAUSES)
-    modal_phrases = id_list("VEI-T3-MOD", OPTIONALITY_PHRASES + OPTIONALITY_SINGLE_MODALS)
-    superfluous = id_list("VEI-T3-SUP", SUPERFLUOUS_INFINITIVES)
-    hedges = id_list("VEI-T3-HDG", hedge_list)
+    escape = id_list("STE-T3-ESC", ESCAPE_CLAUSES)
+    open_ended = id_list("STE-T3-OPEN", OPEN_ENDED_CLAUSES)
+    modal_phrases = id_list("STE-T3-MOD", OPTIONALITY_PHRASES + OPTIONALITY_SINGLE_MODALS)
+    superfluous = id_list("STE-T3-SUP", SUPERFLUOUS_INFINITIVES)
+    hedges = id_list("STE-T3-HDG", hedge_list)
     single_modal_set = set(OPTIONALITY_SINGLE_MODALS)
     for entry in modal_phrases:
         entry["kind"] = "single_modal" if entry["pattern"] in single_modal_set else "phrase"

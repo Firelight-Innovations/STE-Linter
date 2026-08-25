@@ -13,10 +13,10 @@ section) -- nothing here is invented. Run the commands yourself to reproduce.
 
 ## The rule-ID scheme
 
-Rule IDs look like `VEI-<test>-<CATEGORY>-<seq4>`, e.g. `VEI-T1-SUB-0104` or
-`VEI-S7-BARENUM-0001`.
+Rule IDs look like `STE-<test>-<CATEGORY>-<seq4>`, e.g. `STE-T1-SUB-0104` or
+`STE-S7-BARENUM-0001`.
 
-**The `VEI-` prefix is a leftover from this tool's origin as an internal linter at a company
+**The `STE-` prefix is a leftover from this tool's origin as an internal linter at a company
 called Veistra.** It is not a generic OSS-friendly name, and renaming it is a decision the
 maintainer of this project still has to make -- not one this preset makes for you. Renaming it
 is not just a config edit: the prefix is baked as a literal string into every rule ID recorded
@@ -36,18 +36,18 @@ T4/T5/structural/csv/budget IDs, or the full data entry (pattern, suggestion, so
 T1/T2/T3/T6 IDs, which are looked up in `lint_data/*.json`.
 
 ```
-$ python -X utf8 ste_lint.py --config presets/default.json --explain VEI-T5-EARS-0001
-VEI-T5-EARS-0001: T5 Non-atomic: sentence does not conform to an EARS template (spec §8.5, O2).
+$ python -X utf8 ste_lint.py --config presets/default.json --explain STE-T5-EARS-0001
+STE-T5-EARS-0001: T5 Non-atomic: sentence does not conform to an EARS template (spec §8.5, O2).
 
-$ python -X utf8 ste_lint.py --config presets/default.json --explain VEI-T1-SUB-0104
-VEI-T1-SUB-0104: {
+$ python -X utf8 ste_lint.py --config presets/default.json --explain STE-T1-SUB-0104
+STE-T1-SUB-0104: {
   "pattern": "utilize",
   "suggestion": "use",
   "alts": [
     "use"
   ],
   "source": "vale_redhat.simple_words",
-  "id": "VEI-T1-SUB-0104"
+  "id": "STE-T1-SUB-0104"
 }
 ```
 
@@ -85,7 +85,7 @@ Read the precedence in this exact order -- it is subtle and you will hit it:
 ```
 $ python -X utf8 ste_lint.py --config presets/default.json --profile prose --stats tests/corpus_dirty/dirty_structural.md
 ...
-dirty_structural.md:6:1 REVIEW structural VEI-S7-MUST-0001 -- Structural: 'must' used; 'shall' is the mandatory keyword (O3).
+dirty_structural.md:6:1 REVIEW structural STE-S7-MUST-0001 -- Structural: 'must' used; 'shall' is the mandatory keyword (O3).
 ```
 
 Not `warning` (the rule-specific default for non-spec profiles) -- `review`, because the cap
@@ -128,7 +128,7 @@ at `error`; see the precedence section above).
 ```
 Before: "We utilize the cache to speed up requests."
 $ ste_lint.py --config presets/default.json --profile prose t1_before.md
-t1_before.md:3:4 ERROR T1 VEI-T1-SUB-0104 -- Replaceable: 'utilize' -> 'use'.
+t1_before.md:3:4 ERROR T1 STE-T1-SUB-0104 -- Replaceable: 'utilize' -> 'use'.
     We utilize the cache to s...
 
 After:  "We use the cache to speed up requests."
@@ -167,7 +167,7 @@ in the final report.
 ```
 Before: "The dashboard is fast."
 $ ste_lint.py --config presets/default.json --profile reference --stats t2_before.md
-t2_before.md:3:18 WARNING T2 VEI-T2-VAG-0034 -- Unfalsifiable: 'fast' with no number, unit, or named acceptance condition.
+t2_before.md:3:18 WARNING T2 STE-T2-VAG-0034 -- Unfalsifiable: 'fast' with no number, unit, or named acceptance condition.
     ...e dashboard is fast.
 
 After:  "The dashboard loads in 200ms."
@@ -200,11 +200,11 @@ at `error` under the `prose` cap.
 
 ```
 $ ste_lint.py --config presets/default.json --profile spec tests/corpus_dirty/dirty_t3.md
-dirty_t3.md:4:13 ERROR T3 VEI-T3-ESC-0002 -- Optional (escape clause): 'as appropriate'.
-dirty_t3.md:4:79 ERROR T3 VEI-T3-OPEN-0005 -- Optional (open-ended clause): 'etc.'.
-dirty_t3.md:6:16 ERROR T3 VEI-T3-MOD-0007 -- Optional (optionality): 'if possible'.
-dirty_t3.md:6:69 ERROR T3 VEI-T3-SUP-0004 -- Optional (superfluous infinitive): 'to be able to'.
-dirty_t3.md:8:1  ERROR T3 VEI-T3-HDG-0014 -- Optional (hedge): 'Apparently'.
+dirty_t3.md:4:13 ERROR T3 STE-T3-ESC-0002 -- Optional (escape clause): 'as appropriate'.
+dirty_t3.md:4:79 ERROR T3 STE-T3-OPEN-0005 -- Optional (open-ended clause): 'etc.'.
+dirty_t3.md:6:16 ERROR T3 STE-T3-MOD-0007 -- Optional (optionality): 'if possible'.
+dirty_t3.md:6:69 ERROR T3 STE-T3-SUP-0004 -- Optional (superfluous infinitive): 'to be able to'.
+dirty_t3.md:8:1  ERROR T3 STE-T3-HDG-0014 -- Optional (hedge): 'Apparently'.
 ```
 
 Rewritten to remove the hedges ("Fix the bug according to the design doc," "Support mice and
@@ -235,7 +235,7 @@ running the linter:
 ```
 "The new cache is faster than the old LRU cache." (spelled-out baseline!)
 $ ste_lint.py --config presets/default.json --profile reference --stats t4_after.md
-t4_after.md:3:18 WARNING T4 VEI-T4-COMP-9999 -- Referentially open: comparative 'faster than' with no stated baseline.
+t4_after.md:3:18 WARNING T4 STE-T4-COMP-9999 -- Referentially open: comparative 'faster than' with no stated baseline.
 ```
 
 This still fires *despite* a stated baseline, for any word matching the generic `-er than`
@@ -281,9 +281,9 @@ sentence under the `spec` profile produces no EARS finding, only its unrelated T
 ```
 "The system shall log every request." (profile: spec)
 $ ste_lint.py --config presets/default.json requirements/core.md
-requirements/core.md:3:28 ERROR T1 VEI-T1-SUB-0383 -- Replaceable: 'request' -> 'ask'.
+requirements/core.md:3:28 ERROR T1 STE-T1-SUB-0383 -- Replaceable: 'request' -> 'ask'.
 ```
-(no VEI-T5-EARS-0001 -- the sentence conforms to the Ubiquitous EARS template)
+(no STE-T5-EARS-0001 -- the sentence conforms to the Ubiquitous EARS template)
 
 **Severity:** `error` for multi-shall/and-or/oblique-slash; `warning` for punctuation density;
 `review` for zero-shall and (outside `spec`) EARS; all capped to `review` under `prose`.
@@ -293,7 +293,7 @@ requirements/core.md:3:28 ERROR T1 VEI-T1-SUB-0383 -- Replaceable: 'request' -> 
 ```
 Before: "The renderer shall draw the frame and the audio mixer shall play the cue."
 $ ste_lint.py --config presets/default.json --profile spec t5_before.md
-t5_before.md:3:1 ERROR T5 VEI-T5-MULTI-0001 -- Non-atomic: 2 'shall' imperatives in one sentence.
+t5_before.md:3:1 ERROR T5 STE-T5-MULTI-0001 -- Non-atomic: 2 'shall' imperatives in one sentence.
 
 After:  "The renderer shall draw the frame.\n\nThe audio mixer shall play the cue."
 -> 0 findings
@@ -324,11 +324,11 @@ fallback keeps at `error`.
 ```
 Before: "It is important to note that the build is very stable."
 $ ste_lint.py --config presets/default.json --profile prose t6_before.md
-t6_before.md:3:1  ERROR T1 VEI-T1-SUB-0328 -- Replaceable: 'It is' -> ''.
-t6_before.md:3:1  ERROR T6 VEI-T6-AI-0004 -- Zero-information (AI tell, hedging_opener): 'It is important to note that'.
-t6_before.md:3:43 ERROR T1 VEI-T1-SUB-0416 -- Replaceable: 'very' -> ''.
-t6_before.md:3:43 ERROR T6 VEI-T6-FILL-0346 -- Zero-information (filler/intensifier): 'very'.
-t6_before.md:3:43 ERROR T6 VEI-T6-WEASEL-0018 -- Zero-information (weasel word): 'very'.
+t6_before.md:3:1  ERROR T1 STE-T1-SUB-0328 -- Replaceable: 'It is' -> ''.
+t6_before.md:3:1  ERROR T6 STE-T6-AI-0004 -- Zero-information (AI tell, hedging_opener): 'It is important to note that'.
+t6_before.md:3:43 ERROR T1 STE-T1-SUB-0416 -- Replaceable: 'very' -> ''.
+t6_before.md:3:43 ERROR T6 STE-T6-FILL-0346 -- Zero-information (filler/intensifier): 'very'.
+t6_before.md:3:43 ERROR T6 STE-T6-WEASEL-0018 -- Zero-information (weasel word): 'very'.
 
 After:  "The build is stable."
 -> 0 findings
@@ -337,7 +337,7 @@ After:  "The build is stable."
 Nominalization example, from `tests/corpus_dirty/dirty_t6.md`:
 
 ```
-dirty_t6.md:10:15 ERROR T6 VEI-T6-NOM-0001 -- Zero-information (nominalization): 'perform an evaluation' -- prefer a single verb.
+dirty_t6.md:10:15 ERROR T6 STE-T6-NOM-0001 -- Zero-information (nominalization): 'perform an evaluation' -- prefer a single verb.
 ```
 
 ## Structural (`S7`) checks
@@ -378,13 +378,13 @@ capped to `review` under `prose`.
 ```
 Before: "Load time is 50 right now."
 $ ste_lint.py --config presets/default.json --profile reference --stats structural_before.md
-structural_before.md:3:14 WARNING structural VEI-S7-BARENUM-0001 -- Structural: bare number '50' with no unit and no %.
+structural_before.md:3:14 WARNING structural STE-S7-BARENUM-0001 -- Structural: bare number '50' with no unit and no %.
 
 After:  "Load time is 50ms."
 -> 0 findings
 ```
 
-## CSV integrity (`csv`, `VEI-CSV-0001`..`VEI-CSV-0010`)
+## CSV integrity (`csv`, `STE-CSV-0001`..`STE-CSV-0010`)
 
 **What it detects:** cross-file referential integrity for a specific document-control registry
 schema -- four CSV kinds recognized *by exact filename* (`truths.csv`, `timeline.csv`,
@@ -403,7 +403,7 @@ without these exact filenames is actually exposed (very little: `kind_of()` retu
 any CSV that isn't named exactly `truths.csv`/`timeline.csv`/`terminology.csv`/`decisions*.csv`,
 which gates most of these checks off; the one check that isn't kind-gated is the `review_by`
 staleness check, so a generic CSV with a `review_by` date column in the past could still
-produce a spurious `VEI-CSV-0008` finding).
+produce a spurious `STE-CSV-0008` finding).
 
 **Data/logic:** `lint/csv_integrity.py`.
 
@@ -416,7 +416,7 @@ go through `Engine.severity()` at all, so `severity_overrides` cannot change its
 ```
 Before (decisions.csv row): status=SUPERSEDED, superseded_by empty
 $ ste_lint.py --config presets/veistra.json --profile csv decisions-before.csv
-decisions-before.csv:0:1 [DEC-001:superseded_by] ERROR csv_integrity VEI-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.
+decisions-before.csv:0:1 [DEC-001:superseded_by] ERROR csv_integrity STE-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.
 
 After: add a DEC-002 row with status=ACTIVE and supersedes=DEC-001, and set
        DEC-001's superseded_by=DEC-002
@@ -424,11 +424,11 @@ After: add a DEC-002 row with status=ACTIVE and supersedes=DEC-001, and set
 ```
 
 ```
-$ ste_lint.py --config presets/veistra.json --explain VEI-CSV-0006
-VEI-CSV-0006: CSV integrity: no duplicate IDs within a file or across decision files.
+$ ste_lint.py --config presets/veistra.json --explain STE-CSV-0006
+STE-CSV-0006: CSV integrity: no duplicate IDs within a file or across decision files.
 ```
 
-## Budgets (`VEI-BUD-0001`..`VEI-BUD-0005`)
+## Budgets (`STE-BUD-0001`..`STE-BUD-0005`)
 
 **What they detect:** four size limits: a sentence over its profile's word budget
 (`BUD-0001`), a paragraph over 6 sentences (`BUD-0002`), a CSV field over its word budget
@@ -454,7 +454,7 @@ and `whole_file_budgets` simply never match anything in a generic project (no `t
 
 ```
 $ ste_lint.py --config presets/default.json --profile prose tests/corpus_dirty/dirty_paragraph.md
-dirty_paragraph.md:4:1 WARNING budget VEI-BUD-0002 -- Budget: paragraph has 7 sentences, over the 6-sentence budget.
+dirty_paragraph.md:4:1 WARNING budget STE-BUD-0002 -- Budget: paragraph has 7 sentences, over the 6-sentence budget.
 ```
 
 ## Standards cited in this codebase

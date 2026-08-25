@@ -12,7 +12,7 @@
         "not here"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0001"
+      "id": "STE-T1-SUB-0001"
     },
     {
       "pattern": "abundance",
@@ -21,7 +21,7 @@
         "plenty"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0002"
+      "id": "STE-T1-SUB-0002"
     },
     {
       "pattern": "accentuate",
@@ -30,7 +30,7 @@
         "stress"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0003"
+      "id": "STE-T1-SUB-0003"
     },
     {
       "pattern": "accompany",
@@ -39,7 +39,7 @@
         "go with"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0004"
+      "id": "STE-T1-SUB-0004"
     },
     {
       "pattern": "accomplish",
@@ -49,7 +49,7 @@
         "do"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0005"
+      "id": "STE-T1-SUB-0005"
     },
     {
       "pattern": "accorded",
@@ -58,7 +58,7 @@
         "given"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0006"
+      "id": "STE-T1-SUB-0006"
     },
     {
       "pattern": "accordingly",
@@ -68,7 +68,7 @@
         "as a result"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0007"
+      "id": "STE-T1-SUB-0007"
     },
     {
       "pattern": "accrue",
@@ -77,7 +77,7 @@
         "add"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0008"
+      "id": "STE-T1-SUB-0008"
     },
     {
       "pattern": "accurate",
@@ -87,7 +87,7 @@
         "exact"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0009"
+      "id": "STE-T1-SUB-0009"
     },
     {
       "pattern": "acquiesce",
@@ -96,7 +96,7 @@
         "agree"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0010"
+      "id": "STE-T1-SUB-0010"
     },
     {
       "pattern": "acquire",
@@ -106,7 +106,7 @@
         "buy"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0011"
+      "id": "STE-T1-SUB-0011"
     },
     {
       "pattern": "addressees",
@@ -115,7 +115,7 @@
         "you"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0012"
+      "id": "STE-T1-SUB-0012"
     },
     {
       "pattern": "adjacent to",
@@ -124,7 +124,7 @@
         "next to"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0013"
+      "id": "STE-T1-SUB-0013"
     },
     {
       "pattern": "adjustment",
@@ -133,7 +133,7 @@
         "change"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0014"
+      "id": "STE-T1-SUB-0014"
     },
     {
       "pattern": "admissible",
@@ -142,7 +142,7 @@
         "allowed"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0015"
+      "id": "STE-T1-SUB-0015"
     },
     {
       "pattern": "advantageous",
@@ -151,7 +151,7 @@
         "helpful"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0016"
+      "id": "STE-T1-SUB-0016"
     },
     {
       "pattern": "advise",
@@ -160,7 +160,7 @@
         "tell"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0017"
+      "id": "STE-T1-SUB-0017"
     },
     {
       "pattern": "aggregate",
@@ -169,7 +169,7 @@
         "total"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0018"
+      "id": "STE-T1-SUB-0018"
     },
     {
       "pattern": "aircraft",
@@ -178,7 +178,7 @@
         "plane"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0019"
+      "id": "STE-T1-SUB-0019"
     },
     {
       "pattern": "alleviate",
@@ -187,7 +187,7 @@
         "ease"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0020"
+      "id": "STE-T1-SUB-0020"
     },
     {
       "pattern": "allocate",
@@ -197,7 +197,7 @@
         "divide"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0021"
+      "id": "STE-T1-SUB-0021"
     },
     {
       "pattern": "alternatively",
@@ -206,7 +206,7 @@
         "or"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0022"
+      "id": "STE-T1-SUB-0022"
     },
     {
       "pattern": "alternatives",
@@ -216,7 +216,7 @@
         "options"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0023"
+      "id": "STE-T1-SUB-0023"
     },
     {
       "pattern": "ameliorate",
@@ -225,7 +225,7 @@
         "improve"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0024"
+      "id": "STE-T1-SUB-0024"
     },
     {
       "pattern": "amend",
@@ -234,7 +234,7 @@
         "change"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0025"
+      "id": "STE-T1-SUB-0025"
     },
     {
       "pattern": "anticipate",
@@ -243,7 +243,7 @@
         "expect"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0026"
+      "id": "STE-T1-SUB-0026"
     },
     {
       "pattern": "apparent",
@@ -253,7 +253,7 @@
         "obvious"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0027"
+      "id": "STE-T1-SUB-0027"
     },
     {
       "pattern": "ascertain",
@@ -263,7 +263,7 @@
         "find out"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0028"
+      "id": "STE-T1-SUB-0028"
     },
     {
       "pattern": "assistance",
@@ -272,7 +272,7 @@
         "help"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0029"
+      "id": "STE-T1-SUB-0029"
     },
     {
       "pattern": "attain",
@@ -281,7 +281,7 @@
         "meet"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0030"
+      "id": "STE-T1-SUB-0030"
     },
     {
       "pattern": "attempt",
@@ -291,7 +291,7 @@
         "do"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0031"
+      "id": "STE-T1-SUB-0031"
     },
     {
       "pattern": "authorize",
@@ -300,7 +300,7 @@
         "allow"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0032"
+      "id": "STE-T1-SUB-0032"
     },
     {
       "pattern": "belated",
@@ -309,7 +309,7 @@
         "late"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0033"
+      "id": "STE-T1-SUB-0033"
     },
     {
       "pattern": "bestow",
@@ -318,7 +318,7 @@
         "give"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0034"
+      "id": "STE-T1-SUB-0034"
     },
     {
       "pattern": "cease",
@@ -328,7 +328,7 @@
         "end"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0035"
+      "id": "STE-T1-SUB-0035"
     },
     {
       "pattern": "collaborate",
@@ -337,7 +337,7 @@
         "work together"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0036"
+      "id": "STE-T1-SUB-0036"
     },
     {
       "pattern": "commence",
@@ -347,7 +347,7 @@
         "open"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0037"
+      "id": "STE-T1-SUB-0037"
     },
     {
       "pattern": "compensate",
@@ -356,7 +356,7 @@
         "pay"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0038"
+      "id": "STE-T1-SUB-0038"
     },
     {
       "pattern": "comprise",
@@ -366,7 +366,7 @@
         "include"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0039"
+      "id": "STE-T1-SUB-0039"
     },
     {
       "pattern": "concerning",
@@ -376,7 +376,7 @@
         "of"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0040"
+      "id": "STE-T1-SUB-0040"
     },
     {
       "pattern": "confer",
@@ -386,7 +386,7 @@
         "award"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0041"
+      "id": "STE-T1-SUB-0041"
     },
     {
       "pattern": "consequently",
@@ -396,7 +396,7 @@
         "as a result"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0042"
+      "id": "STE-T1-SUB-0042"
     },
     {
       "pattern": "consolidate",
@@ -405,7 +405,7 @@
         "merge"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0043"
+      "id": "STE-T1-SUB-0043"
     },
     {
       "pattern": "constitutes",
@@ -414,7 +414,7 @@
         "forms"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0044"
+      "id": "STE-T1-SUB-0044"
     },
     {
       "pattern": "contains",
@@ -423,7 +423,7 @@
         "has"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0045"
+      "id": "STE-T1-SUB-0045"
     },
     {
       "pattern": "convene",
@@ -432,7 +432,7 @@
         "meet"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0046"
+      "id": "STE-T1-SUB-0046"
     },
     {
       "pattern": "demonstrate",
@@ -442,7 +442,7 @@
         "prove"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0047"
+      "id": "STE-T1-SUB-0047"
     },
     {
       "pattern": "depart",
@@ -451,7 +451,7 @@
         "leave"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0048"
+      "id": "STE-T1-SUB-0048"
     },
     {
       "pattern": "designate",
@@ -460,7 +460,7 @@
         "choose"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0049"
+      "id": "STE-T1-SUB-0049"
     },
     {
       "pattern": "desire",
@@ -470,7 +470,7 @@
         "wish"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0050"
+      "id": "STE-T1-SUB-0050"
     },
     {
       "pattern": "determine",
@@ -480,7 +480,7 @@
         "find"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0051"
+      "id": "STE-T1-SUB-0051"
     },
     {
       "pattern": "detrimental",
@@ -490,7 +490,7 @@
         "harmful"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0052"
+      "id": "STE-T1-SUB-0052"
     },
     {
       "pattern": "disclose",
@@ -500,7 +500,7 @@
         "tell"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0053"
+      "id": "STE-T1-SUB-0053"
     },
     {
       "pattern": "discontinue",
@@ -509,7 +509,7 @@
         "stop"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0054"
+      "id": "STE-T1-SUB-0054"
     },
     {
       "pattern": "disseminate",
@@ -519,7 +519,7 @@
         "give"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0055"
+      "id": "STE-T1-SUB-0055"
     },
     {
       "pattern": "eliminate",
@@ -528,7 +528,7 @@
         "end"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0056"
+      "id": "STE-T1-SUB-0056"
     },
     {
       "pattern": "elucidate",
@@ -537,7 +537,7 @@
         "explain"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0057"
+      "id": "STE-T1-SUB-0057"
     },
     {
       "pattern": "employ",
@@ -546,7 +546,7 @@
         "use"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0058"
+      "id": "STE-T1-SUB-0058"
     },
     {
       "pattern": "enclosed",
@@ -556,7 +556,7 @@
         "included"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0059"
+      "id": "STE-T1-SUB-0059"
     },
     {
       "pattern": "encounter",
@@ -565,7 +565,7 @@
         "meet"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0060"
+      "id": "STE-T1-SUB-0060"
     },
     {
       "pattern": "endeavor",
@@ -575,7 +575,7 @@
         "work"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0061"
+      "id": "STE-T1-SUB-0061"
     },
     {
       "pattern": "enumerate",
@@ -584,7 +584,7 @@
         "count"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0062"
+      "id": "STE-T1-SUB-0062"
     },
     {
       "pattern": "equitable",
@@ -593,7 +593,7 @@
         "fair"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0063"
+      "id": "STE-T1-SUB-0063"
     },
     {
       "pattern": "equivalent",
@@ -602,7 +602,7 @@
         "equal"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0064"
+      "id": "STE-T1-SUB-0064"
     },
     {
       "pattern": "exclusively",
@@ -611,7 +611,7 @@
         "only"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0065"
+      "id": "STE-T1-SUB-0065"
     },
     {
       "pattern": "expedite",
@@ -620,7 +620,7 @@
         "hurry"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0066"
+      "id": "STE-T1-SUB-0066"
     },
     {
       "pattern": "facilitate",
@@ -629,7 +629,7 @@
         "ease"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0067"
+      "id": "STE-T1-SUB-0067"
     },
     {
       "pattern": "females",
@@ -638,7 +638,7 @@
         "women"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0068"
+      "id": "STE-T1-SUB-0068"
     },
     {
       "pattern": "finalize",
@@ -648,7 +648,7 @@
         "finish"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0069"
+      "id": "STE-T1-SUB-0069"
     },
     {
       "pattern": "frequently",
@@ -658,7 +658,7 @@
         "commonly"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0070"
+      "id": "STE-T1-SUB-0070"
     },
     {
       "pattern": "identical",
@@ -667,7 +667,7 @@
         "same"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0071"
+      "id": "STE-T1-SUB-0071"
     },
     {
       "pattern": "incorrect",
@@ -676,7 +676,7 @@
         "wrong"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0072"
+      "id": "STE-T1-SUB-0072"
     },
     {
       "pattern": "indication",
@@ -685,7 +685,7 @@
         "sign"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0073"
+      "id": "STE-T1-SUB-0073"
     },
     {
       "pattern": "initiate",
@@ -695,7 +695,7 @@
         "launch"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0074"
+      "id": "STE-T1-SUB-0074"
     },
     {
       "pattern": "itemized",
@@ -704,7 +704,7 @@
         "listed"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0075"
+      "id": "STE-T1-SUB-0075"
     },
     {
       "pattern": "jeopardize",
@@ -713,7 +713,7 @@
         "risk"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0076"
+      "id": "STE-T1-SUB-0076"
     },
     {
       "pattern": "liaise",
@@ -723,7 +723,7 @@
         "partner with"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0077"
+      "id": "STE-T1-SUB-0077"
     },
     {
       "pattern": "maintain",
@@ -733,7 +733,7 @@
         "support"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0078"
+      "id": "STE-T1-SUB-0078"
     },
     {
       "pattern": "methodology",
@@ -742,7 +742,7 @@
         "method"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0079"
+      "id": "STE-T1-SUB-0079"
     },
     {
       "pattern": "modify",
@@ -751,7 +751,7 @@
         "change"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0080"
+      "id": "STE-T1-SUB-0080"
     },
     {
       "pattern": "multiple",
@@ -760,7 +760,7 @@
         "various"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0081"
+      "id": "STE-T1-SUB-0081"
     },
     {
       "pattern": "necessitate",
@@ -769,7 +769,7 @@
         "cause"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0082"
+      "id": "STE-T1-SUB-0082"
     },
     {
       "pattern": "notify",
@@ -778,7 +778,7 @@
         "tell"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0083"
+      "id": "STE-T1-SUB-0083"
     },
     {
       "pattern": "numerous",
@@ -787,7 +787,7 @@
         "various"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0084"
+      "id": "STE-T1-SUB-0084"
     },
     {
       "pattern": "obligate",
@@ -797,7 +797,7 @@
         "compel"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0085"
+      "id": "STE-T1-SUB-0085"
     },
     {
       "pattern": "optimum",
@@ -807,7 +807,7 @@
         "ideal"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0086"
+      "id": "STE-T1-SUB-0086"
     },
     {
       "pattern": "permit",
@@ -816,7 +816,7 @@
         "let"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0087"
+      "id": "STE-T1-SUB-0087"
     },
     {
       "pattern": "portion",
@@ -825,7 +825,7 @@
         "part"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0088"
+      "id": "STE-T1-SUB-0088"
     },
     {
       "pattern": "possess",
@@ -834,7 +834,7 @@
         "own"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0089"
+      "id": "STE-T1-SUB-0089"
     },
     {
       "pattern": "previous",
@@ -843,7 +843,7 @@
         "earlier"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0090"
+      "id": "STE-T1-SUB-0090"
     },
     {
       "pattern": "previously",
@@ -852,7 +852,7 @@
         "before"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0091"
+      "id": "STE-T1-SUB-0091"
     },
     {
       "pattern": "prioritize",
@@ -861,7 +861,7 @@
         "rank"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0092"
+      "id": "STE-T1-SUB-0092"
     },
     {
       "pattern": "procure",
@@ -870,7 +870,7 @@
         "buy"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0093"
+      "id": "STE-T1-SUB-0093"
     },
     {
       "pattern": "provide",
@@ -880,7 +880,7 @@
         "offer"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0094"
+      "id": "STE-T1-SUB-0094"
     },
     {
       "pattern": "purchase",
@@ -889,7 +889,7 @@
         "buy"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0095"
+      "id": "STE-T1-SUB-0095"
     },
     {
       "pattern": "relocate",
@@ -898,7 +898,7 @@
         "move"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0096"
+      "id": "STE-T1-SUB-0096"
     },
     {
       "pattern": "solicit",
@@ -908,7 +908,7 @@
         "ask"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0097"
+      "id": "STE-T1-SUB-0097"
     },
     {
       "pattern": "state-of-the-art",
@@ -917,7 +917,7 @@
         "latest"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0098"
+      "id": "STE-T1-SUB-0098"
     },
     {
       "pattern": "subsequent",
@@ -927,7 +927,7 @@
         "next"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0099"
+      "id": "STE-T1-SUB-0099"
     },
     {
       "pattern": "substantial",
@@ -936,7 +936,7 @@
         "large"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0100"
+      "id": "STE-T1-SUB-0100"
     },
     {
       "pattern": "sufficient",
@@ -945,7 +945,7 @@
         "enough"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0101"
+      "id": "STE-T1-SUB-0101"
     },
     {
       "pattern": "transmit",
@@ -954,7 +954,7 @@
         "send"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0102"
+      "id": "STE-T1-SUB-0102"
     },
     {
       "pattern": "utilization",
@@ -963,7 +963,7 @@
         "use"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0103"
+      "id": "STE-T1-SUB-0103"
     },
     {
       "pattern": "utilize",
@@ -972,7 +972,7 @@
         "use"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0104"
+      "id": "STE-T1-SUB-0104"
     },
     {
       "pattern": "utilizing",
@@ -981,7 +981,7 @@
         "using"
       ],
       "source": "vale_redhat.simple_words",
-      "id": "VEI-T1-SUB-0105"
+      "id": "STE-T1-SUB-0105"
     },
     {
       "pattern": "adversely impact",
@@ -990,7 +990,7 @@
         "hurt"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0106"
+      "id": "STE-T1-SUB-0106"
     },
     {
       "pattern": "along the lines of",
@@ -1000,7 +1000,7 @@
         "such as"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0107"
+      "id": "STE-T1-SUB-0107"
     },
     {
       "pattern": "as a means of",
@@ -1009,7 +1009,7 @@
         "to"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0108"
+      "id": "STE-T1-SUB-0108"
     },
     {
       "pattern": "as of yet",
@@ -1018,7 +1018,7 @@
         "yet"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0109"
+      "id": "STE-T1-SUB-0109"
     },
     {
       "pattern": "at the present time",
@@ -1028,7 +1028,7 @@
         "now"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0110"
+      "id": "STE-T1-SUB-0110"
     },
     {
       "pattern": "because of the fact that",
@@ -1037,7 +1037,7 @@
         "because"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0111"
+      "id": "STE-T1-SUB-0111"
     },
     {
       "pattern": "close proximity",
@@ -1047,7 +1047,7 @@
         "close"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0112"
+      "id": "STE-T1-SUB-0112"
     },
     {
       "pattern": "due to the fact that",
@@ -1057,7 +1057,7 @@
         "because"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0113"
+      "id": "STE-T1-SUB-0113"
     },
     {
       "pattern": "each and every",
@@ -1067,7 +1067,7 @@
         "every"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0114"
+      "id": "STE-T1-SUB-0114"
     },
     {
       "pattern": "honest truth",
@@ -1076,7 +1076,7 @@
         "truth"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0115"
+      "id": "STE-T1-SUB-0115"
     },
     {
       "pattern": "in a timely manner",
@@ -1086,7 +1086,7 @@
         "on time"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0116"
+      "id": "STE-T1-SUB-0116"
     },
     {
       "pattern": "in addition",
@@ -1096,7 +1096,7 @@
         "also"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0117"
+      "id": "STE-T1-SUB-0117"
     },
     {
       "pattern": "in an effort to",
@@ -1105,7 +1105,7 @@
         "to"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0118"
+      "id": "STE-T1-SUB-0118"
     },
     {
       "pattern": "in between",
@@ -1114,7 +1114,7 @@
         "between"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0119"
+      "id": "STE-T1-SUB-0119"
     },
     {
       "pattern": "in lieu of",
@@ -1124,7 +1124,7 @@
         "instead of"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0120"
+      "id": "STE-T1-SUB-0120"
     },
     {
       "pattern": "in many cases",
@@ -1134,7 +1134,7 @@
         "routinely"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0121"
+      "id": "STE-T1-SUB-0121"
     },
     {
       "pattern": "in order to",
@@ -1143,7 +1143,7 @@
         "to"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0122"
+      "id": "STE-T1-SUB-0122"
     },
     {
       "pattern": "mix together",
@@ -1152,7 +1152,7 @@
         "mix"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0123"
+      "id": "STE-T1-SUB-0123"
     },
     {
       "pattern": "pertaining to",
@@ -1162,7 +1162,7 @@
         "on"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0124"
+      "id": "STE-T1-SUB-0124"
     },
     {
       "pattern": "point in time",
@@ -1172,7 +1172,7 @@
         "point"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0125"
+      "id": "STE-T1-SUB-0125"
     },
     {
       "pattern": "readily apparent",
@@ -1182,7 +1182,7 @@
         "plain"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0126"
+      "id": "STE-T1-SUB-0126"
     },
     {
       "pattern": "refer back",
@@ -1191,7 +1191,7 @@
         "refer"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0127"
+      "id": "STE-T1-SUB-0127"
     },
     {
       "pattern": "span across",
@@ -1201,7 +1201,7 @@
         "span"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0128"
+      "id": "STE-T1-SUB-0128"
     },
     {
       "pattern": "successfully complete",
@@ -1211,7 +1211,7 @@
         "complete"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0129"
+      "id": "STE-T1-SUB-0129"
     },
     {
       "pattern": "until such time as",
@@ -1220,7 +1220,7 @@
         "until"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0130"
+      "id": "STE-T1-SUB-0130"
     },
     {
       "pattern": "various different",
@@ -1230,7 +1230,7 @@
         "various"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0131"
+      "id": "STE-T1-SUB-0131"
     },
     {
       "pattern": "whether or not",
@@ -1239,7 +1239,7 @@
         "whether"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0132"
+      "id": "STE-T1-SUB-0132"
     },
     {
       "pattern": "with the exception of",
@@ -1248,7 +1248,7 @@
         "except for"
       ],
       "source": "MERGED.wordy_and_complex",
-      "id": "VEI-T1-SUB-0133"
+      "id": "STE-T1-SUB-0133"
     },
     {
       "pattern": "a myriad of",
@@ -1257,7 +1257,7 @@
         "countless"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0134"
+      "id": "STE-T1-SUB-0134"
     },
     {
       "pattern": "all across",
@@ -1266,7 +1266,7 @@
         "across"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0135"
+      "id": "STE-T1-SUB-0135"
     },
     {
       "pattern": "all of a sudden",
@@ -1276,7 +1276,7 @@
         "without warning"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0136"
+      "id": "STE-T1-SUB-0136"
     },
     {
       "pattern": "all of these",
@@ -1285,7 +1285,7 @@
         "these"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0137"
+      "id": "STE-T1-SUB-0137"
     },
     {
       "pattern": "all-time record",
@@ -1294,7 +1294,7 @@
         "record"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0138"
+      "id": "STE-T1-SUB-0138"
     },
     {
       "pattern": "almost all",
@@ -1304,7 +1304,7 @@
         "the bulk of"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0139"
+      "id": "STE-T1-SUB-0139"
     },
     {
       "pattern": "almost never",
@@ -1313,7 +1313,7 @@
         "infrequently"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0140"
+      "id": "STE-T1-SUB-0140"
     },
     {
       "pattern": "an adequate number of",
@@ -1322,7 +1322,7 @@
         "enough"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0141"
+      "id": "STE-T1-SUB-0141"
     },
     {
       "pattern": "an appreciable number of",
@@ -1332,7 +1332,7 @@
         "plenty of"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0142"
+      "id": "STE-T1-SUB-0142"
     },
     {
       "pattern": "an estimated",
@@ -1341,7 +1341,7 @@
         "close to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0143"
+      "id": "STE-T1-SUB-0143"
     },
     {
       "pattern": "any and all",
@@ -1350,7 +1350,7 @@
         "all"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0144"
+      "id": "STE-T1-SUB-0144"
     },
     {
       "pattern": "are in agreement",
@@ -1359,7 +1359,7 @@
         "agree"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0145"
+      "id": "STE-T1-SUB-0145"
     },
     {
       "pattern": "as a matter of fact",
@@ -1368,7 +1368,7 @@
         "in fact"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0146"
+      "id": "STE-T1-SUB-0146"
     },
     {
       "pattern": "as a result of",
@@ -1377,7 +1377,7 @@
         "because of"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0147"
+      "id": "STE-T1-SUB-0147"
     },
     {
       "pattern": "as per",
@@ -1386,7 +1386,7 @@
         "per"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0148"
+      "id": "STE-T1-SUB-0148"
     },
     {
       "pattern": "at a later date",
@@ -1395,7 +1395,7 @@
         "later"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0149"
+      "id": "STE-T1-SUB-0149"
     },
     {
       "pattern": "at all times",
@@ -1404,7 +1404,7 @@
         "continuously"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0150"
+      "id": "STE-T1-SUB-0150"
     },
     {
       "pattern": "at this point in time",
@@ -1413,7 +1413,7 @@
         "at this point"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0151"
+      "id": "STE-T1-SUB-0151"
     },
     {
       "pattern": "based in large part on",
@@ -1422,7 +1422,7 @@
         "based on"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0152"
+      "id": "STE-T1-SUB-0152"
     },
     {
       "pattern": "based on the fact that",
@@ -1431,7 +1431,7 @@
         "because"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0153"
+      "id": "STE-T1-SUB-0153"
     },
     {
       "pattern": "basic necessity",
@@ -1440,7 +1440,7 @@
         "necessity"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0154"
+      "id": "STE-T1-SUB-0154"
     },
     {
       "pattern": "came to a realization",
@@ -1449,7 +1449,7 @@
         "realized"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0155"
+      "id": "STE-T1-SUB-0155"
     },
     {
       "pattern": "came to an abrupt end",
@@ -1458,7 +1458,7 @@
         "ended abruptly"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0156"
+      "id": "STE-T1-SUB-0156"
     },
     {
       "pattern": "carry out an evaluation of",
@@ -1468,7 +1468,7 @@
         "test"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0157"
+      "id": "STE-T1-SUB-0157"
     },
     {
       "pattern": "close down",
@@ -1477,7 +1477,7 @@
         "close"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0158"
+      "id": "STE-T1-SUB-0158"
     },
     {
       "pattern": "closed down",
@@ -1486,7 +1486,7 @@
         "closed"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0159"
+      "id": "STE-T1-SUB-0159"
     },
     {
       "pattern": "complete stranger",
@@ -1495,7 +1495,7 @@
         "stranger"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0160"
+      "id": "STE-T1-SUB-0160"
     },
     {
       "pattern": "completely separate",
@@ -1504,7 +1504,7 @@
         "separate"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0161"
+      "id": "STE-T1-SUB-0161"
     },
     {
       "pattern": "concerning the matter of",
@@ -1514,7 +1514,7 @@
         "of"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0162"
+      "id": "STE-T1-SUB-0162"
     },
     {
       "pattern": "conduct a review of",
@@ -1523,7 +1523,7 @@
         "review"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0163"
+      "id": "STE-T1-SUB-0163"
     },
     {
       "pattern": "conduct an investigation",
@@ -1532,7 +1532,7 @@
         "investigate"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0164"
+      "id": "STE-T1-SUB-0164"
     },
     {
       "pattern": "conduct experiments",
@@ -1541,7 +1541,7 @@
         "experiment"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0165"
+      "id": "STE-T1-SUB-0165"
     },
     {
       "pattern": "continue on",
@@ -1550,7 +1550,7 @@
         "continue"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0166"
+      "id": "STE-T1-SUB-0166"
     },
     {
       "pattern": "despite the fact that",
@@ -1559,7 +1559,7 @@
         "although"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0167"
+      "id": "STE-T1-SUB-0167"
     },
     {
       "pattern": "disappear from sight",
@@ -1568,7 +1568,7 @@
         "disappear"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0168"
+      "id": "STE-T1-SUB-0168"
     },
     {
       "pattern": "doomed to fail",
@@ -1577,7 +1577,7 @@
         "doomed"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0169"
+      "id": "STE-T1-SUB-0169"
     },
     {
       "pattern": "drag and drop",
@@ -1586,7 +1586,7 @@
         "drag"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0170"
+      "id": "STE-T1-SUB-0170"
     },
     {
       "pattern": "drag-and-drop",
@@ -1595,7 +1595,7 @@
         "drag"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0171"
+      "id": "STE-T1-SUB-0171"
     },
     {
       "pattern": "during the period of",
@@ -1604,7 +1604,7 @@
         "during"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0172"
+      "id": "STE-T1-SUB-0172"
     },
     {
       "pattern": "during the time that",
@@ -1613,7 +1613,7 @@
         "while"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0173"
+      "id": "STE-T1-SUB-0173"
     },
     {
       "pattern": "emergency situation",
@@ -1622,7 +1622,7 @@
         "emergency"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0174"
+      "id": "STE-T1-SUB-0174"
     },
     {
       "pattern": "establish connectivity",
@@ -1631,7 +1631,7 @@
         "connect"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0175"
+      "id": "STE-T1-SUB-0175"
     },
     {
       "pattern": "except when",
@@ -1640,7 +1640,7 @@
         "unless"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0176"
+      "id": "STE-T1-SUB-0176"
     },
     {
       "pattern": "excessive number",
@@ -1649,7 +1649,7 @@
         "excess"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0177"
+      "id": "STE-T1-SUB-0177"
     },
     {
       "pattern": "extend an invitation",
@@ -1658,7 +1658,7 @@
         "invite"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0178"
+      "id": "STE-T1-SUB-0178"
     },
     {
       "pattern": "fall down",
@@ -1667,7 +1667,7 @@
         "fall"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0179"
+      "id": "STE-T1-SUB-0179"
     },
     {
       "pattern": "fell down",
@@ -1676,7 +1676,7 @@
         "fell"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0180"
+      "id": "STE-T1-SUB-0180"
     },
     {
       "pattern": "for the duration of",
@@ -1685,7 +1685,7 @@
         "during"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0181"
+      "id": "STE-T1-SUB-0181"
     },
     {
       "pattern": "gather together",
@@ -1694,7 +1694,7 @@
         "gather"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0182"
+      "id": "STE-T1-SUB-0182"
     },
     {
       "pattern": "has the ability to",
@@ -1703,7 +1703,7 @@
         "is able to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0183"
+      "id": "STE-T1-SUB-0183"
     },
     {
       "pattern": "has the capacity to",
@@ -1712,7 +1712,7 @@
         "is able to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0184"
+      "id": "STE-T1-SUB-0184"
     },
     {
       "pattern": "has the opportunity to",
@@ -1722,7 +1722,7 @@
         "is free to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0185"
+      "id": "STE-T1-SUB-0185"
     },
     {
       "pattern": "hold a meeting",
@@ -1731,7 +1731,7 @@
         "meet"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0186"
+      "id": "STE-T1-SUB-0186"
     },
     {
       "pattern": "if this is not the case",
@@ -1740,7 +1740,7 @@
         "if not"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0187"
+      "id": "STE-T1-SUB-0187"
     },
     {
       "pattern": "in a careful manner",
@@ -1749,7 +1749,7 @@
         "with care"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0188"
+      "id": "STE-T1-SUB-0188"
     },
     {
       "pattern": "in a thoughtful manner",
@@ -1758,7 +1758,7 @@
         "with care"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0189"
+      "id": "STE-T1-SUB-0189"
     },
     {
       "pattern": "in most cases",
@@ -1768,7 +1768,7 @@
         "as a rule"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0190"
+      "id": "STE-T1-SUB-0190"
     },
     {
       "pattern": "in some cases",
@@ -1778,7 +1778,7 @@
         "on occasion"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0191"
+      "id": "STE-T1-SUB-0191"
     },
     {
       "pattern": "in spite of",
@@ -1787,7 +1787,7 @@
         "despite"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0192"
+      "id": "STE-T1-SUB-0192"
     },
     {
       "pattern": "in spite of the fact that",
@@ -1796,7 +1796,7 @@
         "although"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0193"
+      "id": "STE-T1-SUB-0193"
     },
     {
       "pattern": "in the event that",
@@ -1805,7 +1805,7 @@
         "if"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0194"
+      "id": "STE-T1-SUB-0194"
     },
     {
       "pattern": "in the neighborhood of",
@@ -1814,7 +1814,7 @@
         "close to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0195"
+      "id": "STE-T1-SUB-0195"
     },
     {
       "pattern": "in the vicinity of",
@@ -1823,7 +1823,7 @@
         "close to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0196"
+      "id": "STE-T1-SUB-0196"
     },
     {
       "pattern": "it would appear that",
@@ -1832,7 +1832,7 @@
         "evidently"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0197"
+      "id": "STE-T1-SUB-0197"
     },
     {
       "pattern": "lift up",
@@ -1841,7 +1841,7 @@
         "lift"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0198"
+      "id": "STE-T1-SUB-0198"
     },
     {
       "pattern": "made reference to",
@@ -1850,7 +1850,7 @@
         "referred to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0199"
+      "id": "STE-T1-SUB-0199"
     },
     {
       "pattern": "make reference to",
@@ -1859,7 +1859,7 @@
         "refer to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0200"
+      "id": "STE-T1-SUB-0200"
     },
     {
       "pattern": "none at all",
@@ -1868,7 +1868,7 @@
         "none"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0201"
+      "id": "STE-T1-SUB-0201"
     },
     {
       "pattern": "not in a position to",
@@ -1877,7 +1877,7 @@
         "unable"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0202"
+      "id": "STE-T1-SUB-0202"
     },
     {
       "pattern": "not possible",
@@ -1886,7 +1886,7 @@
         "impossible"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0203"
+      "id": "STE-T1-SUB-0203"
     },
     {
       "pattern": "of major importance",
@@ -1895,7 +1895,7 @@
         "important"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0204"
+      "id": "STE-T1-SUB-0204"
     },
     {
       "pattern": "perform an assessment of",
@@ -1904,7 +1904,7 @@
         "assess"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0205"
+      "id": "STE-T1-SUB-0205"
     },
     {
       "pattern": "place an order",
@@ -1913,7 +1913,7 @@
         "order"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0206"
+      "id": "STE-T1-SUB-0206"
     },
     {
       "pattern": "plays a key role in",
@@ -1922,7 +1922,7 @@
         "is essential to"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0207"
+      "id": "STE-T1-SUB-0207"
     },
     {
       "pattern": "present time",
@@ -1931,7 +1931,7 @@
         "now"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0208"
+      "id": "STE-T1-SUB-0208"
     },
     {
       "pattern": "some of the",
@@ -1940,7 +1940,7 @@
         "part of the"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0209"
+      "id": "STE-T1-SUB-0209"
     },
     {
       "pattern": "subsequent to",
@@ -1949,7 +1949,7 @@
         "after"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0210"
+      "id": "STE-T1-SUB-0210"
     },
     {
       "pattern": "take action",
@@ -1958,7 +1958,7 @@
         "act"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0211"
+      "id": "STE-T1-SUB-0211"
     },
     {
       "pattern": "take into account",
@@ -1968,7 +1968,7 @@
         "allow for"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0212"
+      "id": "STE-T1-SUB-0212"
     },
     {
       "pattern": "the question as to whether",
@@ -1977,7 +1977,7 @@
         "whether"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0213"
+      "id": "STE-T1-SUB-0213"
     },
     {
       "pattern": "there is no doubt but that",
@@ -1986,7 +1986,7 @@
         "doubtless"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0214"
+      "id": "STE-T1-SUB-0214"
     },
     {
       "pattern": "this day and age",
@@ -1995,7 +1995,7 @@
         "this age"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0215"
+      "id": "STE-T1-SUB-0215"
     },
     {
       "pattern": "this is a subject that",
@@ -2004,7 +2004,7 @@
         "this subject"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0216"
+      "id": "STE-T1-SUB-0216"
     },
     {
       "pattern": "under the provisions of",
@@ -2013,7 +2013,7 @@
         "under"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0217"
+      "id": "STE-T1-SUB-0217"
     },
     {
       "pattern": "used for fuel purposes",
@@ -2022,7 +2022,7 @@
         "used for fuel"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0218"
+      "id": "STE-T1-SUB-0218"
     },
     {
       "pattern": "with regard to",
@@ -2032,7 +2032,7 @@
         "of"
       ],
       "source": "vale_microsoft.wordiness",
-      "id": "VEI-T1-SUB-0219"
+      "id": "STE-T1-SUB-0219"
     },
     {
       "pattern": "a number of",
@@ -2043,7 +2043,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0220"
+      "id": "STE-T1-SUB-0220"
     },
     {
       "pattern": "accede to",
@@ -2054,7 +2054,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0221"
+      "id": "STE-T1-SUB-0221"
     },
     {
       "pattern": "accelerate",
@@ -2064,7 +2064,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0222"
+      "id": "STE-T1-SUB-0222"
     },
     {
       "pattern": "additional",
@@ -2077,7 +2077,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0223"
+      "id": "STE-T1-SUB-0223"
     },
     {
       "pattern": "address",
@@ -2087,7 +2087,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0224"
+      "id": "STE-T1-SUB-0224"
     },
     {
       "pattern": "addressees are requested",
@@ -2097,7 +2097,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0225"
+      "id": "STE-T1-SUB-0225"
     },
     {
       "pattern": "adversely impact on",
@@ -2108,7 +2108,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0226"
+      "id": "STE-T1-SUB-0226"
     },
     {
       "pattern": "afford an opportunity",
@@ -2119,7 +2119,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0227"
+      "id": "STE-T1-SUB-0227"
     },
     {
       "pattern": "aforementioned",
@@ -2129,7 +2129,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0228"
+      "id": "STE-T1-SUB-0228"
     },
     {
       "pattern": "all of",
@@ -2139,7 +2139,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0229"
+      "id": "STE-T1-SUB-0229"
     },
     {
       "pattern": "already existing",
@@ -2149,7 +2149,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0230"
+      "id": "STE-T1-SUB-0230"
     },
     {
       "pattern": "and/or",
@@ -2159,7 +2159,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0231"
+      "id": "STE-T1-SUB-0231"
     },
     {
       "pattern": "appreciable",
@@ -2170,7 +2170,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0232"
+      "id": "STE-T1-SUB-0232"
     },
     {
       "pattern": "appropriate",
@@ -2181,7 +2181,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0233"
+      "id": "STE-T1-SUB-0233"
     },
     {
       "pattern": "approximate",
@@ -2192,7 +2192,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0234"
+      "id": "STE-T1-SUB-0234"
     },
     {
       "pattern": "arrive onboard",
@@ -2202,7 +2202,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0235"
+      "id": "STE-T1-SUB-0235"
     },
     {
       "pattern": "as prescribed by",
@@ -2212,7 +2212,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0236"
+      "id": "STE-T1-SUB-0236"
     },
     {
       "pattern": "as to",
@@ -2223,7 +2223,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0237"
+      "id": "STE-T1-SUB-0237"
     },
     {
       "pattern": "as yet",
@@ -2233,7 +2233,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0238"
+      "id": "STE-T1-SUB-0238"
     },
     {
       "pattern": "assist",
@@ -2244,7 +2244,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0239"
+      "id": "STE-T1-SUB-0239"
     },
     {
       "pattern": "at this time",
@@ -2254,7 +2254,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0240"
+      "id": "STE-T1-SUB-0240"
     },
     {
       "pattern": "attributable to",
@@ -2264,7 +2264,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0241"
+      "id": "STE-T1-SUB-0241"
     },
     {
       "pattern": "authorise",
@@ -2275,7 +2275,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0242"
+      "id": "STE-T1-SUB-0242"
     },
     {
       "pattern": "be advised",
@@ -2285,7 +2285,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0243"
+      "id": "STE-T1-SUB-0243"
     },
     {
       "pattern": "benefit",
@@ -2295,7 +2295,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0244"
+      "id": "STE-T1-SUB-0244"
     },
     {
       "pattern": "benefit from",
@@ -2305,7 +2305,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0245"
+      "id": "STE-T1-SUB-0245"
     },
     {
       "pattern": "by means of",
@@ -2316,7 +2316,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0246"
+      "id": "STE-T1-SUB-0246"
     },
     {
       "pattern": "by virtue of",
@@ -2327,7 +2327,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0247"
+      "id": "STE-T1-SUB-0247"
     },
     {
       "pattern": "capability",
@@ -2337,7 +2337,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0248"
+      "id": "STE-T1-SUB-0248"
     },
     {
       "pattern": "caveat",
@@ -2347,7 +2347,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0249"
+      "id": "STE-T1-SUB-0249"
     },
     {
       "pattern": "combat environment",
@@ -2357,7 +2357,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0250"
+      "id": "STE-T1-SUB-0250"
     },
     {
       "pattern": "combined",
@@ -2367,7 +2367,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0251"
+      "id": "STE-T1-SUB-0251"
     },
     {
       "pattern": "comply with",
@@ -2377,7 +2377,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0252"
+      "id": "STE-T1-SUB-0252"
     },
     {
       "pattern": "component",
@@ -2387,7 +2387,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0253"
+      "id": "STE-T1-SUB-0253"
     },
     {
       "pattern": "currently",
@@ -2397,7 +2397,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0254"
+      "id": "STE-T1-SUB-0254"
     },
     {
       "pattern": "deem",
@@ -2409,7 +2409,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0255"
+      "id": "STE-T1-SUB-0255"
     },
     {
       "pattern": "delete",
@@ -2420,7 +2420,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0256"
+      "id": "STE-T1-SUB-0256"
     },
     {
       "pattern": "during the period",
@@ -2430,7 +2430,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0257"
+      "id": "STE-T1-SUB-0257"
     },
     {
       "pattern": "e.g.",
@@ -2441,7 +2441,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0258"
+      "id": "STE-T1-SUB-0258"
     },
     {
       "pattern": "economical",
@@ -2451,7 +2451,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0259"
+      "id": "STE-T1-SUB-0259"
     },
     {
       "pattern": "effect",
@@ -2463,7 +2463,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0260"
+      "id": "STE-T1-SUB-0260"
     },
     {
       "pattern": "effect modifications",
@@ -2473,7 +2473,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0261"
+      "id": "STE-T1-SUB-0261"
     },
     {
       "pattern": "elect",
@@ -2483,7 +2483,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0262"
+      "id": "STE-T1-SUB-0262"
     },
     {
       "pattern": "ensure",
@@ -2493,7 +2493,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0263"
+      "id": "STE-T1-SUB-0263"
     },
     {
       "pattern": "equipments",
@@ -2503,7 +2503,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0264"
+      "id": "STE-T1-SUB-0264"
     },
     {
       "pattern": "establish",
@@ -2515,7 +2515,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0265"
+      "id": "STE-T1-SUB-0265"
     },
     {
       "pattern": "evaluate",
@@ -2526,7 +2526,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0266"
+      "id": "STE-T1-SUB-0266"
     },
     {
       "pattern": "evidenced",
@@ -2536,7 +2536,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0267"
+      "id": "STE-T1-SUB-0267"
     },
     {
       "pattern": "evident",
@@ -2547,7 +2547,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0268"
+      "id": "STE-T1-SUB-0268"
     },
     {
       "pattern": "exhibit",
@@ -2557,7 +2557,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0269"
+      "id": "STE-T1-SUB-0269"
     },
     {
       "pattern": "expeditious",
@@ -2568,7 +2568,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0270"
+      "id": "STE-T1-SUB-0270"
     },
     {
       "pattern": "expend",
@@ -2578,7 +2578,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0271"
+      "id": "STE-T1-SUB-0271"
     },
     {
       "pattern": "expertise",
@@ -2588,7 +2588,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0272"
+      "id": "STE-T1-SUB-0272"
     },
     {
       "pattern": "expiration",
@@ -2598,7 +2598,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0273"
+      "id": "STE-T1-SUB-0273"
     },
     {
       "pattern": "factual evidence",
@@ -2609,7 +2609,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0274"
+      "id": "STE-T1-SUB-0274"
     },
     {
       "pattern": "failed to",
@@ -2619,7 +2619,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0275"
+      "id": "STE-T1-SUB-0275"
     },
     {
       "pattern": "feasible",
@@ -2630,7 +2630,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0276"
+      "id": "STE-T1-SUB-0276"
     },
     {
       "pattern": "finalise",
@@ -2641,7 +2641,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0277"
+      "id": "STE-T1-SUB-0277"
     },
     {
       "pattern": "first and foremost",
@@ -2651,7 +2651,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0278"
+      "id": "STE-T1-SUB-0278"
     },
     {
       "pattern": "for a period of",
@@ -2661,7 +2661,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0279"
+      "id": "STE-T1-SUB-0279"
     },
     {
       "pattern": "for the purpose of",
@@ -2671,7 +2671,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0280"
+      "id": "STE-T1-SUB-0280"
     },
     {
       "pattern": "forfeit",
@@ -2682,7 +2682,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0281"
+      "id": "STE-T1-SUB-0281"
     },
     {
       "pattern": "formulate",
@@ -2692,7 +2692,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0282"
+      "id": "STE-T1-SUB-0282"
     },
     {
       "pattern": "forward",
@@ -2702,7 +2702,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0283"
+      "id": "STE-T1-SUB-0283"
     },
     {
       "pattern": "function",
@@ -2714,7 +2714,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0284"
+      "id": "STE-T1-SUB-0284"
     },
     {
       "pattern": "furnish",
@@ -2725,7 +2725,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0285"
+      "id": "STE-T1-SUB-0285"
     },
     {
       "pattern": "has a requirement for",
@@ -2735,7 +2735,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0286"
+      "id": "STE-T1-SUB-0286"
     },
     {
       "pattern": "has no effect",
@@ -2746,7 +2746,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0287"
+      "id": "STE-T1-SUB-0287"
     },
     {
       "pattern": "herein",
@@ -2756,7 +2756,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0288"
+      "id": "STE-T1-SUB-0288"
     },
     {
       "pattern": "heretofore",
@@ -2766,7 +2766,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0289"
+      "id": "STE-T1-SUB-0289"
     },
     {
       "pattern": "herewith",
@@ -2777,7 +2777,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0290"
+      "id": "STE-T1-SUB-0290"
     },
     {
       "pattern": "however",
@@ -2788,7 +2788,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0291"
+      "id": "STE-T1-SUB-0291"
     },
     {
       "pattern": "i.e.",
@@ -2798,7 +2798,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0292"
+      "id": "STE-T1-SUB-0292"
     },
     {
       "pattern": "identify",
@@ -2810,7 +2810,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0293"
+      "id": "STE-T1-SUB-0293"
     },
     {
       "pattern": "if and when",
@@ -2821,7 +2821,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0294"
+      "id": "STE-T1-SUB-0294"
     },
     {
       "pattern": "immediately",
@@ -2831,7 +2831,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0295"
+      "id": "STE-T1-SUB-0295"
     },
     {
       "pattern": "impacted",
@@ -2843,7 +2843,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0296"
+      "id": "STE-T1-SUB-0296"
     },
     {
       "pattern": "implement",
@@ -2857,7 +2857,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0297"
+      "id": "STE-T1-SUB-0297"
     },
     {
       "pattern": "in accordance with",
@@ -2870,7 +2870,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0298"
+      "id": "STE-T1-SUB-0298"
     },
     {
       "pattern": "in all likelihood",
@@ -2880,7 +2880,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0299"
+      "id": "STE-T1-SUB-0299"
     },
     {
       "pattern": "in excess of",
@@ -2890,7 +2890,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0300"
+      "id": "STE-T1-SUB-0300"
     },
     {
       "pattern": "in light of the fact that",
@@ -2900,7 +2900,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0301"
+      "id": "STE-T1-SUB-0301"
     },
     {
       "pattern": "in order for",
@@ -2910,7 +2910,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0302"
+      "id": "STE-T1-SUB-0302"
     },
     {
       "pattern": "in order that",
@@ -2921,7 +2921,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0303"
+      "id": "STE-T1-SUB-0303"
     },
     {
       "pattern": "in regard to",
@@ -2932,7 +2932,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0304"
+      "id": "STE-T1-SUB-0304"
     },
     {
       "pattern": "in relation to",
@@ -2943,7 +2943,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0305"
+      "id": "STE-T1-SUB-0305"
     },
     {
       "pattern": "in some instances",
@@ -2954,7 +2954,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0306"
+      "id": "STE-T1-SUB-0306"
     },
     {
       "pattern": "in terms of",
@@ -2966,7 +2966,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0307"
+      "id": "STE-T1-SUB-0307"
     },
     {
       "pattern": "in the amount of",
@@ -2976,7 +2976,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0308"
+      "id": "STE-T1-SUB-0308"
     },
     {
       "pattern": "in the event of",
@@ -2986,7 +2986,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0309"
+      "id": "STE-T1-SUB-0309"
     },
     {
       "pattern": "in the near future",
@@ -2997,7 +2997,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0310"
+      "id": "STE-T1-SUB-0310"
     },
     {
       "pattern": "in the process of",
@@ -3007,7 +3007,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0311"
+      "id": "STE-T1-SUB-0311"
     },
     {
       "pattern": "in view of",
@@ -3017,7 +3017,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0312"
+      "id": "STE-T1-SUB-0312"
     },
     {
       "pattern": "in view of the above",
@@ -3028,7 +3028,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0313"
+      "id": "STE-T1-SUB-0313"
     },
     {
       "pattern": "inasmuch as",
@@ -3038,7 +3038,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0314"
+      "id": "STE-T1-SUB-0314"
     },
     {
       "pattern": "inception",
@@ -3049,7 +3049,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0315"
+      "id": "STE-T1-SUB-0315"
     },
     {
       "pattern": "incumbent upon",
@@ -3059,7 +3059,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0316"
+      "id": "STE-T1-SUB-0316"
     },
     {
       "pattern": "indicate",
@@ -3072,7 +3072,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0317"
+      "id": "STE-T1-SUB-0317"
     },
     {
       "pattern": "initial",
@@ -3082,7 +3082,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0318"
+      "id": "STE-T1-SUB-0318"
     },
     {
       "pattern": "inter alia",
@@ -3092,7 +3092,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0319"
+      "id": "STE-T1-SUB-0319"
     },
     {
       "pattern": "interface",
@@ -3126,7 +3126,7 @@
         "system"
       ],
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0320"
+      "id": "STE-T1-SUB-0320"
     },
     {
       "pattern": "interpose no objection",
@@ -3136,7 +3136,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0321"
+      "id": "STE-T1-SUB-0321"
     },
     {
       "pattern": "is applicable to",
@@ -3146,7 +3146,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0322"
+      "id": "STE-T1-SUB-0322"
     },
     {
       "pattern": "is authorised to",
@@ -3156,7 +3156,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0323"
+      "id": "STE-T1-SUB-0323"
     },
     {
       "pattern": "is authorized to",
@@ -3166,7 +3166,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0324"
+      "id": "STE-T1-SUB-0324"
     },
     {
       "pattern": "is in consonance with",
@@ -3177,7 +3177,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0325"
+      "id": "STE-T1-SUB-0325"
     },
     {
       "pattern": "is responsible for",
@@ -3187,7 +3187,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0326"
+      "id": "STE-T1-SUB-0326"
     },
     {
       "pattern": "it appears",
@@ -3197,7 +3197,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0327"
+      "id": "STE-T1-SUB-0327"
     },
     {
       "pattern": "it is",
@@ -3207,7 +3207,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0328"
+      "id": "STE-T1-SUB-0328"
     },
     {
       "pattern": "it is essential",
@@ -3218,7 +3218,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0329"
+      "id": "STE-T1-SUB-0329"
     },
     {
       "pattern": "it is requested",
@@ -3228,7 +3228,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0330"
+      "id": "STE-T1-SUB-0330"
     },
     {
       "pattern": "liaison",
@@ -3238,7 +3238,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0331"
+      "id": "STE-T1-SUB-0331"
     },
     {
       "pattern": "limited number",
@@ -3248,7 +3248,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0332"
+      "id": "STE-T1-SUB-0332"
     },
     {
       "pattern": "literally",
@@ -3258,7 +3258,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0333"
+      "id": "STE-T1-SUB-0333"
     },
     {
       "pattern": "magnitude",
@@ -3268,7 +3268,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0334"
+      "id": "STE-T1-SUB-0334"
     },
     {
       "pattern": "maximum",
@@ -3280,7 +3280,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0335"
+      "id": "STE-T1-SUB-0335"
     },
     {
       "pattern": "minimise",
@@ -3291,7 +3291,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0336"
+      "id": "STE-T1-SUB-0336"
     },
     {
       "pattern": "minimize",
@@ -3302,7 +3302,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0337"
+      "id": "STE-T1-SUB-0337"
     },
     {
       "pattern": "minimum",
@@ -3314,7 +3314,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0338"
+      "id": "STE-T1-SUB-0338"
     },
     {
       "pattern": "monitor",
@@ -3326,7 +3326,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0339"
+      "id": "STE-T1-SUB-0339"
     },
     {
       "pattern": "nevertheless",
@@ -3338,7 +3338,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0340"
+      "id": "STE-T1-SUB-0340"
     },
     {
       "pattern": "not certain",
@@ -3348,7 +3348,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0341"
+      "id": "STE-T1-SUB-0341"
     },
     {
       "pattern": "not later than",
@@ -3359,7 +3359,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0342"
+      "id": "STE-T1-SUB-0342"
     },
     {
       "pattern": "not many",
@@ -3369,7 +3369,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0343"
+      "id": "STE-T1-SUB-0343"
     },
     {
       "pattern": "not often",
@@ -3379,7 +3379,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0344"
+      "id": "STE-T1-SUB-0344"
     },
     {
       "pattern": "not unless",
@@ -3389,7 +3389,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0345"
+      "id": "STE-T1-SUB-0345"
     },
     {
       "pattern": "not unlike",
@@ -3400,7 +3400,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0346"
+      "id": "STE-T1-SUB-0346"
     },
     {
       "pattern": "notwithstanding",
@@ -3411,7 +3411,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0347"
+      "id": "STE-T1-SUB-0347"
     },
     {
       "pattern": "null and void",
@@ -3422,7 +3422,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0348"
+      "id": "STE-T1-SUB-0348"
     },
     {
       "pattern": "objective",
@@ -3433,7 +3433,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0349"
+      "id": "STE-T1-SUB-0349"
     },
     {
       "pattern": "observe",
@@ -3443,7 +3443,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0350"
+      "id": "STE-T1-SUB-0350"
     },
     {
       "pattern": "obtain",
@@ -3453,7 +3453,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0351"
+      "id": "STE-T1-SUB-0351"
     },
     {
       "pattern": "on the contrary",
@@ -3464,7 +3464,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0352"
+      "id": "STE-T1-SUB-0352"
     },
     {
       "pattern": "on the other hand",
@@ -3475,7 +3475,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0353"
+      "id": "STE-T1-SUB-0353"
     },
     {
       "pattern": "one particular",
@@ -3485,7 +3485,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0354"
+      "id": "STE-T1-SUB-0354"
     },
     {
       "pattern": "operate",
@@ -3497,7 +3497,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0355"
+      "id": "STE-T1-SUB-0355"
     },
     {
       "pattern": "option",
@@ -3507,7 +3507,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0356"
+      "id": "STE-T1-SUB-0356"
     },
     {
       "pattern": "overall",
@@ -3517,7 +3517,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0357"
+      "id": "STE-T1-SUB-0357"
     },
     {
       "pattern": "owing to the fact that",
@@ -3528,7 +3528,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0358"
+      "id": "STE-T1-SUB-0358"
     },
     {
       "pattern": "parameters",
@@ -3538,7 +3538,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0359"
+      "id": "STE-T1-SUB-0359"
     },
     {
       "pattern": "participate",
@@ -3548,7 +3548,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0360"
+      "id": "STE-T1-SUB-0360"
     },
     {
       "pattern": "particulars",
@@ -3558,7 +3558,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0361"
+      "id": "STE-T1-SUB-0361"
     },
     {
       "pattern": "pass away",
@@ -3568,7 +3568,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0362"
+      "id": "STE-T1-SUB-0362"
     },
     {
       "pattern": "perform",
@@ -3578,7 +3578,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0363"
+      "id": "STE-T1-SUB-0363"
     },
     {
       "pattern": "practicable",
@@ -3588,7 +3588,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0364"
+      "id": "STE-T1-SUB-0364"
     },
     {
       "pattern": "preclude",
@@ -3598,7 +3598,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0365"
+      "id": "STE-T1-SUB-0365"
     },
     {
       "pattern": "prior to",
@@ -3608,7 +3608,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0366"
+      "id": "STE-T1-SUB-0366"
     },
     {
       "pattern": "prioritise",
@@ -3619,7 +3619,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0367"
+      "id": "STE-T1-SUB-0367"
     },
     {
       "pattern": "proceed",
@@ -3631,7 +3631,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0368"
+      "id": "STE-T1-SUB-0368"
     },
     {
       "pattern": "proficiency",
@@ -3641,7 +3641,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0369"
+      "id": "STE-T1-SUB-0369"
     },
     {
       "pattern": "promulgate",
@@ -3652,7 +3652,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0370"
+      "id": "STE-T1-SUB-0370"
     },
     {
       "pattern": "provided that",
@@ -3662,7 +3662,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0371"
+      "id": "STE-T1-SUB-0371"
     },
     {
       "pattern": "provides guidance for",
@@ -3672,7 +3672,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0372"
+      "id": "STE-T1-SUB-0372"
     },
     {
       "pattern": "pursuant to",
@@ -3685,7 +3685,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0373"
+      "id": "STE-T1-SUB-0373"
     },
     {
       "pattern": "put simply",
@@ -3695,7 +3695,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0374"
+      "id": "STE-T1-SUB-0374"
     },
     {
       "pattern": "reflect",
@@ -3706,7 +3706,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0375"
+      "id": "STE-T1-SUB-0375"
     },
     {
       "pattern": "regarding",
@@ -3717,7 +3717,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0376"
+      "id": "STE-T1-SUB-0376"
     },
     {
       "pattern": "relative to",
@@ -3728,7 +3728,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0377"
+      "id": "STE-T1-SUB-0377"
     },
     {
       "pattern": "remain",
@@ -3738,7 +3738,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0378"
+      "id": "STE-T1-SUB-0378"
     },
     {
       "pattern": "remainder",
@@ -3748,7 +3748,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0379"
+      "id": "STE-T1-SUB-0379"
     },
     {
       "pattern": "remuneration",
@@ -3759,7 +3759,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0380"
+      "id": "STE-T1-SUB-0380"
     },
     {
       "pattern": "render",
@@ -3770,7 +3770,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0381"
+      "id": "STE-T1-SUB-0381"
     },
     {
       "pattern": "represents",
@@ -3780,7 +3780,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0382"
+      "id": "STE-T1-SUB-0382"
     },
     {
       "pattern": "request",
@@ -3800,7 +3800,7 @@
         "post"
       ],
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0383"
+      "id": "STE-T1-SUB-0383"
     },
     {
       "pattern": "require",
@@ -3810,7 +3810,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0384"
+      "id": "STE-T1-SUB-0384"
     },
     {
       "pattern": "requirement",
@@ -3821,7 +3821,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0385"
+      "id": "STE-T1-SUB-0385"
     },
     {
       "pattern": "reside",
@@ -3831,7 +3831,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0386"
+      "id": "STE-T1-SUB-0386"
     },
     {
       "pattern": "residence",
@@ -3841,7 +3841,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0387"
+      "id": "STE-T1-SUB-0387"
     },
     {
       "pattern": "retain",
@@ -3851,7 +3851,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0388"
+      "id": "STE-T1-SUB-0388"
     },
     {
       "pattern": "satisfy",
@@ -3862,7 +3862,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0389"
+      "id": "STE-T1-SUB-0389"
     },
     {
       "pattern": "selection",
@@ -3872,7 +3872,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0390"
+      "id": "STE-T1-SUB-0390"
     },
     {
       "pattern": "set forth in",
@@ -3882,7 +3882,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0391"
+      "id": "STE-T1-SUB-0391"
     },
     {
       "pattern": "should you wish",
@@ -3892,7 +3892,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0392"
+      "id": "STE-T1-SUB-0392"
     },
     {
       "pattern": "similar to",
@@ -3903,7 +3903,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0393"
+      "id": "STE-T1-SUB-0393"
     },
     {
       "pattern": "strategise",
@@ -3913,7 +3913,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0394"
+      "id": "STE-T1-SUB-0394"
     },
     {
       "pattern": "strategize",
@@ -3923,7 +3923,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0395"
+      "id": "STE-T1-SUB-0395"
     },
     {
       "pattern": "submit",
@@ -3934,7 +3934,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0396"
+      "id": "STE-T1-SUB-0396"
     },
     {
       "pattern": "subsequently",
@@ -3946,7 +3946,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0397"
+      "id": "STE-T1-SUB-0397"
     },
     {
       "pattern": "take action to",
@@ -3956,7 +3956,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0398"
+      "id": "STE-T1-SUB-0398"
     },
     {
       "pattern": "terminate",
@@ -3967,7 +3967,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0399"
+      "id": "STE-T1-SUB-0399"
     },
     {
       "pattern": "the month of",
@@ -3977,7 +3977,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0400"
+      "id": "STE-T1-SUB-0400"
     },
     {
       "pattern": "the undersigned",
@@ -3987,7 +3987,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0401"
+      "id": "STE-T1-SUB-0401"
     },
     {
       "pattern": "the use of",
@@ -3997,7 +3997,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0402"
+      "id": "STE-T1-SUB-0402"
     },
     {
       "pattern": "there are",
@@ -4007,7 +4007,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0403"
+      "id": "STE-T1-SUB-0403"
     },
     {
       "pattern": "there is",
@@ -4017,7 +4017,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0404"
+      "id": "STE-T1-SUB-0404"
     },
     {
       "pattern": "therefore",
@@ -4028,7 +4028,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0405"
+      "id": "STE-T1-SUB-0405"
     },
     {
       "pattern": "therein",
@@ -4038,7 +4038,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0406"
+      "id": "STE-T1-SUB-0406"
     },
     {
       "pattern": "thereof",
@@ -4049,7 +4049,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0407"
+      "id": "STE-T1-SUB-0407"
     },
     {
       "pattern": "time period",
@@ -4060,7 +4060,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0408"
+      "id": "STE-T1-SUB-0408"
     },
     {
       "pattern": "timely",
@@ -4070,7 +4070,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0409"
+      "id": "STE-T1-SUB-0409"
     },
     {
       "pattern": "took advantage of",
@@ -4080,7 +4080,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0410"
+      "id": "STE-T1-SUB-0410"
     },
     {
       "pattern": "transpire",
@@ -4090,7 +4090,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0411"
+      "id": "STE-T1-SUB-0411"
     },
     {
       "pattern": "type",
@@ -4100,7 +4100,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0412"
+      "id": "STE-T1-SUB-0412"
     },
     {
       "pattern": "utilisation",
@@ -4110,7 +4110,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0413"
+      "id": "STE-T1-SUB-0413"
     },
     {
       "pattern": "utilise",
@@ -4120,7 +4120,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0414"
+      "id": "STE-T1-SUB-0414"
     },
     {
       "pattern": "validate",
@@ -4130,7 +4130,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0415"
+      "id": "STE-T1-SUB-0415"
     },
     {
       "pattern": "very",
@@ -4140,7 +4140,7 @@
       ],
       "omit_ok": true,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0416"
+      "id": "STE-T1-SUB-0416"
     },
     {
       "pattern": "viable",
@@ -4151,7 +4151,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0417"
+      "id": "STE-T1-SUB-0417"
     },
     {
       "pattern": "vice",
@@ -4162,7 +4162,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0418"
+      "id": "STE-T1-SUB-0418"
     },
     {
       "pattern": "warrant",
@@ -4173,7 +4173,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0419"
+      "id": "STE-T1-SUB-0419"
     },
     {
       "pattern": "whereas",
@@ -4184,7 +4184,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0420"
+      "id": "STE-T1-SUB-0420"
     },
     {
       "pattern": "with reference to",
@@ -4195,7 +4195,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0421"
+      "id": "STE-T1-SUB-0421"
     },
     {
       "pattern": "with respect to",
@@ -4206,7 +4206,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0422"
+      "id": "STE-T1-SUB-0422"
     },
     {
       "pattern": "witnessed",
@@ -4217,7 +4217,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0423"
+      "id": "STE-T1-SUB-0423"
     },
     {
       "pattern": "your office",
@@ -4227,7 +4227,7 @@
       ],
       "omit_ok": false,
       "source": "retext_simplify",
-      "id": "VEI-T1-SUB-0424"
+      "id": "STE-T1-SUB-0424"
     }
   ],
   "excluded": [

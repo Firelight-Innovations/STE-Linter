@@ -57,7 +57,7 @@
         "T6"
       ],
       "ari_target": null,
-      "note": "Generic CSV cell linting only (T1/T3/T6 word-level checks + field word budgets). csv_integrity (VEI-CSV-0001..0010) validates a bespoke truths/decisions/terminology document-control registry schema that only the veistra preset's project has -- it is deliberately left out of this profile's 'tests'. NOTE for maintainers: today that omission is cosmetic only, because ste_lint.py's main() calls check_csv_integrity() unconditionally for every discovered .csv file regardless of any profile's 'tests' list. See docs/configuration.md for the exact fix."
+      "note": "Generic CSV cell linting only (T1/T3/T6 word-level checks + field word budgets). csv_integrity (STE-CSV-0001..0010) validates a bespoke truths/decisions/terminology document-control registry schema that only the veistra preset's project has -- it is deliberately left out of this profile's 'tests'. NOTE for maintainers: today that omission is cosmetic only, because ste_lint.py's main() calls check_csv_integrity() unconditionally for every discovered .csv file regardless of any profile's 'tests' list. See docs/configuration.md for the exact fix."
     },
     "prose": {
       "path_globs": [
@@ -407,8 +407,8 @@
     "EARS"
   ],
   "rule_id_taxonomy": {
-    "format": "VEI-<test>-<CATEGORY>-<seq4>",
-    "note_for_maintainer": "The 'VEI-' prefix is a leftover from the tool's origin as an internal Veistra project linter. It is baked as a literal string into every rule ID in lint_data/*.json and cannot be changed here without regenerating those files (see builddata/*.py) -- renaming it is a decision left to the OSS maintainer, not made by this preset.",
+    "format": "STE-<test>-<CATEGORY>-<seq4>",
+    "note_for_maintainer": "The 'STE-' prefix is a leftover from the tool's origin as an internal Veistra project linter. It is baked as a literal string into every rule ID in lint_data/*.json and cannot be changed here without regenerating those files (see builddata/*.py) -- renaming it is a decision left to the OSS maintainer, not made by this preset.",
     "categories": {
       "T1": [
         "SUB"

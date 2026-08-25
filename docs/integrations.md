@@ -154,9 +154,9 @@ Real captured examples (from `python -X utf8 ste_lint.py tests/corpus_dirty/dirt
 and `tests/corpus_dirty/decisions_dirty.csv` in this repo):
 
 ```
-tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 VEI-T3-MOD-0007 -- Optional (optionality): 'if possible'.
+tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 STE-T3-MOD-0007 -- Optional (optionality): 'if possible'.
     Ship the patch if possible...
-tests/corpus_dirty/decisions_dirty.csv:0:1 [DEC-DIRTY-001:superseded_by] ERROR csv_integrity VEI-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.
+tests/corpus_dirty/decisions_dirty.csv:0:1 [DEC-DIRTY-001:superseded_by] ERROR csv_integrity STE-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.
 ```
 
 The `tasks.json` regex:

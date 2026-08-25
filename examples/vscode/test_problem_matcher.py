@@ -15,19 +15,19 @@ PATTERN = (
 CASES = [
     # (line, expect_match, expected groups or None)
     (
-        "tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 VEI-T3-MOD-0007 -- Optional (optionality): 'if possible'.",
+        "tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 STE-T3-MOD-0007 -- Optional (optionality): 'if possible'.",
         True,
     ),
     (
-        "tests/corpus_dirty/dirty_t4.md:4:1 WARNING T4 VEI-T4-PRO-0022 -- Referentially open: pronoun 'This' with no clear antecedent in this unit.",
+        "tests/corpus_dirty/dirty_t4.md:4:1 WARNING T4 STE-T4-PRO-0022 -- Referentially open: pronoun 'This' with no clear antecedent in this unit.",
         True,
     ),
     (
-        "tests/corpus_dirty/decisions_dirty.csv:0:1 [DEC-DIRTY-001:superseded_by] ERROR csv_integrity VEI-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.",
+        "tests/corpus_dirty/decisions_dirty.csv:0:1 [DEC-DIRTY-001:superseded_by] ERROR csv_integrity STE-CSV-0001 -- CSV integrity: status=SUPERSEDED needs a resolving superseded_by.",
         True,
     ),
     (
-        "tests/corpus_dirty/dirty_t6.md:8:40 WARNING structural VEI-S7-PASSIVE-0001 -- Structural: passive voice.",
+        "tests/corpus_dirty/dirty_t6.md:8:40 WARNING structural STE-S7-PASSIVE-0001 -- Structural: passive voice.",
         True,
     ),
     # excerpt / summary lines must NOT match

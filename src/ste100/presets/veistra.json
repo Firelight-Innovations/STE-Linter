@@ -80,7 +80,7 @@
   "abbreviation_allowlist": ["STE", "CSV", "ID", "URL", "JSON", "CLI", "ARI", "EARS", "POS", "AI", "IDs", "API"],
 
   "rule_id_taxonomy": {
-    "format": "VEI-<test>-<CATEGORY>-<seq4>",
+    "format": "STE-<test>-<CATEGORY>-<seq4>",
     "categories": {
       "T1": ["SUB"],
       "T2": ["VAG"],

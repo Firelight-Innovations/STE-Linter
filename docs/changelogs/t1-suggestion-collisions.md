@@ -46,83 +46,83 @@ replacements read worse in isolation than the word they replace. Those rules car
 
 | Rule id | Pattern | Old suggestion | New suggestion | Why |
 | --- | --- | --- | --- | --- |
-| VEI-T1-SUB-0007 | `accordingly` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
-| VEI-T1-SUB-0009 | `accurate` | `right` | `correct` (alt `exact`) | `right` is a T6 filler |
-| VEI-T1-SUB-0027 | `apparent` | `clear` | `plain` (alt `obvious`) | `clear` is a T3 hedge |
-| VEI-T1-SUB-0031 | `attempt` | `try` | `effort` (alt `do`) | `try` is a T6 filler |
-| VEI-T1-SUB-0037 | `commence` | `begin` | `launch` (alt `open`) | `begin` is a T6 filler |
-| VEI-T1-SUB-0040 | `concerning` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0042 | `consequently` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
-| VEI-T1-SUB-0061 | `endeavor` | `try` | `effort` (alt `work`) | `try` is a T6 filler |
-| VEI-T1-SUB-0070 | `frequently` | `often` | `routinely` (alt `commonly`) | `often` is a T3 hedge; `many times` holds the banned `many` |
-| VEI-T1-SUB-0074 | `initiate` | `start`, `begin` | `trigger` (alt `launch`) | both old alts are T6 fillers |
-| VEI-T1-SUB-0086 | `optimum` | `best`, `most` | `best` (alt `ideal`) | `most` is a T3 hedge, a T6 filler, and a T6 weasel word |
-| VEI-T1-SUB-0097 | `solicit` | `request` | `ask for` (alt `ask`) | `request` is itself a T1 pattern |
-| VEI-T1-SUB-0107 | `along the lines of` | `as in \| like`, `similar to` | `as in \| such as` (alt `such as`) | `like` is a T3 hedge, a T6 filler, and a T6 weasel word; `similar to` is a T1 pattern |
-| VEI-T1-SUB-0116 | `in a timely manner` | `on time \| promptly`, `timely` | `on time \| on schedule` (alt `on time`) | `promptly` is a T6 filler; `timely` is a T1 pattern |
-| VEI-T1-SUB-0117 | `in addition` | `also \| besides \| too` | `also \| besides` (alt `also`) | `too` is a T6 filler; found by the branch pass |
-| VEI-T1-SUB-0121 | `in many cases` | `often` | `commonly` (alt `routinely`) | `often` is a T3 hedge |
-| VEI-T1-SUB-0124 | `pertaining to` | `about \| of \| on` | `of \| on` (alt `on`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0126 | `readily apparent` | `clear`, `apparent` | `obvious` (alt `plain`) | `clear` is a T3 hedge; `apparent` is a T1 pattern and a T3 hedge |
-| VEI-T1-SUB-0134 | `a myriad of` | `myriad` | `countless` | `myriad` is T6 overused vocabulary |
-| VEI-T1-SUB-0136 | `all of a sudden` | `suddenly` | `at once` (alt `without warning`) | `suddenly` is a T6 filler |
-| VEI-T1-SUB-0139 | `almost all` | `most` | `all but a few` (alt `the bulk of`) | `most` is banned 3 times over; `nearly all` holds the banned `nearly` |
-| VEI-T1-SUB-0140 | `almost never` | `seldom` | `infrequently` | `seldom` is a T3 hedge; `rarely` and `hardly` are also banned |
-| VEI-T1-SUB-0142 | `an appreciable number of` | `many` | `various` (alt `plenty of`) | `many` is a T3 hedge and a T6 weasel word |
-| VEI-T1-SUB-0143 | `an estimated` | `about` | `close to` | `about` is a T3 hedge; `roughly` and `nearly` are also banned |
-| VEI-T1-SUB-0150 | `at all times` | `always` | `continuously` | `always` is a T3 hedge |
-| VEI-T1-SUB-0157 | `carry out an evaluation of` | `evaluate` | `check` (alt `test`) | `evaluate` is a T1 pattern; the new value matches what that rule hands out |
-| VEI-T1-SUB-0162 | `concerning the matter of` | `regarding` | `on` (alt `of`) | `regarding` is a T1 pattern |
-| VEI-T1-SUB-0177 | `excessive number` | `too many` | `excess` | `too` and `many` are both banned; found by the word pass |
-| VEI-T1-SUB-0183 | `has the ability to` | `can` | `is able to` | `can` is T3 optionality and a T3 hedge |
-| VEI-T1-SUB-0184 | `has the capacity to` | `can` | `is able to` | same as above |
-| VEI-T1-SUB-0185 | `has the opportunity to` | `could` | `is able to` (alt `is free to`) | `could` is T3 optionality and a T3 hedge |
-| VEI-T1-SUB-0188 | `in a careful manner` | `carefully` | `with care` | `carefully` is a T6 filler |
-| VEI-T1-SUB-0189 | `in a thoughtful manner` | `thoughtfully` | `with care` | `thoughtfully` is a T6 filler; `with thought` holds the banned `thought` |
-| VEI-T1-SUB-0190 | `in most cases` | `usually` | `normally` (alt `as a rule`) | `usually` is banned 3 times over; `typically` is also banned |
-| VEI-T1-SUB-0191 | `in some cases` | `sometimes` | `at times` (alt `on occasion`) | `sometimes` is a T3 hedge |
-| VEI-T1-SUB-0195 | `in the neighborhood of` | `roughly` | `close to` | `roughly` is a T3 hedge and a T6 filler |
-| VEI-T1-SUB-0197 | `it would appear that` | `apparently` | `evidently` | `apparently` is a T3 hedge and a T6 filler |
-| VEI-T1-SUB-0209 | `some of the` | `some` | `part of the` | `some` is a T3 hedge |
-| VEI-T1-SUB-0212 | `take into account` | `consider` | `account for` (alt `allow for`) | `consider` is a T3 hedge |
-| VEI-T1-SUB-0219 | `with regard to` | `regarding` | `on` (alt `of`) | `regarding` is a T1 pattern |
-| VEI-T1-SUB-0220 | `a number of` | `many`, `some` | `various` (alt `plenty of`) | both old alts are T3 hedges; `many` is also a T6 weasel word |
-| VEI-T1-SUB-0232 | `appreciable` | `many` | `sizable` (alt `notable`) | `many` is a T3 hedge and a T6 weasel word |
-| VEI-T1-SUB-0233 | `appropriate` | `proper`, `right` | `proper` (alt `correct`) | `right` is a T6 filler; the primary value holds |
-| VEI-T1-SUB-0234 | `approximate` | `about` | `rough` (alt `close to`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0237 | `as to` | `about`, `on` | `on` (alt `of`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0255 | `deem` | `believe`, `consider`, `think` | `judge` (alts `rule`, `call`) | all 3 old alts are T3 hedges |
-| VEI-T1-SUB-0268 | `evident` | `clear` | `plain` (alt `obvious`) | `clear` is a T3 hedge |
-| VEI-T1-SUB-0276 | `feasible` | `can be done` | `workable` (alt `practical`) | `can` is T3 optionality; found by the word pass |
-| VEI-T1-SUB-0297 | `implement` | alt `start` | alt `set up` | `start` is a T6 filler; the other 4 alts hold |
-| VEI-T1-SUB-0299 | `in all likelihood` | `probably` | `expect` | `probably` is banned 4 times over; `likely` is also banned |
-| VEI-T1-SUB-0303 | `in order that` | `for`, `so` | `to` (alt `for`) | `so` is a T6 filler; `so that` carries the same word |
-| VEI-T1-SUB-0304 | `in regard to` | `about`, `concerning`, `on` | `on` (alt `of`) | `about` is a T3 hedge; `concerning` is a T1 pattern |
-| VEI-T1-SUB-0305 | `in relation to` | `about`, `with`, `to` | `to` (alt `with`) | `about` is a T3 hedge; the other 2 alts hold |
-| VEI-T1-SUB-0306 | `in some instances` | `sometimes` | `at times` (alt `on occasion`) | `sometimes` is a T3 hedge |
-| VEI-T1-SUB-0313 | `in view of the above` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
-| VEI-T1-SUB-0315 | `inception` | `start` | `outset` (alt `beginning`) | `start` is a T6 filler; `beginning` clears the word boundary of `begin` |
-| VEI-T1-SUB-0316 | `incumbent upon` | `must` | `shall` | O3 and DEC-TEC-TOOL-003 make `shall` the mandatory keyword |
-| VEI-T1-SUB-0317 | `indicate` | alt `say` | alt `report` | `say` is a T3 hedge; the other 3 alts hold |
-| VEI-T1-SUB-0323 | `is authorised to` | `may` | `is allowed to` | `may` is T3 optionality and a T3 hedge |
-| VEI-T1-SUB-0324 | `is authorized to` | `may` | `is allowed to` | same as above |
-| VEI-T1-SUB-0327 | `it appears` | `seems` | `evidently` | `seems` is a T3 hedge |
-| VEI-T1-SUB-0329 | `it is essential` | `must` | `shall` (alt `need to`) | O3 and DEC-TEC-TOOL-003 make `shall` the mandatory keyword |
-| VEI-T1-SUB-0335 | `maximum` | alt `most` | alt `highest` | `most` is banned 3 times over; `greatest` and `largest` hold |
-| VEI-T1-SUB-0340 | `nevertheless` | alt `even so` | alt `all the same` | `so` is a T6 filler; found by the word pass |
-| VEI-T1-SUB-0344 | `not often` | `rarely` | `infrequently` | `rarely` is a T3 hedge and a T6 filler |
-| VEI-T1-SUB-0347 | `notwithstanding` | alt `in spite of` | alt dropped | `in spite of` is a T1 pattern; `despite` and `still` hold |
-| VEI-T1-SUB-0352 | `on the contrary` | alt `so` | alt `instead` | `so` is a T6 filler, and reads wrong here in any case |
-| VEI-T1-SUB-0353 | `on the other hand` | alt `so` | alt `by contrast` | `so` is a T6 filler, and reads wrong here in any case |
-| VEI-T1-SUB-0368 | `proceed` | alt `try` | alt `continue` | `try` is a T6 filler |
-| VEI-T1-SUB-0375 | `reflect` | `say`, `show` | `show` (alt `record`) | `say` is a T3 hedge |
-| VEI-T1-SUB-0376 | `regarding` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0377 | `relative to` | `about` | `on` (alt `compared with`) | `about` is a T3 hedge; the alt covers the comparison sense |
-| VEI-T1-SUB-0393 | `similar to` | `like` | `comparable to` (alt `close to`) | `like` is banned 3 times over |
-| VEI-T1-SUB-0405 | `therefore` | `so`, `thus` | `thus` (alt `as a result`) | `so` is a T6 filler |
-| VEI-T1-SUB-0419 | `warrant` | alt `permit` | alt `justify` | `permit` is a T1 pattern |
-| VEI-T1-SUB-0421 | `with reference to` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
-| VEI-T1-SUB-0422 | `with respect to` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
+| STE-T1-SUB-0007 | `accordingly` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
+| STE-T1-SUB-0009 | `accurate` | `right` | `correct` (alt `exact`) | `right` is a T6 filler |
+| STE-T1-SUB-0027 | `apparent` | `clear` | `plain` (alt `obvious`) | `clear` is a T3 hedge |
+| STE-T1-SUB-0031 | `attempt` | `try` | `effort` (alt `do`) | `try` is a T6 filler |
+| STE-T1-SUB-0037 | `commence` | `begin` | `launch` (alt `open`) | `begin` is a T6 filler |
+| STE-T1-SUB-0040 | `concerning` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
+| STE-T1-SUB-0042 | `consequently` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
+| STE-T1-SUB-0061 | `endeavor` | `try` | `effort` (alt `work`) | `try` is a T6 filler |
+| STE-T1-SUB-0070 | `frequently` | `often` | `routinely` (alt `commonly`) | `often` is a T3 hedge; `many times` holds the banned `many` |
+| STE-T1-SUB-0074 | `initiate` | `start`, `begin` | `trigger` (alt `launch`) | both old alts are T6 fillers |
+| STE-T1-SUB-0086 | `optimum` | `best`, `most` | `best` (alt `ideal`) | `most` is a T3 hedge, a T6 filler, and a T6 weasel word |
+| STE-T1-SUB-0097 | `solicit` | `request` | `ask for` (alt `ask`) | `request` is itself a T1 pattern |
+| STE-T1-SUB-0107 | `along the lines of` | `as in \| like`, `similar to` | `as in \| such as` (alt `such as`) | `like` is a T3 hedge, a T6 filler, and a T6 weasel word; `similar to` is a T1 pattern |
+| STE-T1-SUB-0116 | `in a timely manner` | `on time \| promptly`, `timely` | `on time \| on schedule` (alt `on time`) | `promptly` is a T6 filler; `timely` is a T1 pattern |
+| STE-T1-SUB-0117 | `in addition` | `also \| besides \| too` | `also \| besides` (alt `also`) | `too` is a T6 filler; found by the branch pass |
+| STE-T1-SUB-0121 | `in many cases` | `often` | `commonly` (alt `routinely`) | `often` is a T3 hedge |
+| STE-T1-SUB-0124 | `pertaining to` | `about \| of \| on` | `of \| on` (alt `on`) | `about` is a T3 hedge |
+| STE-T1-SUB-0126 | `readily apparent` | `clear`, `apparent` | `obvious` (alt `plain`) | `clear` is a T3 hedge; `apparent` is a T1 pattern and a T3 hedge |
+| STE-T1-SUB-0134 | `a myriad of` | `myriad` | `countless` | `myriad` is T6 overused vocabulary |
+| STE-T1-SUB-0136 | `all of a sudden` | `suddenly` | `at once` (alt `without warning`) | `suddenly` is a T6 filler |
+| STE-T1-SUB-0139 | `almost all` | `most` | `all but a few` (alt `the bulk of`) | `most` is banned 3 times over; `nearly all` holds the banned `nearly` |
+| STE-T1-SUB-0140 | `almost never` | `seldom` | `infrequently` | `seldom` is a T3 hedge; `rarely` and `hardly` are also banned |
+| STE-T1-SUB-0142 | `an appreciable number of` | `many` | `various` (alt `plenty of`) | `many` is a T3 hedge and a T6 weasel word |
+| STE-T1-SUB-0143 | `an estimated` | `about` | `close to` | `about` is a T3 hedge; `roughly` and `nearly` are also banned |
+| STE-T1-SUB-0150 | `at all times` | `always` | `continuously` | `always` is a T3 hedge |
+| STE-T1-SUB-0157 | `carry out an evaluation of` | `evaluate` | `check` (alt `test`) | `evaluate` is a T1 pattern; the new value matches what that rule hands out |
+| STE-T1-SUB-0162 | `concerning the matter of` | `regarding` | `on` (alt `of`) | `regarding` is a T1 pattern |
+| STE-T1-SUB-0177 | `excessive number` | `too many` | `excess` | `too` and `many` are both banned; found by the word pass |
+| STE-T1-SUB-0183 | `has the ability to` | `can` | `is able to` | `can` is T3 optionality and a T3 hedge |
+| STE-T1-SUB-0184 | `has the capacity to` | `can` | `is able to` | same as above |
+| STE-T1-SUB-0185 | `has the opportunity to` | `could` | `is able to` (alt `is free to`) | `could` is T3 optionality and a T3 hedge |
+| STE-T1-SUB-0188 | `in a careful manner` | `carefully` | `with care` | `carefully` is a T6 filler |
+| STE-T1-SUB-0189 | `in a thoughtful manner` | `thoughtfully` | `with care` | `thoughtfully` is a T6 filler; `with thought` holds the banned `thought` |
+| STE-T1-SUB-0190 | `in most cases` | `usually` | `normally` (alt `as a rule`) | `usually` is banned 3 times over; `typically` is also banned |
+| STE-T1-SUB-0191 | `in some cases` | `sometimes` | `at times` (alt `on occasion`) | `sometimes` is a T3 hedge |
+| STE-T1-SUB-0195 | `in the neighborhood of` | `roughly` | `close to` | `roughly` is a T3 hedge and a T6 filler |
+| STE-T1-SUB-0197 | `it would appear that` | `apparently` | `evidently` | `apparently` is a T3 hedge and a T6 filler |
+| STE-T1-SUB-0209 | `some of the` | `some` | `part of the` | `some` is a T3 hedge |
+| STE-T1-SUB-0212 | `take into account` | `consider` | `account for` (alt `allow for`) | `consider` is a T3 hedge |
+| STE-T1-SUB-0219 | `with regard to` | `regarding` | `on` (alt `of`) | `regarding` is a T1 pattern |
+| STE-T1-SUB-0220 | `a number of` | `many`, `some` | `various` (alt `plenty of`) | both old alts are T3 hedges; `many` is also a T6 weasel word |
+| STE-T1-SUB-0232 | `appreciable` | `many` | `sizable` (alt `notable`) | `many` is a T3 hedge and a T6 weasel word |
+| STE-T1-SUB-0233 | `appropriate` | `proper`, `right` | `proper` (alt `correct`) | `right` is a T6 filler; the primary value holds |
+| STE-T1-SUB-0234 | `approximate` | `about` | `rough` (alt `close to`) | `about` is a T3 hedge |
+| STE-T1-SUB-0237 | `as to` | `about`, `on` | `on` (alt `of`) | `about` is a T3 hedge |
+| STE-T1-SUB-0255 | `deem` | `believe`, `consider`, `think` | `judge` (alts `rule`, `call`) | all 3 old alts are T3 hedges |
+| STE-T1-SUB-0268 | `evident` | `clear` | `plain` (alt `obvious`) | `clear` is a T3 hedge |
+| STE-T1-SUB-0276 | `feasible` | `can be done` | `workable` (alt `practical`) | `can` is T3 optionality; found by the word pass |
+| STE-T1-SUB-0297 | `implement` | alt `start` | alt `set up` | `start` is a T6 filler; the other 4 alts hold |
+| STE-T1-SUB-0299 | `in all likelihood` | `probably` | `expect` | `probably` is banned 4 times over; `likely` is also banned |
+| STE-T1-SUB-0303 | `in order that` | `for`, `so` | `to` (alt `for`) | `so` is a T6 filler; `so that` carries the same word |
+| STE-T1-SUB-0304 | `in regard to` | `about`, `concerning`, `on` | `on` (alt `of`) | `about` is a T3 hedge; `concerning` is a T1 pattern |
+| STE-T1-SUB-0305 | `in relation to` | `about`, `with`, `to` | `to` (alt `with`) | `about` is a T3 hedge; the other 2 alts hold |
+| STE-T1-SUB-0306 | `in some instances` | `sometimes` | `at times` (alt `on occasion`) | `sometimes` is a T3 hedge |
+| STE-T1-SUB-0313 | `in view of the above` | `so` | `thus` (alt `as a result`) | `so` is a T6 filler |
+| STE-T1-SUB-0315 | `inception` | `start` | `outset` (alt `beginning`) | `start` is a T6 filler; `beginning` clears the word boundary of `begin` |
+| STE-T1-SUB-0316 | `incumbent upon` | `must` | `shall` | O3 and DEC-TEC-TOOL-003 make `shall` the mandatory keyword |
+| STE-T1-SUB-0317 | `indicate` | alt `say` | alt `report` | `say` is a T3 hedge; the other 3 alts hold |
+| STE-T1-SUB-0323 | `is authorised to` | `may` | `is allowed to` | `may` is T3 optionality and a T3 hedge |
+| STE-T1-SUB-0324 | `is authorized to` | `may` | `is allowed to` | same as above |
+| STE-T1-SUB-0327 | `it appears` | `seems` | `evidently` | `seems` is a T3 hedge |
+| STE-T1-SUB-0329 | `it is essential` | `must` | `shall` (alt `need to`) | O3 and DEC-TEC-TOOL-003 make `shall` the mandatory keyword |
+| STE-T1-SUB-0335 | `maximum` | alt `most` | alt `highest` | `most` is banned 3 times over; `greatest` and `largest` hold |
+| STE-T1-SUB-0340 | `nevertheless` | alt `even so` | alt `all the same` | `so` is a T6 filler; found by the word pass |
+| STE-T1-SUB-0344 | `not often` | `rarely` | `infrequently` | `rarely` is a T3 hedge and a T6 filler |
+| STE-T1-SUB-0347 | `notwithstanding` | alt `in spite of` | alt dropped | `in spite of` is a T1 pattern; `despite` and `still` hold |
+| STE-T1-SUB-0352 | `on the contrary` | alt `so` | alt `instead` | `so` is a T6 filler, and reads wrong here in any case |
+| STE-T1-SUB-0353 | `on the other hand` | alt `so` | alt `by contrast` | `so` is a T6 filler, and reads wrong here in any case |
+| STE-T1-SUB-0368 | `proceed` | alt `try` | alt `continue` | `try` is a T6 filler |
+| STE-T1-SUB-0375 | `reflect` | `say`, `show` | `show` (alt `record`) | `say` is a T3 hedge |
+| STE-T1-SUB-0376 | `regarding` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
+| STE-T1-SUB-0377 | `relative to` | `about` | `on` (alt `compared with`) | `about` is a T3 hedge; the alt covers the comparison sense |
+| STE-T1-SUB-0393 | `similar to` | `like` | `comparable to` (alt `close to`) | `like` is banned 3 times over |
+| STE-T1-SUB-0405 | `therefore` | `so`, `thus` | `thus` (alt `as a result`) | `so` is a T6 filler |
+| STE-T1-SUB-0419 | `warrant` | alt `permit` | alt `justify` | `permit` is a T1 pattern |
+| STE-T1-SUB-0421 | `with reference to` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
+| STE-T1-SUB-0422 | `with respect to` | `about` | `on` (alt `of`) | `about` is a T3 hedge |
 
 ## Change classes
 
@@ -164,7 +164,7 @@ this list on every run.
    thus never reaches a writer. A rewrite falsifies the record of what
    was excluded, and the value stands. The 424 active rules hold no `must`.
 
-2. **`VEI-T1-SUB-0328`: `it is` -> empty string. `--fix` deletes text and
+2. **`STE-T1-SUB-0328`: `it is` -> empty string. `--fix` deletes text and
    leaves broken prose.** 14 rules carry an empty suggestion with a single
    empty alt. `lint/fixer.py` auto-applies any rule that holds one alt, and
    `--fix` thus writes the deletion to disk. Measured on this input:
@@ -173,17 +173,17 @@ this list on every run.
    - after `--fix`: ` important that the operator selects the  of report.`
 
    Two deletions in one line, both ungrammatical. `type` -> empty string
-   (`VEI-T1-SUB-0412`) is the worse of the pair, because `type` is a common
+   (`STE-T1-SUB-0412`) is the worse of the pair, because `type` is a common
    technical noun. The `omit_ok` field that the schema carries for this case
-   is dead data: no code reads it. `VEI-T6-AI-0004` already catches
+   is dead data: no code reads it. `STE-T6-AI-0004` already catches
    `It is important to note that` as a whole phrase with a better message.
-   `VEI-T1-SUB-0328` thus adds damage on top of a duplicate finding.
+   `STE-T1-SUB-0328` thus adds damage on top of a duplicate finding.
 
    Recommended: guard `lint/fixer.py` with a check that skips any rule whose
    suggestion is empty after strip. Then decide per rule whether to keep
    the T1 entry at all. Left alone in this pass, per the brief.
 
-3. **`VEI-T1-SUB-0320`: `interface` -> `meet`.** The upstream list meant the
+3. **`STE-T1-SUB-0320`: `interface` -> `meet`.** The upstream list meant the
    verb (`interface with the vendor`). The rule fired on the noun,
    which is a core technical term for the audience of this tool, and `meet`
    is nonsense there. This one had a data-level fix, which was applied. The
@@ -194,7 +194,7 @@ this list on every run.
    still fires. A bare `interface` with no modifier in front still fires,
    which is the residual false positive.
 
-4. **`VEI-T1-SUB-0393`: `similar to` -> `comparable to`.** T1 means a
+4. **`STE-T1-SUB-0393`: `similar to` -> `comparable to`.** T1 means a
    shorter match exists. The only shorter match is `like`, which 3 tables
    ban. The new value holds the meaning but is not shorter. The rule thus
    no longer does what T1 claims. Recommend dropping the rule.
@@ -206,14 +206,14 @@ this list on every run.
    review of those 5 filler entries. A narrower pattern such as `try and`
    or `start off` frees the natural words.
 
-6. **`VEI-T1-SUB-0299` (`in all likelihood`), `VEI-T1-SUB-0197`
-   (`it would appear that`), and `VEI-T1-SUB-0327` (`it appears`) swap one
+6. **`STE-T1-SUB-0299` (`in all likelihood`), `STE-T1-SUB-0197`
+   (`it would appear that`), and `STE-T1-SUB-0327` (`it appears`) swap one
    hedge for another.** `probably`, `apparently`, and `seems` are all
    banned. The values are now `expect` and `evidently`, which read better
    but still hedge. The honest advice for all 3 is to state the claim and let T3
    catch the rest. Recommend review.
 
-7. **`VEI-T1-SUB-0340`: `nevertheless` -> `besides`.** Not a collision, but
+7. **`STE-T1-SUB-0340`: `nevertheless` -> `besides`.** Not a collision, but
    `besides` does not mean `nevertheless`. `still`, already an alt, does.
    Recommend making `still` the primary value.
 

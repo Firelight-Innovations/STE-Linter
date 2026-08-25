@@ -41,26 +41,26 @@ EXC_MD = FIXTURES / "t1_exceptions.md"
 # values are read live from lint_data/substitutions.json, so the fixture
 # coverage check follows any later edit to these rules.
 CHANGED_RULE_IDS = [
-    "VEI-T1-SUB-0007", "VEI-T1-SUB-0009", "VEI-T1-SUB-0027", "VEI-T1-SUB-0031",
-    "VEI-T1-SUB-0037", "VEI-T1-SUB-0040", "VEI-T1-SUB-0042", "VEI-T1-SUB-0061",
-    "VEI-T1-SUB-0070", "VEI-T1-SUB-0074", "VEI-T1-SUB-0086", "VEI-T1-SUB-0097",
-    "VEI-T1-SUB-0107", "VEI-T1-SUB-0116", "VEI-T1-SUB-0117", "VEI-T1-SUB-0121",
-    "VEI-T1-SUB-0124", "VEI-T1-SUB-0126", "VEI-T1-SUB-0134", "VEI-T1-SUB-0136",
-    "VEI-T1-SUB-0139", "VEI-T1-SUB-0140", "VEI-T1-SUB-0142", "VEI-T1-SUB-0143",
-    "VEI-T1-SUB-0150", "VEI-T1-SUB-0157", "VEI-T1-SUB-0162", "VEI-T1-SUB-0177",
-    "VEI-T1-SUB-0183", "VEI-T1-SUB-0184", "VEI-T1-SUB-0185", "VEI-T1-SUB-0188",
-    "VEI-T1-SUB-0189", "VEI-T1-SUB-0190", "VEI-T1-SUB-0191", "VEI-T1-SUB-0195",
-    "VEI-T1-SUB-0197", "VEI-T1-SUB-0209", "VEI-T1-SUB-0212", "VEI-T1-SUB-0219",
-    "VEI-T1-SUB-0220", "VEI-T1-SUB-0232", "VEI-T1-SUB-0233", "VEI-T1-SUB-0234",
-    "VEI-T1-SUB-0237", "VEI-T1-SUB-0255", "VEI-T1-SUB-0268", "VEI-T1-SUB-0276",
-    "VEI-T1-SUB-0297", "VEI-T1-SUB-0299", "VEI-T1-SUB-0303", "VEI-T1-SUB-0304",
-    "VEI-T1-SUB-0305", "VEI-T1-SUB-0306", "VEI-T1-SUB-0313", "VEI-T1-SUB-0315",
-    "VEI-T1-SUB-0316", "VEI-T1-SUB-0317", "VEI-T1-SUB-0323", "VEI-T1-SUB-0324",
-    "VEI-T1-SUB-0327", "VEI-T1-SUB-0329", "VEI-T1-SUB-0335", "VEI-T1-SUB-0340",
-    "VEI-T1-SUB-0344", "VEI-T1-SUB-0347", "VEI-T1-SUB-0352", "VEI-T1-SUB-0353",
-    "VEI-T1-SUB-0368", "VEI-T1-SUB-0375", "VEI-T1-SUB-0376", "VEI-T1-SUB-0377",
-    "VEI-T1-SUB-0393", "VEI-T1-SUB-0405", "VEI-T1-SUB-0419", "VEI-T1-SUB-0421",
-    "VEI-T1-SUB-0422",
+    "STE-T1-SUB-0007", "STE-T1-SUB-0009", "STE-T1-SUB-0027", "STE-T1-SUB-0031",
+    "STE-T1-SUB-0037", "STE-T1-SUB-0040", "STE-T1-SUB-0042", "STE-T1-SUB-0061",
+    "STE-T1-SUB-0070", "STE-T1-SUB-0074", "STE-T1-SUB-0086", "STE-T1-SUB-0097",
+    "STE-T1-SUB-0107", "STE-T1-SUB-0116", "STE-T1-SUB-0117", "STE-T1-SUB-0121",
+    "STE-T1-SUB-0124", "STE-T1-SUB-0126", "STE-T1-SUB-0134", "STE-T1-SUB-0136",
+    "STE-T1-SUB-0139", "STE-T1-SUB-0140", "STE-T1-SUB-0142", "STE-T1-SUB-0143",
+    "STE-T1-SUB-0150", "STE-T1-SUB-0157", "STE-T1-SUB-0162", "STE-T1-SUB-0177",
+    "STE-T1-SUB-0183", "STE-T1-SUB-0184", "STE-T1-SUB-0185", "STE-T1-SUB-0188",
+    "STE-T1-SUB-0189", "STE-T1-SUB-0190", "STE-T1-SUB-0191", "STE-T1-SUB-0195",
+    "STE-T1-SUB-0197", "STE-T1-SUB-0209", "STE-T1-SUB-0212", "STE-T1-SUB-0219",
+    "STE-T1-SUB-0220", "STE-T1-SUB-0232", "STE-T1-SUB-0233", "STE-T1-SUB-0234",
+    "STE-T1-SUB-0237", "STE-T1-SUB-0255", "STE-T1-SUB-0268", "STE-T1-SUB-0276",
+    "STE-T1-SUB-0297", "STE-T1-SUB-0299", "STE-T1-SUB-0303", "STE-T1-SUB-0304",
+    "STE-T1-SUB-0305", "STE-T1-SUB-0306", "STE-T1-SUB-0313", "STE-T1-SUB-0315",
+    "STE-T1-SUB-0316", "STE-T1-SUB-0317", "STE-T1-SUB-0323", "STE-T1-SUB-0324",
+    "STE-T1-SUB-0327", "STE-T1-SUB-0329", "STE-T1-SUB-0335", "STE-T1-SUB-0340",
+    "STE-T1-SUB-0344", "STE-T1-SUB-0347", "STE-T1-SUB-0352", "STE-T1-SUB-0353",
+    "STE-T1-SUB-0368", "STE-T1-SUB-0375", "STE-T1-SUB-0376", "STE-T1-SUB-0377",
+    "STE-T1-SUB-0393", "STE-T1-SUB-0405", "STE-T1-SUB-0419", "STE-T1-SUB-0421",
+    "STE-T1-SUB-0422",
 ]
 
 # t1_exceptions.md, keyed by line number: rule id that must fire (or None).
@@ -68,9 +68,9 @@ EXCEPTION_LINES = {
     10: None,                 # "pull request"    -- exception, silent
     11: None,                 # "merge request"   -- exception, silent
     12: None,                 # "API request"     -- exception, silent
-    13: "VEI-T1-SUB-0383",    # "Operators request a new key" -- verb, fires
+    13: "STE-T1-SUB-0383",    # "Operators request a new key" -- verb, fires
     14: None,                 # "The interface"   -- noun, silent
-    15: "VEI-T1-SUB-0320",    # "Vendors interface with" -- verb, fires
+    15: "STE-T1-SUB-0320",    # "Vendors interface with" -- verb, fires
 }
 
 failures = []

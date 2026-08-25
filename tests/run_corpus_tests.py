@@ -10,7 +10,7 @@ Three checks, all must pass:
 
 Plus a coverage check: every fixed rule ID in tools/lint/rule_ids.py must
 appear at least once across the corpus_dirty expectations/manifest, except
-VEI-CSV-0009 (aliased to VEI-BUD-0003, see rule_ids.py) and VEI-BUD-0004
+STE-CSV-0009 (aliased to STE-BUD-0003, see rule_ids.py) and STE-BUD-0004
 (whole-file budget: keyed to exact real project paths, so it's exercised
 by a direct engine call below instead of a fixture file).
 
@@ -129,10 +129,10 @@ def check_whole_file_budget_direct():
     for target, over_budget_words in (("core/00-READ-FIRST.md", 601), ("core/writing-standard.md", 1201)):
         findings = []
         engine.check_whole_file_budget(target, "word " * over_budget_words, findings)
-        if not findings or findings[0].rule != "VEI-BUD-0004":
-            failures.append("VEI-BUD-0004 did not fire for synthetic {}-word {}".format(over_budget_words, target))
-    if not any("VEI-BUD-0004" in f for f in failures):
-        print("PASS VEI-BUD-0004 (whole-file budget, direct engine call)")
+        if not findings or findings[0].rule != "STE-BUD-0004":
+            failures.append("STE-BUD-0004 did not fire for synthetic {}-word {}".format(over_budget_words, target))
+    if not any("STE-BUD-0004" in f for f in failures):
+        print("PASS STE-BUD-0004 (whole-file budget, direct engine call)")
 
 
 def check_determinism():

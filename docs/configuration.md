@@ -117,7 +117,7 @@ for it in a custom config using `spec`/`prose` as a starting point.
 
 ### Should the generic `csv` profile run `csv_integrity`? No.
 
-`csv_integrity` (`VEI-CSV-0001`..`VEI-CSV-0010`) validates a bespoke registry schema --
+`csv_integrity` (`STE-CSV-0001`..`STE-CSV-0010`) validates a bespoke registry schema --
 `truths.csv` / `decisions-*.csv` / `timeline.csv` / `terminology.csv` with specific columns like
 `superseded_by`, `linked_truth_ids`, `review_by` -- that is Veistra's own document-control
 process, not something any other project has. Running it by default against an arbitrary CSV
@@ -140,7 +140,7 @@ default costs nothing and finds real issues.
 `tests` list is currently cosmetic, not a real gate -- `ste_lint.py`'s `main()` calls
 `check_csv_integrity()` unconditionally for every discovered `.csv` file, without checking any
 profile's `tests` list at all. Confirmed: running `presets/default.json` (whose `csv` profile
-excludes `csv_integrity`) against a dirty `decisions-*.csv` fixture still produced `VEI-CSV-*`
+excludes `csv_integrity`) against a dirty `decisions-*.csv` fixture still produced `STE-CSV-*`
 findings. See the final report for the exact one-line fix in `ste_lint.py`.
 
 ### `never_lint` defaults
@@ -228,7 +228,7 @@ section for that last one, which is the most consequential).
 | `budgets_file` | No -- `lint/paths.py` always loads `lint_data/budgets.json` directly, regardless of this value | Documents where budgets live | unchanged, dead |
 | `thresholds` | No -- see above | Aspirational quality gates | unchanged numerically, annotated as dead |
 | `abbreviation_allowlist` | Yes | Abbreviations that never trigger `S7-ABBR` | broadened, see above |
-| `rule_id_taxonomy` | No -- purely descriptive | Documents the `VEI-<test>-<CATEGORY>-<seq4>` ID format | unchanged; `VEI-` prefix intentionally not renamed, see `docs/rules.md` |
+| `rule_id_taxonomy` | No -- purely descriptive | Documents the `STE-<test>-<CATEGORY>-<seq4>` ID format | unchanged; `STE-` prefix intentionally not renamed, see `docs/rules.md` |
 
 ## Severity tiers and exit codes
 

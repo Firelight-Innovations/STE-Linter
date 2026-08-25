@@ -21,8 +21,8 @@ body:
     id: rule-id
     attributes:
       label: Rule ID that fired
-      description: The VEI-... ID from the finding, e.g. VEI-T3-ESC-0012. Run with `--explain RULE_ID` to confirm what the rule is supposed to catch.
-      placeholder: VEI-T3-ESC-0012
+      description: The STE-... ID from the finding, e.g. STE-T3-ESC-0012. Run with `--explain RULE_ID` to confirm what the rule is supposed to catch.
+      placeholder: STE-T3-ESC-0012
     validations:
       required: true
 
@@ -43,7 +43,7 @@ body:
       placeholder: |
         python -X utf8 ste_lint.py docs/manual.md
 
-        docs/manual.md:14:8 [error] VEI-T3-ESC-0012 hedge word "where feasible" ...
+        docs/manual.md:14:8 [error] STE-T3-ESC-0012 hedge word "where feasible" ...
     validations:
       required: true
 

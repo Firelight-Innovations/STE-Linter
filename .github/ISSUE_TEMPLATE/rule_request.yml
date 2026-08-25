@@ -25,7 +25,7 @@ body:
     attributes:
       label: Closest existing rule ID (if any)
       description: e.g. if you're proposing a term similar to something T3 already catches, give that rule's ID.
-      placeholder: VEI-T3-ESC-0004
+      placeholder: STE-T3-ESC-0004
     validations:
       required: false
 

@@ -87,7 +87,7 @@ def build_substitutions(src):
             rules.append(entry)
 
     for i, rule in enumerate(rules, start=1):
-        rule["id"] = f"VEI-T1-SUB-{i:04d}"
+        rule["id"] = f"STE-T1-SUB-{i:04d}"
 
     return {
         "schema_version": 1,

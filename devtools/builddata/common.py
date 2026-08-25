@@ -14,7 +14,7 @@ T1_EXCLUDE = {"shall"}
 
 def id_list(prefix, items):
     """Assign stable, deterministic rule IDs to a word/phrase list (G2 taxonomy:
-    VEI-<test>-<CATEGORY>-<seq4>). Sorted before numbering so a rerun with the
+    STE-<test>-<CATEGORY>-<seq4>). Sorted before numbering so a rerun with the
     same input produces byte-identical IDs (C4 determinism)."""
     return [{"id": f"{prefix}-{i:04d}", "pattern": p} for i, p in enumerate(sorted(set(items)), start=1)]
 

@@ -40,12 +40,12 @@ def build_filler(src):
     # One id_list call per prefix -- calling id_list twice with the same prefix
     # would restart numbering at 0001 and mint duplicate IDs, so overused
     # vocabulary (also zero-information) is folded into the same FILL batch.
-    fill_all = id_list("VEI-T6-FILL", fillers_raw + intensifiers_raw + ALWAYS_ERROR_INTENSIFIERS + OVERUSED_VOCABULARY)
+    fill_all = id_list("STE-T6-FILL", fillers_raw + intensifiers_raw + ALWAYS_ERROR_INTENSIFIERS + OVERUSED_VOCABULARY)
     overused_set = set(w.lower() for w in OVERUSED_VOCABULARY)
     fill = [e for e in fill_all if e["pattern"] not in overused_set]
     overused = [e for e in fill_all if e["pattern"] in overused_set]
-    weasel = id_list("VEI-T6-WEASEL", WEASEL_WORDS_19)
-    corp = id_list("VEI-T6-CORP", CORPORATE_SPEAK)
+    weasel = id_list("STE-T6-WEASEL", WEASEL_WORDS_19)
+    corp = id_list("STE-T6-CORP", CORPORATE_SPEAK)
     weasel_and_hedge = src["MERGED.weasel_and_hedge"]["data"]
     weasel_skipped = [k for k in weasel_and_hedge if not re.search(r"[a-zA-Z]", k)]
     return {
@@ -57,7 +57,7 @@ def build_filler(src):
         "overused_vocabulary": overused,
         "weasel_words": weasel,
         "corporate_speak": corp,
-        "nominalization": {"id": "VEI-T6-NOM-0001", "weak_verbs": NOMINALIZATION_WEAK_VERBS, "noun_suffixes": NOMINALIZATION_SUFFIXES},
+        "nominalization": {"id": "STE-T6-NOM-0001", "weak_verbs": NOMINALIZATION_WEAK_VERBS, "noun_suffixes": NOMINALIZATION_SUFFIXES},
         "generic_ly_adverb_detection": "review",  # C1: enumerated list above is error; generic -ly is review-tier
         "notes": {
             "weasel_cross_check": f"MERGED.weasel_and_hedge (280) used only as a cross-check; "

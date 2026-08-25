@@ -76,7 +76,7 @@ CSV findings add a `[row_id:field]` tag before the severity. Real captured
 example:
 
 ```
-tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 VEI-T3-MOD-0007 -- Optional (optionality): 'if possible'.
+tests/corpus_dirty/dirty_t3.md:6:16 ERROR T3 STE-T3-MOD-0007 -- Optional (optionality): 'if possible'.
     Ship the patch if possible...
 ```
 
@@ -113,7 +113,7 @@ of parsing text lines. Real captured shape:
     {
       "file": "tests/corpus_dirty/dirty_t3.md",
       "line": 4, "column": 13,
-      "rule": "VEI-T3-ESC-0002", "test": "T3", "severity": "error",
+      "rule": "STE-T3-ESC-0002", "test": "T3", "severity": "error",
       "message": "Optional (escape clause): 'as appropriate'.",
       "excerpt": "Fix the bug as appropriate...",
       "source": "INCOSE R8"
@@ -132,8 +132,8 @@ When a finding is unclear, resolve the rule ID to its canonical explanation
 before guessing at intent:
 
 ```
-$ ste100 --explain VEI-T5-ANDOR-0001
-VEI-T5-ANDOR-0001: T5 Non-atomic: 'and/or' is always an error (MIL-STD-961E, NASA SEH).
+$ ste100 --explain STE-T5-ANDOR-0001
+STE-T5-ANDOR-0001: T5 Non-atomic: 'and/or' is always an error (MIL-STD-961E, NASA SEH).
 ```
 
 For T1/T2/T3-hedge/T6 rule IDs (bulk word-list entries, not the small fixed
@@ -210,7 +210,7 @@ sentences, each with one subject and one action.
   easily.`
 - After: `This sentence has 26 words. The core profile budget is 20 words.`
 
-A finding like `VEI-T5-SLASH-0001` will not fire on a genuine unit or
+A finding like `STE-T5-SLASH-0001` will not fire on a genuine unit or
 fraction (`50 km/h`, `1/2`) -- the slash exception is built into the check,
 so if it does fire the slash really is standing in for "or".
 

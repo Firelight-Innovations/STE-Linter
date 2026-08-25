@@ -1,6 +1,6 @@
 """Section 4 of the weekly audit: row counts against budget, and the change
 since last week (spec section 11.4). truths.csv over 40 rows is flagged --
-matches VEI-BUD-0005 in the linter, restated here so the audit report is
+matches STE-BUD-0005 in the linter, restated here so the audit report is
 self-contained without cross-referencing a lint run."""
 from ste100.csv_integrity import kind_of
 

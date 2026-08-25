@@ -25,7 +25,7 @@ NAMED_ACCEPTANCE_ID_PREFIXES = ["TRU-", "DEC-", "TL-", "TEST-", "REQ-"]
 
 
 def build_vague():
-    terms = id_list("VEI-T2-VAG", VAGUE_QUANTIFICATION + VAGUE_ADJECTIVES + GAMES_SPECIFIC + SUBJECTIVE_UNVERIFIABLE)
+    terms = id_list("STE-T2-VAG", VAGUE_QUANTIFICATION + VAGUE_ADJECTIVES + GAMES_SPECIFIC + SUBJECTIVE_UNVERIFIABLE)
     return {
         "schema_version": 1,
         "test": "T2",
