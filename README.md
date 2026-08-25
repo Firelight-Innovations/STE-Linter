@@ -97,7 +97,11 @@ STE-T5-ANDOR-0001: T5 Non-atomic: 'and/or' is always an error (MIL-STD-961E, NAS
 
 Those citations name the INCOSE requirements guides, the NASA Systems Engineering Handbook, MIL-STD-961E, the EARS templates, and Femmer et al. on requirements smells.
 
-The bulk word tables behind T1, T2, T3 and T6 come from a different lineage: Vale's Red Hat and Microsoft style rules, retext-simplify, and QuARS. Of those four tables, only T1 records a per-entry source. [docs/rules.md](docs/rules.md) maps every test to the sources it draws on.
+The bulk word tables come from a different lineage, and their attribution is coarser. **Only the T1 substitution table carries a per-entry `source` field.** `--explain` reports it for a T1 rule.
+
+The T2 vague-term, T3 hedge, and T6 filler and AI-tell tables record no source at all, per entry or per table. Their provenance is documented for the table as a whole in [docs/rules.md](docs/rules.md) — not in the data, and not in `--explain` output.
+
+Third-party attribution for the upstream word lists is in [NOTICE](NOTICE), and in `THIRD-PARTY-LICENSES.md` where the repository root carries one.
 
 **This is not a grammar checker and not a style guide.** It will not catch a factual error or an awkward paragraph. It catches a bounded, well-defined set of ambiguity patterns, and stays quiet about everything else.
 
@@ -163,7 +167,22 @@ $ ste100 --explain STE-S7-TBD-0001
 STE-S7-TBD-0001: Structural: 'tbd' is an error; use 'TBR' with a best estimate (NASA SEH).
 ```
 
-T4, T5, structural, CSV and budget IDs resolve to a one-line explanation like that one. IDs from the bulk word tables — T1, T2, T3 hedges, T6 — resolve to their raw table entry: the pattern, and for T1 the suggestion and its source.
+How much you get back depends on the family. T4, T5, structural, CSV and budget IDs resolve to a one-line explanation like that one, with the standard it comes from. IDs from the bulk word tables resolve to their raw table entry instead, and **that entry is richest for T1** — pattern, suggestion, `alts` and source:
+
+```console
+$ ste100 --explain STE-T1-SUB-0104
+STE-T1-SUB-0104: {
+  "pattern": "utilize",
+  "suggestion": "use",
+  "alts": [
+    "use"
+  ],
+  "source": "vale_redhat.simple_words",
+  "id": "STE-T1-SUB-0104"
+}
+```
+
+For a T2, T3 or T6 ID you get the id and the matched pattern, and nothing else. `--explain STE-T3-HDG-0032` reports the pattern `can`, with no suggestion and no source.
 
 ### Reading the output
 
