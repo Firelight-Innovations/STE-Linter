@@ -41,6 +41,8 @@ once the first tagged release ships.
   `rule_request.yml`) and a pull request template.
 - `tests/run_fixer_tests.py`: regression tests for `--fix`, which rewrites
   the user's files and so has a higher bar than the reporting path.
+- `tests/run_wrapping_tests.py`: regression tests pinning the invariant that a
+  paragraph lints identically whether it is hard-wrapped or on one line.
 
 ### Changed
 
@@ -68,6 +70,17 @@ once the first tagged release ships.
   user passed `-X utf8`. The CLI now forces UTF-8 on its own output.
 - **93 T1 rules suggested a replacement that was itself banned** by an
   error-tier rule, so following the tool's own advice produced a new finding.
+- **Hard-wrapped Markdown defeated the T5 atomicity analysis.** Sentence units
+  were built from each physical source line, so a sentence the author wrapped
+  was analysed as several fragments. `STE-T5-MULTI-0001` (several `shall`
+  imperatives in one sentence) and the sentence word budget stopped firing
+  entirely, combinator findings dropped from four to one, and fragments of a
+  requirement were reported as `STE-T5-NOSHAL-0001` "not a requirement" and as
+  EARS non-conformance. The paragraph budget had the same cause and reported a
+  five-sentence paragraph as nine. A paragraph is now joined before it is split
+  into sentences, and each finding's line and column are mapped back to the
+  real source position. A hard-wrapped list item is joined with its
+  continuation lines for the same reason.
 - The `exceptions` field existed in the rule data but was never read, so
   fixed compounds such as "pull request" were flagged as the verb "request".
   It is now honoured by both the checker and `--fix`.
