@@ -25,23 +25,24 @@ structural checks (S7) and CSV integrity checks.
 
 ## Running it
 
-Primary form (once the packaging change lands):
+If the package is installed (`pip install ste100-linter`):
 
 ```
 ste100 <path> [path ...] [options]
 ```
 
-Fallback, always available in this repo:
+From a source checkout, with nothing installed:
 
 ```
-ste100 <path> [path ...] [options]
+python ste_lint.py <path> [path ...] [options]
 ```
 
-`-X utf8` matters on Windows: file reads are always UTF-8, but without this
-flag Python's stdout encoding can fall back to the console's legacy code page
-on older/unconfigured setups, which can mangle or crash on non-ASCII
-characters in an excerpt line (smart quotes, em dashes, non-Latin terms).
-Always include it on Windows; it is a no-op elsewhere.
+Both reach the same entry point. Prefer `ste100` when it is on PATH; fall
+back to the shim when working inside a checkout of this repo.
+
+No `-X utf8` is needed on Windows. The CLI reconfigures its own stdout to
+UTF-8, so non-ASCII in a suggestion or excerpt renders correctly whatever the
+console code page is.
 
 Paths may be files or directories (directories are walked for `*.md` and
 `*.csv`). With no path, it walks the whole project from the current directory.

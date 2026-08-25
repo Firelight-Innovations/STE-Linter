@@ -9,16 +9,13 @@ this doc, except where marked otherwise.
 
 ## A note on the command name
 
-This doc shows `ste100 <args>` as the primary form. That assumes a
-`console_scripts` entry point named `ste100` from a packaging change
-(`pyproject.toml`) landing alongside this doc, in parallel with this work.
-**That entry point did not exist yet in this worktree at the time this doc
-was written** -- every `ste100 ...` command shown here is the intended
-post-packaging form, not something verified to run as `ste100` in this
-repo. The fallback form, `ste100 <args>`, is what was
-actually executed to produce every captured output sample in this doc and
-in `.claude/skills/ste100-lint/SKILL.md`. If `ste100` is not yet on your
-PATH, use the fallback form (from the directory containing `ste_lint.py`).
+This doc shows `ste100 <args>` as the primary form. That is the console
+script installed by `pip install ste100-linter` (or `pipx` / `uv tool`).
+
+Working from a source checkout instead, with nothing installed? Use
+`python -X utf8 ste_lint.py <args>` from the repository root. It is a shim
+that puts `src/` on the path and calls the same entry point, so every
+example here works with that substitution.
 
 ## Command line
 
@@ -26,53 +23,45 @@ PATH, use the fallback form (from the directory containing `ste_lint.py`).
 
 ```bash
 ste100 docs/README.md
-# or, before the package ships:
-python3 -X utf8 ste_lint.py docs/README.md
+# from a source checkout, with nothing installed:
+python3 ste_lint.py docs/README.md
 ```
-
-`-X utf8` is a harmless no-op on macOS/Linux (they default to UTF-8
-already) -- include it anyway so the same command works everywhere,
-including Windows.
 
 ### Windows -- PowerShell
 
 ```powershell
 ste100 .\docs\README.md
-# or:
-ste100 .\docs\README.md
+# from a source checkout:
+python ste_lint.py .\docs\README.md
 ```
 
 ### Windows -- cmd.exe
 
 ```bat
 ste100 docs\README.md
-:: or:
-ste100 docs\README.md
+:: from a source checkout:
+python ste_lint.py docs\README.md
 ```
 
-### Why `-X utf8` matters on Windows
+### Encoding on Windows
 
-`ste_lint.py` always reads source files as UTF-8 (`encoding="utf-8"` is
-hardcoded in `src/ste100/paths.py` and `ste_lint.py`) -- file reading is never the
-problem. The risk is **stdout**: Python's default `sys.stdout.encoding` on
-Windows can fall back to the console's legacy code page (e.g. cp1252/cp437)
-rather than UTF-8, depending on your Python version, `PYTHONUTF8`, and OS
-locale settings. A finding's excerpt line can contain non-ASCII characters
-(smart quotes, em dashes, non-Latin terms in your prose), and printing those
-through a non-UTF-8 stdout can mangle the output or raise
-`UnicodeEncodeError` and abort the run. `-X utf8` forces Python's UTF-8 mode
-(PEP 540) for stdio regardless of the console's code page.
+**You do not need `-X utf8`.** The CLI reconfigures its own `stdout` and
+`stderr` to UTF-8 before printing anything, so findings render correctly
+whatever the console code page is.
 
-We verified the read side is always safe -- linting a file containing an
-em dash and curly quotes produced identical, correctly-rendered output with
-and without `-X utf8` in this environment (PowerShell 5.1 and `cmd.exe`,
-including with the code page forced to `437`), because this environment's
-system locale is already configured for UTF-8 end to end. **That does not
-mean the flag is unnecessary** -- it means this particular machine already
-has the safe configuration `-X utf8` guarantees explicitly. On a Windows
-machine with an unconfigured/legacy locale, the same run can fail without
-it. Treat `-X utf8` as always-on and free, not as something to verify per
-machine.
+This was a real bug, not a theoretical one. Source files were always read as
+UTF-8, so reading was never the problem -- the risk was **stdout**. Python's
+`sys.stdout.encoding` on Windows falls back to the console's legacy code page
+(cp1252, cp437) depending on version, `PYTHONUTF8`, and locale. The shipped
+rule tables contain non-ASCII: the suggestion for `and/or` is `… or … or
+both`, and there are typographic apostrophes and section marks. Those printed
+as `?` unless the user happened to pass `-X utf8`. Your own prose can hit the
+same path through a finding's excerpt line -- an em dash, curly quotes, or a
+non-Latin term -- which could mangle output or raise `UnicodeEncodeError` and
+abort the run outright.
+
+Passing `-X utf8` anyway is harmless, and the test harnesses still do so
+because they invoke the interpreter directly.
 
 ## pre-commit
 
