@@ -9,9 +9,19 @@ from .rule_ids import (BUD_CSV_FIELD_ID, BUD_PARAGRAPH_ID, BUD_SENTENCE_ID,
                        BUD_WHOLE_FILE_ID, S7_PASSIVE_ID)
 
 
-def build_summary(targets, findings):
-    """Returns (summary_dict, error_count)."""
-    all_text = "\n".join(abs_path.read_text(encoding="utf-8") for rel, abs_path in targets if rel.endswith(".md"))
+def build_summary(targets, findings, markdown_text=None):
+    """Returns (summary_dict, error_count).
+
+    `markdown_text` maps a target's relative path to text the caller already
+    read. main() reads every file anyway, so passing it in avoids a second
+    full pass over the tree -- that duplicate read was most of the linter's
+    wall-clock on large runs. Falls back to reading from disk, so callers
+    holding only paths still work.
+    """
+    markdown_text = markdown_text or {}
+    all_text = "\n".join(
+        markdown_text[rel] if rel in markdown_text else abs_path.read_text(encoding="utf-8")
+        for rel, abs_path in targets if rel.endswith(".md"))
     sentence_units_count = max(1, len(re.findall(r"[.!?]", all_text)))
     error_n = sum(1 for f in findings if f.severity == "error")
     warning_n = sum(1 for f in findings if f.severity == "warning")

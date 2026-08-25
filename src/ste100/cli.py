@@ -106,10 +106,13 @@ def main(argv=None):
         engine.index_terminology(registry, today)
 
         findings = []
+        markdown_text = {}
         for rel_path, abs_path in targets:
             if args.fix and rel_path.endswith(".md"):
                 apply_fix(abs_path, engine)
             text = abs_path.read_text(encoding="utf-8")
+            if rel_path.endswith(".md"):
+                markdown_text[rel_path] = text
             first_line = text.split("\n", 1)[0] if text else ""
             profile = detect_profile(rel_path, config, override_first_line=first_line, cli_profile=args.profile)
 
@@ -157,7 +160,7 @@ def main(argv=None):
 
         findings.sort(key=lambda f: (f.file, f.line, f.column, f.rule))
 
-        summary, error_n = build_summary(targets, findings)
+        summary, error_n = build_summary(targets, findings, markdown_text)
         report_findings = [f for f in findings if args.stats or f.severity in ("error", "warning")]
         emit(args.format, args.stats, summary, report_findings)
 
