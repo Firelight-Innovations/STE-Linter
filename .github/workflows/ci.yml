@@ -176,6 +176,26 @@ jobs:
             exit 1
           fi
 
+      # A paragraph must lint the same whether the author hard-wrapped it or
+      # not. Sentence units were once built per physical line, which silently
+      # disabled the T5 atomicity checks on any wrapped requirement.
+      - name: Run wrapping test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_wrapping_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_wrapping_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All wrapping tests passed." <<< "$output"; then
+            echo "::error::run_wrapping_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
       # Adversarial CSV input plus a 200-file performance budget. Hosted
       # runners are slower than dev hardware, so a red result here is worth
       # investigating rather than assuming flake.

@@ -27,7 +27,7 @@ class ReferenceChecksMixin:
                 continue
             sev = self.severity("T2", unit.profile, "warning", test="T2")
             findings.append(Finding(
-                unit.file, unit.line, m.start() + unit.col_offset + 1,
+                unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                 entry["id"], "T2", sev,
                 "Unfalsifiable: '{}' with no number, unit, or named acceptance condition.".format(m.group(1)),
                 excerpt_around(text, m.start(), m.end()), source="INCOSE R7 / QuARS / NASA SEH",
@@ -48,7 +48,7 @@ class ReferenceChecksMixin:
                     continue
                 sev = self.severity("T4", unit.profile, "warning", test="T4")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     rid, "T4", sev,
                     "Referentially open: pronoun '{}' with no clear antecedent in this unit.".format(m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="INCOSE R24 / QuARS",
@@ -64,7 +64,7 @@ class ReferenceChecksMixin:
                     continue
                 sev = self.severity("comparative_superlative", unit.profile, "warning", test="T4")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     rid, "T4", sev,
                     "Referentially open: comparative '{}' with no stated baseline.".format(m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="Femmer et al.",
@@ -87,7 +87,7 @@ class ReferenceChecksMixin:
                 continue
             sev = self.severity("comparative_superlative", unit.profile, "warning", test="T4")
             findings.append(Finding(
-                unit.file, unit.line, m.start() + unit.col_offset + 1,
+                unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                 T4_COMPARATIVE_GENERIC_ID, "T4", sev,
                 "Referentially open: comparative '{}' with no stated baseline.".format(m.group(0)),
                 excerpt_around(text, m.start(), m.end()), source="Femmer et al.",

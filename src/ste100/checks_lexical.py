@@ -44,7 +44,7 @@ class LexicalChecksMixin:
                     continue
             sev = self.severity("T1", unit.profile, "error", test="T1")
             findings.append(Finding(
-                unit.file, unit.line, m.start() + unit.col_offset + 1,
+                unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                 rule["id"], "T1", sev,
                 "Replaceable: '{}' -> '{}'.".format(m.group(1), rule["suggestion"]),
                 excerpt_around(unit.text, m.start(), m.end()),
@@ -62,7 +62,7 @@ class LexicalChecksMixin:
             entry = table[m.group(1).lower()]
             sev = self.severity(rule_key_field, unit.profile, "error", test="T3")
             findings.append(Finding(
-                unit.file, unit.line, m.start() + unit.col_offset + 1,
+                unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                 entry["id"], "T3", sev,
                 "Optional ({}): '{}'.".format(message_kind, m.group(1)),
                 excerpt_around(text, m.start(), m.end()), source=source,
@@ -84,7 +84,7 @@ class LexicalChecksMixin:
                 rule_key = "single_modal_verb" if entry.get("kind") == "single_modal" else "optionality_phrase"
                 sev = self.severity(rule_key, unit.profile, "error" if rule_key == "optionality_phrase" else "warning", test="T3")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     entry["id"], "T3", sev,
                     "Optional (optionality): '{}'.".format(m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="NASA ARM / QuARS",
@@ -103,7 +103,7 @@ class LexicalChecksMixin:
                         continue
                 sev = self.severity("hedge_word", unit.profile, "error", test="T3")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     entry["id"], "T3", sev,
                     "Optional (hedge): '{}'.".format(m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="retext_intensify.hedges",
@@ -121,7 +121,7 @@ class LexicalChecksMixin:
                 return
             sev = self.severity("T6", unit.profile, "error", test="T6")
             findings.append(Finding(
-                unit.file, unit.line, m.start() + unit.col_offset + 1,
+                unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                 entry["id"], "T6", sev,
                 "Zero-information ({}): '{}'.".format(message_kind, m.group(1)),
                 excerpt_around(text, m.start(), m.end()), source=source,
@@ -135,7 +135,7 @@ class LexicalChecksMixin:
                     continue
                 sev = self.severity("T6", unit.profile, "error", test="T6")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     entry["id"], "T6", sev,
                     "Zero-information (filler/intensifier): '{}'.".format(m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="retext_intensify / MERGED.intensifiers_adverbs",
@@ -154,7 +154,7 @@ class LexicalChecksMixin:
                     continue
                 sev = self.severity("T6", unit.profile, "error", test="T6")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     entry["id"], "T6", sev,
                     "Zero-information (AI tell, {}): '{}'.".format(entry.get("kind", "phrase"), m.group(1)),
                     excerpt_around(text, m.start(), m.end()), source="tbhb/vale-ai-tells",
@@ -164,7 +164,7 @@ class LexicalChecksMixin:
             for m in re.finditer(art["pattern"], text):
                 sev = self.severity("T6", unit.profile, "error", test="T6")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     art["id"], "T6", sev,
                     "Zero-information (machine artifact): '{}'.".format(m.group(0)),
                     excerpt_around(text, m.start(), m.end()), source="high-confidence machine artifact",
@@ -174,7 +174,7 @@ class LexicalChecksMixin:
             for m in self.t6_nom_re.finditer(text):
                 sev = self.severity("T6", unit.profile, "error", test="T6")
                 findings.append(Finding(
-                    unit.file, unit.line, m.start() + unit.col_offset + 1,
+                    unit.file, unit.line_at(m.start()), unit.col_at(m.start()),
                     T6_NOM_ID, "T6", sev,
                     "Zero-information (nominalization): '{}' -- prefer a single verb.".format(m.group(0)),
                     excerpt_around(text, m.start(), m.end()), source="spec §8.6",

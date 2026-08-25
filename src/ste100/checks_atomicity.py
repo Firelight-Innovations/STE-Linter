@@ -40,13 +40,13 @@ class AtomicityChecksMixin:
         if profile in self.ears_profiles:
             if shall_count == 0:
                 sev = self.severity("zero_shall_not_a_requirement", profile, "review", test="T5")
-                findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_NOSHAL_ID, "T5", sev,
+                findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), T5_NOSHAL_ID, "T5", sev,
                                          "Non-atomic: sentence has no 'shall' -- not a requirement.",
                                          excerpt_around(text, 0, min(len(text), 30)), source="spec §8.5",
                                          row_id=unit.row_id, field=unit.field))
             elif shall_count > 1:
                 sev = self.severity("T5", profile, "error", test="T5")
-                findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_MULTI_ID, "T5", sev,
+                findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), T5_MULTI_ID, "T5", sev,
                                          "Non-atomic: {} 'shall' imperatives in one sentence.".format(shall_count),
                                          excerpt_around(text, 0, min(len(text), 30)), source="spec §8.5",
                                          row_id=unit.row_id, field=unit.field))
@@ -54,7 +54,7 @@ class AtomicityChecksMixin:
         if profile in self.ears_or_review_profiles and shall_count == 1:
             for m in re.finditer(r"\ba\b|\ban\b", text, re.IGNORECASE):
                 sev = self.severity("indefinite_article", profile, "review", test="structural")
-                findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_ARTICLE_ID,
+                findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_ARTICLE_ID,
                                          "structural", sev,
                                          "Structural: indefinite article '{}'; prefer 'the' in requirements.".format(m.group(0)),
                                          excerpt_around(text, m.start(), m.end()), source="INCOSE R5",
@@ -62,7 +62,7 @@ class AtomicityChecksMixin:
 
         if profile in self.ears_or_review_profiles and shall_count == 1 and not EARS_RE.match(text.strip()):
             sev = self.severity("ears", profile, "review", test="T5")
-            findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_EARS_ID, "T5", sev,
+            findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), T5_EARS_ID, "T5", sev,
                                      "Non-atomic: sentence does not conform to an EARS template.",
                                      excerpt_around(text, 0, min(len(text), 40)), source="spec §8.5 / O2",
                                      row_id=unit.row_id, field=unit.field))
@@ -70,21 +70,21 @@ class AtomicityChecksMixin:
         punc = sum(text.count(c) for c in self.t5_punc_chars)
         if punc > self.t5_punc_max:
             sev = self.severity("punctuation_density", profile, "warning", test="T5")
-            findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, T5_PUNC_ID, "T5", sev,
+            findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), T5_PUNC_ID, "T5", sev,
                                      "Non-atomic: {} punctuation marks [,;:] in one sentence.".format(punc),
                                      excerpt_around(text, 0, min(len(text), 40)), source="NASA guidance",
                                      row_id=unit.row_id, field=unit.field))
 
         for m in re.finditer(r"\band/or\b", text, re.IGNORECASE):
             sev = self.severity("and_or", profile, "error", test="T5")
-            findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, T5_ANDOR_ID, "T5", sev,
+            findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), T5_ANDOR_ID, "T5", sev,
                                      "Non-atomic: 'and/or' is always an error.",
                                      excerpt_around(text, m.start(), m.end()), source="MIL-STD-961E / NASA SEH",
                                      row_id=unit.row_id, field=unit.field))
 
         for m in re.finditer(r"(?<!\d)/(?!\d)", text):
             sev = self.severity("oblique_slash", profile, "error", test="T5")
-            findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, T5_SLASH_ID, "T5", sev,
+            findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), T5_SLASH_ID, "T5", sev,
                                      "Non-atomic: oblique '/' outside a unit or fraction.",
                                      excerpt_around(text, m.start(), m.end()), source="spec §8.5",
                                      row_id=unit.row_id, field=unit.field))
@@ -101,7 +101,7 @@ class AtomicityChecksMixin:
                 sev = self.severity(rule_key, profile, default, test="T5")
                 if profile != "spec" or idx == 0:
                     continue  # only the 2nd+ combinator in `spec` profile is a finding (spec §8.5)
-                findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, rid, "T5", sev,
+                findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), rid, "T5", sev,
                                          "Non-atomic: second combinator '{}' in one sentence (spec profile).".format(m.group(1)),
                                          excerpt_around(text, m.start(), m.end()), source="INCOSE R19",
                                          row_id=unit.row_id, field=unit.field))
@@ -110,21 +110,21 @@ class AtomicityChecksMixin:
         if budget:
             wc = word_count(text)
             if wc > budget["words"]:
-                findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, BUD_SENTENCE_ID, "T5", budget["tier"],
+                findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), BUD_SENTENCE_ID, "T5", budget["tier"],
                                          "Budget: sentence is {} words, over the {}-word {} budget.".format(wc, budget["words"], profile),
                                          excerpt_around(text, 0, min(len(text), 40)), source="spec §9",
                                          row_id=unit.row_id, field=unit.field))
 
         if "must" in re.findall(r"\bmust\b", text.lower()):
             sev = self.severity("must_keyword", profile, "warning", test="structural")
-            findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, S7_MUST_ID, "structural", sev,
+            findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), S7_MUST_ID, "structural", sev,
                                      "Structural: 'must' used; 'shall' is the mandatory keyword (O3).",
                                      excerpt_around(text, 0, min(len(text), 30)), source="O3 / DEC-TEC-TOOL-003",
                                      row_id=unit.row_id, field=unit.field))
 
         if re.search(r"\btbd\b", text, re.IGNORECASE):
             sev = self.severity("tbd", profile, "error", test="structural")
-            findings.append(Finding(unit.file, unit.line, unit.col_offset + 1, S7_TBD_ID, "structural", sev,
+            findings.append(Finding(unit.file, unit.line_at(0), unit.col_at(0), S7_TBD_ID, "structural", sev,
                                      "Structural: 'tbd' is an error; use 'TBR' with a best estimate.",
                                      excerpt_around(text, 0, min(len(text), 30)), source="NASA SEH",
                                      row_id=unit.row_id, field=unit.field))
@@ -137,7 +137,7 @@ class AtomicityChecksMixin:
             if unit_word and unit_word.group(0) in self.s7_units:
                 continue
             sev = self.severity("bare_number", profile, "warning", test="structural")
-            findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_BARENUM_ID, "structural", sev,
+            findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_BARENUM_ID, "structural", sev,
                                      "Structural: bare number '{}' with no unit and no %.".format(m.group(0)),
                                      excerpt_around(text, m.start(), m.end()), source="spec §8.7",
                                      row_id=unit.row_id, field=unit.field))
@@ -146,7 +146,7 @@ class AtomicityChecksMixin:
             r"\b(is|are|was|were|be|been|being)\s+\w+(ed|en)\b(\s+by\b)?", text, re.IGNORECASE))
         for m in passive_hits:
             sev = self.severity("passive_voice", profile, "warning", test="structural")
-            findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_PASSIVE_ID, "structural", sev,
+            findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_PASSIVE_ID, "structural", sev,
                                      "Structural: passive voice.", excerpt_around(text, m.start(), m.end()),
                                      source="spec §8.7", row_id=unit.row_id, field=unit.field))
 
@@ -155,7 +155,7 @@ class AtomicityChecksMixin:
             if token in self.abbr_allowlist or token in self.acronym_allowed:
                 continue
             sev = self.severity("abbreviation", profile, "warning", test="structural")
-            findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_ABBR_ID, "structural", sev,
+            findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_ABBR_ID, "structural", sev,
                                      "Structural: abbreviation '{}' not in terminology.csv with type=ACRONYM.".format(token),
                                      excerpt_around(text, m.start(), m.end()), source="spec §8.7",
                                      row_id=unit.row_id, field=unit.field))
@@ -163,14 +163,14 @@ class AtomicityChecksMixin:
         if self.deprecated_terms_re:
             for m in self.deprecated_terms_re.finditer(text):
                 sev = self.severity("deprecated_term", profile, "error", test="structural")
-                findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_TERM_ID, "structural", sev,
+                findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_TERM_ID, "structural", sev,
                                          "Structural: '{}' is DEPRECATED in terminology.csv.".format(m.group(0)),
                                          excerpt_around(text, m.start(), m.end()), source="spec §8.7",
                                          row_id=unit.row_id, field=unit.field))
         if self.premature_terms_re:
             for m in self.premature_terms_re.finditer(text):
                 sev = self.severity("undefined_term", profile, "error", test="structural")
-                findings.append(Finding(unit.file, unit.line, m.start() + unit.col_offset + 1, S7_TERM_ID, "structural", sev,
+                findings.append(Finding(unit.file, unit.line_at(m.start()), unit.col_at(m.start()), S7_TERM_ID, "structural", sev,
                                          "Structural: '{}' used before its terminology.csv date_added.".format(m.group(0)),
                                          excerpt_around(text, m.start(), m.end()), source="spec §8.7",
                                          row_id=unit.row_id, field=unit.field))

@@ -81,7 +81,11 @@ def iter_markdown_units(text):
                 yield lineno, "fragment", cell, None
             continue
         if LIST_MARKER_RE.match(masked):
-            last_plain_lineno = None
+            # Not None: a hard-wrapped list item continues on the next plain
+            # line, and that continuation belongs to this item's paragraph. A
+            # following line that carries its own marker starts a new paragraph
+            # anyway, because it takes this branch.
+            last_plain_lineno = lineno
             marker_len = len(LIST_MARKER_RE.match(masked).group(0))
             paragraph_id += 1
             yield lineno, "sentence", (" " * marker_len) + masked[marker_len:], paragraph_id
