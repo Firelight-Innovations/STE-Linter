@@ -13,7 +13,7 @@
   "profile_override_comment": "<!-- lint-profile: NAME -->",
 
   "never_lint": [
-    "handoff/", "tools/lint_data/", "tools/tests/corpus_dirty/", ".git/",
+    "handoff/", "lint_data/", "tests/corpus_dirty/", ".git/",
     ".pi/", ".claude/", "docs/audits/", "docs/handoffs/"
   ],
 
@@ -70,7 +70,7 @@
   "s7_units": ["ms", "s", "sec", "min", "hr", "hrs", "fps", "hz", "khz", "mhz", "ghz", "mb", "gb", "kb", "tb", "px", "%", "m", "km", "cm", "mm", "kg", "g", "n", "w", "v", "a", "db"],
   "s7_tbd_pattern": "\\btbd\\b",
 
-  "budgets_file": "tools/lint_data/budgets.json",
+  "budgets_file": "lint_data/budgets.json",
   "thresholds": {
     "smell_density_max": 0.30,
     "passive_ratio_max": 0.20,

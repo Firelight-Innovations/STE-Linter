@@ -16,8 +16,8 @@ import tempfile
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-LINTER = ROOT / "tools" / "ste_lint.py"
+ROOT = Path(__file__).resolve().parent.parent
+LINTER = ROOT / "ste_lint.py"
 failures = []
 
 

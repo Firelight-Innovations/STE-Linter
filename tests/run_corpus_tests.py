@@ -29,8 +29,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
-TOOLS = ROOT / "tools"
+ROOT = Path(__file__).resolve().parent.parent
+TOOLS = ROOT
 sys.path.insert(0, str(TOOLS))
 LINTER = TOOLS / "ste_lint.py"
 CLEAN_DIR = TOOLS / "tests" / "corpus_clean"

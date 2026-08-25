@@ -2,10 +2,15 @@
 import json
 from pathlib import Path
 
-# tools/lint/paths.py -> tools/lint -> tools -> project root
-ROOT = Path(__file__).resolve().parent.parent.parent
-DEFAULT_CONFIG = ROOT / "tools" / "lint_config.json"
-LINT_DATA_DIR = ROOT / "tools" / "lint_data"
+# lint/paths.py -> lint/ -> repo root
+REPO_ROOT = Path(__file__).resolve().parent.parent
+DEFAULT_CONFIG = REPO_ROOT / "lint_config.json"
+LINT_DATA_DIR = REPO_ROOT / "lint_data"
+
+# The directory whose tree is walked (and against which finding paths are made
+# relative) when no explicit target is given. Standalone, that is the user's
+# current working directory, not the linter's own install location.
+ROOT = Path.cwd()
 SCHEMA_VERSION = 1
 
 LINT_DATA_NAMES = ["substitutions", "hedges", "vague", "filler", "ai_tells",
