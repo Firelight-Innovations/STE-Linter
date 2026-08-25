@@ -213,6 +213,12 @@ repos:
 </details>
 
 <details>
+<summary><b>HELVE-ADE</b></summary>
+
+Installable as a HELVE Tool via `helve-tool.toml`, speaking JSON-RPC 2.0 over stdio. See **[docs/helve.md](docs/helve.md)**.
+</details>
+
+<details>
 <summary><b>VS Code</b></summary>
 
 `examples/vscode/tasks.json` includes a `problemMatcher` that maps findings into the Problems panel.
@@ -237,6 +243,7 @@ Stated plainly, because a linter that oversells itself gets uninstalled.
 | [docs/rules.md](docs/rules.md) | Every rule, its rationale and before/after examples |
 | [docs/configuration.md](docs/configuration.md) | Config keys, profiles, severity resolution |
 | [docs/integrations.md](docs/integrations.md) | CLI, CI, editors, pre-commit, baselines |
+| [docs/helve.md](docs/helve.md) | HELVE-ADE tool integration |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Setup, tests, proposing a rule |
 | [CHANGELOG.md](CHANGELOG.md) | Release history |
 
