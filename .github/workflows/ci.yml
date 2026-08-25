@@ -98,6 +98,25 @@ jobs:
             exit 1
           fi
 
+      # --baseline is how an existing codebase adopts the linter. It is only
+      # useful if a NEW violation still surfaces past the baseline.
+      - name: Run baseline test suite
+        shell: bash
+        run: |
+          set +e
+          output=$(python -X utf8 tests/run_baseline_tests.py)
+          code=$?
+          set -e
+          echo "$output"
+          if [ "$code" -ne 0 ]; then
+            echo "::error::run_baseline_tests.py exited with code $code"
+            exit 1
+          fi
+          if ! grep -qF "All baseline tests passed." <<< "$output"; then
+            echo "::error::run_baseline_tests.py exited 0 without its success line"
+            exit 1
+          fi
+
       # Adversarial CSV input plus a 200-file performance budget. Hosted
       # runners are slower than dev hardware, so a red result here is worth
       # investigating rather than assuming flake.

@@ -13,6 +13,7 @@ Exit codes: 0 clean, 1 error-tier findings, 2 tool failure.
 """
 import argparse
 import sys
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -158,16 +159,34 @@ def main(argv=None):
         csv_findings = check_csv_integrity(registry, today, engine, target_rel_set)
         findings.extend(csv_findings)
 
+        findings.sort(key=lambda f: (f.file, f.line, f.column, f.rule))
+
         if args.baseline:
             try:
                 baseline = load_json(Path(args.baseline))
-                seen = {(f["file"], f["rule"], f["message"]) for f in baseline.get("findings", [])}
-                findings = [f for f in findings if (f.file, f.rule, f.message) not in seen]
+                # Suppress by COUNT, not by mere presence. Matching on
+                # (file, rule, message) alone meant a file that already had one
+                # 'utilize' swallowed every later 'utilize' added to it -- new
+                # violations went unreported, which defeats the whole point of
+                # adopting the linter on an existing codebase.
+                #
+                # Line numbers are deliberately not part of the key: they shift
+                # whenever anyone edits above the finding, and a baseline that
+                # invalidates itself on every edit is worse than none. Counting
+                # occurrences catches regressions while staying stable.
+                allowance = Counter(
+                    (f["file"], f["rule"], f["message"]) for f in baseline.get("findings", []))
             except Exception as e:
                 print("tool failure reading baseline: {}".format(e), file=sys.stderr)
                 return 2
-
-        findings.sort(key=lambda f: (f.file, f.line, f.column, f.rule))
+            kept = []
+            for f in findings:
+                key = (f.file, f.rule, f.message)
+                if allowance.get(key, 0) > 0:
+                    allowance[key] -= 1
+                    continue
+                kept.append(f)
+            findings = kept
 
         summary, error_n = build_summary(targets, findings, markdown_text)
         report_findings = [f for f in findings if args.stats or f.severity in ("error", "warning")]

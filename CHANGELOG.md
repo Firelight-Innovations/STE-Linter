@@ -74,6 +74,13 @@ once the first tagged release ships.
 - **The 200-file performance budget now passes** (4.03s → 1.42s against a 2s
   budget). Every Markdown file was being read twice: once to lint it, and
   again to compute the readability metric over the whole tree.
+- **`--baseline` silently swallowed new violations.** Findings were matched by
+  `(file, rule, message)` presence alone, so a file that already had one
+  `utilize` suppressed every later `utilize` added to it — which defeats the
+  point of adopting the linter on an existing codebase. Suppression is now by
+  occurrence count. Line numbers are deliberately still not part of the key: a
+  baseline that invalidates itself whenever anyone edits above a finding would
+  be worse than none.
 - `--format`, `--fix`, `--explain`, `--baseline`, `--stats` and `--today` had
   no `--help` text, or leaked an internal specification reference.
 
