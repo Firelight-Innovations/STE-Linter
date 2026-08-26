@@ -58,7 +58,7 @@ jobs:
     # Settings -> Environments before relying on it as a real gate.
     environment:
       name: release
-      url: https://pypi.org/p/ste100
+      url: https://pypi.org/p/ste100-linter
     permissions:
       # Required for PyPI Trusted Publishing (OIDC). Do not add a
       # PYPI_API_TOKEN secret -- Trusted Publishing replaces it.
