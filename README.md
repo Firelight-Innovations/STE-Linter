@@ -1,57 +1,159 @@
+<div align="center">
+
 # STE-Linter
+
+### Catch ambiguity before your readers do.
+
+A writing linter for technical documentation, in the spirit of<br/>
+**[ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/)**.
 
 [![CI](https://img.shields.io/github/actions/workflow/status/Firelight-Innovations/STE-Linter/ci.yml?branch=main&label=CI)](https://github.com/Firelight-Innovations/STE-Linter/actions/workflows/ci.yml)
 [![PyPI](https://img.shields.io/pypi/v/ste100-linter.svg)](https://pypi.org/project/ste100-linter/)
 [![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue.svg)](https://www.python.org/downloads/)
+[![Dependencies](https://img.shields.io/badge/dependencies-none-brightgreen.svg)](#install)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
-A writing linter for technical documentation, in the spirit of [ASD-STE100 Simplified Technical English](https://www.asd-ste100.org/).
+**[Install](#install)** · **[Quick start](#quick-start)** · **[Rule catalogue](docs/rules.md)** · **[Wiki](https://github.com/Firelight-Innovations/STE-Linter/wiki)**
 
-A spell-checker asks whether a word is a word. This asks whether a sentence can be misread by someone who has to act on it.
+</div>
 
-It reads Markdown and CSV and reports the words and sentence shapes that make technical writing imprecise. Hedges that let a rule mean anything. References with no antecedent. Sentences carrying three demands at once. Filler that survives deletion without loss.
+---
 
-No dependencies. No build step. One command.
+A spell-checker asks whether a word is a word.
+**STE-Linter asks whether a sentence can be misread by someone who has to act on it.**
 
-Given a file like this:
+It reads Markdown and CSV and reports the words and sentence shapes that make technical
+writing imprecise. Hedges that let a rule mean anything. References with no antecedent.
+Sentences carrying three demands at once. Filler that survives deletion without loss.
+
+**No dependencies. No build step. No network. One command.**
+
+## What it catches
+
+Every finding belongs to one of six tests. Each asks a different question about a sentence.
+
+```mermaid
+flowchart LR
+  A["Markdown / CSV"] --> B["Mask code, URLs,<br/>tables and links"]
+  B --> C["Split into<br/>real sentences"]
+  C --> D{"Six tests"}
+
+  D --> T1["T1 · Replaceable<br/>utilize, in order to"]
+  D --> T2["T2 · Unfalsifiable<br/>robust, appropriate"]
+  D --> T3["T3 · Optional<br/>should, as required"]
+  D --> T4["T4 · Referentially open<br/>It, this, faster"]
+  D --> T5["T5 · Non-atomic<br/>two shalls, and/or"]
+  D --> T6["T6 · Zero-information<br/>filler, weasel, AI tells"]
+
+  T1 --> E["error · warning · review"]
+  T2 --> E
+  T3 --> E
+  T4 --> E
+  T5 --> E
+  T6 --> E
+
+  style A fill:#1f6feb,stroke:#1f6feb,color:#ffffff
+  style D fill:#8250df,stroke:#8250df,color:#ffffff
+  style E fill:#1a7f37,stroke:#1a7f37,color:#ffffff
+```
+
+## See it work
+
+Three sentences of ordinary-looking documentation:
 
 ```markdown
-# Shutdown
+# Recovery
 
-The operator shall utilize the panel in order to shut the reactor down.
-
-The system shall be robust and shall handle errors as appropriate.
-
-It responds faster when the cache is warm.
+The operator should utilize the appropriate procedure to restore the system
+as required. It is important to note that the system will handle errors and
+the controller shall reset the link and it shall log the event.
 ```
+
+Every one of the six tests fires. This is the real output, with only the indented source-snippet line under each finding removed for length:
 
 ```console
-$ ste100 requirements.md
-ste100: 1 files, 6 errors, 4 warnings, 1 review
-smell_density=3.3333 ari_grade=5.71 passive_ratio=0.0 budget_violations=0
-requirements.md:3:20 ERROR T1 STE-T1-SUB-0104 -- Replaceable: 'utilize' -> 'use'.
-    ...operator shall utilize the panel in o...
-requirements.md:3:38 ERROR T1 STE-T1-SUB-0122 -- Replaceable: 'in order to' -> 'to'.
-    ...lize the panel in order to shut the react...
-requirements.md:5:1 ERROR T5 STE-T5-MULTI-0001 -- Non-atomic: 2 'shall' imperatives in one sentence.
-    The system shall be robust and shall handle e...
-requirements.md:5:21 WARNING T2 STE-T2-VAG-0059 -- Unfalsifiable: 'robust' with no number, unit, or named acceptance condition.
-    ...ystem shall be robust and shall hand...
-requirements.md:5:21 ERROR T6 STE-T6-FILL-0251 -- Zero-information (filler/intensifier): 'robust'.
-    ...ystem shall be robust and shall hand...
-requirements.md:5:52 ERROR T3 STE-T3-ESC-0002 -- Optional (escape clause): 'as appropriate'.
-    ...handle errors as appropriate.
-requirements.md:5:55 ERROR T1 STE-T1-SUB-0233 -- Replaceable: 'appropriate' -> 'proper'.
-    ...ndle errors as appropriate.
-requirements.md:5:55 WARNING T2 STE-T2-VAG-0015 -- Unfalsifiable: 'appropriate' with no number, unit, or named acceptance condition.
-    ...ndle errors as appropriate.
-requirements.md:7:1 WARNING T4 STE-T4-PRO-0008 -- Referentially open: pronoun 'It' with no clear antecedent in this unit.
-    It responds faste...
-requirements.md:7:13 WARNING T4 STE-T4-COMP-0003 -- Referentially open: comparative 'faster' with no stated baseline.
-    It responds faster when the cache...
+$ ste100 --profile spec guide.md
+ste100: 1 files, 9 errors, 4 warnings, 1 review
+smell_density=6.5 ari_grade=10.66 passive_ratio=0.0 budget_violations=0
+guide.md:3:14 ERROR T3 STE-T3-HDG-0106 -- Optional (hedge): 'should'.
+guide.md:3:21 ERROR T1 STE-T1-SUB-0104 -- Replaceable: 'utilize' -> 'use'.
+guide.md:3:33 ERROR T1 STE-T1-SUB-0233 -- Replaceable: 'appropriate' -> 'proper'.
+guide.md:3:33 WARNING T2 STE-T2-VAG-0015 -- Unfalsifiable: 'appropriate' with no number, unit, or named acceptance condition.
+guide.md:4:1 ERROR T3 STE-T3-ESC-0006 -- Optional (escape clause): 'as required'.
+guide.md:4:14 ERROR T1 STE-T1-SUB-0328 -- Replaceable: 'It is' -> ''.
+guide.md:4:14 WARNING T4 STE-T4-PRO-0008 -- Referentially open: pronoun 'It' with no clear antecedent in this unit.
+guide.md:4:14 ERROR T5 STE-T5-MULTI-0001 -- Non-atomic: 2 'shall' imperatives in one sentence.
+guide.md:4:14 ERROR T6 STE-T6-AI-0004 -- Zero-information (AI tell, hedging_opener): 'It is important to note that'.
+guide.md:4:38 WARNING T4 STE-T4-PRO-0017 -- Referentially open: pronoun 'that' with no clear antecedent in this unit.
+guide.md:4:54 ERROR T3 STE-T3-HDG-0143 -- Optional (hedge): 'will'.
+guide.md:5:37 ERROR T5 STE-T5-COMB-0001 -- Non-atomic: second combinator 'and' in one sentence (spec profile).
+guide.md:5:41 WARNING T4 STE-T4-PRO-0008 -- Referentially open: pronoun 'it' with no clear antecedent in this unit.
 ```
 
-Three sentences, all six tests. Try it now, with nothing installed:
+Every finding carries a file, a line, a column, a stable rule ID, and a reason.
+`--explain` tells you where a rule comes from; `--fix` applies the unambiguous ones.
+
+## Three ways to run it
+
+<table>
+<tr>
+<th width="33%">⌨️ Command line</th>
+<th width="33%">🤖 AI agent skill</th>
+<th width="33%">🔌 HELVE tool</th>
+</tr>
+<tr>
+<td valign="top">
+
+For humans, editors and CI.
+
+```bash
+pipx install ste100-linter
+ste100 docs/
+```
+
+Exit `0` clean, `1` on error-tier
+findings, `2` on tool failure —
+so it drops straight into CI.
+
+[CLI Reference →](https://github.com/Firelight-Innovations/STE-Linter/wiki/CLI-Reference)
+
+</td>
+<td valign="top">
+
+Lets Claude lint and rewrite prose
+before it hands work back.
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r .claude/skills/ste100-lint \
+  ~/.claude/skills/ste100-lint
+```
+
+Works in Claude Code and any agent
+that reads `SKILL.md`.
+
+[Agent Skill →](https://github.com/Firelight-Innovations/STE-Linter/wiki/Agent-Skill)
+
+</td>
+<td valign="top">
+
+Newline-delimited JSON-RPC over
+stdio, for tool hosts.
+
+```bash
+ste100-helve --helve-rpc
+```
+
+Declared by `helve-tool.toml`.
+stdout stays protocol-pure.
+
+[Integrations →](https://github.com/Firelight-Innovations/STE-Linter/wiki/Integrations)
+
+</td>
+</tr>
+</table>
+
+Try it right now, with nothing installed:
 
 ```bash
 git clone https://github.com/Firelight-Innovations/STE-Linter.git
@@ -99,9 +201,11 @@ Those citations name the INCOSE requirements guides, the NASA Systems Engineerin
 
 The bulk word tables come from a different lineage, and their attribution is coarser. **Only the T1 substitution table carries a per-entry `source` field.** `--explain` reports it for a T1 rule.
 
-The T2 vague-term, T3 hedge, and T6 filler and AI-tell tables record no source at all, per entry or per table. Their provenance is documented for the table as a whole in [docs/rules.md](docs/rules.md) — not in the data, and not in `--explain` output.
+The T2 vague-term, T3 hedge, and T6 filler and AI-tell tables carry their provenance at the table level instead. Each file has a `sources` block naming the upstream project, its URL, copyright holder and licence, and which shipped table it feeds. That is real attribution, though coarser than T1's: it tells you where a table came from, not which upstream contributed an individual word. A prose summary of the same ground is in [docs/rules.md](docs/rules.md).
 
-Third-party attribution for the upstream word lists is in [NOTICE](NOTICE), and in `THIRD-PARTY-LICENSES.md` where the repository root carries one.
+`--explain` does not yet surface either kind of source for these tests — it prints the raw table entry, which for T2, T3 and T6 is an ID and a pattern. That gap is tracked in [#10](https://github.com/Firelight-Innovations/STE-Linter/issues/10).
+
+Third-party attribution for the upstream word lists is in [NOTICE](NOTICE) and [THIRD-PARTY-LICENSES.md](THIRD-PARTY-LICENSES.md). Both ship in the wheel under `.dist-info/licenses/`.
 
 **This is not a grammar checker and not a style guide.** It will not catch a factual error or an awkward paragraph. It catches a bounded, well-defined set of ambiguity patterns, and stays quiet about everything else.
 

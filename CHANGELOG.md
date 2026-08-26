@@ -8,6 +8,10 @@ once the first tagged release ships.
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-08-25
+
+First tagged release. Everything below shipped in it.
+
 ### Added
 
 - The ASD-STE100 writing-quality linter, split out of the Veistra monorepo's
@@ -43,6 +47,17 @@ once the first tagged release ships.
   the user's files and so has a higher bar than the reporting path.
 - `tests/run_wrapping_tests.py`: regression tests pinning the invariant that a
   paragraph lints identically whether it is hard-wrapped or on one line.
+
+- Third-party attribution for the redistributed word lists: `NOTICE` and
+  `THIRD-PARTY-LICENSES.md` at the repository root, plus a `sources` block
+  inside `hedges.json`, `filler.json`, `vague.json` and `ai_tells.json`
+  recording the upstream project, URL, copyright holder and licence for each
+  shipped table. Both files ship in the wheel under `.dist-info/licenses/`.
+- Contributor documentation: `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`,
+  `SECURITY.md`, issue and pull-request templates, and a Dependabot
+  configuration for GitHub Actions.
+- `tests/run_wrapping_tests.py`: a regression suite pinning the invariant that
+  a paragraph lints the same when hard-wrapped and when left on one line.
 
 ### Changed
 
@@ -96,6 +111,15 @@ once the first tagged release ships.
   be worse than none.
 - `--format`, `--fix`, `--explain`, `--baseline`, `--stats` and `--today` had
   no `--help` text, or leaked an internal specification reference.
+
+- **Hard-wrapped Markdown defeated the T5 atomicity analysis.** Sentence units
+  were built from each physical line, so a sentence spanning a line break was
+  analysed as several fragments. `STE-T5-MULTI-0001` and the sentence word
+  budget stopped firing entirely, `STE-T5-NOSHAL-0001` and `STE-T5-EARS-0001`
+  produced false positives on the fragments, and a five-sentence paragraph was
+  counted as nine. Units are now built per paragraph, and a `spans` table maps
+  each offset back to its true source line and column so `--fix` and the VS
+  Code `problemMatcher` still navigate correctly.
 
 ### Known issues
 
